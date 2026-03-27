@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0.0",
+  "identity_rules": {
+    "fighter_id": {
+      "required": true,
+      "pattern": "^[a-z0-9_]{3,32}$",
+      "must_be_unique": true
+    },
+    "display_name": {
+      "required": true,
+      "min_length": 1,
+      "max_length": 24
+    },
+    "nickname": {
+      "required": false,
+      "max_length": 32
+    },
+    "bio_short": {
+      "required": false,
+      "max_length": 180
+    },
+    "profanity_filter": true
+  },
+  "stat_rules": {
+    "point_budget_total": 500,
+    "point_budget_fields": [
+      "power",
+      "speed",
+      "defense",
+      "grapple",
+      "strike",
+      "air",
+      "stamina",
+      "recovery"
+    ],
+    "minimum_per_stat": 35,
+    "maximum_per_stat": 95,
+    "max_stats_above_85": 2,
+    "max_stats_below_40": 1,
+    "exact_budget_match_required": true
+  },
+  "ai_rules": {
+    "all_slider_min": 0,
+    "all_slider_max": 100,
+    "simple_mode_uses_archetype_defaults": true,
+    "advanced_mode_allowed_fields": [
+      "aggression",
+      "combo_rate",
+      "grapple_rate",
+      "strike_rate",
+      "air_rate",
+      "throw_escape_rate",
+      "guard_rate",
+      "counter_rate",
+      "special_usage",
+      "super_usage",
+      "risk_tolerance",
+      "ring_control",
+      "preferred_range",
+      "finish_priority"
+    ]
+  },
+  "appearance_rules": {
+    "must_exist_in_asset_registry": true,
+    "enforce_compatibility_rules": true
+  },
+  "moveset_rules": {
+    "template_base_must_exist": true,
+    "template_base_must_match_archetype": true,
+    "moveset_style_must_be_allowed_for_template": true,
+    "signature_moves_must_be_unique": true,
+    "finisher_required": true,
+    "super_finisher_optional": true
+  },
+  "league_rules": {
+    "default_eligible_for_singles": true,
+    "default_eligible_for_tag": true,
+    "default_debut_priority": true,
+    "default_can_hold_world_title": true,
+    "default_can_hold_tag_title": true
+  },
+  "moderation_rules": {
+    "approval_required_before_publish": true,
+    "rejected_fighters_cannot_publish": true
+  },
+  "runtime_rules": {
+    "runtime_character_id_prefix": "custom_",
+    "runtime_character_id_must_be_unique": true,
+    "published_roster_entry_required": true,
+    "runtime_mapping_entry_required": true,
+    "debut_queue_insert_on_publish": true
+  }
+}

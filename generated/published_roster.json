@@ -1,0 +1,60 @@
+{
+  "fighters": [
+    {
+      "fighter_id": "fighter-3",
+      "name": "Fighter #3",
+      "creator": "Three",
+      "archetype": "Grappler",
+      "runtime_template": "template_grapple_01",
+      "live": true
+    },
+    {
+      "fighter_id": "hdhngkd",
+      "name": "hdhngkd",
+      "creator": "gnkfdlg",
+      "archetype": "Zoner",
+      "runtime_template": "template_zone_01",
+      "live": true
+    },
+    {
+      "fighter_id": "hello",
+      "name": "Hello",
+      "creator": "Its been so long",
+      "archetype": "Grappler",
+      "runtime_template": "custom_hello",
+      "live": true
+    },
+    {
+      "fighter_id": "sophie",
+      "name": "Sophie",
+      "creator": "Tony",
+      "archetype": "Rushdown",
+      "runtime_template": "template_rush_01",
+      "live": true
+    },
+    {
+      "fighter_id": "tony",
+      "name": "Tony",
+      "creator": "Tony B",
+      "archetype": "Rushdown",
+      "runtime_template": "template_rush_01",
+      "live": true
+    },
+    {
+      "fighter_id": "tuesday",
+      "name": "Tuesday",
+      "creator": "Tony",
+      "archetype": "Rushdown",
+      "runtime_template": "custom_tuesday",
+      "live": true
+    },
+    {
+      "fighter_id": "wednesday",
+      "name": "Wednesday",
+      "creator": "Winner",
+      "archetype": "Grappler",
+      "runtime_template": "custom_wednesday",
+      "live": true
+    }
+  ]
+}

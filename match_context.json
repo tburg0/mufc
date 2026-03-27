@@ -1,0 +1,23 @@
+{
+  "type": "SINGLES",
+  "p1": "Yang",
+  "p2": "Venom",
+  "is_world_title": true,
+  "title_reason": "Venom earned a title shot on a 5-fight win streak",
+  "main_event": true,
+  "is_tag_series": false,
+  "is_tag_title": false,
+  "is_debut": false,
+  "debut_fighter": null,
+  "royal_round": null,
+  "is_royal": false,
+  "main_event_reason": null,
+  "p1_runtime": "Yang",
+  "p2_runtime": "Venom",
+  "match_number": 1483,
+  "roster_counts": {
+    "submitted": 7,
+    "native": 275,
+    "total": 282
+  }
+}

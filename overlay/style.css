@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: transparent;
+    color: white;
+}
+
+.container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+}
+
+.champion, .match, .leaderboard {
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.champion {
+    width: 250px;
+}
+
+.match {
+    width: 400px;
+}
+
+.leaderboard {
+    width: 450px;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+h2 {
+    margin-top: 0;
+    color: gold;
+}
+
+pre {
+    font-size: 14px;
+    line-height: 1.3;
+}

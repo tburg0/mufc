@@ -1,0 +1,10 @@
+=== CHAMPION STATS ===
+Current Champion: Venom
+
+Name: Venom
+Record: 13-7
+Elo: 1613.07
+Reigns: 1
+Defenses: 0
+Current Reign Defenses: 0
+Streak: W6

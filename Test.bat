@@ -1,0 +1,1 @@
+mugen.exe -p1 template_rush_01 -p2 template_balance_01 -p1.ai 8 -p2.ai 8 -rounds 2

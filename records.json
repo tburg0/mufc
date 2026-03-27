@@ -1,0 +1,3458 @@
+{
+  "Alex": {
+    "L": 6,
+    "W": 11,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1600.86,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Alex+Dhalsim": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Alex+Hulk": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Alex+Leona": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Alfred-POTS": {
+    "L": 2,
+    "W": 2,
+    "elo": 1486.62,
+    "streak": -1
+  },
+  "Amakusa": {
+    "L": 18,
+    "W": 6,
+    "elo": 1371.12,
+    "streak": -2,
+    "titleL": 1
+  },
+  "Amakusa+Sasquatch": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "AmySorel": {
+    "L": 8,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1483.9,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "AmySorel+DarkTalbain": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Anakaris": {
+    "L": 3,
+    "W": 2,
+    "elo": 1491.98,
+    "streak": 2
+  },
+  "Anakaris+Gillius": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "AndoreJr": {
+    "L": 0,
+    "W": 1,
+    "elo": 1515.14,
+    "streak": 1
+  },
+  "Asetl": {
+    "L": 10,
+    "W": 3,
+    "defenses": 0,
+    "elo": 1416.9,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Asetl+Blaze-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Asetl+Mileena": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Asetl+SamusAran": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Astaroth": {
+    "L": 7,
+    "W": 9,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1515.35,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Astaroth+Leona": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Bandamax": {
+    "L": 16,
+    "W": 3,
+    "defenses": 0,
+    "elo": 1341.78,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Bandamax+Colossus": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Bandamax+Cyborg": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Bandamax+Rolento": {
+    "L": 1,
+    "W": 0,
+    "elo": 1488.41,
+    "streak": -1
+  },
+  "Bandamax+Thor": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Bao": {
+    "L": 13,
+    "W": 6,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1416.93,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -6,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Bao+Charlotte": {
+    "L": 1,
+    "W": 0,
+    "elo": 1488.9,
+    "streak": -1
+  },
+  "Bao+Oro": {
+    "L": 1,
+    "W": 1,
+    "defenses": 0,
+    "elo": 1499.26,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Batman": {
+    "L": 11,
+    "W": 4,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1426.15,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Belger": {
+    "L": 1,
+    "W": 1,
+    "elo": 1502.25,
+    "streak": 1
+  },
+  "Belger+Crawd": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Biker": {
+    "L": 7,
+    "W": 30,
+    "elo": 1725.84,
+    "mainL": 1,
+    "streak": 4,
+    "titleL": 1
+  },
+  "Biker+Dante": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Biker+Elisabeth": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Biker+Tessa": {
+    "L": 0,
+    "W": 2,
+    "elo": 1531.26,
+    "streak": 2
+  },
+  "BlackElmer": {
+    "L": 15,
+    "W": 17,
+    "elo": 1534.33,
+    "streak": 1
+  },
+  "BlackElmer+Blanka": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "BlackElmer+Cassandra-POTS": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "BlackElmer+Elisabeth": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "BlackElmer+Steel": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Blackheart": {
+    "L": 12,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1478.63,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Blackheart+Rashid": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Blackheart+Tessa": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Blanka": {
+    "L": 9,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1529.49,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Blanka+DivineLilith": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Blanka+Gustab": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Blanka+Twelve": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Blaze-POTS": {
+    "L": 6,
+    "W": 11,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1573.73,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 5,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Blaze-POTS+Gillius": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Bluestreak": {
+    "L": 4,
+    "W": 9,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1572.84,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 4,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Bluestreak+Ryu": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Butcher": {
+    "L": 11,
+    "W": 16,
+    "best_reign_days": 0.13841435185185186,
+    "best_reign_defenses": 1,
+    "days_held_total": 0.13841435185185186,
+    "defenses": 1,
+    "elo": 1544.19,
+    "mainL": 7,
+    "mainW": 3,
+    "reigns": 1,
+    "streak": 1,
+    "titleL": 7,
+    "titleW": 2
+  },
+  "Butcher+Cable": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Butcher+Hinako": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "CPS2_Blair": {
+    "L": 10,
+    "W": 13,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1555.47,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "CPS2_Blair+RougeTheBat": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Cable": {
+    "L": 8,
+    "W": 10,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1546.38,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cable+Morgan": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Cable+Rashid": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Carlos": {
+    "L": 1,
+    "W": 1,
+    "elo": 1508.54,
+    "streak": -1
+  },
+  "Cassandra-POTS": {
+    "L": 14,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1486.72,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cassandra-POTS+Chrom": {
+    "L": 1,
+    "W": 1,
+    "elo": 1499.97,
+    "streak": -1
+  },
+  "Cassandra-POTS+DarkTalbain": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Cassandra-POTS+Dean": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Cassandra-POTS+Sabretooth": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Cassandra-POTS+Satomi": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Cassandra-POTS+Yang": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1484.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cervantes": {
+    "L": 11,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1479.7,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cervantes+Dr.Octopus": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Cervantes+Falcon": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Cervantes+POTSKuroAonix": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Charlotte": {
+    "L": 7,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1577.52,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Charlotte+Gutter": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Charlotte+Jack": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Charlotte+Necro": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Chelnov": {
+    "L": 11,
+    "W": 10,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1499.96,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Chelnov+Steel": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Chrom": {
+    "L": 11,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1450.06,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Chrom+Edward": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Chrom+Fessenden": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Chrom+Tyrog": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Chun_Li_JJ": {
+    "L": 5,
+    "W": 24,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 1,
+    "elo": 1742.48,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Chun_Li_JJ+Dhalsim": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Chun_Li_JJ+Sabrewulf": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Chun_Li_JJ+Scorpion": {
+    "L": 0,
+    "W": 1,
+    "defenses": 0,
+    "elo": 1516.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cipry POTS": {
+    "L": 0,
+    "W": 1,
+    "streak": 1
+  },
+  "Cody": {
+    "L": 0,
+    "W": 2,
+    "elo": 1531.61,
+    "streak": 2
+  },
+  "Cody+Venom": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Colossus": {
+    "L": 13,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1405.36,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -8,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Colossus+Mustapha": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Colossus+Rain": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Crawd": {
+    "L": 22,
+    "W": 0,
+    "elo": 1281.78,
+    "streak": -20
+  },
+  "Crawd+Elena": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Crawd+Gale": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Cyborg": {
+    "L": 9,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1463.14,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cyborg+Floyd": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Cyborg+Hinata": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Cyclops": {
+    "L": 8,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1466.52,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cyclops+DWKyosuke": {
+    "L": 0,
+    "W": 1,
+    "defenses": 0,
+    "elo": 1516.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Cyclops+Lucifer": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Cyclops+RaidenMK": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "DWKyosuke": {
+    "L": 20,
+    "W": 9,
+    "elo": 1362.02,
+    "streak": -2
+  },
+  "DWKyosuke+GBKnucklesPOTS": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Daigo": {
+    "L": 5,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1538.16,
+    "mainL": 1,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 1,
+    "titleW": 0
+  },
+  "Daigo+Mukuro": {
+    "L": 1,
+    "W": 0,
+    "elo": 1486.13,
+    "streak": -1
+  },
+  "Damnd": {
+    "L": 2,
+    "W": 2,
+    "elo": 1498.81,
+    "streak": -1
+  },
+  "Dante": {
+    "L": 5,
+    "W": 9,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1555.21,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Dante+Gutter": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Dante+Mess": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Dante+POTSKuroAonix": {
+    "L": 0,
+    "W": 1,
+    "defenses": 0,
+    "elo": 1516.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "DarkTalbain": {
+    "L": 5,
+    "W": 10,
+    "elo": 1545.71,
+    "streak": -1
+  },
+  "DarkTalbain+Dhalsim": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "DarkTalbain+Gillius": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "DarkTalbain+Musah": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Darkseid": {
+    "L": 6,
+    "W": 1,
+    "elo": 1411.95,
+    "streak": -6
+  },
+  "Darkseid+DWKyosuke": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Darkseid+RougeTheBat": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Date": {
+    "L": 8,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1530.89,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Date+Gillius": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Date+JohnCrawley": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Date+Tessa": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Dean": {
+    "L": 1,
+    "W": 0,
+    "elo": 1483.6,
+    "streak": -1
+  },
+  "Death Adder": {
+    "L": 1,
+    "W": 0
+  },
+  "Dee": {
+    "L": 6,
+    "W": 3,
+    "elo": 1461.49,
+    "streak": -1
+  },
+  "Delga": {
+    "L": 22,
+    "W": 1,
+    "elo": 1293.12,
+    "streak": -18
+  },
+  "Delga+Sabretooth": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Demetra": {
+    "L": 16,
+    "W": 4,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1362.97,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -4,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Demetra+Dr.Octopus": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Demetra+FinalBison": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Demetra+POTSKuroAonix": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Devilotte": {
+    "L": 3,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1574.57,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Devilotte+Sabrewulf": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Devilotte+ViceT": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Dhalsim": {
+    "L": 5,
+    "W": 5,
+    "elo": 1505.02,
+    "streak": 1
+  },
+  "Dhalsim+Satomi": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "DivineLilith": {
+    "L": 10,
+    "W": 15,
+    "defenses": 0,
+    "elo": 1550.33,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 4,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "DivineLilith+Fessenden": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "DivineLilith+ShaoKahn": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "DivineLilith+Zero": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Dr.Octopus": {
+    "L": 14,
+    "W": 15,
+    "elo": 1547.77,
+    "mainL": 5,
+    "streak": 2,
+    "titleL": 5
+  },
+  "Dr.Octopus+Gillius": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Dr.Octopus+POTSKuroAonix": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Earthquake": {
+    "L": 7,
+    "W": 13,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1585.29,
+    "mainL": 1,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Edward": {
+    "L": 19,
+    "W": 4,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1352.6,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Edward+Slice": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Edward+Yoko": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1484.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Elena": {
+    "L": 11,
+    "W": 11,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1520.12,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Elena+Kratos": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Elisabeth": {
+    "L": 9,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1475.24,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Elisabeth+JohnCrawley": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Elisabeth+Pepe": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Elysium": {
+    "L": 6,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1525.77,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Elysium+Ivy": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Elysium+Mess": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Elysium+Rashid": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Elysium+Steel": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Ermac": {
+    "L": 4,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1539.2,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Ermac+Kensou": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Erza": {
+    "L": 12,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1449.29,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Erza+Kaede": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "EvilDan": {
+    "L": 5,
+    "W": 0,
+    "elo": 1440.69,
+    "streak": -5
+  },
+  "EvilDan+Tira": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Falcon": {
+    "L": 9,
+    "W": 9,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1496.86,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -4,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Falcon+Todoh": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Ferris": {
+    "L": 9,
+    "W": 11,
+    "elo": 1475.3,
+    "streak": -2
+  },
+  "Ferris+Haggar": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Ferris+Khriz-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Ferris+Morrigan": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Ferris+PoacherJ": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Fessenden": {
+    "L": 8,
+    "W": 57,
+    "best_reign_days": 3.220648148148148,
+    "best_reign_defenses": 18,
+    "days_held_total": 3.4010648148148146,
+    "defenses": 4,
+    "elo": 1903.08,
+    "mainL": 4,
+    "mainW": 26,
+    "reigns": 4,
+    "streak": -1,
+    "titleL": 3,
+    "titleW": 27
+  },
+  "Fessenden+Hinata": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Fessenden+Rashid": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Fessenden+Sinobu-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Fighter #3": {
+    "L": 4,
+    "W": 1,
+    "elo": 1452.92,
+    "streak": -3
+  },
+  "FinalBison": {
+    "L": 6,
+    "W": 7,
+    "elo": 1547.07,
+    "streak": -1
+  },
+  "FinalBison+Inferno": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "FinalBison+Zeku": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Floyd": {
+    "L": 2,
+    "W": 4,
+    "elo": 1540.31,
+    "streak": 1
+  },
+  "GBKnucklesPOTS": {
+    "L": 7,
+    "W": 3,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1440.8,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "GBKnucklesPOTS+Jimmy": {
+    "L": 1,
+    "W": 0,
+    "elo": 1485.47,
+    "streak": -1
+  },
+  "GBKnucklesPOTS+Kratos": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Gale": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.98,
+    "streak": -1
+  },
+  "Gambit": {
+    "L": 3,
+    "W": 3,
+    "elo": 1512.5,
+    "streak": 1
+  },
+  "Gambit+Ness": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Gato": {
+    "L": 6,
+    "W": 1,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1421.36,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -6,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Gillius": {
+    "L": 9,
+    "W": 23,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1665.93,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Gillius+Sonic": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Gillius+Yun": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Gneiss": {
+    "L": 8,
+    "W": 14,
+    "elo": 1548.14,
+    "streak": -3
+  },
+  "Gneiss+Ryu": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Gneiss+Yoko": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.74,
+    "streak": -1
+  },
+  "Goro": {
+    "L": 2,
+    "W": 3,
+    "elo": 1516.53,
+    "streak": -1
+  },
+  "Gouki": {
+    "L": 2,
+    "W": 4,
+    "elo": 1516.62,
+    "streak": -1
+  },
+  "Gouki+Roy": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Gustab": {
+    "L": 2,
+    "W": 7,
+    "elo": 1585.88,
+    "streak": 1
+  },
+  "Gutter": {
+    "L": 9,
+    "W": 9,
+    "elo": 1477.28,
+    "streak": -2
+  },
+  "Gutter+Surtur": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Guy": {
+    "L": 1,
+    "W": 0,
+    "elo": 1492.51,
+    "streak": -1
+  },
+  "Haggar": {
+    "L": 0,
+    "W": 3,
+    "elo": 1536.25,
+    "streak": 3
+  },
+  "Haggar+Ivy": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "HammerT": {
+    "L": 13,
+    "W": 13,
+    "defenses": 0,
+    "elo": 1512.13,
+    "reigns": 1,
+    "streak": -3,
+    "titleL": 1,
+    "titleW": 1
+  },
+  "HammerT+Rashid": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "HammerT+SF6_Guile": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Hannah_Dundee": {
+    "L": 7,
+    "W": 43,
+    "elo": 1787.12,
+    "streak": 1
+  },
+  "Hannah_Dundee+Jae-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Hannah_Dundee+Slice": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Hannah_Dundee+Tyrog2": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Hayate": {
+    "L": 1,
+    "W": 3,
+    "elo": 1529.77,
+    "streak": 2
+  },
+  "Hayate+Lee-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Hello": {
+    "L": 1,
+    "W": 2,
+    "elo": 1516.08,
+    "streak": 2
+  },
+  "Hinako": {
+    "L": 8,
+    "W": 0,
+    "elo": 1391.7,
+    "streak": -8
+  },
+  "Hinako+Taki": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Hinata": {
+    "L": 12,
+    "W": 13,
+    "elo": 1487.71,
+    "streak": 3
+  },
+  "Hinata+Zasalamel": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1484.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Hugo": {
+    "L": 3,
+    "W": 2,
+    "elo": 1482.73,
+    "streak": -2
+  },
+  "Hugo+Jae-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Hulk": {
+    "L": 9,
+    "W": 3,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1436.25,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Hulk+Khriz-POTS": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Hulk+Slisaur": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Inferno": {
+    "L": 19,
+    "W": 10,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1415.83,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Inferno+Oro": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Inferno+OrochiChris": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Inuyasha": {
+    "L": 3,
+    "W": 1,
+    "elo": 1483.84,
+    "streak": -3
+  },
+  "Inuyasha+WrenchT": {
+    "L": 1,
+    "W": 0,
+    "elo": 1487.34,
+    "streak": -1
+  },
+  "Ivy": {
+    "L": 5,
+    "W": 23,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1713.32,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Ivy+KCore": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Ivy+Morgue": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Ivy+RyokoKano": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Ivy+SubZero": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Ivy+Thor": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Jack": {
+    "L": 10,
+    "W": 26,
+    "elo": 1640.07,
+    "streak": 3
+  },
+  "Jack+Morgue": {
+    "L": 0,
+    "W": 9,
+    "elo": 1621.11,
+    "streak": 9
+  },
+  "Jae-POTS": {
+    "L": 13,
+    "W": 15,
+    "elo": 1539.09,
+    "streak": 3,
+    "titleL": 1
+  },
+  "Jae-POTS+Mustapha": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Jae-POTS+Taki": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Jago": {
+    "L": 3,
+    "W": 2,
+    "elo": 1484.55,
+    "streak": -1
+  },
+  "Jago+Skinner": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Jago+WrenchT": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Jhun": {
+    "L": 8,
+    "W": 2,
+    "elo": 1422.22,
+    "streak": -3
+  },
+  "Jhun+JohnCrawley": {
+    "L": 1,
+    "W": 0,
+    "elo": 1487.89,
+    "streak": -1
+  },
+  "Jhun+Rikuo": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Jimmy": {
+    "L": 7,
+    "W": 4,
+    "elo": 1452.86,
+    "streak": -2
+  },
+  "Jimmy+Raphael": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Jimmy+SubZero": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "John Crawley": {
+    "L": 1,
+    "W": 0,
+    "elo": 1487.3,
+    "streak": -1
+  },
+  "JohnCrawley": {
+    "L": 15,
+    "W": 3,
+    "elo": 1374.89,
+    "streak": -3
+  },
+  "JohnCrawley+Musah": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "JohnCrawley+Sonic": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "JohnnyCage": {
+    "L": 1,
+    "W": 1,
+    "elo": 1503.84,
+    "streak": -1
+  },
+  "Jubei": {
+    "L": 1,
+    "W": 5,
+    "elo": 1557.25,
+    "streak": 1
+  },
+  "KCore": {
+    "L": 11,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1444.5,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "KCore+Pepe": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "KCore+Reptile": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "KCore+Zero": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Kaede": {
+    "L": 6,
+    "W": 5,
+    "elo": 1485.54,
+    "streak": 1
+  },
+  "Kaede+Lee-POTS": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Kagome": {
+    "L": 1,
+    "W": 0,
+    "elo": 1482.78,
+    "streak": -1
+  },
+  "KamenRiderKuuga": {
+    "L": 16,
+    "W": 2,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1334.29,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "KamenRiderKuuga+Man-Thing": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "KamenRiderKuuga+Yoko": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Kensou": {
+    "L": 6,
+    "W": 11,
+    "elo": 1568.92,
+    "streak": -1
+  },
+  "Kensou+Ramon": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Khriz-POTS": {
+    "L": 5,
+    "W": 5,
+    "elo": 1515.21,
+    "streak": -1
+  },
+  "Kisarah": {
+    "L": 6,
+    "W": 6,
+    "elo": 1491.31,
+    "streak": -1
+  },
+  "Kisarah+Raphael": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Kisarah+Spider-Man": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Kratos": {
+    "L": 8,
+    "W": 17,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1625.97,
+    "mainL": 2,
+    "mainW": 1,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 2,
+    "titleW": 0
+  },
+  "Kratos+Zero": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1484.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Lee-POTS": {
+    "L": 8,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1500.4,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Lee-POTS+Taki": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Leona": {
+    "L": 14,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1482.21,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Leona+Sabretooth": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Leona+Yoko": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Leona+Zero": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1484.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "LiXiangfei": {
+    "L": 4,
+    "W": 3,
+    "elo": 1494.51,
+    "streak": 1
+  },
+  "LiuKang": {
+    "L": 9,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1490.65,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Lucifer": {
+    "L": 8,
+    "W": 1,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1398.18,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Lucifer+Othello": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Maki": {
+    "L": 2,
+    "W": 2,
+    "elo": 1494.63,
+    "streak": 2
+  },
+  "Maki+Satomi": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Man-Thing": {
+    "L": 4,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1557.34,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Man-Thing+Zero": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Marco": {
+    "L": 3,
+    "W": 3,
+    "elo": 1500.65,
+    "streak": 2
+  },
+  "Marco+Sasquatch": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Marco+Zeus": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Marrow": {
+    "L": 0,
+    "W": 1,
+    "elo": 1519.24,
+    "streak": 1
+  },
+  "Meiling": {
+    "L": 3,
+    "W": 0,
+    "elo": 1455.22,
+    "streak": -3
+  },
+  "Meiling+POTSKuroAonix": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Mess": {
+    "L": 11,
+    "W": 16,
+    "elo": 1544.79,
+    "mainL": 2,
+    "streak": 1,
+    "titleL": 1
+  },
+  "Mileena": {
+    "L": 1,
+    "W": 3,
+    "elo": 1519.35,
+    "streak": 1
+  },
+  "Mileena+Venom": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Mitsurugi": {
+    "L": 6,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1590.83,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Mitsurugi+RougeTheBat": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Mitsurugi+Steel": {
+    "L": 0,
+    "W": 1,
+    "defenses": 0,
+    "elo": 1516.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Mitsurugi+WrenchT": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Miu Kurosaki": {
+    "L": 0,
+    "W": 1,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1521.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Moe Habana": {
+    "L": 1,
+    "W": 0
+  },
+  "Morgan": {
+    "L": 7,
+    "W": 25,
+    "elo": 1701.6,
+    "mainL": 1,
+    "streak": 2,
+    "titleL": 1
+  },
+  "Morgan+Rikuo": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Morgue": {
+    "L": 14,
+    "W": 23,
+    "defenses": 0,
+    "elo": 1606.25,
+    "mainL": 2,
+    "mainW": 2,
+    "reigns": 1,
+    "streak": 2,
+    "titleL": 2,
+    "titleW": 1
+  },
+  "Morrigan": {
+    "L": 4,
+    "W": 0,
+    "elo": 1441.28,
+    "streak": -4
+  },
+  "Mukuro": {
+    "L": 11,
+    "W": 2,
+    "elo": 1389.51,
+    "streak": -2
+  },
+  "Musah": {
+    "L": 6,
+    "W": 0,
+    "elo": 1404.53,
+    "streak": -6
+  },
+  "Mustapha": {
+    "L": 16,
+    "W": 5,
+    "elo": 1402.17,
+    "streak": -1
+  },
+  "Mustapha+Snake": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1484.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Mustapha+Spider-Man": {
+    "L": 0,
+    "W": 1,
+    "defenses": 0,
+    "elo": 1516.0,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Necro": {
+    "L": 12,
+    "W": 0,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1342.84,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -12,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Necro+Ness": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Necro+Steel": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Ness": {
+    "L": 7,
+    "W": 0,
+    "elo": 1392.44,
+    "streak": -7
+  },
+  "Orchid": {
+    "L": 2,
+    "W": 3,
+    "elo": 1509.11,
+    "streak": -1
+  },
+  "Oro": {
+    "L": 5,
+    "W": 2,
+    "elo": 1471.14,
+    "streak": -2
+  },
+  "OrochiChris": {
+    "L": 13,
+    "W": 6,
+    "defenses": 0,
+    "elo": 1417.41,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 1,
+    "streak": -2,
+    "titleL": 1,
+    "titleW": 1
+  },
+  "OrochiChris+UrbanChampion_NM": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Othello": {
+    "L": 22,
+    "W": 1,
+    "elo": 1294.67,
+    "streak": -13
+  },
+  "POTSKuroAonix": {
+    "L": 7,
+    "W": 65,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1918.59,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "POTSMadokaS3": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.59,
+    "streak": 1
+  },
+  "PaiChan": {
+    "L": 2,
+    "W": 4,
+    "elo": 1538.56,
+    "streak": -1
+  },
+  "Pepe": {
+    "L": 10,
+    "W": 11,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1525.68,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Pepe+SubZero": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.77,
+    "streak": -1
+  },
+  "Pepe+Tyrog": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "PoacherJ": {
+    "L": 24,
+    "W": 10,
+    "elo": 1402.82,
+    "mainL": 1,
+    "streak": 1
+  },
+  "PoacherJ+Rikuo": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Pyron": {
+    "L": 9,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1453.97,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Pyron+Raphael": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Pyron+Yoshimitsu": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "RaidenMK": {
+    "L": 7,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1504.66,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Rain": {
+    "L": 7,
+    "W": 4,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1445.21,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Rain+Tira": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Ramon": {
+    "L": 5,
+    "W": 0,
+    "elo": 1417.42,
+    "streak": -5
+  },
+  "Ramon+Sabrewulf": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Raphael": {
+    "L": 18,
+    "W": 11,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1432.9,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -4,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Raphael+Ray": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Raphael+Scorpion": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Rashid": {
+    "L": 6,
+    "W": 16,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1599.46,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Rashid+Skinner": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Rashid+Venom": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Rave": {
+    "L": 0,
+    "W": 1,
+    "elo": 1513.99,
+    "streak": 1
+  },
+  "Ray": {
+    "L": 7,
+    "W": 6,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1505.25,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Reptile": {
+    "L": 5,
+    "W": 1,
+    "elo": 1437.37,
+    "streak": 1
+  },
+  "Rikuo": {
+    "L": 8,
+    "W": 5,
+    "defenses": 0,
+    "elo": 1470.77,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Rolento": {
+    "L": 2,
+    "W": 0,
+    "elo": 1481.37,
+    "streak": -2
+  },
+  "RougeTheBat": {
+    "L": 8,
+    "W": 14,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1565.36,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "RougeTheBat+Superman": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Roy": {
+    "L": 8,
+    "W": 9,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1500.28,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Rumble": {
+    "L": 13,
+    "W": 8,
+    "elo": 1440.23,
+    "streak": -2
+  },
+  "Rumble+Scorpion": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Rumble+SubZero": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "RyokoKano": {
+    "L": 2,
+    "W": 2,
+    "elo": 1509.99,
+    "streak": -1
+  },
+  "Ryu": {
+    "L": 5,
+    "W": 7,
+    "elo": 1546.61,
+    "streak": 1
+  },
+  "SF6_Guile": {
+    "L": 12,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1447.4,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Sabretooth": {
+    "L": 12,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1503.05,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Sabretooth+Yoshimitsu": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Sabrewulf": {
+    "L": 10,
+    "W": 3,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1400.41,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "SamusAran": {
+    "L": 2,
+    "W": 8,
+    "elo": 1610.47,
+    "streak": 4
+  },
+  "Sarah Bryant": {
+    "L": 0,
+    "W": 1,
+    "elo": 1515.74,
+    "streak": 1
+  },
+  "SarahBryant": {
+    "L": 1,
+    "W": 2,
+    "elo": 1509.31,
+    "streak": 2
+  },
+  "Sasquatch": {
+    "L": 6,
+    "W": 5,
+    "elo": 1501.09,
+    "streak": 1
+  },
+  "Satomi": {
+    "L": 12,
+    "W": 21,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1601.6,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Scorpion": {
+    "L": 14,
+    "W": 6,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1402.86,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Shang_Tsung": {
+    "L": 2,
+    "W": 0,
+    "elo": 1466.44,
+    "streak": -2
+  },
+  "ShaoKahn": {
+    "L": 2,
+    "W": 4,
+    "elo": 1520.62,
+    "streak": -1
+  },
+  "Sinobu-POTS": {
+    "L": 8,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1456.89,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Sinobu-POTS+Steel": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Skinner": {
+    "L": 13,
+    "W": 3,
+    "elo": 1405.62,
+    "streak": -6
+  },
+  "Skinner+Yoko": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Slice": {
+    "L": 15,
+    "W": 8,
+    "elo": 1414.63,
+    "streak": 1
+  },
+  "Slice+Yoshimitsu": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Slisaur": {
+    "L": 15,
+    "W": 13,
+    "elo": 1438.64,
+    "streak": -1
+  },
+  "Slisaur+Yoko": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Snake": {
+    "L": 10,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1498.45,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Snake+WildWolf": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Sonic": {
+    "L": 5,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1532.21,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Sophie": {
+    "L": 3,
+    "W": 1,
+    "elo": 1470.12,
+    "streak": -1
+  },
+  "Spawn": {
+    "L": 6,
+    "W": 8,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1526.08,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Spawn+Vector": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Spider-Man": {
+    "L": 10,
+    "W": 10,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1501.14,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Spider-Man+UrbanChampion_NM": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Steel": {
+    "L": 8,
+    "W": 13,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1590.08,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "SteveFox": {
+    "L": 0,
+    "W": 1,
+    "elo": 1511.56,
+    "streak": 1
+  },
+  "Sub-Zero": {
+    "L": 1,
+    "W": 0,
+    "elo": 1482.84,
+    "streak": -1
+  },
+  "SubZero": {
+    "L": 12,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1421.54,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -6,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Superman": {
+    "L": 9,
+    "W": 12,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1545.46,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Superman+Yoshimitsu": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "Surtur": {
+    "L": 6,
+    "W": 2,
+    "elo": 1440.86,
+    "streak": -1
+  },
+  "Taki": {
+    "L": 9,
+    "W": 1,
+    "elo": 1419.15,
+    "streak": 1
+  },
+  "TamTam": {
+    "L": 8,
+    "W": 17,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1617.9,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -3,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Tessa": {
+    "L": 14,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1402.95,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "TheMask": {
+    "L": 1,
+    "W": 1,
+    "elo": 1498.74,
+    "streak": 1
+  },
+  "Thor": {
+    "L": 14,
+    "W": 7,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1414.18,
+    "mainL": 1,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -4,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Thor+Tyrog2": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Tira": {
+    "L": 3,
+    "W": 3,
+    "elo": 1498.17,
+    "streak": -3
+  },
+  "Todoh": {
+    "L": 6,
+    "W": 6,
+    "elo": 1508.41,
+    "streak": 1
+  },
+  "Tony": {
+    "L": 1,
+    "W": 3,
+    "elo": 1529.0,
+    "streak": 2
+  },
+  "Twelve": {
+    "L": 24,
+    "W": 23,
+    "best_reign_days": 5.9144097222222225,
+    "best_reign_defenses": 8,
+    "days_held_total": 7.57244212962963,
+    "defenses": 0,
+    "elo": 1567.94,
+    "mainL": 16,
+    "mainW": 13,
+    "reigns": 4,
+    "streak": 2,
+    "titleL": 16,
+    "titleW": 12
+  },
+  "Twelve+Zasalamel": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Tyrog": {
+    "L": 20,
+    "W": 3,
+    "elo": 1338.72,
+    "streak": 1
+  },
+  "Tyrog+WrenchT": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "Tyrog2": {
+    "L": 10,
+    "W": 30,
+    "elo": 1668.3,
+    "streak": -1
+  },
+  "Urban Champion NM": {
+    "L": 0,
+    "W": 1,
+    "elo": 1520.17,
+    "streak": 1
+  },
+  "UrbanChampion_NM": {
+    "L": 3,
+    "W": 10,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1590.18,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 5,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Vector": {
+    "L": 7,
+    "W": 9,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1527.21,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Venom": {
+    "L": 7,
+    "W": 13,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1613.07,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 1,
+    "streak": 6,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Venom+Yang": {
+    "L": 1,
+    "W": 0,
+    "elo": 1486.75,
+    "streak": -1
+  },
+  "ViceT": {
+    "L": 13,
+    "W": 18,
+    "elo": 1535.88,
+    "mainL": 1,
+    "streak": -3,
+    "titleL": 1
+  },
+  "Voldo": {
+    "L": 11,
+    "W": 3,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1407.74,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "WildWolf": {
+    "L": 6,
+    "W": 15,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1610.65,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "WrenchT": {
+    "L": 14,
+    "W": 15,
+    "elo": 1547.55,
+    "streak": 1
+  },
+  "Yang": {
+    "L": 3,
+    "W": 23,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1708.09,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 1,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Yoko": {
+    "L": 18,
+    "W": 3,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1321.72,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -12,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Yoshimitsu": {
+    "L": 16,
+    "W": 3,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1358.74,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": 1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Yun": {
+    "L": 3,
+    "W": 16,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1685.47,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Zasalamel": {
+    "L": 14,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1396.31,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -2,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "Zeku": {
+    "L": 2,
+    "W": 2,
+    "elo": 1487.1,
+    "streak": -2
+  },
+  "Zero": {
+    "L": 12,
+    "W": 17,
+    "elo": 1558.1,
+    "streak": -1
+  },
+  "Zeus": {
+    "L": 16,
+    "W": 13,
+    "elo": 1468.97,
+    "streak": -5
+  },
+  "akito(pots)": {
+    "L": 8,
+    "W": 5,
+    "best_reign_days": 0.0,
+    "best_reign_defenses": 0,
+    "days_held_total": 0.0,
+    "defenses": 0,
+    "elo": 1466.52,
+    "mainL": 0,
+    "mainW": 0,
+    "reigns": 0,
+    "streak": -1,
+    "titleL": 0,
+    "titleW": 0
+  },
+  "akito(pots)+Devilotte": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  },
+  "akito(pots)+Gato": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "hdhngkd": {
+    "L": 1,
+    "W": 3,
+    "elo": 1533.23,
+    "streak": 2
+  },
+  "rTiffany": {
+    "L": 7,
+    "W": 0,
+    "elo": 1401.22,
+    "streak": -7
+  },
+  "rTiffany+Sabretooth": {
+    "L": 1,
+    "W": 0,
+    "elo": 1484.0,
+    "streak": -1
+  },
+  "rTiffany+Venom": {
+    "L": 0,
+    "W": 1,
+    "elo": 1516.0,
+    "streak": 1
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "fighter_id": "night-fang",
+  "status": "draft",
+  "identity": {
+    "name": "Night Fang",
+    "nickname": "The Apex",
+    "creator_name": "TonyViewer92",
+    "hometown": "Neo Tokyo",
+    "bio": "A relentless hunter who overwhelms opponents with speed.",
+    "intro_quote": "The hunt starts now.",
+    "win_quote": "Too slow."
+  },
+  "visuals": {
+    "portrait_file": "nightfang.png",
+    "palette": "red_black",
+    "body_template": "template_male_01",
+    "stance_template": "aggressive",
+    "emblem": "wolf"
+  },
+  "build": {
+    "archetype": "Rushdown",
+    "stats": {
+      "power": 88,
+      "defense": 70,
+      "speed": 95,
+      "health": 67,
+      "aggression": 60
+    },
+    "move_package": "rush_01",
+    "trait": "air_hunter",
+    "super_style": "rush_super"
+  },
+  "validation": {
+    "stat_min": 50,
+    "stat_max": 100,
+    "stat_pool_total": 380,
+    "stat_points_used": 380,
+    "is_valid": true,
+    "errors": []
+  },
+  "submission": {
+    "submitted_at": null,
+    "approved_at": null,
+    "review_notes": ""
+  }
+}

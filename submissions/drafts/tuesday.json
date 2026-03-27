@@ -1,0 +1,47 @@
+{
+  "build": {
+    "stats": {
+      "power": 76,
+      "speed": 68,
+      "health": 76,
+      "defense": 84,
+      "aggression": 76
+    },
+    "trait": "heavy_hitter",
+    "archetype": "Rushdown",
+    "super_style": "throw_super",
+    "move_package": "balance_01"
+  },
+  "status": "submitted",
+  "version": 1,
+  "visuals": {
+    "emblem": "star",
+    "palette": "purple_gold",
+    "body_template": "template_female_01",
+    "portrait_file": "",
+    "stance_template": "aggressive"
+  },
+  "identity": {
+    "bio": "Bio",
+    "name": "Tuesday",
+    "hometown": "Tony Tuesdayville",
+    "nickname": "Tues",
+    "win_quote": "Win",
+    "intro_quote": "Intro",
+    "creator_name": "Tony"
+  },
+  "fighter_id": "tuesday",
+  "submission": {
+    "approved_at": null,
+    "review_notes": "",
+    "submitted_at": "2026-03-25T01:46:59.037Z"
+  },
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_max": 100,
+    "stat_min": 50,
+    "stat_pool_total": 380,
+    "stat_points_used": 380
+  }
+}

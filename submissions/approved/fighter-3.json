@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "fighter_id": "fighter-3",
+  "status": "published",
+  "identity": {
+    "name": "Fighter #3",
+    "nickname": "3",
+    "creator_name": "Three",
+    "hometown": "Three",
+    "bio": "3",
+    "intro_quote": "3",
+    "win_quote": "3"
+  },
+  "visuals": {
+    "portrait_file": "",
+    "palette": "red_black",
+    "body_template": "template_female_01",
+    "stance_template": "aggressive",
+    "emblem": "skull"
+  },
+  "build": {
+    "archetype": "Grappler",
+    "stats": {
+      "power": 76,
+      "defense": 63,
+      "speed": 67,
+      "health": 98,
+      "aggression": 76
+    },
+    "move_package": "rush_02",
+    "trait": "heavy_hitter",
+    "super_style": "throw_super"
+  },
+  "validation": {
+    "stat_min": 50,
+    "stat_max": 100,
+    "stat_pool_total": 380,
+    "stat_points_used": 380,
+    "is_valid": true,
+    "errors": []
+  },
+  "submission": {
+    "submitted_at": "2026-03-21T00:26:04.250Z",
+    "approved_at": null,
+    "review_notes": ""
+  }
+}

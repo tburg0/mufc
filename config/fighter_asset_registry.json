@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "templates": {
+    "template_balanced_01": {
+      "archetypes": ["balanced"],
+      "allowed_moveset_styles": ["balanced_pro", "technical_striker"],
+      "default_ai_package": "balanced_v1",
+      "default_stats_profile": "balanced_default",
+      "base_char_folder": "template_balanced_01"
+    },
+    "template_rush_01": {
+      "archetypes": ["rushdown"],
+      "allowed_moveset_styles": ["brawler", "kickboxer", "chaos_mixup"],
+      "default_ai_package": "rushdown_v1",
+      "default_stats_profile": "rushdown_default",
+      "base_char_folder": "template_rush_01"
+    },
+    "template_grapple_01": {
+      "archetypes": ["grappler", "counter_grappler"],
+      "allowed_moveset_styles": ["power_grapple", "chain_wrestler"],
+      "default_ai_package": "grappler_v1",
+      "default_stats_profile": "grappler_default",
+      "base_char_folder": "template_grapple_01"
+    },
+    "template_strike_01": {
+      "archetypes": ["striker"],
+      "allowed_moveset_styles": ["kickboxer", "technical_striker"],
+      "default_ai_package": "striker_v1",
+      "default_stats_profile": "striker_default",
+      "base_char_folder": "template_strike_01"
+    },
+    "template_zone_01": {
+      "archetypes": ["zoner"],
+      "allowed_moveset_styles": ["anti_air_specialist", "technical_striker"],
+      "default_ai_package": "zoner_v1",
+      "default_stats_profile": "zoner_default",
+      "base_char_folder": "template_zone_01"
+    },
+    "template_counter_01": {
+      "archetypes": ["counter_grappler", "balanced"],
+      "allowed_moveset_styles": ["chain_wrestler", "technical_striker"],
+      "default_ai_package": "counter_v1",
+      "default_stats_profile": "counter_default",
+      "base_char_folder": "template_counter_01"
+    },
+    "template_tank_01": {
+      "archetypes": ["tank"],
+      "allowed_moveset_styles": ["power_grapple", "brawler"],
+      "default_ai_package": "tank_v1",
+      "default_stats_profile": "tank_default",
+      "base_char_folder": "template_tank_01"
+    },
+    "template_wild_01": {
+      "archetypes": ["wildcard"],
+      "allowed_moveset_styles": ["chaos_mixup", "brawler"],
+      "default_ai_package": "wildcard_v1",
+      "default_stats_profile": "wildcard_default",
+      "base_char_folder": "template_wild_01"
+    }
+  },
+  "palette_map": {
+    "black_white_red": "palette_black_white_red_01.act",
+    "purple_black_silver": "palette_purple_black_01.act",
+    "red_black_white": "palette_red_black_01.act",
+    "blue_gold_white": "palette_blue_gold_01.act",
+    "green_black_silver": "palette_green_black_01.act"
+  },
+  "portraits": {
+    "serious": "portrait_serious_base.png",
+    "intense": "portrait_intense_base.png",
+    "smug": "portrait_smug_base.png",
+    "wild": "portrait_wild_base.png",
+    "heroic": "portrait_heroic_base.png"
+  },
+  "ai_packages": {
+    "balanced_v1": "ai/balanced_v1.json",
+    "rushdown_v1": "ai/rushdown_v1.json",
+    "grappler_v1": "ai/grappler_v1.json",
+    "striker_v1": "ai/striker_v1.json",
+    "zoner_v1": "ai/zoner_v1.json",
+    "counter_v1": "ai/counter_v1.json",
+    "tank_v1": "ai/tank_v1.json",
+    "wildcard_v1": "ai/wildcard_v1.json"
+  },
+  "moves": {
+    "signature_moves": [
+      "spinebuster",
+      "counter_slam",
+      "lariat",
+      "roundhouse_burst",
+      "knee_combo",
+      "backfist",
+      "dropkick",
+      "suplex_throw"
+    ],
+    "finishers": [
+      "sitout_powerbomb",
+      "storm_drop",
+      "flash_high_kick",
+      "super_lariat",
+      "driver_drop",
+      "skybreaker"
+    ],
+    "super_finishers": [
+      "storm_drop",
+      "chaos_driver",
+      "critical_burst",
+      "last_stand_bomb"
+    ]
+  },
+  "compatibility_rules": {
+    "archetype_to_template": {
+      "balanced": ["template_balanced_01", "template_counter_01"],
+      "rushdown": ["template_rush_01"],
+      "grappler": ["template_grapple_01"],
+      "striker": ["template_strike_01"],
+      "zoner": ["template_zone_01"],
+      "counter_grappler": ["template_grapple_01", "template_counter_01"],
+      "tank": ["template_tank_01"],
+      "wildcard": ["template_wild_01"]
+    },
+    "disallowed_combinations": [
+      {
+        "field_a": "appearance.hair_style",
+        "value_a": "hooded",
+        "field_b": "appearance.mask_style",
+        "value_b": "full_mask",
+        "reason": "hood and full mask overlap visually"
+      },
+      {
+        "field_a": "appearance.body_type",
+        "value_a": "giant",
+        "field_b": "appearance.gear_top",
+        "value_b": "armor_light",
+        "reason": "unsupported sprite combination"
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "Sophie": {
+    "fighter_id": "sophie",
+    "runtime_character": "template_rush_01",
+    "creator": "Tony",
+    "power_index": 7.8,
+    "archetype": "Rushdown",
+    "published": true
+  },
+  "Fighter #3": {
+    "fighter_id": "fighter-3",
+    "runtime_character": "template_grapple_01",
+    "creator": "Three",
+    "power_index": 8.5,
+    "archetype": "Grappler",
+    "published": true
+  },
+  "Tony": {
+    "fighter_id": "tony",
+    "runtime_character": "template_rush_01",
+    "creator": "Tony B",
+    "power_index": 7.6,
+    "archetype": "Rushdown",
+    "published": true
+  },
+  "hdhngkd": {
+    "fighter_id": "hdhngkd",
+    "runtime_character": "template_zone_01",
+    "creator": "gnkfdlg",
+    "power_index": 7.4,
+    "archetype": "Zoner",
+    "published": true
+  },
+  "Hello": {
+    "fighter_id": "hello",
+    "runtime_character": "custom_hello",
+    "creator": "Its been so long",
+    "power_index": 7.6,
+    "archetype": "Grappler",
+    "published": true,
+    "palette_slot": 4
+  },
+  "Tuesday": {
+    "fighter_id": "tuesday",
+    "runtime_character": "custom_tuesday",
+    "creator": "Tony",
+    "power_index": 7.7,
+    "archetype": "Rushdown",
+    "published": true,
+    "palette_slot": 4
+  },
+  "Wednesday": {
+    "fighter_id": "wednesday",
+    "runtime_character": "custom_wednesday",
+    "creator": "Winner",
+    "power_index": 7.5,
+    "archetype": "Grappler",
+    "published": true,
+    "palette_slot": 5
+  }
+}

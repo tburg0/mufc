@@ -1,0 +1,49 @@
+{
+  "fighters": {
+    "Fighter #3": {
+      "author": "Three",
+      "power_index": 8.5,
+      "archetype": "Grappler"
+    },
+    "First Fighter": {
+      "author": "Tony B",
+      "power_index": 7.4,
+      "archetype": "Rushdown"
+    },
+    "hdhngkd": {
+      "author": "gnkfdlg",
+      "power_index": 7.4,
+      "archetype": "Zoner"
+    },
+    "Hello": {
+      "author": "Its been so long",
+      "power_index": 7.6,
+      "archetype": "Grappler"
+    },
+    "Random": {
+      "author": "Rafpisdfsd",
+      "power_index": 7.5,
+      "archetype": "Grappler"
+    },
+    "Sophie": {
+      "author": "Tony",
+      "power_index": 7.8,
+      "archetype": "Rushdown"
+    },
+    "Tony": {
+      "author": "Tony B",
+      "power_index": 7.6,
+      "archetype": "Rushdown"
+    },
+    "Tuesday": {
+      "author": "Tony",
+      "power_index": 7.7,
+      "archetype": "Rushdown"
+    },
+    "Wednesday": {
+      "author": "Winner",
+      "power_index": 7.5,
+      "archetype": "Grappler"
+    }
+  }
+}

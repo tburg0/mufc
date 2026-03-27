@@ -1,0 +1,44 @@
+{
+  "active": false,
+  "created_ts": 1774239321.1940844,
+  "id": 1774239321194,
+  "is_tag_title": false,
+  "leg": 2,
+  "legs": [
+    {
+      "leg": 1,
+      "p1": "Ferris",
+      "p2": "Gillius",
+      "result": "0-2",
+      "winner": "Gillius"
+    },
+    {
+      "leg": 2,
+      "p1": "Morrigan",
+      "p2": "Anakaris",
+      "result": "1-2",
+      "winner": "Anakaris"
+    },
+    {
+      "leg": 3,
+      "p1": null,
+      "p2": null,
+      "result": null,
+      "tiebreak": true,
+      "winner": null
+    }
+  ],
+  "scoreA": 0,
+  "scoreB": 2,
+  "teamA": [
+    "Ferris",
+    "Morrigan"
+  ],
+  "teamA_key": "Ferris+Morrigan",
+  "teamB": [
+    "Gillius",
+    "Anakaris"
+  ],
+  "teamB_key": "Anakaris+Gillius",
+  "winner_team": "B"
+}

@@ -1,0 +1,50 @@
+{
+  "active": false,
+  "created_ts": 1774236055.253175,
+  "final": [
+    [
+      "Kensou",
+      "Yun"
+    ]
+  ],
+  "qf": [
+    [
+      "Falcon",
+      "Khriz-POTS"
+    ],
+    [
+      "Rumble",
+      "Kensou"
+    ],
+    [
+      "KamenRiderKuuga",
+      "Dee"
+    ],
+    [
+      "Yun",
+      "TamTam"
+    ]
+  ],
+  "round": "F",
+  "sf": [
+    [
+      "Khriz-POTS",
+      "Kensou"
+    ],
+    [
+      "Dee",
+      "Yun"
+    ]
+  ],
+  "winner": "Yun",
+  "winners_qf": [
+    "Khriz-POTS",
+    "Kensou",
+    "Dee",
+    "Yun"
+  ],
+  "winners_sf": [
+    "Kensou",
+    "Yun"
+  ]
+}

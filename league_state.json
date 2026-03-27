@@ -1,0 +1,21 @@
+{
+  "champion": "Venom",
+  "debut_queue": [
+    "Tuesday",
+    "Hello",
+    "Wednesday"
+  ],
+  "match_count": 1483,
+  "reign_defenses": 0,
+  "reign_start_ts": "2026-03-25T22:27:00",
+  "royal_winner_queue": null,
+  "tag_champions": [
+    "Jack",
+    "Morgue"
+  ],
+  "tag_defenses": 8,
+  "tag_match_count": 9,
+  "tag_reigns": 3,
+  "tag_series_count": 105,
+  "title_due": false
+}

@@ -1,0 +1,55 @@
+[2026-02-20T17:31:49] RESULT 0-3 | Butcher def. Twelve — NEW CHAMPION (Reign #1) | Prev reign: 0.00d, 0 defenses
+[2026-02-20T20:47:50] RESULT 3-0 | Butcher DEFENDED vs ViceT — Defense #1 | Reign live: 0.14d
+[2026-02-20T20:51:08] RESULT 2-3 | Twelve def. Butcher — NEW CHAMPION (Reign #2) | Prev reign: 0.14d, 1 defenses
+[2026-02-21T01:23:13] RESULT 3-1 | Twelve DEFENDED vs Butcher — Defense #1 | Reign live: 0.19d
+[2026-02-22T14:59:35] RESULT 3-1 | Twelve DEFENDED vs Butcher — Defense #2 | Reign live: 1.76d
+[2026-02-22T15:01:31] RESULT 3-1 | Twelve DEFENDED vs Biker — Defense #3 | Reign live: 1.76d
+[2026-02-22T15:22:40] RESULT 3-1 | Twelve DEFENDED vs Morgue — Defense #4 | Reign live: 1.77d
+[2026-02-22T15:27:24] RESULT 3-1 | Twelve DEFENDED vs Mess — Defense #5 | Reign live: 1.78d
+[2026-02-22T16:42:11] RESULT 3-0 | Twelve DEFENDED vs Dr.Octopus — Defense #6 | Reign live: 1.83d
+[2026-02-24T22:37:21] RESULT 3-0 | Twelve DEFENDED vs Butcher — Defense #7 | Reign live: 4.07d
+[2026-02-25T20:10:17] RESULT 3-0 | Twelve DEFENDED vs Butcher — Defense #8 | Reign live: 4.97d
+[2026-02-26T18:47:53] RESULT 0-3 | Fessenden def. Twelve — NEW CHAMPION (Reign #2) | Prev reign: 5.91d, 8 defenses
+[2026-02-26T23:07:41] RESULT 0-3 | Twelve def. Fessenden — NEW CHAMPION (Reign #3) | Prev reign: 0.18d, 0 defenses
+[2026-02-27T17:50:13] RESULT 0-3 | Fessenden def. Twelve — NEW CHAMPION (Reign #3) | Prev reign: 0.78d, 0 defenses
+[2026-02-27T18:47:19] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #1 | Reign live: 0.04d
+[2026-02-27T19:06:21] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #2 | Reign live: 0.05d
+[2026-02-27T19:39:41] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #3 | Reign live: 0.08d
+[2026-02-27T20:10:06] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #4 | Reign live: 0.10d
+[2026-02-27T20:28:22] RESULT 3-0 | Fessenden DEFENDED vs Butcher — Defense #5 | Reign live: 0.11d
+[2026-02-28T00:10:55] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #6 | Reign live: 0.26d
+[2026-02-28T15:30:10] RESULT 3-0 | Fessenden DEFENDED vs Butcher — Defense #7 | Reign live: 0.90d
+[2026-02-28T15:56:44] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #8 | Reign live: 0.92d
+[2026-02-28T20:31:53] RESULT 3-0 | Fessenden DEFENDED vs Dr.Octopus — Defense #9 | Reign live: 1.11d
+[2026-02-28T20:48:15] RESULT 3-0 | Fessenden DEFENDED vs Kratos — Defense #10 | Reign live: 1.12d
+[2026-02-28T20:52:30] RESULT 3-0 | Fessenden DEFENDED vs Kratos — Defense #11 | Reign live: 1.13d
+[2026-02-28T22:09:53] RESULT 2-1 | Fessenden DEFENDED vs Twelve — Defense #12 | Reign live: 1.18d
+[2026-02-28T22:22:33] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #13 | Reign live: 1.19d
+[2026-03-01T01:42:08] RESULT 2-0 | Fessenden DEFENDED vs Dr.Octopus — Defense #14 | Reign live: 1.33d
+[2026-03-01T11:03:18] RESULT 3-0 | Fessenden DEFENDED vs Dr.Octopus — Defense #15 | Reign live: 1.72d
+[2026-03-01T23:06:02] RESULT 1-0 | Fessenden DEFENDED vs Twelve — Defense #16 | Reign live: 2.22d
+[2026-03-02T21:17:10] RESULT 2-0 | Fessenden DEFENDED vs Daigo — Defense #17 | Reign live: 3.14d
+[2026-03-02T23:02:42] RESULT 3-0 | Fessenden DEFENDED vs Dr.Octopus — Defense #18 | Reign live: 3.22d
+[2026-03-02T23:07:57] RESULT 0-2 | Twelve def. Fessenden — NEW CHAMPION (Reign #4) | Prev reign: 3.22d, 18 defenses
+[2026-03-03T20:12:59] RESULT 0-3 | Fessenden def. Twelve — NEW CHAMPION (Reign #4) | Prev reign: 0.88d, 0 defenses
+[2026-03-03T20:32:55] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #1 | Reign live: 0.01d
+[2026-03-03T20:52:09] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #2 | Reign live: 0.03d
+[2026-03-04T18:11:42] RESULT 3-0 | Fessenden DEFENDED vs Twelve — Defense #3 | Reign live: 0.92d
+2026-03-08T19:53:56 | NEW CHAMPION: SubZero dethroned Biker | SubZero def. Biker (Biker 0-2 SubZero)
+2026-03-08T20:16:16 | NEW CHAMPION: Gillius dethroned SubZero | Gillius def. SubZero (SubZero 0-3 Gillius)
+2026-03-09T18:23:07 | NEW CHAMPION: Hannah_Dundee dethroned Gillius | Hannah_Dundee def. Gillius (Gillius 1-3 Hannah_Dundee)
+2026-03-09T19:26:36 | NEW CHAMPION: TamTam dethroned Hannah_Dundee | TamTam def. Hannah_Dundee (Hannah_Dundee 1-3 TamTam)
+2026-03-09T19:47:17 | NEW CHAMPION: Morgan dethroned TamTam | Morgan def. TamTam (TamTam 0-3 Morgan)
+2026-03-10T20:12:50 | NEW CHAMPION: POTSKuroAonix dethroned Morgan | POTSKuroAonix def. Morgan (Morgan 0-3 POTSKuroAonix)
+2026-03-11T20:42:59 | NEW CHAMPION: Hannah_Dundee dethroned POTSKuroAonix | Hannah_Dundee def. POTSKuroAonix (POTSKuroAonix 0-3 Hannah_Dundee)
+2026-03-11T22:06:57 | NEW CHAMPION: POTSKuroAonix dethroned Hannah_Dundee | POTSKuroAonix def. Hannah_Dundee (Hannah_Dundee 1-3 POTSKuroAonix)
+2026-03-14T18:16:49 | NEW CHAMPION: Tyrog2 dethroned POTSKuroAonix | Tyrog2 def. POTSKuroAonix (POTSKuroAonix 1-3 Tyrog2)
+2026-03-14T19:10:33 | NEW CHAMPION: TamTam dethroned Tyrog2 | TamTam def. Tyrog2 (Tyrog2 2-3 TamTam)
+2026-03-14T20:59:30 | NEW CHAMPION: Hannah_Dundee dethroned TamTam | Hannah_Dundee def. TamTam (TamTam 2-3 Hannah_Dundee)
+2026-03-19T17:54:55 | NEW CHAMPION: Ivy dethroned Hannah_Dundee | Ivy def. Hannah_Dundee (Hannah_Dundee 1-3 Ivy)
+2026-03-19T18:18:17 | NEW CHAMPION: Fessenden dethroned Ivy | Fessenden def. Ivy (Ivy 0-3 Fessenden)
+2026-03-19T20:05:17 | NEW CHAMPION: POTSKuroAonix dethroned Fessenden | POTSKuroAonix def. Fessenden (Fessenden 1-3 POTSKuroAonix)
+2026-03-21T19:42:57 | NEW CHAMPION: Yun dethroned POTSKuroAonix | Yun def. POTSKuroAonix (POTSKuroAonix 1-3 Yun)
+2026-03-22T20:35:12 | NEW CHAMPION: Chun_Li_JJ dethroned Yun | Chun_Li_JJ def. Yun (Yun 1-3 Chun_Li_JJ)
+2026-03-25T21:27:53 | NEW CHAMPION: Yang dethroned Chun_Li_JJ | Yang def. Chun_Li_JJ (Chun_Li_JJ 0-3 Yang)
+2026-03-25T22:27:00 | NEW CHAMPION: Venom dethroned Yang | Venom def. Yang (Yang 0-3 Venom)

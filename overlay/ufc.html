@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MUFC Overlay</title>
+  <link rel="stylesheet" href="ufc.css?v=3">
+</head>
+<body>
+
+<!-- Bottom Broadcast Bar -->
+<div class="top-strap" id="bottomBar">
+  <div class="brand">MUFC</div>
+
+  <div class="top-meta">
+    <div class="pill" id="matchNum">MATCH #—</div>
+    <div class="pill" id="matchLine">—</div>
+    <div class="pill" id="stageName">STAGE: —</div>
+    <div class="pill champ-pill" id="champName">CHAMP: —</div>
+    <div class="pill event-pill" id="matchNotice">—</div>
+  </div>
+</div>
+
+<!-- Title fight banner -->
+<div class="title-banner hidden" id="titleBanner">
+  🏆 CHAMPIONSHIP FIGHT 🏆
+</div>
+
+<!-- Debut banner -->
+<div class="debut-banner hidden" id="debutBanner"></div>
+
+<!-- Generic event banner -->
+<div class="event-banner hidden" id="eventBanner"></div>
+
+<!-- Tale of the Tape -->
+<div class="tot-card" id="totCard">
+  <div class="tot-title">TALE OF THE TAPE</div>
+  <div class="tot-sub" id="totSub">—</div>
+
+  <div class="tot-row">
+    <div class="fighter">
+      <div class="fighter-name" id="p1Name">—</div>
+      <div class="fighter-meta" id="p1Meta">—</div>
+      <div class="fighter-odds" id="p1Odds">—</div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="fighter">
+      <div class="fighter-name" id="p2Name">—</div>
+      <div class="fighter-meta" id="p2Meta">—</div>
+      <div class="fighter-odds" id="p2Odds">—</div>
+    </div>
+  </div>
+
+  <div class="tot-extra" id="h2h">H2H: —</div>
+  <div class="tot-extra" id="form">LAST 5: —</div>
+  <div class="tot-extra" id="mainEvent">MAIN EVENT: —</div>
+</div>
+
+<!-- Leaderboard -->
+<div class="leader-panel" id="leaderPanel">
+  <div class="leader-title">TOP 10 (ELO)</div>
+  <pre id="leaderboard">—</pre>
+  <div class="last-result" id="lastResult">—</div>
+</div>
+
+<!-- Persistent QR -->
+<a class="qr-block"
+   href="https://createaplayer.vercel.app/create"
+   target="_blank"
+   rel="noopener noreferrer">
+  <div class="qr-label">SUBMIT A FIGHTER</div>
+  <img class="qr-img" src="frame.png" alt="Submit a fighter QR">
+</a>
+
+<script src="ufc.js?v=3"></script>
+</body>
+</html>

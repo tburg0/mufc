@@ -1,0 +1,413 @@
+;---------------------------------------------------------------------
+[Characters]
+ ;How to add characters
+ ;---------------------
+ ;Use the format:
+ ;    charname, stagefilename
+ ;
+ ;eg. For a player with filename "kfm",
+ ;    and stage filename "stages/mybg.def"
+ ;type (without the semicolon):
+ ;    kfm, stages/mybg.def
+ ;
+ ;If you want to load a different def file, you can enter it
+ ;as a directory plus the def file. This example loads up
+ ;chars/kfm/alt-kfm.def:
+ ;    kfm/alt-kfm.def, stages/mybg.def
+ ;
+ ;If you put "random" as the stagefilename, then a random stage will
+ ;be selected for that player. eg.
+ ;    kfm, random
+ ;
+ ;Zipped characters are also supported.
+ ;Place the ZIP file in the chars/ directory. The syntax is as
+ ;follows:
+ ;    zipname.zip:defname.def, stages/mybg.def
+ ;For example, if you have newsuave.def in suave.zip, the syntax is:
+ ;    suave.zip:newsuave.def, stages/mybg.def
+ ;If your def file has the same name as the zip file (eg. suave.def
+ ;in suave.zip), you can just put the name of the zip file alone:
+ ;    suave.zip, stages/mybg.def
+ ;
+ ;Optional parameters may follow on the same line, separated
+ ;by commas. Each parameter has the form:
+ ;    paramname = paramvalue
+ ;where paramname is the name of the parameter type, and
+ ;paramvalue is the value to assign that parameter.
+ ;The optional parameters are:
+ ;
+ ; - music
+ ;   Set the paramvalue to the name of the music file to use
+ ;   as the BGM for that character. This overrides the bgmusic
+ ;   parameter in the stage's .def file, so you can re-use the
+ ;   same stage for multiple characters, but have a different
+ ;   BGM playing for each person.
+ ;
+ ; - includestage
+ ;   Set the paramvalue to 0 to avoid including this stage
+ ;   in the stage select list (in VS, training modes, etc)
+ ;
+ ; - order
+ ;   Set the paramvalue to the ordering priority to give the
+ ;   character. Valid values are from 1 to 30. A smaller value
+ ;   means you will fight the character sooner. You will never
+ ;   fight an order 2 character before an order 1 character,
+ ;   and never an order 3 character before an order 2 one.
+ ;   For example, you might want to set your boss character
+ ;   to have order=3. The default order value is 1 if you omit
+ ;   this param. See *.maxmatches under [Options] for how to
+ ;   limit the number of matches per order priority.
+ ;
+ ;   Some examples:
+ ;        kfm, stages/mybg.def, includestage=0
+ ;        kfm, stages/mybg.def, music=sound/song.mp3
+ ;        kfm, stages/mybg.def, music=sound/song.mp3, includestage=0
+ ;        kfm, stages/mybg.def, order=3
+ ;
+ ;You can also add a randomize icon to the select screen. To do
+ ;this, put the word "randomselect" on a line of its own, with no
+ ;extra parameters.
+ ;
+ ;Insert your characters below.
+
+randomselect
+Alex, random
+Alfred-POTS, random
+Amakusa, random
+AmySorel, random
+Anakaris, random
+AndoreJr, random
+Annie-POTS, random
+Asetl, random
+Astaroth, random
+Bandamax, random
+Bao, random
+Batman, random
+Belger, random
+Biker, random
+Bison_01, random
+BlackElmer, random
+Blackheart, random
+Blanka, random
+Blaze-POTS, random
+Bluestreak, random
+Butcher, random
+Cable, random
+Cadillacs_-_Hogg, random
+Cadillacs_-_Tiranosaurio_1, random
+Cadillacs_-_Tiranosaurio, random
+Cammy_Infinite_Sf6, random
+Candy_Diamond, random
+Carlos, random
+Cassandra-POTS, random
+Cervantes, random
+Char, random
+Charlotte, random
+Chelnov, random
+Chrom, random
+Chun_Li_JJ, random
+Cipry_POTS, random
+Clone_Krizalid, random
+CM_Punk, random
+Cody, random
+Colossus, random
+CPS2_Blair, random
+Crawd, random
+Cyborg, random
+Cyclops, random
+Daigo, random
+Damnd, random
+Dana_Dee, random
+Dante, random
+Darkseid, random
+DarkTalbain, random
+Darth_Vader, random
+Date, random
+Dean, random
+Death_Adder, random
+Dee, random
+Delga, random
+Demetra, random
+Demitri_Maximoff, random
+Devilotte, random
+Dhalsim, random
+DiddyKong, random
+DivineLilith, random
+Dr.Octopus, random
+DWKyosuke, random
+Eaglesfending, random
+Edward, random
+Earthquake, random
+Eiji_02, random
+Elena, random
+Elisabeth, random
+Elysium, random
+Ermac, random
+EvilDan, random
+Erza, random
+Falcon, random
+Ferris, random
+Fessenden, random
+FinalBison, random
+Floyd, random
+Gale, random
+Gambit, random
+Gato, random
+GBKnucklesPOTS, random
+Gillius, random
+Gneiss, random
+Goenitz, random
+Goro, random
+Gouki, random
+Gustab, random
+Gutter, random
+Guy, random
+Haggar, random
+HammerT, random
+Hannah_Dundee, random
+Haruhi_Suzumiya, random
+Hayate, random
+Hinako, random
+Hinata, random
+Hotaru_Futaba, random
+Hugo, random
+Hulk, random
+Inferno, random
+Inuyasha, random
+Iron_Man, random
+Ivy, random
+Jack, random
+Jae-POTS, random
+Jago, random
+Jam_Kuradoberi, random
+Jimmy, random
+Jhun, random
+JohnCrawley, random
+JohnnyCage, random
+Joseph_Joestar_(Part3), random
+Jubei, random
+Kaede, random
+Kagami_Shinnosuke, random
+Kagome, random
+KamenRiderKuuga, random
+KCore, random
+Ken, random
+Kenshin_Himura, random
+Kensou, random
+Khriz-POTS, random
+Kim_Dong_Hwan, random
+King_Leo, random
+King_Lion, random
+Kisarah, random
+KOF_Seth, random
+Kratos, random
+Kyo_Kusanagi, random
+Lady_Deathstrike, random
+Lee-POTS, random
+Leona, random
+LeonKennedy, random
+LiuKang, random
+LiXiangfei, random
+Lord_Raptor, random
+Lucifer, random
+Magma_Dragoon, random
+Mai_Shiranui_(Classic), random
+Maki, random
+Makota, random
+Man-Thing, random
+Marco, random
+Marrow, random
+Mars_People, random
+Matlock, random
+Meiling, random
+Mess, random
+Mileena, random
+Mitsurugi, random
+Mitzoguchi, random
+Miu_Kurosaki, random
+Moe_Habana, random
+Morgan, random
+Morgue, random
+Morrigan, random
+Mr_Karate, random
+Mr.X, random
+Mukuro, random
+Musah, random
+Mustapha, random
+Necro, random
+Ness, random
+NormalNash, random
+Oboro_Bishamon, random
+Omega_Red, random
+Orchid, random
+Oro, random
+OrochiChris, random
+Othello, random
+PaiChan, random
+Pepe, random
+PoacherJ, random
+Poison, random
+POTSMadokaS3, random
+POTSKuroAonix, random
+Pyron, random
+Rain, random
+RaidenMK, random
+Ramon, random
+Raphael, random
+Rashid, random
+Rave, random
+Ray, random
+Red_Puckett, random
+Reptile, random
+Rikuo, random
+Rolento, random
+RougeTheBat, random
+Roy, random
+rTiffany, random
+Rumble, random
+RyokoKano, random
+Ryu, random
+Sabretooth, random
+Sabrewulf, random
+SamusAran, random
+SarahBryant, random
+Sasquatch, random
+Satomi, random
+Scorpion, random
+ShinGouki, random
+Shishio_Makoto, random
+Shang_Tsung, random
+ShaoKahn, random
+Sinobu-POTS, random
+Skinner, random
+Slice, random
+Slisaur, random
+Snake, random
+Sonic, random
+Spawn, random
+Spider-Man, random
+Squall_Leonhart, random
+SF6_Guile, random
+SFV_Sagat, random
+Steel, random
+SteveFox, random
+SubZero, random
+Super_Luigi, random
+Super_Mario, random
+Superman, random
+Surtur, random
+Taki, random
+TamTam, random
+Template_rush_01, random
+Template_grapple_01, random
+Template_zone_01, random
+Template_balance_01, random
+Template_summon_01, random
+Tessa, random
+The_End, random
+TheMask, random
+Thor, random
+Tira, random
+Todoh, random
+Ton_Pooh, random
+Tung_Fu_Rue, random
+Twelve, random
+Tyrog, random
+Tyrog2, random
+UrbanChampion_NM, random
+Vector, random
+Venom, random
+ViceT, random
+Voldo, random
+WildWolf, random
+WrenchT, random
+Yang, random
+Yoko, random
+Yoshimitsu, random
+Yun, random
+Zasalamel, random
+Zeku, random
+Zero, random
+Zeus, random
+
+;-----------------------
+[ExtraStages]
+ ;Put extra stages here. They will be available in VS and Watch modes.
+ ;For example, you can insert "stages/mybg.def".
+
+stages/cfj-japan.def
+stages/cfj_ruins.def
+stages/cfj_underworld.def
+stages/cfj_jungle.def
+stages/Myanmar.def
+stages/honkkong.def
+stages/cfj_training.def
+stages/cfj_newyork.def
+stages/cfj_Infinity_Chamber_Remains.def
+stages/cj_hongkong.def
+stages/Forest-cfj-dm.def
+stages/CvS2_Aomori.def
+stages/CvS2_Kinderdijk.def
+stages/Burning_Osaka_CVS2.def
+stages/cvs2_Osakajou.def
+stages/CVSNK2_Nairobi.def
+stages/CVSNK2_London,_England_(Day).def
+stages/CvSNK_-_Suzaku_Castle.def
+stages/CvSNK_-_Sakazaki_Dojo_02.def
+stages/CvSNK_-_Psycho_Drive.def
+stages/CvSNK_-_Pao_Pao_Cafe.def
+stages/CvSNK_-_New_Metro_City.def
+stages/CvSNK_-_Gokuento_Island.def
+stages/CvSNK_-_Geese_Tower.def
+stages/CvSNK_-_Expressway.def
+stages/CvSNK_-_Ayutthaya_City.def
+stages/CvSNK_-_Aensland_Castle.def
+stages/Cvs2k_pro-train.def
+stages/Cvs2K_Pro-Ayutaya_Remix.def
+stages/Mai's_Sauna.def
+stages/YDA_CVS_Snk(Neo-Geo)_Beta.def
+stages/CVS_Construction.def
+stages/train-L.def
+stages/cvs2_stadium.def
+stages/cvs_finalfight.def
+stages/KamuiKL2021.def
+stages/kfm_mhx_geese_tower16.def
+stages/London-night_cvs2.def
+stages/AkumaHide-Out.def
+stages/cvssfire.def
+stages/cvssbuddga.def
+stages/cvssdragon.def
+stages/cvssgamec.def
+stages/cvsmorrigan.def
+stages/CvsParque.def
+stages/CvsBison.def
+stages/CvsSagat.def
+stages/CvsRyu.def
+stages/CvsBeco.def
+stages/cvsrooftop.def
+stages/CVS2K_Pro_Hansin_highway.def
+stages/mount-mt.def
+stages/CVS2-Alaska-mt.def
+stages/Laboratory.def
+stages/CVS_Stage_of_Capcom.def
+stages/CvS2_Arctic3D.def
+stages/Thailand-cvs-dm.def
+stages/Shanghai1.def
+stages/CVS2-sipstage.def
+stages/Cvs2k-neogeoLand.def
+stages/YDA_CVS_Gouki.def
+
+;---------------------------------------------------------------------
+[Options]
+ ;Here you set the maximum number of matches to fight before game ends
+ ;in Arcade Mode. The first number is the number of matches against
+ ;characters with order=1, followed by order=2 and order=3 respectively.
+ ;For example, for 4,3,1 you will fight up to 4 randomly-picked
+ ;characters who have order=1, followed by 3 with order=2 and 1 with
+ ;order=3.
+ ;Up to 30 entries allowed.
+arcade.maxmatches = 6,1,1,0,0,0,0,0,0,0
+
+ ;Maximum number of matches to fight before game ends in Team Mode.
+ ;Like arcade.maxmatches, but applies to Team Battle.
+team.maxmatches = 4,1,1,0,0,0,0,0,0,0

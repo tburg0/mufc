@@ -1,0 +1,47 @@
+{
+  "build": {
+    "stats": {
+      "power": 76,
+      "speed": 76,
+      "health": 76,
+      "defense": 76,
+      "aggression": 76
+    },
+    "trait": "mobility_focus",
+    "archetype": "Grappler",
+    "super_style": "throw_super",
+    "move_package": "rush_02"
+  },
+  "status": "submitted",
+  "version": 1,
+  "visuals": {
+    "emblem": "skull",
+    "palette": "purple_gold",
+    "body_template": "template_female_01",
+    "portrait_file": "",
+    "stance_template": "calm"
+  },
+  "identity": {
+    "bio": "Ready",
+    "name": "Hello",
+    "hometown": "But here I am",
+    "nickname": "Its Me",
+    "win_quote": "Lets Win",
+    "intro_quote": "Freddy",
+    "creator_name": "Its been so long"
+  },
+  "fighter_id": "hello",
+  "submission": {
+    "approved_at": null,
+    "review_notes": "",
+    "submitted_at": "2026-03-24T04:13:19.902Z"
+  },
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_max": 100,
+    "stat_min": 50,
+    "stat_pool_total": 380,
+    "stat_points_used": 380
+  }
+}

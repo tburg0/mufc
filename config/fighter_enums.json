@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0.0",
+  "classification": {
+    "division": ["singles", "tag", "both"],
+    "gender_presentation": ["male", "female", "neutral"],
+    "weight_class": [
+      "flyweight",
+      "lightweight",
+      "middleweight",
+      "heavyweight",
+      "super_heavyweight"
+    ],
+    "archetype": [
+      "balanced",
+      "rushdown",
+      "grappler",
+      "striker",
+      "zoner",
+      "counter_grappler",
+      "tank",
+      "wildcard"
+    ],
+    "stance": ["orthodox", "southpaw", "switch", "brawler"],
+    "alignment": ["face", "heel", "tweener"]
+  },
+  "appearance": {
+    "body_type": ["slim", "athletic", "heavy", "giant"],
+    "height_class": ["short", "average", "tall"],
+    "physique": ["lean", "defined", "thick", "bulky"],
+    "skin_tone": [
+      "light_1",
+      "light_2",
+      "medium_1",
+      "medium_2",
+      "dark_1",
+      "dark_2"
+    ],
+    "hair_style": [
+      "bald",
+      "short",
+      "short_spiky",
+      "long",
+      "ponytail",
+      "mohawk",
+      "afro",
+      "hooded"
+    ],
+    "hair_color": [
+      "black",
+      "brown",
+      "blonde",
+      "red",
+      "white",
+      "blue",
+      "green",
+      "purple"
+    ],
+    "mask_style": ["none", "lucha", "half_mask", "full_mask"],
+    "facial_hair": ["none", "stubble", "goatee", "full_beard", "mustache"],
+    "gear_top": ["bare", "vest", "open_jacket", "hoodie", "armor_light"],
+    "gear_bottom": ["trunks", "tights", "pants", "shorts"],
+    "boots": ["light_boots", "heavy_boots", "kickpads", "wrestling_boots"],
+    "accessory": ["none", "chain", "cape", "armband", "eyepatch"],
+    "portrait_style": ["serious", "intense", "smug", "wild", "heroic"],
+    "aura_fx": ["none", "smoke", "flame", "shadow", "electric"]
+  },
+  "colors": {
+    "primary_color": [
+      "black",
+      "white",
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "purple",
+      "orange",
+      "silver",
+      "gold"
+    ],
+    "secondary_color": [
+      "black",
+      "white",
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "purple",
+      "orange",
+      "silver",
+      "gold"
+    ],
+    "accent_color": [
+      "black",
+      "white",
+      "red",
+      "blue",
+      "green",
+      "yellow",
+      "purple",
+      "orange",
+      "silver",
+      "gold"
+    ]
+  },
+  "ai_profile": {
+    "profile_mode": ["simple", "advanced"],
+    "preferred_range": ["close", "mid", "far", "adaptive"]
+  },
+  "moveset": {
+    "template_base": [
+      "template_balanced_01",
+      "template_rush_01",
+      "template_grapple_01",
+      "template_strike_01",
+      "template_zone_01",
+      "template_counter_01",
+      "template_tank_01",
+      "template_wild_01"
+    ],
+    "moveset_style": [
+      "balanced_pro",
+      "power_grapple",
+      "chain_wrestler",
+      "kickboxer",
+      "brawler",
+      "technical_striker",
+      "anti_air_specialist",
+      "chaos_mixup"
+    ],
+    "taunt_style": [
+      "cold_stare",
+      "hands_up",
+      "point_to_camera",
+      "laugh",
+      "silent_nod"
+    ],
+    "intro_style": [
+      "slow_walk",
+      "confident_walk",
+      "shadow_box",
+      "arms_crossed",
+      "wild_charge"
+    ],
+    "victory_pose": [
+      "arms_folded",
+      "point_to_camera",
+      "kneel_pose",
+      "belt_motion",
+      "roar"
+    ]
+  }
+}
