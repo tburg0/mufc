@@ -1,9 +1,9 @@
 {
   "type": "SINGLES",
-  "p1": "Yang",
-  "p2": "Venom",
+  "p1": "POTSKuroAonix",
+  "p2": "Biker",
   "is_world_title": true,
-  "title_reason": "Venom earned a title shot on a 5-fight win streak",
+  "title_reason": "Biker earned a title shot on a 4-fight win streak",
   "main_event": true,
   "is_tag_series": false,
   "is_tag_title": false,
@@ -12,12 +12,12 @@
   "royal_round": null,
   "is_royal": false,
   "main_event_reason": null,
-  "p1_runtime": "Yang",
-  "p2_runtime": "Venom",
-  "match_number": 1483,
+  "p1_runtime": "POTSKuroAonix",
+  "p2_runtime": "Biker",
+  "match_number": 1487,
   "roster_counts": {
     "submitted": 7,
-    "native": 275,
-    "total": 282
+    "native": 278,
+    "total": 285
   }
 }

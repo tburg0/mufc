@@ -1,1 +1,1 @@
--p1 Yang -p2 Venom -p1.ai 8 -p2.ai 8 -rounds 3
+-p1 POTSKuroAonix -p2 Biker -p1.ai 8 -p2.ai 8 -rounds 3

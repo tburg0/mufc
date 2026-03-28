@@ -1,0 +1,103 @@
+{
+  "stats": {
+    "air": 50,
+    "power": 80,
+    "speed": 90,
+    "strike": 80,
+    "defense": 50,
+    "grapple": 50,
+    "stamina": 50,
+    "recovery": 50,
+    "point_budget_used": 500,
+    "point_budget_total": 500
+  },
+  "status": "submitted",
+  "moveset": {
+    "finisher": "skybreaker",
+    "intro_style": "arms_crossed",
+    "signature_1": "dropkick",
+    "signature_2": "backfist",
+    "signature_3": "roundhouse_burst",
+    "taunt_style": "laugh",
+    "victory_pose": "point_to_camera",
+    "moveset_style": "anti_air_specialist",
+    "template_base": "template_zone_01",
+    "super_finisher": ""
+  },
+  "identity": {
+    "country": "USA",
+    "hometown": "Loves Park, IL",
+    "nickname": "Big Tony",
+    "bio_short": "First character among many to be submitted!",
+    "creator_id": "Tony B",
+    "creator_name": "Tone",
+    "display_name": "Tony Burgess",
+    "announcer_name": "Big Tone!"
+  },
+  "ai_profile": {
+    "air_rate": 70,
+    "aggression": 40,
+    "combo_rate": 48,
+    "guard_rate": 66,
+    "strike_rate": 62,
+    "super_usage": 50,
+    "counter_rate": 60,
+    "grapple_rate": 12,
+    "profile_mode": "simple",
+    "ring_control": 82,
+    "special_usage": 74,
+    "base_archetype": "zoner",
+    "risk_tolerance": 34,
+    "finish_priority": 58,
+    "preferred_range": "far",
+    "throw_escape_rate": 58
+  },
+  "appearance": {
+    "boots": "wrestling_boots",
+    "gloves": true,
+    "aura_fx": "flame",
+    "gear_top": "bare",
+    "physique": "defined",
+    "accessory": "chain",
+    "body_type": "slim",
+    "skin_tone": "light_2",
+    "hair_color": "blonde",
+    "hair_style": "short",
+    "mask_style": "none",
+    "facial_hair": "none",
+    "gear_bottom": "shorts",
+    "accent_color": "white",
+    "height_class": "short",
+    "primary_color": "red",
+    "portrait_style": "intense",
+    "secondary_color": "black"
+  },
+  "created_at": "2026-03-27T04:56:06.003Z",
+  "fighter_id": "tony_burgess",
+  "updated_at": "2026-03-27T04:56:06.003Z",
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_pool_total": 500,
+    "remaining_points": 0,
+    "stat_points_used": 500
+  },
+  "submission_id": null,
+  "classification": {
+    "stance": "orthodox",
+    "division": "singles",
+    "alignment": "face",
+    "archetype": "zoner",
+    "weight_class": "lightweight",
+    "gender_presentation": "male"
+  },
+  "schema_version": "1.0.0",
+  "league_settings": {
+    "debut_priority": true,
+    "eligible_for_tag": true,
+    "can_hold_tag_title": true,
+    "preferred_tag_role": "either",
+    "can_hold_world_title": true,
+    "eligible_for_singles": true
+  }
+}

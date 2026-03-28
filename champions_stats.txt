@@ -1,10 +1,10 @@
 === CHAMPION STATS ===
-Current Champion: Venom
+Current Champion: POTSKuroAonix
 
-Name: Venom
-Record: 13-7
-Elo: 1613.07
+Name: POTSKuroAonix
+Record: 67-7
+Elo: 1926.94
 Reigns: 1
-Defenses: 0
-Current Reign Defenses: 0
-Streak: W6
+Defenses: 1
+Current Reign Defenses: 1
+Streak: W2

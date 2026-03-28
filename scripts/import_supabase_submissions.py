@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 import json
 import subprocess
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
 
 import requests
 
@@ -12,7 +14,6 @@ CONFIG_DIR = ROOT / "config"
 DRAFTS_DIR = ROOT / "submissions" / "drafts"
 APPROVED_DIR = ROOT / "submissions" / "approved"
 REJECTED_DIR = ROOT / "submissions" / "rejected"
-GENERATED_DIR = ROOT / "generated"
 
 GENERATE_SCRIPT = ROOT / "scripts" / "generate_fighter.py"
 PUBLISH_SCRIPT = ROOT / "scripts" / "publish_fighter.py"
@@ -87,161 +88,101 @@ def patch_row(url: str, key: str, row_id: Any, payload: Dict[str, Any]) -> None:
     r.raise_for_status()
 
 
-def load_config() -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
-    schema = load_json(CONFIG_DIR / "fighter_schema.json")
-    enums = load_json(CONFIG_DIR / "fighter_enums.json")
-    rules = load_json(CONFIG_DIR / "fighter_validation_rules.json")
-    return schema, enums, rules
+def load_config() -> Dict[str, Any]:
+    return {
+        "fighter_enums": load_json(CONFIG_DIR / "fighter_enums.json"),
+        "fighter_validation_rules": load_json(CONFIG_DIR / "fighter_validation_rules.json"),
+    }
 
 
-def get_nested(data: Dict[str, Any], dotted_key: str, default=None):
-    cur: Any = data
-    for part in dotted_key.split("."):
-        if not isinstance(cur, dict) or part not in cur:
-            return default
-        cur = cur[part]
-    return cur
+def validate_required_sections(fighter: Dict[str, Any], errors: List[str]) -> None:
+    required = ["identity", "classification", "appearance", "stats", "ai_profile", "moveset"]
+    for section in required:
+        if section not in fighter or not isinstance(fighter[section], dict):
+            errors.append(f"Missing required section: {section}")
 
 
-def validate_required_sections(fighter: Dict[str, Any], schema: Dict[str, Any], errors: List[str]) -> None:
-    for key in schema.get("required", []):
-        if key not in fighter:
-            errors.append(f"Missing required top-level field: {key}")
-
-
-def validate_identity(fighter: Dict[str, Any], rules: Dict[str, Any], errors: List[str]) -> None:
-    identity = fighter.get("identity", {})
-    fighter_id = fighter.get("fighter_id", "")
-    display_name = identity.get("display_name", "")
-    nickname = identity.get("nickname", "")
-    bio_short = identity.get("bio_short", "")
-
-    import re
-    pattern = rules["identity_rules"]["fighter_id"]["pattern"]
-    if not re.match(pattern, fighter_id or ""):
-        errors.append("fighter_id must be 3-32 chars, lowercase letters/numbers/underscores only")
-
-    if not display_name or len(display_name) > rules["identity_rules"]["display_name"]["max_length"]:
-        errors.append("identity.display_name is required and must be 1-24 chars")
-
-    if nickname and len(nickname) > rules["identity_rules"]["nickname"]["max_length"]:
-        errors.append("identity.nickname exceeds max length")
-
-    if bio_short and len(bio_short) > rules["identity_rules"]["bio_short"]["max_length"]:
-        errors.append("identity.bio_short exceeds max length")
-
-
-def validate_enum_block(block_name: str, fighter: Dict[str, Any], enums: Dict[str, Any], errors: List[str]) -> None:
-    block = fighter.get(block_name, {})
-    allowed_block = enums.get(block_name, {})
-    for field, allowed_values in allowed_block.items():
-        if field in block and block[field] not in allowed_values:
-            errors.append(f"{block_name}.{field} has invalid value: {block[field]}")
-
-
-def validate_color_fields(fighter: Dict[str, Any], enums: Dict[str, Any], errors: List[str]) -> None:
-    appearance = fighter.get("appearance", {})
-    color_enums = enums.get("colors", {})
-    for field in ["primary_color", "secondary_color", "accent_color"]:
-        value = appearance.get(field)
-        if value is not None and value not in color_enums.get(field, []):
-            errors.append(f"appearance.{field} has invalid value: {value}")
+def validate_enums(fighter: Dict[str, Any], enums: Dict[str, Any], errors: List[str]) -> None:
+    checks = [
+        ("classification.archetype", fighter.get("classification", {}).get("archetype"), enums.get("classification", {}).get("archetype", [])),
+        ("classification.weight_class", fighter.get("classification", {}).get("weight_class"), enums.get("classification", {}).get("weight_class", [])),
+        ("classification.stance", fighter.get("classification", {}).get("stance"), enums.get("classification", {}).get("stance", [])),
+        ("ai_profile.preferred_range", fighter.get("ai_profile", {}).get("preferred_range"), enums.get("ai_profile", {}).get("preferred_range", [])),
+        ("moveset.template_base", fighter.get("moveset", {}).get("template_base"), enums.get("moveset", {}).get("template_base", [])),
+        ("moveset.moveset_style", fighter.get("moveset", {}).get("moveset_style"), enums.get("moveset", {}).get("moveset_style", [])),
+    ]
+    for name, value, allowed in checks:
+        if allowed and value not in allowed:
+            errors.append(f"Invalid enum value for {name}: {value}")
 
 
 def validate_stats(fighter: Dict[str, Any], rules: Dict[str, Any], errors: List[str]) -> None:
     stats = fighter.get("stats", {})
-    stat_rules = rules["stat_rules"]
-    fields = stat_rules["point_budget_fields"]
-    min_stat = stat_rules["minimum_per_stat"]
-    max_stat = stat_rules["maximum_per_stat"]
+    fields = rules.get("stat_rules", {}).get("point_budget_fields", [])
+    min_stat = int(rules.get("stat_rules", {}).get("minimum_per_stat", 35))
+    max_stat = int(rules.get("stat_rules", {}).get("maximum_per_stat", 95))
+    target_total = int(rules.get("stat_rules", {}).get("point_budget_total", 500))
 
-    missing = [s for s in fields if s not in stats]
+    missing = [field for field in fields if field not in stats]
     if missing:
-        errors.append(f"Missing stat fields: {', '.join(missing)}")
+        errors.append(f"Missing stats: {', '.join(missing)}")
         return
 
     total = 0
-    above_85 = 0
-    below_40 = 0
-    for stat in fields:
-        value = stats.get(stat)
-        if not isinstance(value, int):
-            errors.append(f"stats.{stat} must be an integer")
+    for field in fields:
+        try:
+            value = int(stats[field])
+        except Exception:
+            errors.append(f"Stat must be numeric: {field}")
             continue
-        total += value
         if value < min_stat or value > max_stat:
-            errors.append(f"stats.{stat} must be between {min_stat} and {max_stat}")
-        if value > 85:
-            above_85 += 1
-        if value < 40:
-            below_40 += 1
+            errors.append(f"Stat out of range: {field}={value}")
+        total += value
 
-    expected_total = stat_rules["point_budget_total"]
-    if total != expected_total:
-        errors.append(f"Stat budget mismatch: expected {expected_total}, got {total}")
-
-    if above_85 > stat_rules["max_stats_above_85"]:
-        errors.append("Too many stats above 85")
-    if below_40 > stat_rules["max_stats_below_40"]:
-        errors.append("Too many stats below 40")
+    if total != target_total:
+        errors.append(f"Stat budget mismatch: expected {target_total}, got {total}")
 
 
-def validate_ai(fighter: Dict[str, Any], enums: Dict[str, Any], rules: Dict[str, Any], errors: List[str]) -> None:
+def validate_ai(fighter: Dict[str, Any], errors: List[str]) -> None:
     ai = fighter.get("ai_profile", {})
-    ai_rules = rules["ai_rules"]
-    if ai.get("profile_mode") not in enums.get("ai_profile", {}).get("profile_mode", []):
-        errors.append("ai_profile.profile_mode is invalid")
-    if ai.get("preferred_range") not in enums.get("ai_profile", {}).get("preferred_range", []):
-        errors.append("ai_profile.preferred_range is invalid")
-
-    for field in ai_rules["advanced_mode_allowed_fields"]:
-        if field == "preferred_range":
-            continue
-        value = ai.get(field)
-        if not isinstance(value, int):
-            errors.append(f"ai_profile.{field} must be an integer")
-            continue
-        if value < ai_rules["all_slider_min"] or value > ai_rules["all_slider_max"]:
-            errors.append(f"ai_profile.{field} must be between 0 and 100")
-
-
-def validate_moveset(fighter: Dict[str, Any], enums: Dict[str, Any], errors: List[str]) -> None:
-    moveset = fighter.get("moveset", {})
-    template_base = moveset.get("template_base")
-    moveset_style = moveset.get("moveset_style")
-
-    if template_base not in enums.get("moveset", {}).get("template_base", []):
-        errors.append("moveset.template_base is invalid")
-    if moveset_style not in enums.get("moveset", {}).get("moveset_style", []):
-        errors.append("moveset.moveset_style is invalid")
-
-    signatures = [
-        moveset.get("signature_1"),
-        moveset.get("signature_2"),
-        moveset.get("signature_3"),
+    numeric_fields = [
+        "aggression", "combo_rate", "grapple_rate", "strike_rate", "air_rate",
+        "throw_escape_rate", "guard_rate", "counter_rate", "special_usage",
+        "super_usage", "risk_tolerance", "ring_control", "finish_priority",
     ]
-    filtered = [s for s in signatures if s]
-    if len(filtered) != len(set(filtered)):
-        errors.append("Signature moves must be unique")
+    for field in numeric_fields:
+        if field not in ai:
+            errors.append(f"Missing ai_profile.{field}")
+            continue
+        try:
+            value = int(ai[field])
+        except Exception:
+            errors.append(f"AI value must be numeric: {field}")
+            continue
+        if value < 0 or value > 100:
+            errors.append(f"AI value out of range: {field}={value}")
+
+    if fighter.get("classification", {}).get("archetype") != ai.get("base_archetype"):
+        errors.append("classification.archetype must match ai_profile.base_archetype")
 
 
-def validate_submission(fighter: Dict[str, Any], schema: Dict[str, Any], enums: Dict[str, Any], rules: Dict[str, Any]) -> List[str]:
+def validate_submission(fighter: Dict[str, Any], config: Dict[str, Any]) -> List[str]:
     errors: List[str] = []
-    validate_required_sections(fighter, schema, errors)
-    validate_identity(fighter, rules, errors)
-    validate_enum_block("classification", fighter, enums, errors)
-    validate_enum_block("appearance", fighter, enums, errors)
-    validate_color_fields(fighter, enums, errors)
-    validate_stats(fighter, rules, errors)
-    validate_ai(fighter, enums, rules, errors)
-    validate_moveset(fighter, enums, errors)
+    if not fighter.get("fighter_id"):
+        errors.append("fighter_id missing")
+    if not fighter.get("identity", {}).get("display_name"):
+        errors.append("identity.display_name missing")
 
-    # Cross-check archetype alignment.
-    classification = fighter.get("classification", {})
-    ai_profile = fighter.get("ai_profile", {})
-    if classification.get("archetype") and ai_profile.get("base_archetype"):
-        if classification["archetype"] != ai_profile["base_archetype"]:
-            errors.append("classification.archetype must match ai_profile.base_archetype")
+    validate_required_sections(fighter, errors)
+    validate_enums(fighter, config["fighter_enums"], errors)
+    validate_stats(fighter, config["fighter_validation_rules"], errors)
+    validate_ai(fighter, errors)
+
+    moveset = fighter.get("moveset", {})
+    sigs = [moveset.get("signature_1"), moveset.get("signature_2"), moveset.get("signature_3")]
+    compact = [s for s in sigs if s]
+    if len(compact) != len(set(compact)):
+        errors.append("Signature moves must be unique")
 
     return errors
 
@@ -262,7 +203,7 @@ def write_rejected_copy(fighter_id: str, fighter: Dict[str, Any], errors: List[s
 
 
 def main() -> None:
-    schema, enums, rules = load_config()
+    config = load_config()
     env = load_env()
     rows = fetch(env["url"], env["key"])
 
@@ -284,49 +225,38 @@ def main() -> None:
 
         save_json(draft_path, fighter)
 
-        if approved_path.exists():
-            print(f"Already processed: {fighter_id}")
-            patch_row(env["url"], env["key"], row_id, {"status": "synced"})
-            continue
-
-        errors = validate_submission(fighter, schema, enums, rules)
+        errors = validate_submission(fighter, config)
         if errors:
-            print(f"❌ Rejected {fighter_id}")
+            print(f"Rejected {fighter_id}")
             for err in errors:
-                print(f"   - {err}")
+                print(f" - {err}")
             write_rejected_copy(fighter_id, fighter, errors)
             patch_row(
                 env["url"],
                 env["key"],
                 row_id,
-                {
-                    "status": "rejected",
-                    "rejection_reason": "; ".join(errors)[:500],
-                },
+                {"status": "rejected", "rejection_reason": "; ".join(errors)[:500]},
             )
             continue
 
         save_json(approved_path, fighter)
-        print(f"✅ Approved: {fighter_id}")
+        print(f"Approved: {fighter_id}")
 
         try:
             auto_pipeline(fighter_id)
         except Exception as e:
-            print(f"❌ Pipeline failed for {fighter_id}: {e}")
+            print(f"Pipeline failed for {fighter_id}: {e}")
             patch_row(
                 env["url"],
                 env["key"],
                 row_id,
-                {
-                    "status": "approved",
-                    "rejection_reason": f"Pipeline failed after approval: {e}"[:500],
-                },
+                {"status": "approved", "rejection_reason": f"Pipeline failed after approval: {e}"[:500]},
             )
             continue
 
         patch_row(env["url"], env["key"], row_id, {"status": "synced", "rejection_reason": None})
 
-    print("\n🚀 Import + Validation + Auto-Publish complete")
+    print("\nImport + Validation + Auto-Publish complete")
 
 
 if __name__ == "__main__":

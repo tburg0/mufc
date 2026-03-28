@@ -1,5 +1,5 @@
 {
   "import_exit_code": 0,
-  "publish_all_exit_code": 0,
-  "ok": true
+  "publish_all_exit_code": 1,
+  "ok": false
 }

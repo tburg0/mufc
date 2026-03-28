@@ -5,7 +5,7 @@
       "name": "Fighter #3",
       "creator": "Three",
       "archetype": "Grappler",
-      "runtime_template": "template_grapple_01",
+      "runtime_template": "custom_fighter_3",
       "live": true
     },
     {
@@ -29,7 +29,7 @@
       "name": "Sophie",
       "creator": "Tony",
       "archetype": "Rushdown",
-      "runtime_template": "template_rush_01",
+      "runtime_template": "custom_sophie",
       "live": true
     },
     {
@@ -37,7 +37,7 @@
       "name": "Tony",
       "creator": "Tony B",
       "archetype": "Rushdown",
-      "runtime_template": "template_rush_01",
+      "runtime_template": "custom_tony",
       "live": true
     },
     {

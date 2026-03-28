@@ -1,6 +1,9 @@
-from pathlib import Path
+from __future__ import annotations
+
 import json
-from typing import Any, Dict, List
+import sys
+from pathlib import Path
+from typing import Any, Dict, Iterable, List, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG_DIR = ROOT / "config"
@@ -9,28 +12,6 @@ APPROVED_DIR = ROOT / "submissions" / "approved"
 GENERATED_DIR = ROOT / "generated" / "fighters"
 GENERATED_META_DIR = ROOT / "generated" / "fighters_metadata"
 AGGREGATE_META_FILE = ROOT / "fighters_metadata.json"
-
-
-DEFAULT_ARCHETYPE_TEMPLATE_MAP = {
-    "Rushdown": "template_rush_01",
-    "Grappler": "template_grapple_01",
-    "Zoner": "template_zone_01",
-    "Balanced": "template_balanced_01",
-    "Summoner": "template_wild_01",
-    "Striker": "template_strike_01",
-    "Tank": "template_tank_01",
-    "Wildcard": "template_wild_01",
-    "Counter Grappler": "template_counter_01",
-    "counter_grappler": "template_counter_01",
-    "rushdown": "template_rush_01",
-    "grappler": "template_grapple_01",
-    "zoner": "template_zone_01",
-    "balanced": "template_balanced_01",
-    "summoner": "template_wild_01",
-    "striker": "template_strike_01",
-    "tank": "template_tank_01",
-    "wildcard": "template_wild_01",
-}
 
 
 def load_json(path: Path, default: Any = None) -> Any:
@@ -42,257 +23,222 @@ def load_json(path: Path, default: Any = None) -> Any:
         return json.load(f)
 
 
-CONFIG = {
-    "fighter_schema": load_json(CONFIG_DIR / "fighter_schema.json", {}),
-    "fighter_enums": load_json(CONFIG_DIR / "fighter_enums.json", {}),
-    "fighter_asset_registry": load_json(CONFIG_DIR / "fighter_asset_registry.json", {}),
-    "fighter_validation_rules": load_json(CONFIG_DIR / "fighter_validation_rules.json", {}),
-}
-
-
 def save_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
 
-def normalize_key(value: str) -> str:
-    return (value or "").strip().replace("-", "_").replace(" ", "_")
+CONFIG = {
+    "fighter_enums": load_json(CONFIG_DIR / "fighter_enums.json", {}),
+    "fighter_asset_registry": load_json(CONFIG_DIR / "fighter_asset_registry.json", {}),
+    "fighter_validation_rules": load_json(CONFIG_DIR / "fighter_validation_rules.json", {}),
+}
+
+DEFAULT_ARCHETYPE_TEMPLATE_MAP = {
+    "balanced": "template_balanced_01",
+    "rushdown": "template_rush_01",
+    "grappler": "template_grapple_01",
+    "striker": "template_strike_01",
+    "zoner": "template_zone_01",
+    "counter_grappler": "template_counter_01",
+    "tank": "template_tank_01",
+    "wildcard": "template_wild_01",
+}
+
+DEFAULT_ARCHETYPE_AI_PACKAGE = {
+    "balanced": "balanced_v1",
+    "rushdown": "rushdown_v1",
+    "grappler": "grappler_v1",
+    "striker": "striker_v1",
+    "zoner": "zoner_v1",
+    "counter_grappler": "counter_v1",
+    "tank": "tank_v1",
+    "wildcard": "wildcard_v1",
+}
+
+REQUIRED_STATS = ["power", "speed", "defense", "grapple", "strike", "air", "stamina", "recovery"]
+REQUIRED_AI = [
+    "aggression", "combo_rate", "grapple_rate", "strike_rate", "air_rate",
+    "throw_escape_rate", "guard_rate", "counter_rate", "special_usage",
+    "super_usage", "risk_tolerance", "ring_control", "finish_priority"
+]
 
 
-def get_nested(data: Dict[str, Any], *keys: str, default: Any = None) -> Any:
-    cur: Any = data
-    for key in keys:
-        if not isinstance(cur, dict):
-            return default
-        cur = cur.get(key)
-        if cur is None:
-            return default
-    return cur
+def slugify(value: str) -> str:
+    value = (value or "").strip().lower().replace("-", "_").replace(" ", "_")
+    return "".join(ch for ch in value if ch.isalnum() or ch == "_")
 
 
-def stat_fields() -> List[str]:
-    rules = CONFIG["fighter_validation_rules"].get("stat_rules", {})
-    fields = rules.get("point_budget_fields") or [
-        "power",
-        "speed",
-        "defense",
-        "grapple",
-        "strike",
-        "air",
-        "stamina",
-        "recovery",
-    ]
-    return fields
+def palette_key_from_colors(appearance: Dict[str, Any]) -> str:
+    return f'{appearance.get("primary_color","")}_{appearance.get("secondary_color","")}_{appearance.get("accent_color","")}'.strip("_").lower()
 
 
-def validate_stats(stats: Dict[str, int]) -> None:
-    rules = CONFIG["fighter_validation_rules"].get("stat_rules", {})
-    fields = stat_fields()
-    minimum = int(rules.get("minimum_per_stat", 35))
-    maximum = int(rules.get("maximum_per_stat", 95))
-    max_above_85 = int(rules.get("max_stats_above_85", 2))
-    max_below_40 = int(rules.get("max_stats_below_40", 1))
-    expected_budget = int(rules.get("point_budget_total", 500))
-    exact_budget = bool(rules.get("exact_budget_match_required", True))
+def get_template_for_archetype(archetype: str) -> str:
+    archetype_key = slugify(archetype)
+    asset_registry = CONFIG["fighter_asset_registry"].get("compatibility_rules", {})
+    compat = asset_registry.get("archetype_to_template", {})
+    if archetype_key in compat and compat[archetype_key]:
+        return compat[archetype_key][0]
+    return DEFAULT_ARCHETYPE_TEMPLATE_MAP.get(archetype_key, "template_balanced_01")
 
-    missing = [field for field in fields if field not in stats]
+
+def get_ai_package_for_archetype(archetype: str) -> str:
+    return DEFAULT_ARCHETYPE_AI_PACKAGE.get(slugify(archetype), "balanced_v1")
+
+
+def validate_stats(stats: Dict[str, Any]) -> None:
+    missing = [k for k in REQUIRED_STATS if k not in stats]
     if missing:
-        raise ValueError(f"Missing stats: {', '.join(missing)}")
+        raise ValueError(f'Missing stats: {", ".join(missing)}')
+
+    rules = CONFIG["fighter_validation_rules"].get("stat_rules", {})
+    fields = rules.get("point_budget_fields", REQUIRED_STATS)
+    min_stat = int(rules.get("minimum_per_stat", 35))
+    max_stat = int(rules.get("maximum_per_stat", 95))
+    target_total = int(rules.get("point_budget_total", 500))
 
     total = 0
-    above_85 = 0
-    below_40 = 0
     for field in fields:
         value = int(stats[field])
-        if value < minimum or value > maximum:
-            raise ValueError(f"{field} out of bounds: {value} (expected {minimum}-{maximum})")
+        if value < min_stat or value > max_stat:
+            raise ValueError(f"Stat out of range: {field}={value}")
         total += value
-        if value > 85:
-            above_85 += 1
-        if value < 40:
-            below_40 += 1
 
-    if exact_budget and total != expected_budget:
-        raise ValueError(f"Stat budget mismatch: {total} (expected {expected_budget})")
-    if above_85 > max_above_85:
-        raise ValueError(f"Too many stats above 85: {above_85} (max {max_above_85})")
-    if below_40 > max_below_40:
-        raise ValueError(f"Too many stats below 40: {below_40} (max {max_below_40})")
+    if total != target_total:
+        raise ValueError(f"Stat budget mismatch: expected {target_total}, got {total}")
+
+    stats["point_budget_total"] = target_total
+    stats["point_budget_used"] = total
 
 
-def resolve_template(archetype: str, template_base: str | None = None) -> str:
-    registry = CONFIG["fighter_asset_registry"].get("compatibility_rules", {})
-    template_map = registry.get("archetype_to_template", {})
+def validate_ai(ai_profile: Dict[str, Any], archetype: str) -> None:
+    if ai_profile.get("base_archetype") and slugify(ai_profile["base_archetype"]) != slugify(archetype):
+        raise ValueError("ai_profile.base_archetype must match classification.archetype")
 
-    archetype_norm = normalize_key(archetype)
-    allowed = (
-        template_map.get(archetype)
-        or template_map.get(archetype_norm)
-        or DEFAULT_ARCHETYPE_TEMPLATE_MAP.get(archetype)
-        or DEFAULT_ARCHETYPE_TEMPLATE_MAP.get(archetype_norm)
+    missing = [k for k in REQUIRED_AI if k not in ai_profile]
+    if missing:
+        raise ValueError(f'Missing ai_profile fields: {", ".join(missing)}')
+
+    for field in REQUIRED_AI:
+        value = int(ai_profile[field])
+        if value < 0 or value > 100:
+            raise ValueError(f"AI field out of range: {field}={value}")
+
+
+def validate_required_sections(fighter: Dict[str, Any]) -> None:
+    for section in ["identity", "classification", "appearance", "stats", "ai_profile", "moveset"]:
+        if section not in fighter or not isinstance(fighter[section], dict):
+            raise ValueError(f"Missing required section: {section}")
+
+    display_name = fighter["identity"].get("display_name", "").strip()
+    if not display_name:
+        raise ValueError("identity.display_name is required")
+
+    fighter_id = fighter.get("fighter_id", "").strip()
+    if not fighter_id:
+        raise ValueError("fighter_id is required")
+
+
+def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any]]:
+    archetype = fighter["classification"]["archetype"]
+    appearance = fighter["appearance"]
+    stats = fighter["stats"]
+    ai = fighter["ai_profile"]
+
+    template_folder = fighter["moveset"].get("template_base") or get_template_for_archetype(archetype)
+    runtime_character_id = f'custom_{slugify(fighter["fighter_id"])}'
+
+    palette_key = palette_key_from_colors(appearance)
+    palette_id = CONFIG["fighter_asset_registry"].get("palette_map", {}).get(
+        palette_key, "palette_black_white_red_01.act"
+    )
+    ai_package = get_ai_package_for_archetype(archetype)
+
+    power_index = round(
+        (
+            stats["power"] * 1.15 +
+            stats["speed"] * 0.95 +
+            stats["defense"] * 1.00 +
+            stats["grapple"] * 1.05 +
+            stats["strike"] * 1.05 +
+            stats["air"] * 0.75 +
+            stats["stamina"] * 0.95 +
+            stats["recovery"] * 0.85
+        ) / 8,
+        2,
     )
 
-    if isinstance(allowed, str):
-        allowed_list = [allowed]
-    else:
-        allowed_list = list(allowed or [])
+    life = int(800 + stats["stamina"] * 4 + stats["defense"] * 2)
+    attack = int(60 + ((stats["power"] + stats["strike"] + stats["grapple"]) / 3) * 0.8)
+    defence = int(60 + ((stats["defense"] + stats["recovery"]) / 2) * 0.6)
 
-    if template_base:
-        if allowed_list and template_base not in allowed_list:
-            raise ValueError(f"Template {template_base} is not allowed for archetype {archetype}")
-        return template_base
-
-    if allowed_list:
-        return allowed_list[0]
-
-    return "template_balanced_01"
-
-
-def compute_power_index(stats: Dict[str, int]) -> float:
-    weighted = (
-        stats["power"] * 0.20
-        + stats["speed"] * 0.12
-        + stats["defense"] * 0.16
-        + stats["grapple"] * 0.14
-        + stats["strike"] * 0.14
-        + stats["air"] * 0.06
-        + stats["stamina"] * 0.10
-        + stats["recovery"] * 0.08
-    )
-    return round(weighted, 1)
-
-
-def derive_engine_stats(stats: Dict[str, int], ai_profile: Dict[str, Any]) -> Dict[str, Any]:
-    power = int(stats["power"])
-    speed = int(stats["speed"])
-    defense = int(stats["defense"])
-    stamina = int(stats["stamina"])
-    recovery = int(stats["recovery"])
-    aggression = int(ai_profile.get("aggression", 50))
-    counter_rate = int(ai_profile.get("counter_rate", 50))
-
-    life = int(900 + ((stamina - 50) * 7) + ((defense - 50) * 3))
-    attack = int(85 + ((power - 50) * 0.75))
-    defence = int(85 + ((defense - 50) * 0.75))
-    fall_defence_up = int(45 + ((recovery - 50) * 0.8))
-
-    if speed >= 90:
-        speed_class = "very_fast"
-    elif speed >= 75:
-        speed_class = "fast"
-    elif speed >= 55:
-        speed_class = "normal"
-    else:
-        speed_class = "slow"
-
-    if aggression >= 80:
-        ai_style = "berserker"
-    elif aggression >= 65:
-        ai_style = "aggressive"
-    elif counter_rate >= 70:
-        ai_style = "patient"
-    else:
-        ai_style = "balanced"
-
-    return {
-        "life": max(650, life),
-        "attack": max(60, attack),
-        "defence": max(60, defence),
-        "fall_defence_up": max(0, fall_defence_up),
-        "speed_class": speed_class,
-        "ai_profile": ai_style,
+    derived_stats = {
+        "life": life,
+        "attack": attack,
+        "defence": defence,
+        "ai_profile": slugify(ai.get("base_archetype") or archetype),
+        "preferred_ai_level": max(1, min(8, round(4 + (ai["aggression"] + ai["risk_tolerance"] + ai["finish_priority"]) / 75))),
     }
 
+    runtime = {
+        "template_folder": template_folder,
+        "runtime_character_id": runtime_character_id,
+        "runtime_display_name": fighter["identity"]["display_name"],
+        "palette_id": palette_id,
+        "portrait_asset": fighter["appearance"].get("portrait_style", "portrait_serious_base.png"),
+        "ai_package": ai_package,
+        "generator_version": "new-model-clean-set-1.0",
+    }
 
-def tier_seed(stats: Dict[str, int]) -> str:
-    total = sum(int(stats[field]) for field in stat_fields())
-    if total >= 520:
-        return "Elite Prospect"
-    if total >= 500:
-        return "Contender Prospect"
-    return "Prospect"
+    league_metadata = {
+        "power_index": power_index,
+        "archetype": slugify(archetype),
+        "weight_class": fighter["classification"].get("weight_class", "middleweight"),
+    }
+    return runtime, derived_stats, league_metadata
 
 
 def build_generated_payload(fighter: Dict[str, Any]) -> Dict[str, Any]:
-    identity = fighter.get("identity", {})
-    classification = fighter.get("classification", {})
-    appearance = fighter.get("appearance", {})
-    stats = fighter.get("stats", {})
-    ai_profile = fighter.get("ai_profile", {})
-    moveset = fighter.get("moveset", {})
+    validate_required_sections(fighter)
+    validate_stats(fighter["stats"])
+    validate_ai(fighter["ai_profile"], fighter["classification"]["archetype"])
 
-    validate_stats(stats)
-
-    fid = fighter["fighter_id"]
-    display_name = identity.get("display_name") or identity.get("name") or fid
-    creator = identity.get("creator_name", "")
-    archetype = classification.get("archetype") or ai_profile.get("base_archetype") or "balanced"
-    template_base = resolve_template(archetype, moveset.get("template_base"))
-    template_meta = CONFIG["fighter_asset_registry"].get("templates", {}).get(template_base, {})
-
-    power_index = compute_power_index(stats)
-    engine_stats = derive_engine_stats(stats, ai_profile)
-
-    primary = appearance.get("primary_color", "black")
-    secondary = appearance.get("secondary_color", "white")
-    accent = appearance.get("accent_color", "red")
-    palette_key = f"{primary}_{secondary}_{accent}"
-    palette_id = CONFIG["fighter_asset_registry"].get("palette_map", {}).get(palette_key)
-    portrait_style = appearance.get("portrait_style", "serious")
-    portrait_asset = CONFIG["fighter_asset_registry"].get("portraits", {}).get(portrait_style)
+    runtime, derived_stats, league_metadata = derive_runtime_and_league(fighter)
 
     return {
-        "fighter_id": fid,
-        "live": False,
+        "fighter_id": fighter["fighter_id"],
         "schema_version": fighter.get("schema_version", "1.0.0"),
+        "status": "generated",
+        "live": False,
         "identity": {
-            "name": display_name,
-            "display_name": display_name,
-            "nickname": identity.get("nickname", ""),
-            "creator_name": creator,
-            "hometown": identity.get("hometown", ""),
-            "country": identity.get("country", ""),
-            "bio_short": identity.get("bio_short", ""),
+            "name": fighter["identity"]["display_name"],
+            "display_name": fighter["identity"]["display_name"],
+            "creator_name": fighter["identity"].get("creator_name", ""),
+            "nickname": fighter["identity"].get("nickname", ""),
+            "hometown": fighter["identity"].get("hometown", ""),
         },
-        "classification": classification,
-        "template_assignment": {
-            "base_template": template_base,
-            "archetype": archetype,
-            "moveset_style": moveset.get("moveset_style", ""),
-            "finisher": moveset.get("finisher", ""),
-            "signature_1": moveset.get("signature_1", ""),
-            "signature_2": moveset.get("signature_2", ""),
-            "signature_3": moveset.get("signature_3", ""),
-            "default_ai_package": template_meta.get("default_ai_package", "balanced_v1"),
-        },
-        "stats": stats,
-        "derived_stats": engine_stats,
-        "ai_profile": ai_profile,
-        "visuals": appearance,
-        "moveset": moveset,
-        "runtime": {
-            "template_folder": template_meta.get("base_char_folder", template_base),
-            "runtime_character_id": f"custom_{normalize_key(fid)}",
-            "runtime_display_name": display_name,
-            "palette_id": palette_id,
-            "portrait_asset": portrait_asset,
-            "ai_package": template_meta.get("default_ai_package", "balanced_v1"),
-        },
-        "league_metadata": {
-            "power_index": power_index,
-            "tier_seed": tier_seed(stats),
-            "archetype": archetype,
-            "author_credit": creator,
-        },
+        "classification": fighter["classification"],
+        "appearance": fighter["appearance"],
+        "stats": fighter["stats"],
+        "ai_profile": fighter["ai_profile"],
+        "moveset": fighter["moveset"],
+        "league_settings": fighter.get("league_settings", {}),
+        "runtime": runtime,
+        "derived_stats": derived_stats,
+        "league_metadata": league_metadata,
     }
 
 
-def generate_one(draft_path: Path) -> Dict[str, Any]:
-    fighter = load_json(draft_path)
-    if fighter.get("status") not in ("submitted", "draft", "approved"):
-        raise ValueError("Unexpected fighter status")
+def load_source_fighter(fighter_id: str) -> Tuple[Path, Dict[str, Any]]:
+    for path in [APPROVED_DIR / f"{fighter_id}.json", DRAFTS_DIR / f"{fighter_id}.json"]:
+        if path.exists():
+            return path, load_json(path, {})
+    raise FileNotFoundError(f"Could not find fighter JSON for {fighter_id}")
 
+
+def generate_one(fighter_id: str) -> Dict[str, Any]:
+    _, fighter = load_source_fighter(fighter_id)
     generated = build_generated_payload(fighter)
     fid = generated["fighter_id"]
 
@@ -326,23 +272,28 @@ def rebuild_aggregate_metadata() -> None:
     save_json(AGGREGATE_META_FILE, {"fighters": fighters})
 
 
+def iter_ids_without_arg() -> Iterable[str]:
+    ids: List[str] = []
+    for path in APPROVED_DIR.glob("*.json"):
+        ids.append(path.stem)
+    return sorted(set(ids))
+
+
 def main() -> None:
     APPROVED_DIR.mkdir(parents=True, exist_ok=True)
     GENERATED_DIR.mkdir(parents=True, exist_ok=True)
     GENERATED_META_DIR.mkdir(parents=True, exist_ok=True)
 
+    ids = [sys.argv[1]] if len(sys.argv) > 1 else list(iter_ids_without_arg())
+    if not ids:
+        print("No fighters found to generate.")
+        return
+
     processed = 0
-    for draft_path in DRAFTS_DIR.glob("*.json"):
-        fighter = load_json(draft_path, {})
-        if fighter.get("status") != "submitted":
-            continue
-
-        generate_one(draft_path)
-
-        fighter["status"] = "approved"
-        approved_path = APPROVED_DIR / draft_path.name
-        save_json(approved_path, fighter)
+    for fighter_id in ids:
+        meta = generate_one(fighter_id)
         processed += 1
+        print(f"[GENERATED] {meta['fighter_id']} ({meta['name']})")
 
     rebuild_aggregate_metadata()
     print(f"Generated {processed} fighter(s).")
