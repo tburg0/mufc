@@ -248,6 +248,13 @@ html, body{
   margin: 0;
 }
 
+.champ-line{
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 6px;
+  opacity: 0.95;
+}
+
 .last-result{
   font-size: 11px;
   margin-top: 8px;
@@ -308,4 +315,23 @@ html, body{
   background: #fff;
   padding: 10px;
   box-shadow: 0 14px 34px rgba(0,0,0,0.55);
+}
+
+#championLine,
+#tagChampionLine {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+
+  color: #FFD700;
+  font-weight: 800;
+  font-size: 13px;
+
+  margin-top: 6px;
+}
+
+#lastResult {
+  font-size: 11px;
+  margin-top: 8px;
+  opacity: 0.75;
 }

@@ -1,23 +1,23 @@
 {
   "active": false,
-  "created_ts": 1774239321.1940844,
-  "id": 1774239321194,
+  "created_ts": 1774838804.2289846,
+  "id": 5949842639883,
   "is_tag_title": false,
   "leg": 2,
   "legs": [
     {
       "leg": 1,
-      "p1": "Ferris",
-      "p2": "Gillius",
-      "result": "0-2",
-      "winner": "Gillius"
+      "p1": "Sonic",
+      "p2": "Jam_Kuradoberi",
+      "result": "2-0",
+      "winner": "Sonic"
     },
     {
       "leg": 2,
-      "p1": "Morrigan",
-      "p2": "Anakaris",
-      "result": "1-2",
-      "winner": "Anakaris"
+      "p1": "Yang",
+      "p2": "custom_fighter_3",
+      "result": "2-0",
+      "winner": "Yang"
     },
     {
       "leg": 3,
@@ -28,17 +28,17 @@
       "winner": null
     }
   ],
-  "scoreA": 0,
-  "scoreB": 2,
+  "scoreA": 2,
+  "scoreB": 0,
   "teamA": [
-    "Ferris",
-    "Morrigan"
+    "Sonic",
+    "Yang"
   ],
-  "teamA_key": "Ferris+Morrigan",
+  "teamA_key": "Sonic+Yang",
   "teamB": [
-    "Gillius",
-    "Anakaris"
+    "custom_fighter_3",
+    "Jam_Kuradoberi"
   ],
-  "teamB_key": "Anakaris+Gillius",
-  "winner_team": "B"
+  "teamB_key": "custom_fighter_3+Jam_Kuradoberi",
+  "winner_team": "A"
 }

@@ -55,6 +55,30 @@
       "archetype": "Grappler",
       "runtime_template": "custom_wednesday",
       "live": true
+    },
+    {
+      "fighter_id": "tony_burgess",
+      "name": "Tony Burgess",
+      "creator": "Tone",
+      "archetype": "zoner",
+      "runtime_template": "custom_tony_burgess",
+      "live": true
+    },
+    {
+      "fighter_id": "lodo_leeo",
+      "name": "Lodo Leeo",
+      "creator": "Talox",
+      "archetype": "balanced",
+      "runtime_template": "custom_lodo_leeo",
+      "live": true
+    },
+    {
+      "fighter_id": "sunday",
+      "name": "Sunday",
+      "creator": "Tony",
+      "archetype": "tank",
+      "runtime_template": "custom_sunday",
+      "live": true
     }
   ]
 }

@@ -101,7 +101,6 @@ Candy_Diamond, random
 Carlos, random
 Cassandra-POTS, random
 Cervantes, random
-Char, random
 Charlotte, random
 Chelnov, random
 Chrom, random
@@ -237,7 +236,6 @@ Mustapha, random
 Necro, random
 Ness, random
 NormalNash, random
-Oboro_Bishamon, random
 Omega_Red, random
 Orchid, random
 Oro, random
@@ -301,7 +299,7 @@ TamTam, random
 Template_rush_01, random
 Template_grapple_01, random
 Template_zone_01, random
-Template_balance_01, random
+Template_balanced_01, random
 Template_summon_01, random
 Tessa, random
 The_End, random

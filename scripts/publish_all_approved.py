@@ -5,98 +5,102 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-APPROVED_DIR = ROOT / "submissions" / "approved"
-PUBLISHED_ROSTER_PATH = ROOT / "generated" / "published_roster.json"
-PUBLISH_SCRIPT = ROOT / "scripts" / "publish_fighter.py"
+ROOT = Path(__file__).resolve().parent.parent if Path(__file__).resolve().parent.name == 'scripts' else Path(__file__).resolve().parent
+SCRIPTS_DIR = ROOT / 'scripts'
+APPROVED_DIR = ROOT / 'submissions' / 'approved'
+GENERATED_DIR = ROOT / 'generated' / 'fighters'
+PUBLISHED_ROSTER_PATH = ROOT / 'generated' / 'published_roster.json'
+PYTHON = sys.executable or 'py'
 
 
-def load_published_ids() -> set[str]:
-    if not PUBLISHED_ROSTER_PATH.exists():
-        return set()
-    try:
-        data = json.loads(PUBLISHED_ROSTER_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return set()
+def load_json(path: Path, default):
+    if not path.exists():
+        return default
+    with path.open('r', encoding='utf-8') as f:
+        return json.load(f)
 
+
+def normalize_fighter_id_from_roster_entry(entry) -> str | None:
+    if isinstance(entry, str):
+        return entry
+    if isinstance(entry, dict):
+        for key in ('fighter_id', 'id', 'submission_id', 'name'):
+            value = entry.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+    return None
+
+
+def get_live_roster_ids() -> set[str]:
+    roster = load_json(PUBLISHED_ROSTER_PATH, [])
     ids: set[str] = set()
-    if isinstance(data, list):
-        for item in data:
-            if isinstance(item, str):
-                ids.add(item.strip().lower())
-            elif isinstance(item, dict):
-                fighter_id = str(
-                    item.get("id")
-                    or item.get("fighter_id")
-                    or item.get("slug")
-                    or item.get("name")
-                    or ""
-                ).strip().lower()
-                if fighter_id:
-                    ids.add(fighter_id)
-    elif isinstance(data, dict):
-        for key, value in data.items():
-            key_s = str(key).strip().lower()
-            if key_s:
-                ids.add(key_s)
-            if isinstance(value, dict):
-                fighter_id = str(
-                    value.get("id")
-                    or value.get("fighter_id")
-                    or value.get("slug")
-                    or value.get("name")
-                    or ""
-                ).strip().lower()
-                if fighter_id:
-                    ids.add(fighter_id)
+    if isinstance(roster, list):
+        for entry in roster:
+            fid = normalize_fighter_id_from_roster_entry(entry)
+            if fid:
+                ids.add(fid)
+    elif isinstance(roster, dict):
+        for key, value in roster.items():
+            if isinstance(key, str) and key.strip():
+                ids.add(key.strip())
+            fid = normalize_fighter_id_from_roster_entry(value)
+            if fid:
+                ids.add(fid)
     return ids
 
 
-def discover_approved_ids() -> list[str]:
-    if not APPROVED_DIR.exists():
-        return []
-    ids: list[str] = []
-    for path in sorted(APPROVED_DIR.glob("*.json")):
-        fighter_id = path.stem.strip().lower()
-        if fighter_id:
-            ids.append(fighter_id)
-    return ids
+def run_script(script_name: str, fighter_id: str) -> subprocess.CompletedProcess:
+    script_path = SCRIPTS_DIR / script_name
+    cmd = [PYTHON, str(script_path), fighter_id]
+    return subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True)
 
 
-def publish_missing() -> int:
-    if not PUBLISH_SCRIPT.exists():
-        print(f"[ERROR] Missing publish script: {PUBLISH_SCRIPT}")
-        return 1
+def main() -> int:
+    approved_files = sorted(APPROVED_DIR.glob('*.json'))
+    live_ids = get_live_roster_ids()
 
-    approved_ids = discover_approved_ids()
-    if not approved_ids:
-        print("No approved fighters found.")
+    missing = [p.stem for p in approved_files if p.stem not in live_ids]
+
+    print(f'Missing from live roster: {len(missing)}')
+    if not missing:
+        print('Nothing to publish.')
         return 0
 
-    published_ids = load_published_ids()
-    missing_ids = [fighter_id for fighter_id in approved_ids if fighter_id not in published_ids]
-
-    print(f"Approved fighters: {len(approved_ids)}")
-    print(f"Already live: {len(published_ids)}")
-    print(f"Missing from live roster: {len(missing_ids)}")
-
     failures = 0
-    for fighter_id in missing_ids:
-        print(f"\n[PUBLISH] {fighter_id}")
-        result = subprocess.run([sys.executable, str(PUBLISH_SCRIPT), fighter_id], cwd=str(ROOT))
-        if result.returncode != 0:
+
+    for fighter_id in missing:
+        generated_path = GENERATED_DIR / f'{fighter_id}.json'
+
+        if not generated_path.exists():
+            print(f'\n[GENERATE] {fighter_id}')
+            gen = run_script('generate_fighter.py', fighter_id)
+            if gen.stdout:
+                print(gen.stdout.rstrip())
+            if gen.stderr:
+                print(gen.stderr.rstrip())
+            if gen.returncode != 0:
+                print(f'[FAILED GENERATE] {fighter_id} (exit code {gen.returncode})')
+                failures += 1
+                continue
+            if not generated_path.exists():
+                print(f'[FAILED GENERATE] {fighter_id} (no generated file created)')
+                failures += 1
+                continue
+
+        print(f'\n[PUBLISH] {fighter_id}')
+        pub = run_script('publish_fighter.py', fighter_id)
+        if pub.stdout:
+            print(pub.stdout.rstrip())
+        if pub.stderr:
+            print(pub.stderr.rstrip())
+        if pub.returncode != 0:
+            print(f'[FAILED] {fighter_id} (exit code {pub.returncode})')
             failures += 1
-            print(f"[FAILED] {fighter_id} (exit code {result.returncode})")
-        else:
-            print(f"[OK] {fighter_id}")
+            continue
 
-    if failures:
-        print(f"\nCompleted with {failures} failure(s).")
-        return 1
-
-    print("\nAll missing approved fighters were published successfully.")
-    return 0
+    print(f'\nCompleted with {failures} failure(s).')
+    return 1 if failures else 0
 
 
-if __name__ == "__main__":
-    raise SystemExit(publish_missing())
+if __name__ == '__main__':
+    raise SystemExit(main())

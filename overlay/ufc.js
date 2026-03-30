@@ -67,13 +67,38 @@ function unwrapMeta(metaWrap){
 
 function metaFor(meta, name){
   if(!meta || !name) return null;
-  if (meta[name]) return meta[name];
 
-  const nk = normKey(name);
-  for (const k of Object.keys(meta)){
-    if (normKey(k) === nk) return meta[k];
+  let entry = null;
+
+  if (meta[name]) {
+    entry = meta[name];
+  } else {
+    const nk = normKey(name);
+    for (const k of Object.keys(meta)){
+      if (normKey(k) === nk) {
+        entry = meta[k];
+        break;
+      }
+    }
   }
-  return null;
+
+  let hops = 0;
+  while (entry && entry.alias_to && hops < 5) {
+    entry = meta[entry.alias_to] || entry;
+    hops++;
+  }
+
+  return entry;
+}
+
+function getAuthor(metaObj){
+  return (
+    metaObj?.author ||
+    metaObj?.creator_name ||
+    metaObj?.creator ||
+    metaObj?.submitted_by ||
+    "Unknown"
+  );
 }
 
 function parsePrematch(txt){
@@ -204,7 +229,7 @@ async function update(){
     const rankMap = buildRankMap(records);
 
     const matchRaw = (matchRawTxt || "").trim();
-    let p1="—", p2="—";
+    let p1 = "—", p2 = "—";
     if (matchRaw.includes(",")){
       const parts = matchRaw.split(",");
       p1 = (parts[0] || "—").trim();
@@ -214,23 +239,22 @@ async function update(){
     const prematchTxt = await fetchText("prematch.txt");
     const tot = parsePrematch(prematchTxt);
 
-	show("debutBanner", false);
-
-	show("eventBanner", false);
+    show("debutBanner", false);
+    show("eventBanner", false);
 
     setText("matchNum", `MATCH #${(state?.match_count ?? 0) + 1}`);
 
     const isTitle = (isTitleTxt || "").trim() === "1";
 
-	if (tot.bannerText){
+    if (tot.bannerText){
       setText("titleBanner", tot.bannerText);
-	  show("titleBanner", true);
-	} else if (isTitle) {
-	  setText("titleBanner", "🏆 CHAMPIONSHIP FIGHT 🏆");
-	  show("titleBanner", true);
-	} else {
+      show("titleBanner", true);
+    } else if (isTitle) {
+      setText("titleBanner", "🏆 CHAMPIONSHIP FIGHT 🏆");
+      show("titleBanner", true);
+    } else {
       show("titleBanner", false);
-	}
+    }
 
     try{
       const stageRaw = (await fetchText("current_stage.txt")).trim();
@@ -242,7 +266,7 @@ async function update(){
     const champ = state?.champion ?? "—";
     const champRec = getRec(records, champ);
     const champM = metaFor(meta, champ) || {};
-    const champAuth = champM.author || "Unknown";
+    const champAuth = getAuthor(champM);
     setText("champName", `CHAMP: ${champ} (${champRec.w}-${champRec.l}) • by ${champAuth}`);
 
     const p1Rec = getRec(records, p1);
@@ -253,8 +277,8 @@ async function update(){
 
     const p1M = metaFor(meta, p1) || {};
     const p2M = metaFor(meta, p2) || {};
-    const p1Auth = p1M.author || "Unknown";
-    const p2Auth = p2M.author || "Unknown";
+    const p1Auth = getAuthor(p1M);
+    const p2Auth = getAuthor(p2M);
 
     setText(
       "matchLine",
@@ -289,50 +313,101 @@ By: ${p1Auth}`);
 Tier: ${p2Tier} | Power: ${p2Power} | ${p2Arch}
 By: ${p2Auth}`);
 
-const p1OddsEl = document.getElementById("p1Odds");
-const p2OddsEl = document.getElementById("p2Odds");
+    const p1OddsEl = document.getElementById("p1Odds");
+    const p2OddsEl = document.getElementById("p2Odds");
 
-function parseOddsValue(s){
-  const m = String(s || "").match(/-?\d+/);
-  return m ? parseInt(m[0], 10) : null;
-}
+    function parseOddsValue(s){
+      const m = String(s || "").match(/-?\d+/);
+      return m ? parseInt(m[0], 10) : null;
+    }
 
-function formatOddsLabel(oddsA, oddsB, which){
-  if (oddsA == null || oddsB == null) return "ODDS —";
+    function formatOddsLabel(oddsA, oddsB){
+      if (oddsA == null || oddsB == null) return "ODDS —";
 
-  const isFavorite = oddsA < oddsB; // more negative = bigger favorite
-  const role = isFavorite ? "Favorite" : "Underdog";
-  const shown = oddsA > 0 ? `+${oddsA}` : `${oddsA}`;
-  const color = isFavorite ? "#4dff88" : "#ff4d4d";
+      const isFavorite = oddsA < oddsB;
+      const role = isFavorite ? "Favorite" : "Underdog";
+      const shown = oddsA > 0 ? `+${oddsA}` : `${oddsA}`;
+      const color = isFavorite ? "#4dff88" : "#ff4d4d";
 
-  return `${role}: <span style="color:${color}; font-weight:900;">${shown}</span>`;
-}
+      return `${role}: <span style="color:${color}; font-weight:900;">${shown}</span>`;
+    }
 
-const p1OddsNum = parseOddsValue(tot.p1Odds);
-const p2OddsNum = parseOddsValue(tot.p2Odds);
+    const p1OddsNum = parseOddsValue(tot.p1Odds);
+    const p2OddsNum = parseOddsValue(tot.p2Odds);
 
-if (p1OddsEl) {
-  p1OddsEl.innerHTML = formatOddsLabel(p1OddsNum, p2OddsNum, "p1");
-}
-if (p2OddsEl) {
-  p2OddsEl.innerHTML = formatOddsLabel(p2OddsNum, p1OddsNum, "p2");
-}
+    if (p1OddsEl) {
+      p1OddsEl.innerHTML = formatOddsLabel(p1OddsNum, p2OddsNum);
+    }
+    if (p2OddsEl) {
+      p2OddsEl.innerHTML = formatOddsLabel(p2OddsNum, p1OddsNum);
+    }
 
-setText("h2h", tot.h2h);
-setText("form", tot.form);
-setText("mainEvent", tot.main);
+    setText("h2h", tot.h2h);
+    setText("form", tot.form);
+    setText("mainEvent", tot.main);
 
-const matchKey = `${matchRaw}|${isTitle ? "1" : "0"}`;
-if (matchKey && matchKey !== lastMatchKey){
-  lastMatchKey = matchKey;
-  setPanelsVisible(true);
-  scheduleAutoHide(20000);
-}
+    const matchKey = `${matchRaw}|${isTitle ? "1" : "0"}`;
+    if (matchKey && matchKey !== lastMatchKey){
+      lastMatchKey = matchKey;
+      setPanelsVisible(true);
+      scheduleAutoHide(20000);
+    }
 
+    // Leaderboard + champion lines
     const lb = await fetchText("leaderboard.txt");
-    setText("leaderboard", lb);
+    const lines = (lb || "").split("\n");
 
-    const last = (lb || "").split("\n").find(l => l.startsWith("Last result:"));
+    const tableLines = [];
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
+      if (line.startsWith("Champion:")) continue;
+      if (line.startsWith("Tag Champions:")) continue;
+      tableLines.push(rawLine);
+    }
+
+    setText("leaderboard", tableLines.join("\n"));
+
+	const singlesChampName = state?.champion ?? "—";
+	const singlesDef = Number(
+	  state?.reign_defenses ??
+      state?.defenses ??
+      0
+    );
+
+    const tagChampsRaw =
+      state?.tag_champions ??
+      state?.tag_team ??
+      state?.tag_champs ??
+    null;
+
+    const tagChampsDisplay = Array.isArray(tagChampsRaw)
+      ? tagChampsRaw.join(" & ")
+      : (tagChampsRaw || "—");
+
+    const tagDef = Number(
+      state?.tag_defenses ??
+      state?.tag_team_defenses ??
+      0
+);
+
+	const champText = `Singles Champion: ${singlesChampName} (Def ${singlesDef})`;
+	const tagText = `Tag Team Champions: ${tagChampsDisplay} (Def ${tagDef})`;
+
+	// FORCE write (debug safe)
+	const champEl = document.getElementById("championLine");
+	const tagEl = document.getElementById("tagChampionLine");
+
+	if (champEl) {
+	  champEl.textContent = champText;
+      champEl.style.display = "block";
+	}
+
+	if (tagEl) {
+      tagEl.textContent = tagText;
+      tagEl.style.display = "block";
+	}
+
+    const last = lines.find(l => l.startsWith("Last result:"));
     setText("lastResult", last ? last.replace("Last result:","").trim() : "—");
 
   }catch{

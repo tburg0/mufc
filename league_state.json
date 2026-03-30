@@ -1,24 +1,27 @@
 {
-  "champion": "POTSKuroAonix",
+  "champion": "Biker",
   "debut_queue": [
     "Tuesday",
     "Hello",
     "Wednesday",
     "Fighter #3",
     "Sophie",
-    "Tony"
+    "Tony",
+    "Tony Burgess",
+    "Lodo Leeo",
+    "Sunday"
   ],
-  "match_count": 1486,
-  "reign_defenses": 1,
-  "reign_start_ts": "2026-03-26T23:08:51",
+  "match_count": 1736,
+  "reign_defenses": 26,
+  "reign_start_ts": "2026-03-28T20:14:38",
   "royal_winner_queue": null,
   "tag_champions": [
-    "Jack",
-    "Morgue"
+    "Biker",
+    "Tessa"
   ],
-  "tag_defenses": 8,
+  "tag_defenses": 0,
   "tag_match_count": 9,
-  "tag_reigns": 3,
-  "tag_series_count": 105,
+  "tag_reigns": 8,
+  "tag_series_count": 136,
   "title_due": false
 }

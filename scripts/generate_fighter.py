@@ -146,7 +146,14 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
     stats = fighter["stats"]
     ai = fighter["ai_profile"]
 
-    template_folder = fighter["moveset"].get("template_base") or get_template_for_archetype(archetype)
+    base_fighter = fighter.get("base_fighter") or {}
+    if base_fighter and base_fighter.get("id"):
+      template_folder = base_fighter["id"]
+      template_source = "base_fighter"
+    else:
+      template_folder = fighter["moveset"].get("template_base") or get_template_for_archetype(archetype)
+      template_source = "archetype_template"
+
     runtime_character_id = f'custom_{slugify(fighter["fighter_id"])}'
 
     palette_key = palette_key_from_colors(appearance)
@@ -183,12 +190,15 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
 
     runtime = {
         "template_folder": template_folder,
+        "template_source": template_source,
+        "base_fighter_id": base_fighter.get("id", ""),
+        "base_fighter_name": base_fighter.get("display_name", ""),
         "runtime_character_id": runtime_character_id,
         "runtime_display_name": fighter["identity"]["display_name"],
         "palette_id": palette_id,
         "portrait_asset": fighter["appearance"].get("portrait_style", "portrait_serious_base.png"),
         "ai_package": ai_package,
-        "generator_version": "new-model-clean-set-1.0",
+        "generator_version": "base-fighter-enabled-1.0",
     }
 
     league_metadata = {
@@ -211,6 +221,7 @@ def build_generated_payload(fighter: Dict[str, Any]) -> Dict[str, Any]:
         "schema_version": fighter.get("schema_version", "1.0.0"),
         "status": "generated",
         "live": False,
+        "base_fighter": fighter.get("base_fighter"),
         "identity": {
             "name": fighter["identity"]["display_name"],
             "display_name": fighter["identity"]["display_name"],

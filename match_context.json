@@ -1,23 +1,23 @@
 {
   "type": "SINGLES",
-  "p1": "POTSKuroAonix",
-  "p2": "Biker",
-  "is_world_title": true,
-  "title_reason": "Biker earned a title shot on a 4-fight win streak",
-  "main_event": true,
-  "is_tag_series": false,
-  "is_tag_title": false,
+  "p1": "Andore_Jr",
+  "p2": "Leona",
+  "is_world_title": false,
   "is_debut": false,
   "debut_fighter": null,
+  "title_reason": null,
+  "main_event": false,
+  "is_tag_series": false,
+  "is_tag_title": false,
   "royal_round": null,
   "is_royal": false,
   "main_event_reason": null,
-  "p1_runtime": "POTSKuroAonix",
-  "p2_runtime": "Biker",
-  "match_number": 1487,
+  "p1_runtime": "Andore_Jr",
+  "p2_runtime": "Leona",
+  "match_number": 1736,
   "roster_counts": {
-    "submitted": 7,
-    "native": 278,
-    "total": 285
+    "submitted": 10,
+    "native": 281,
+    "total": 291
   }
 }

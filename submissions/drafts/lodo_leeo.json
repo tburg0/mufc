@@ -1,0 +1,103 @@
+{
+  "stats": {
+    "air": 60,
+    "power": 65,
+    "speed": 65,
+    "strike": 65,
+    "defense": 65,
+    "grapple": 60,
+    "stamina": 60,
+    "recovery": 60,
+    "point_budget_used": 500,
+    "point_budget_total": 500
+  },
+  "status": "submitted",
+  "moveset": {
+    "finisher": "driver_drop",
+    "intro_style": "confident_walk",
+    "signature_1": "dropkick",
+    "signature_2": "backfist",
+    "signature_3": "knee_combo",
+    "taunt_style": "point_to_camera",
+    "victory_pose": "arms_folded",
+    "moveset_style": "brawler",
+    "template_base": "template_balanced_01",
+    "super_finisher": "chaos_driver"
+  },
+  "identity": {
+    "country": "USA",
+    "hometown": "",
+    "nickname": "The Master",
+    "bio_short": "",
+    "creator_id": "",
+    "creator_name": "Talox",
+    "display_name": "Lodo Leeo",
+    "announcer_name": "L"
+  },
+  "ai_profile": {
+    "air_rate": 55,
+    "aggression": 73,
+    "combo_rate": 78,
+    "guard_rate": 55,
+    "strike_rate": 27,
+    "super_usage": 67,
+    "counter_rate": 70,
+    "grapple_rate": 68,
+    "profile_mode": "advanced",
+    "ring_control": 55,
+    "special_usage": 75,
+    "base_archetype": "balanced",
+    "risk_tolerance": 50,
+    "finish_priority": 70,
+    "preferred_range": "far",
+    "throw_escape_rate": 79
+  },
+  "appearance": {
+    "boots": "wrestling_boots",
+    "gloves": true,
+    "aura_fx": "none",
+    "gear_top": "vest",
+    "physique": "defined",
+    "accessory": "none",
+    "body_type": "athletic",
+    "skin_tone": "medium_1",
+    "hair_color": "black",
+    "hair_style": "short",
+    "mask_style": "none",
+    "facial_hair": "none",
+    "gear_bottom": "tights",
+    "accent_color": "white",
+    "height_class": "average",
+    "primary_color": "red",
+    "portrait_style": "intense",
+    "secondary_color": "black"
+  },
+  "created_at": "2026-03-28T22:28:53.949Z",
+  "fighter_id": "lodo_leeo",
+  "updated_at": "2026-03-28T22:28:53.949Z",
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_pool_total": 500,
+    "remaining_points": 0,
+    "stat_points_used": 500
+  },
+  "submission_id": null,
+  "classification": {
+    "stance": "orthodox",
+    "division": "both",
+    "alignment": "tweener",
+    "archetype": "balanced",
+    "weight_class": "middleweight",
+    "gender_presentation": "neutral"
+  },
+  "schema_version": "1.0.0",
+  "league_settings": {
+    "debut_priority": true,
+    "eligible_for_tag": true,
+    "can_hold_tag_title": true,
+    "preferred_tag_role": "either",
+    "can_hold_world_title": true,
+    "eligible_for_singles": true
+  }
+}

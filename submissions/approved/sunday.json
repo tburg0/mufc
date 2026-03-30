@@ -1,0 +1,103 @@
+{
+  "stats": {
+    "air": 40,
+    "power": 83,
+    "speed": 40,
+    "strike": 62,
+    "defense": 85,
+    "grapple": 76,
+    "stamina": 74,
+    "recovery": 40,
+    "point_budget_used": 500,
+    "point_budget_total": 500
+  },
+  "status": "submitted",
+  "moveset": {
+    "finisher": "super_lariat",
+    "intro_style": "slow_walk",
+    "signature_1": "lariat",
+    "signature_2": "spinebuster",
+    "signature_3": "suplex_throw",
+    "taunt_style": "laugh",
+    "victory_pose": "roar",
+    "moveset_style": "power_grapple",
+    "template_base": "template_tank_01",
+    "super_finisher": "last_stand_bomb"
+  },
+  "identity": {
+    "country": "USA",
+    "hometown": "Rockford, IL",
+    "nickname": "Sun",
+    "bio_short": "Papa Tone",
+    "creator_id": "",
+    "creator_name": "Tony",
+    "display_name": "Sunday",
+    "announcer_name": "Sun"
+  },
+  "ai_profile": {
+    "air_rate": 8,
+    "aggression": 52,
+    "combo_rate": 22,
+    "guard_rate": 72,
+    "strike_rate": 44,
+    "super_usage": 30,
+    "counter_rate": 55,
+    "grapple_rate": 60,
+    "profile_mode": "simple",
+    "ring_control": 54,
+    "special_usage": 38,
+    "base_archetype": "tank",
+    "risk_tolerance": 24,
+    "finish_priority": 72,
+    "preferred_range": "close",
+    "throw_escape_rate": 66
+  },
+  "appearance": {
+    "boots": "wrestling_boots",
+    "gloves": true,
+    "aura_fx": "none",
+    "gear_top": "vest",
+    "physique": "bulky",
+    "accessory": "none",
+    "body_type": "heavy",
+    "skin_tone": "medium_2",
+    "hair_color": "blonde",
+    "hair_style": "long",
+    "mask_style": "none",
+    "facial_hair": "none",
+    "gear_bottom": "tights",
+    "accent_color": "white",
+    "height_class": "tall",
+    "primary_color": "red",
+    "portrait_style": "intense",
+    "secondary_color": "black"
+  },
+  "created_at": "2026-03-29T23:25:07.096Z",
+  "fighter_id": "sunday",
+  "updated_at": "2026-03-29T23:25:07.096Z",
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_pool_total": 500,
+    "remaining_points": 0,
+    "stat_points_used": 500
+  },
+  "submission_id": null,
+  "classification": {
+    "stance": "brawler",
+    "division": "both",
+    "alignment": "heel",
+    "archetype": "tank",
+    "weight_class": "super_heavyweight",
+    "gender_presentation": "male"
+  },
+  "schema_version": "1.0.0",
+  "league_settings": {
+    "debut_priority": true,
+    "eligible_for_tag": true,
+    "can_hold_tag_title": true,
+    "preferred_tag_role": "either",
+    "can_hold_world_title": true,
+    "eligible_for_singles": true
+  }
+}

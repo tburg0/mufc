@@ -1,10 +1,10 @@
 === CHAMPION STATS ===
-Current Champion: POTSKuroAonix
+Current Champion: Biker
 
-Name: POTSKuroAonix
-Record: 67-7
-Elo: 1926.94
-Reigns: 1
-Defenses: 1
-Current Reign Defenses: 1
-Streak: W2
+Name: Biker
+Record: 95-10
+Elo: 2108.64
+Reigns: 4
+Defenses: 53
+Current Reign Defenses: 26
+Streak: W32

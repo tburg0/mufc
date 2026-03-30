@@ -1,6 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+type BaseFighterOption = {
+  id: string;
+  display_name: string;
+  archetype: string;
+  author: string;
+  customizable?: boolean;
+};
 
 type FighterSubmission = {
   schema_version: "1.0.0";
@@ -9,6 +17,12 @@ type FighterSubmission = {
   status: "draft" | "submitted";
   created_at: string | null;
   updated_at: string | null;
+  base_fighter: {
+    id: string;
+    display_name: string;
+    archetype: string;
+    author: string;
+  } | null;
   identity: {
     display_name: string;
     nickname: string;
@@ -228,6 +242,7 @@ function createEmptyFighter(): FighterSubmission {
     status: "draft",
     created_at: null,
     updated_at: null,
+    base_fighter: null,
     identity: {
       display_name: "",
       nickname: "",
@@ -344,51 +359,38 @@ function validateFighter(fighter: FighterSubmission) {
   const statPoolTotal = fighter.stats.point_budget_total;
   const remaining = statPoolTotal - statPointsUsed;
 
-  if (!fighter.identity.display_name.trim()) {
-    errors.push("Display name is required.");
-  }
-  if (fighter.identity.display_name.trim().length > 24) {
-    errors.push("Display name must be 24 characters or less.");
-  }
-  if (fighter.identity.nickname.trim().length > 32) {
-    errors.push("Nickname must be 32 characters or less.");
-  }
+  if (!fighter.identity.display_name.trim()) errors.push("Display name is required.");
+  if (fighter.identity.display_name.trim().length > 24) errors.push("Display name must be 24 characters or less.");
+  if (fighter.identity.nickname.trim().length > 32) errors.push("Nickname must be 32 characters or less.");
   if (!fighter.fighter_id || !/^[a-z0-9_]{3,32}$/.test(fighter.fighter_id)) {
     errors.push("Fighter ID must be 3-32 chars using lowercase letters, numbers, and underscores.");
   }
+
   STAT_FIELDS.forEach((key) => {
     const value = fighter.stats[key];
-    if (value < 35 || value > 95) {
-      errors.push(`${key} must be between 35 and 95.`);
-    }
+    if (value < 35 || value > 95) errors.push(`${key} must be between 35 and 95.`);
   });
+
   const above85 = STAT_FIELDS.filter((key) => fighter.stats[key] > 85).length;
-  if (above85 > 2) {
-    errors.push("No more than 2 stats can be above 85.");
-  }
+  if (above85 > 2) errors.push("No more than 2 stats can be above 85.");
+
   const below40 = STAT_FIELDS.filter((key) => fighter.stats[key] < 40).length;
-  if (below40 > 1) {
-    errors.push("No more than 1 stat can be below 40.");
-  }
-  if (remaining !== 0) {
-    errors.push(`Stat budget must equal ${statPoolTotal}. Currently ${statPointsUsed}.`);
-  }
+  if (below40 > 1) errors.push("No more than 1 stat can be below 40.");
+
+  if (remaining !== 0) errors.push(`Stat budget must equal ${statPoolTotal}. Currently ${statPointsUsed}.`);
   if (fighter.ai_profile.base_archetype !== fighter.classification.archetype) {
     errors.push("AI archetype must match classification archetype.");
   }
+
   AI_FIELDS.forEach((key) => {
     const value = fighter.ai_profile[key];
-    if (value < 0 || value > 100) {
-      errors.push(`${key} must be between 0 and 100.`);
-    }
+    if (value < 0 || value > 100) errors.push(`${key} must be between 0 and 100.`);
   });
+
   const sigs = [fighter.moveset.signature_1, fighter.moveset.signature_2, fighter.moveset.signature_3].filter(Boolean);
-  if (new Set(sigs).size !== sigs.length) {
-    errors.push("Signature moves must be unique.");
-  }
-  if (!fighter.moveset.finisher) {
-    errors.push("Finisher is required.");
-  }
+  if (new Set(sigs).size !== sigs.length) errors.push("Signature moves must be unique.");
+  if (!fighter.moveset.finisher) errors.push("Finisher is required.");
+
   if (fighter.appearance.hair_style === "hooded" && fighter.appearance.mask_style === "full_mask") {
     errors.push("Hooded hair cannot be combined with full mask.");
   }
@@ -459,8 +461,16 @@ const gridStyle: React.CSSProperties = {
 
 export default function CreatePage() {
   const [fighter, setFighter] = useState<FighterSubmission>(createEmptyFighter());
+  const [baseFighters, setBaseFighters] = useState<BaseFighterOption[]>([]);
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
+
+  useEffect(() => {
+    fetch("/base_fighters.json")
+      .then((res) => res.json())
+      .then((data) => setBaseFighters(Array.isArray(data) ? data : []))
+      .catch(() => setBaseFighters([]));
+  }, []);
 
   const validated = useMemo(() => validateFighter(fighter), [fighter]);
   const remaining = validated.validation.remaining_points;
@@ -492,6 +502,22 @@ export default function CreatePage() {
 
   function handleArchetypeChange(archetype: string) {
     setFighter((prev) => applyArchetypeDefaults(prev, archetype));
+  }
+
+  function handleBaseFighterChange(baseId: string) {
+    const selected = baseFighters.find((f) => f.id === baseId) || null;
+    update((draft) => {
+      if (selected) {
+        draft.base_fighter = {
+          id: selected.id,
+          display_name: selected.display_name,
+          archetype: selected.archetype,
+          author: selected.author
+        };
+      } else {
+        draft.base_fighter = null;
+      }
+    });
   }
 
   async function save(status: "draft" | "submitted") {
@@ -533,10 +559,45 @@ export default function CreatePage() {
         <header style={{ marginBottom: 24 }}>
           <h1 style={{ marginBottom: 8, fontSize: 38 }}>Create Fighter</h1>
           <p style={{ margin: 0, color: "#94a3b8", maxWidth: 760 }}>
-            Build a unique MUFC fighter using the new submission schema. Pick an archetype, customize appearance,
-            spend your stat budget, tune AI behavior, and submit directly into the approval pipeline.
+            Pick a native base fighter from the live roster, then customize appearance, stats, AI, and moveset.
           </p>
         </header>
+
+        <Section title="Base Fighter">
+          <div style={gridStyle}>
+            <FieldLabel label="Choose Base Fighter">
+              <select
+                style={inputStyle}
+                value={fighter.base_fighter?.id || ""}
+                onChange={(e) => handleBaseFighterChange(e.target.value)}
+              >
+                <option value="">-- Select Base Fighter --</option>
+                {baseFighters
+                  .filter((f) => f.customizable !== false)
+                  .map((f) => (
+                    <option key={f.id} value={f.id}>
+                      {f.display_name} ({f.archetype}) — {f.author}
+                    </option>
+                  ))}
+              </select>
+            </FieldLabel>
+
+            <div style={{ background: "#0c1018", border: "1px solid #24262d", borderRadius: 10, padding: 14 }}>
+              <strong>Selected Base:</strong>
+              <div style={{ marginTop: 8, color: "#cbd5e1" }}>
+                {fighter.base_fighter ? (
+                  <>
+                    <div>{fighter.base_fighter.display_name}</div>
+                    <div>Archetype: {fighter.base_fighter.archetype}</div>
+                    <div>Author: {fighter.base_fighter.author}</div>
+                  </>
+                ) : (
+                  <div>No base fighter selected. Archetype template fallback will be used.</div>
+                )}
+              </div>
+            </div>
+          </div>
+        </Section>
 
         <Section title="Identity">
           <div style={gridStyle}>
@@ -679,11 +740,6 @@ export default function CreatePage() {
               </div>
             ))}
           </div>
-          {fighter.ai_profile.profile_mode === "simple" && (
-            <p style={{ marginTop: 12, color: "#94a3b8" }}>
-              Simple mode keeps AI values tied to the selected archetype. Switch to advanced mode to tune individual behavior sliders.
-            </p>
-          )}
         </Section>
 
         <Section title="Moveset">
@@ -742,6 +798,7 @@ export default function CreatePage() {
             <div style={{ background: "#0c1018", borderRadius: 10, padding: 16, border: "1px solid #24262d" }}>
               <h3 style={{ marginTop: 0 }}>Fighter Summary</h3>
               <p><strong>Name:</strong> {fighter.identity.display_name || "—"}</p>
+              <p><strong>Base Fighter:</strong> {fighter.base_fighter?.display_name || "Archetype Template Fallback"}</p>
               <p><strong>Archetype:</strong> {fighter.classification.archetype}</p>
               <p><strong>Weight Class:</strong> {fighter.classification.weight_class}</p>
               <p><strong>Fight Style:</strong> {fighter.moveset.moveset_style}</p>
@@ -783,7 +840,11 @@ export default function CreatePage() {
           </button>
         </div>
 
-        {message && <p style={{ color: "#cbd5e1" }}>{message}</p>}
+        {message && (
+          <div style={{ padding: 14, borderRadius: 10, background: "#0c1018", border: "1px solid #24262d", color: "#cbd5e1" }}>
+            {message}
+          </div>
+        )}
       </div>
     </main>
   );
@@ -792,7 +853,7 @@ export default function CreatePage() {
 const buttonStylePrimary: React.CSSProperties = {
   padding: "12px 18px",
   borderRadius: 10,
-  border: "none",
+  border: "1px solid #2563eb",
   background: "#2563eb",
   color: "white",
   fontWeight: 700,
@@ -800,6 +861,11 @@ const buttonStylePrimary: React.CSSProperties = {
 };
 
 const buttonStyleSecondary: React.CSSProperties = {
-  ...buttonStylePrimary,
-  background: "#1f2937"
+  padding: "12px 18px",
+  borderRadius: 10,
+  border: "1px solid #475569",
+  background: "#0f172a",
+  color: "white",
+  fontWeight: 700,
+  cursor: "pointer"
 };

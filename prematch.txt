@@ -1,10 +1,8 @@
-PRE-MATCH: #1 POTSKuroAonix vs #5 Biker
-🏆🏆🏆 CHAMPIONSHIP FIGHT! 🏆🏆🏆
-TITLE NOTE: Biker earned a title shot on a 4-fight win streak
-RECORDS:   POTSKuroAonix: 67-7 GP74 90.5% (W2) | Elo 1926.9 [-318]
-          Biker: 30-7 GP37 81.1% (W4) | Elo 1725.8 [318]
-FORM L5:   POTSKuroAonix: W W L W W   ||   Biker: W L W W W
-H2H:       POTSKuroAonix 0-0 Biker
-ODDS:      Favorite: POTSKuroAonix (76.1%)
-MAIN EVT:  Top-10 vs Top-10
-Champion:  POTSKuroAonix
+PRE-MATCH: #194 Andore_Jr vs #248 Leona
+RECORDS:   Andore_Jr: 0-1 GP1 0.0% (L1) | Elo 1486.4 [-109]
+          Leona: 13-16 GP29 44.8% (W1) | Elo 1470.7 [109]
+FORM L5:   Andore_Jr: L   ||   Leona: W L L L W
+H2H:       Andore_Jr 0-0 Leona
+ODDS:      Favorite: Andore_Jr (52.3%)
+MAIN EVT:  —
+Champion:  Biker
