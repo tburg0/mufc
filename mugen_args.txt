@@ -1,1 +1,1 @@
--p1 Andore_Jr -p2 Leona -p1.ai 8 -p2.ai 8 -rounds 2
+-p1 DWKyosuke -p2 RaidenMK -p1.ai 8 -p2.ai 8 -rounds 2

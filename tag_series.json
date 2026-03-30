@@ -1,23 +1,23 @@
 {
-  "active": false,
-  "created_ts": 1774838804.2289846,
-  "id": 5949842639883,
+  "active": true,
+  "created_ts": 1774911504.338148,
+  "id": 5659593070172,
   "is_tag_title": false,
   "leg": 2,
   "legs": [
     {
       "leg": 1,
-      "p1": "Sonic",
-      "p2": "Jam_Kuradoberi",
-      "result": "2-0",
-      "winner": "Sonic"
+      "p1": "custom_tony_burgess",
+      "p2": "RaidenMK",
+      "result": "0-2",
+      "winner": "RaidenMK"
     },
     {
       "leg": 2,
-      "p1": "Yang",
-      "p2": "custom_fighter_3",
-      "result": "2-0",
-      "winner": "Yang"
+      "p1": "DWKyosuke",
+      "p2": "RaidenMK",
+      "result": null,
+      "winner": null
     },
     {
       "leg": 3,
@@ -28,17 +28,16 @@
       "winner": null
     }
   ],
-  "scoreA": 2,
-  "scoreB": 0,
+  "scoreA": 0,
+  "scoreB": 1,
   "teamA": [
-    "Sonic",
-    "Yang"
+    "DWKyosuke",
+    "custom_tony_burgess"
   ],
-  "teamA_key": "Sonic+Yang",
+  "teamA_key": "custom_tony_burgess+DWKyosuke",
   "teamB": [
-    "custom_fighter_3",
-    "Jam_Kuradoberi"
+    "Gale",
+    "RaidenMK"
   ],
-  "teamB_key": "custom_fighter_3+Jam_Kuradoberi",
-  "winner_team": "A"
+  "teamB_key": "Gale+RaidenMK"
 }

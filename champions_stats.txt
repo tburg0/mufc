@@ -2,9 +2,9 @@
 Current Champion: Biker
 
 Name: Biker
-Record: 95-10
-Elo: 2108.64
+Record: 98-10
+Elo: 2117.86
 Reigns: 4
-Defenses: 53
-Current Reign Defenses: 26
-Streak: W32
+Defenses: 56
+Current Reign Defenses: 29
+Streak: W35

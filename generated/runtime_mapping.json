@@ -87,5 +87,23 @@
     "archetype": "tank",
     "published": true,
     "palette_slot": 3
+  },
+  "Tony Lucifer": {
+    "fighter_id": "tony_lucifer",
+    "runtime_character": "custom_tony_lucifer",
+    "creator": "Tony",
+    "power_index": 61.02,
+    "archetype": "striker",
+    "published": true,
+    "palette_slot": 3
+  },
+  "Tony Batman": {
+    "fighter_id": "tony_batman",
+    "runtime_character": "custom_tony_batman",
+    "creator": "Batman",
+    "power_index": 59.71,
+    "archetype": "zoner",
+    "published": true,
+    "palette_slot": 1
   }
 }

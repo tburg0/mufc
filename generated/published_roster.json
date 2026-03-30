@@ -79,6 +79,22 @@
       "archetype": "tank",
       "runtime_template": "custom_sunday",
       "live": true
+    },
+    {
+      "fighter_id": "tony_lucifer",
+      "name": "Tony Lucifer",
+      "creator": "Tony",
+      "archetype": "striker",
+      "runtime_template": "custom_tony_lucifer",
+      "live": true
+    },
+    {
+      "fighter_id": "tony_batman",
+      "name": "Tony Batman",
+      "creator": "Batman",
+      "archetype": "zoner",
+      "runtime_template": "custom_tony_batman",
+      "live": true
     }
   ]
 }

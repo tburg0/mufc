@@ -1,8 +1,8 @@
-PRE-MATCH: #194 Andore_Jr vs #248 Leona
-RECORDS:   Andore_Jr: 0-1 GP1 0.0% (L1) | Elo 1486.4 [-109]
-          Leona: 13-16 GP29 44.8% (W1) | Elo 1470.7 [109]
-FORM L5:   Andore_Jr: L   ||   Leona: W L L L W
-H2H:       Andore_Jr 0-0 Leona
-ODDS:      Favorite: Andore_Jr (52.3%)
+PRE-MATCH: TAG SERIES (Leg 2/3) | custom_tony_burgess+DWKyosuke vs Gale+RaidenMK [Series 0-1]
+RECORDS:   custom_tony_burgess+DWKyosuke: 0-0 GP0 0.0% (-) | Elo 1500.0 [-100]
+          Gale+RaidenMK: 0-0 GP0 0.0% (-) | Elo 1500.0 [-100]
+FORM L5:   custom_tony_burgess+DWKyosuke: -   ||   Gale+RaidenMK: -
+H2H:       custom_tony_burgess+DWKyosuke 0-0 Gale+RaidenMK
+ODDS:      Favorite: custom_tony_burgess+DWKyosuke (50.0%)
 MAIN EVT:  —
-Champion:  Biker
+Tag Champs: ['Biker', 'Tessa'] (Def 0)

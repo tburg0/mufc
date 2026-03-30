@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "air": 78,
+    "power": 56,
+    "speed": 76,
+    "strike": 72,
+    "defense": 54,
+    "grapple": 36,
+    "stamina": 64,
+    "recovery": 64,
+    "point_budget_used": 500,
+    "point_budget_total": 500
+  },
+  "status": "submitted",
+  "moveset": {
+    "finisher": "super_lariat",
+    "intro_style": "arms_crossed",
+    "signature_1": "dropkick",
+    "signature_2": "backfist",
+    "signature_3": "counter_slam",
+    "taunt_style": "laugh",
+    "victory_pose": "point_to_camera",
+    "moveset_style": "anti_air_specialist",
+    "template_base": "template_zone_01",
+    "super_finisher": ""
+  },
+  "identity": {
+    "country": "USA",
+    "hometown": "Bat",
+    "nickname": "Tony bat",
+    "bio_short": "",
+    "creator_id": "",
+    "creator_name": "Batman",
+    "display_name": "Tony Batman",
+    "announcer_name": "T"
+  },
+  "ai_profile": {
+    "air_rate": 70,
+    "aggression": 40,
+    "combo_rate": 48,
+    "guard_rate": 66,
+    "strike_rate": 62,
+    "super_usage": 50,
+    "counter_rate": 60,
+    "grapple_rate": 12,
+    "profile_mode": "simple",
+    "ring_control": 82,
+    "special_usage": 74,
+    "base_archetype": "zoner",
+    "risk_tolerance": 34,
+    "finish_priority": 58,
+    "preferred_range": "far",
+    "throw_escape_rate": 58
+  },
+  "appearance": {
+    "boots": "wrestling_boots",
+    "gloves": true,
+    "aura_fx": "none",
+    "gear_top": "vest",
+    "physique": "defined",
+    "accessory": "none",
+    "body_type": "athletic",
+    "skin_tone": "dark_1",
+    "hair_color": "blonde",
+    "hair_style": "long",
+    "mask_style": "none",
+    "facial_hair": "none",
+    "gear_bottom": "tights",
+    "accent_color": "white",
+    "height_class": "average",
+    "primary_color": "yellow",
+    "portrait_style": "intense",
+    "secondary_color": "black"
+  },
+  "created_at": "2026-03-30T22:52:33.334Z",
+  "fighter_id": "tony_batman",
+  "updated_at": "2026-03-30T22:52:33.334Z",
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_pool_total": 500,
+    "remaining_points": 0,
+    "stat_points_used": 500
+  },
+  "base_fighter": {
+    "id": "Batman",
+    "author": "DC",
+    "archetype": "Roster",
+    "display_name": "Batman"
+  },
+  "submission_id": null,
+  "classification": {
+    "stance": "southpaw",
+    "division": "both",
+    "alignment": "face",
+    "archetype": "zoner",
+    "weight_class": "super_heavyweight",
+    "gender_presentation": "neutral"
+  },
+  "schema_version": "1.0.0",
+  "league_settings": {
+    "debut_priority": true,
+    "eligible_for_tag": true,
+    "can_hold_tag_title": true,
+    "preferred_tag_role": "either",
+    "can_hold_world_title": true,
+    "eligible_for_singles": true
+  }
+}

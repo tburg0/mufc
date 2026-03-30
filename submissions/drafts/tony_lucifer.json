@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "air": 62,
+    "power": 70,
+    "speed": 64,
+    "strike": 88,
+    "defense": 68,
+    "grapple": 42,
+    "stamina": 58,
+    "recovery": 48,
+    "point_budget_used": 500,
+    "point_budget_total": 500
+  },
+  "status": "submitted",
+  "moveset": {
+    "finisher": "storm_drop",
+    "intro_style": "confident_walk",
+    "signature_1": "roundhouse_burst",
+    "signature_2": "backfist",
+    "signature_3": "lariat",
+    "taunt_style": "point_to_camera",
+    "victory_pose": "point_to_camera",
+    "moveset_style": "kickboxer",
+    "template_base": "template_strike_01",
+    "super_finisher": "storm_drop"
+  },
+  "identity": {
+    "country": "USA",
+    "hometown": "Rockford, IL",
+    "nickname": "LuciferTony",
+    "bio_short": "",
+    "creator_id": "Tony",
+    "creator_name": "Tony",
+    "display_name": "Tony Lucifer",
+    "announcer_name": "TonyLuc"
+  },
+  "ai_profile": {
+    "air_rate": 52,
+    "aggression": 68,
+    "combo_rate": 70,
+    "guard_rate": 45,
+    "strike_rate": 85,
+    "super_usage": 52,
+    "counter_rate": 42,
+    "grapple_rate": 20,
+    "profile_mode": "simple",
+    "ring_control": 60,
+    "special_usage": 62,
+    "base_archetype": "striker",
+    "risk_tolerance": 60,
+    "finish_priority": 72,
+    "preferred_range": "mid",
+    "throw_escape_rate": 55
+  },
+  "appearance": {
+    "boots": "heavy_boots",
+    "gloves": true,
+    "aura_fx": "none",
+    "gear_top": "vest",
+    "physique": "defined",
+    "accessory": "none",
+    "body_type": "athletic",
+    "skin_tone": "medium_1",
+    "hair_color": "black",
+    "hair_style": "short",
+    "mask_style": "none",
+    "facial_hair": "none",
+    "gear_bottom": "tights",
+    "accent_color": "white",
+    "height_class": "tall",
+    "primary_color": "red",
+    "portrait_style": "intense",
+    "secondary_color": "black"
+  },
+  "created_at": "2026-03-30T04:26:46.362Z",
+  "fighter_id": "tony_lucifer",
+  "updated_at": "2026-03-30T04:26:46.362Z",
+  "validation": {
+    "errors": [],
+    "is_valid": true,
+    "stat_pool_total": 500,
+    "remaining_points": 0,
+    "stat_points_used": 500
+  },
+  "base_fighter": {
+    "id": "Lucifer",
+    "author": "Mr.Key",
+    "archetype": "Roster",
+    "display_name": "Lucifer"
+  },
+  "submission_id": null,
+  "classification": {
+    "stance": "southpaw",
+    "division": "both",
+    "alignment": "face",
+    "archetype": "striker",
+    "weight_class": "middleweight",
+    "gender_presentation": "neutral"
+  },
+  "schema_version": "1.0.0",
+  "league_settings": {
+    "debut_priority": true,
+    "eligible_for_tag": true,
+    "can_hold_tag_title": true,
+    "preferred_tag_role": "either",
+    "can_hold_world_title": true,
+    "eligible_for_singles": true
+  }
+}

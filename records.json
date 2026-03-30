@@ -164,13 +164,13 @@
   },
   "Asetl": {
     "L": 10,
-    "W": 3,
+    "W": 4,
     "defenses": 0,
-    "elo": 1416.9,
+    "elo": 1435.33,
     "mainL": 0,
     "mainW": 0,
     "reigns": 0,
-    "streak": -2,
+    "streak": 1,
     "titleL": 0,
     "titleW": 0
   },
@@ -319,12 +319,12 @@
   },
   "Biker": {
     "L": 10,
-    "W": 95,
-    "defenses": 53,
-    "elo": 2108.64,
+    "W": 98,
+    "defenses": 56,
+    "elo": 2117.86,
     "mainL": 1,
     "reigns": 4,
-    "streak": 32,
+    "streak": 35,
     "titleL": 1
   },
   "Biker+Dante": {
@@ -1759,17 +1759,17 @@
     "streak": -1
   },
   "Fessenden": {
-    "L": 23,
+    "L": 25,
     "W": 58,
     "best_reign_days": 3.220648148148148,
     "best_reign_defenses": 18,
     "days_held_total": 3.4010648148148146,
     "defenses": 4,
-    "elo": 1770.28,
+    "elo": 1762.48,
     "mainL": 4,
     "mainW": 26,
     "reigns": 5,
-    "streak": -13,
+    "streak": -15,
     "titleL": 3,
     "titleW": 27
   },
@@ -2287,9 +2287,9 @@
   },
   "Jack": {
     "L": 16,
-    "W": 30,
-    "elo": 1639.21,
-    "streak": -2
+    "W": 31,
+    "elo": 1649.12,
+    "streak": 1
   },
   "Jack+Morgue": {
     "L": 3,
@@ -2971,10 +2971,10 @@
     "streak": 1
   },
   "Meiling": {
-    "L": 7,
+    "L": 8,
     "W": 0,
-    "elo": 1397.85,
-    "streak": -7
+    "elo": 1390.89,
+    "streak": -8
   },
   "Meiling+POTSKuroAonix": {
     "L": 1,
@@ -3108,13 +3108,13 @@
   },
   "Morgue": {
     "L": 18,
-    "W": 27,
+    "W": 28,
     "defenses": 0,
-    "elo": 1620.21,
+    "elo": 1627.17,
     "mainL": 2,
     "mainW": 2,
     "reigns": 1,
-    "streak": -1,
+    "streak": 1,
     "titleL": 2,
     "titleW": 1
   },
@@ -3427,16 +3427,16 @@
   },
   "RaidenMK": {
     "L": 8,
-    "W": 8,
+    "W": 9,
     "best_reign_days": 0.0,
     "best_reign_defenses": 0,
     "days_held_total": 0.0,
     "defenses": 0,
-    "elo": 1516.8,
+    "elo": 1532.72,
     "mainL": 0,
     "mainW": 0,
     "reigns": 0,
-    "streak": 1,
+    "streak": 2,
     "titleL": 0,
     "titleW": 0
   },
@@ -3929,10 +3929,10 @@
     "streak": 1
   },
   "Sophie": {
-    "L": 3,
+    "L": 4,
     "W": 1,
-    "elo": 1470.12,
-    "streak": -1
+    "elo": 1451.69,
+    "streak": -2
   },
   "Spawn": {
     "L": 6,
@@ -4073,9 +4073,9 @@
   },
   "Surtur": {
     "L": 6,
-    "W": 3,
-    "elo": 1458.86,
-    "streak": 1
+    "W": 4,
+    "elo": 1476.75,
+    "streak": 2
   },
   "TYROG": {
     "L": 1,
@@ -4254,6 +4254,14 @@
     "reigns": 0,
     "streak": 1
   },
+  "Tony Lucifer": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1482.11,
+    "reigns": 0,
+    "streak": -1
+  },
   "Triceratops": {
     "L": 1,
     "W": 1,
@@ -4263,12 +4271,12 @@
     "streak": -1
   },
   "Tuesday": {
-    "L": 3,
+    "L": 4,
     "W": 0,
     "defenses": 0,
-    "elo": 1456.07,
+    "elo": 1445.05,
     "reigns": 0,
-    "streak": -3
+    "streak": -4
   },
   "Tung_Fu_Rue": {
     "L": 0,
@@ -4279,17 +4287,17 @@
     "streak": 1
   },
   "Twelve": {
-    "L": 24,
-    "W": 23,
+    "L": 25,
+    "W": 24,
     "best_reign_days": 5.9144097222222225,
     "best_reign_defenses": 8,
     "days_held_total": 7.57244212962963,
     "defenses": 0,
-    "elo": 1567.94,
+    "elo": 1577.54,
     "mainL": 16,
     "mainW": 13,
     "reigns": 4,
-    "streak": 2,
+    "streak": -1,
     "titleL": 16,
     "titleW": 12
   },
@@ -4635,12 +4643,12 @@
     "streak": -1
   },
   "custom_tony_burgess": {
-    "L": 0,
+    "L": 1,
     "W": 1,
     "defenses": 0,
-    "elo": 1515.08,
+    "elo": 1499.16,
     "reigns": 0,
-    "streak": 1
+    "streak": -1
   },
   "custom_tony_burgess+Jhun": {
     "L": 0,
@@ -4649,6 +4657,14 @@
     "elo": 1516.0,
     "reigns": 0,
     "streak": 1
+  },
+  "custom_tony_lucifer": {
+    "L": 1,
+    "W": 0,
+    "defenses": 0,
+    "elo": 1490.09,
+    "reigns": 0,
+    "streak": -1
   },
   "custom_tuesday": {
     "L": 1,
@@ -4659,12 +4675,12 @@
     "streak": -1
   },
   "custom_wednesday": {
-    "L": 1,
+    "L": 2,
     "W": 0,
     "defenses": 0,
-    "elo": 1486.18,
+    "elo": 1472.89,
     "reigns": 0,
-    "streak": -1
+    "streak": -2
   },
   "hannah_dundee": {
     "L": 1,
@@ -4676,9 +4692,9 @@
   },
   "hdhngkd": {
     "L": 2,
-    "W": 4,
-    "elo": 1545.71,
-    "streak": -1
+    "W": 5,
+    "elo": 1559.0,
+    "streak": 1
   },
   "hdhngkd+Ryu": {
     "L": 1,

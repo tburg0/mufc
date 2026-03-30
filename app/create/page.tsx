@@ -8,6 +8,9 @@ type BaseFighterOption = {
   archetype: string;
   author: string;
   customizable?: boolean;
+  char_folder: string;
+  def_file: string;
+  def_path: string;
 };
 
 type FighterSubmission = {
@@ -22,6 +25,9 @@ type FighterSubmission = {
     display_name: string;
     archetype: string;
     author: string;
+    char_folder: string;
+    def_file: string;
+    def_path: string;
   } | null;
   identity: {
     display_name: string;
@@ -512,7 +518,10 @@ export default function CreatePage() {
           id: selected.id,
           display_name: selected.display_name,
           archetype: selected.archetype,
-          author: selected.author
+          author: selected.author,
+          char_folder: selected.char_folder,
+          def_file: selected.def_file,
+          def_path: selected.def_path
         };
       } else {
         draft.base_fighter = null;
@@ -590,6 +599,8 @@ export default function CreatePage() {
                     <div>{fighter.base_fighter.display_name}</div>
                     <div>Archetype: {fighter.base_fighter.archetype}</div>
                     <div>Author: {fighter.base_fighter.author}</div>
+                    <div>Folder: {fighter.base_fighter.char_folder}</div>
+                    <div>DEF: {fighter.base_fighter.def_path}</div>
                   </>
                 ) : (
                   <div>No base fighter selected. Archetype template fallback will be used.</div>
