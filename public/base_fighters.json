@@ -10,26 +10,6 @@
     "def_path": "Alex/Alex.def"
   },
   {
-    "id": "Alfred",
-    "display_name": "Alfred",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Alfred",
-    "def_file": "Alfred.def",
-    "def_path": "Alfred/Alfred.def"
-  },
-  {
-    "id": "Alfred-POTS",
-    "display_name": "Alfred-POTS",
-    "archetype": "Roster",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Alfred",
-    "def_file": "Alfred.def",
-    "def_path": "Alfred/Alfred.def"
-  },
-  {
     "id": "Amakusa",
     "display_name": "Amakusa",
     "archetype": "Roster",
@@ -40,36 +20,6 @@
     "def_path": "Amakusa/Amakusa.def"
   },
   {
-    "id": "Amy Sorel",
-    "display_name": "Amy Sorel",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "Amy_Sorel",
-    "def_file": "Amy_Sorel.def",
-    "def_path": "Amy_Sorel/Amy_Sorel.def"
-  },
-  {
-    "id": "Amy_Sorel",
-    "display_name": "Amy_Sorel",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Amy_Sorel",
-    "def_file": "Amy_Sorel.def",
-    "def_path": "Amy_Sorel/Amy_Sorel.def"
-  },
-  {
-    "id": "AmySorel",
-    "display_name": "AmySorel",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "Anakaris",
     "display_name": "Anakaris",
     "archetype": "Roster",
@@ -78,66 +28,6 @@
     "char_folder": "Anakaris",
     "def_file": "Anakaris.def",
     "def_path": "Anakaris/Anakaris.def"
-  },
-  {
-    "id": "Andore Jr.",
-    "display_name": "Andore Jr.",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "Andore_Jr",
-    "def_file": "Andore_Jr.def",
-    "def_path": "Andore_Jr/Andore_Jr.def"
-  },
-  {
-    "id": "Andore_Jr",
-    "display_name": "Andore_Jr",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Andore_Jr",
-    "def_file": "Andore_Jr.def",
-    "def_path": "Andore_Jr/Andore_Jr.def"
-  },
-  {
-    "id": "AndoreJr",
-    "display_name": "AndoreJr",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Annie",
-    "display_name": "Annie",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Annie",
-    "def_file": "Annie.def",
-    "def_path": "Annie/Annie.def"
-  },
-  {
-    "id": "Annie Murakami",
-    "display_name": "Annie Murakami",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Annie",
-    "def_file": "Annie.def",
-    "def_path": "Annie/Annie.def"
-  },
-  {
-    "id": "Annie-POTS",
-    "display_name": "Annie-POTS",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "Asetl",
@@ -158,16 +48,6 @@
     "char_folder": "Astaroth",
     "def_file": "Astaroth.def",
     "def_path": "Astaroth/Astaroth.def"
-  },
-  {
-    "id": "Balanced",
-    "display_name": "Balanced",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "template_balanced_01",
-    "def_file": "template_balanced_01.def",
-    "def_path": "template_balanced_01/template_balanced_01.def"
   },
   {
     "id": "Bandamax",
@@ -220,36 +100,6 @@
     "def_path": "Biker/Biker.def"
   },
   {
-    "id": "Bison",
-    "display_name": "Bison",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Bison",
-    "def_file": "Bison.def",
-    "def_path": "Bison/Bison.def"
-  },
-  {
-    "id": "Bison_01",
-    "display_name": "Bison_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Black Elmer",
-    "display_name": "Black Elmer",
-    "archetype": "unknown",
-    "author": "Maniac",
-    "customizable": true,
-    "char_folder": "BlackElmer",
-    "def_file": "BlackElmer.def",
-    "def_path": "BlackElmer/BlackElmer.def"
-  },
-  {
     "id": "BlackElmer",
     "display_name": "BlackElmer",
     "archetype": "Roster",
@@ -270,26 +120,6 @@
     "def_path": "Blackheart/Blackheart.def"
   },
   {
-    "id": "Blair",
-    "display_name": "Blair",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Blair",
-    "def_file": "Blair.def",
-    "def_path": "Blair/Blair.def"
-  },
-  {
-    "id": "Blair Dame",
-    "display_name": "Blair Dame",
-    "archetype": "unknown",
-    "author": "Dampir&DivineWolf",
-    "customizable": true,
-    "char_folder": "Blair",
-    "def_file": "Blair.def",
-    "def_path": "Blair/Blair.def"
-  },
-  {
     "id": "Blanka",
     "display_name": "Blanka",
     "archetype": "Roster",
@@ -298,36 +128,6 @@
     "char_folder": "Blanka",
     "def_file": "Blanka.def",
     "def_path": "Blanka/Blanka.def"
-  },
-  {
-    "id": "Blaze",
-    "display_name": "Blaze",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Blaze",
-    "def_file": "Blaze.def",
-    "def_path": "Blaze/Blaze.def"
-  },
-  {
-    "id": "Blaze Agent",
-    "display_name": "Blaze Agent",
-    "archetype": "unknown",
-    "author": "Zmugens & Laslab",
-    "customizable": true,
-    "char_folder": "Blaze",
-    "def_file": "Blaze.def",
-    "def_path": "Blaze/Blaze.def"
-  },
-  {
-    "id": "Blaze-POTS",
-    "display_name": "Blaze-POTS",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "Bluestreak",
@@ -350,16 +150,6 @@
     "def_path": "Butcher/Butcher.def"
   },
   {
-    "id": "butcher",
-    "display_name": "butcher",
-    "archetype": "unknown",
-    "author": "Maniac",
-    "customizable": true,
-    "char_folder": "Butcher",
-    "def_file": "Butcher.def",
-    "def_path": "Butcher/Butcher.def"
-  },
-  {
     "id": "Cable",
     "display_name": "Cable",
     "archetype": "Roster",
@@ -368,106 +158,6 @@
     "char_folder": "Cable",
     "def_file": "Cable.def",
     "def_path": "Cable/Cable.def"
-  },
-  {
-    "id": "CADILLACS Hogg",
-    "display_name": "CADILLACS Hogg",
-    "archetype": "unknown",
-    "author": "By Potro",
-    "customizable": true,
-    "char_folder": "Hogg",
-    "def_file": "Hogg.def",
-    "def_path": "Hogg/Hogg.def"
-  },
-  {
-    "id": "CADILLACS TIRANOSAURIO",
-    "display_name": "CADILLACS TIRANOSAURIO",
-    "archetype": "unknown",
-    "author": "By Potro",
-    "customizable": true,
-    "char_folder": "Tiranosaurio",
-    "def_file": "Tiranosaurio.def",
-    "def_path": "Tiranosaurio/Tiranosaurio.def"
-  },
-  {
-    "id": "CADILLACS TRICERATOPS",
-    "display_name": "CADILLACS TRICERATOPS",
-    "archetype": "unknown",
-    "author": "By Potro",
-    "customizable": true,
-    "char_folder": "Triceratops",
-    "def_file": "Triceratops.def",
-    "def_path": "Triceratops/Triceratops.def"
-  },
-  {
-    "id": "Cadillacs_-_Hogg",
-    "display_name": "Cadillacs_-_Hogg",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Cadillacs_-_Tiranosaurio",
-    "display_name": "Cadillacs_-_Tiranosaurio",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Cadillacs_-_Tiranosaurio_1",
-    "display_name": "Cadillacs_-_Tiranosaurio_1",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Cammy Sf6",
-    "display_name": "Cammy Sf6",
-    "archetype": "unknown",
-    "author": "Vaan",
-    "customizable": true,
-    "char_folder": "Cammy_Infinite",
-    "def_file": "Cammy_Infinite.def",
-    "def_path": "Cammy_Infinite/Cammy_Infinite.def"
-  },
-  {
-    "id": "Cammy_Infinite",
-    "display_name": "Cammy_Infinite",
-    "archetype": "Agile",
-    "author": "Capcom",
-    "customizable": true,
-    "char_folder": "Cammy_Infinite",
-    "def_file": "Cammy_Infinite.def",
-    "def_path": "Cammy_Infinite/Cammy_Infinite.def"
-  },
-  {
-    "id": "Cammy_Infinite_Sf6",
-    "display_name": "Cammy_Infinite_Sf6",
-    "archetype": "Agile",
-    "author": "Capcom",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Candy Diamond",
-    "display_name": "Candy Diamond",
-    "archetype": "unknown",
-    "author": "Flavioruru",
-    "customizable": true,
-    "char_folder": "Candy_Diamond",
-    "def_file": "Candy_Diamond.def",
-    "def_path": "Candy_Diamond/Candy_Diamond.def"
   },
   {
     "id": "Candy_Diamond",
@@ -488,26 +178,6 @@
     "char_folder": "Carlos",
     "def_file": "Carlos.def",
     "def_path": "Carlos/Carlos.def"
-  },
-  {
-    "id": "Cassandra",
-    "display_name": "Cassandra",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Cassandra",
-    "def_file": "Cassandra.def",
-    "def_path": "Cassandra/Cassandra.def"
-  },
-  {
-    "id": "Cassandra-POTS",
-    "display_name": "Cassandra-POTS",
-    "archetype": "Roster",
-    "author": "ZMugens",
-    "customizable": true,
-    "char_folder": "Cassandra",
-    "def_file": "Cassandra.def",
-    "def_path": "Cassandra/Cassandra.def"
   },
   {
     "id": "Cervantes",
@@ -540,16 +210,6 @@
     "def_path": "Chelnov/Chelnov.def"
   },
   {
-    "id": "Chris",
-    "display_name": "Chris",
-    "archetype": "unknown",
-    "author": "ReixSeiryu & Chazzanova",
-    "customizable": true,
-    "char_folder": "OrochiChris",
-    "def_file": "OrochiChris.def",
-    "def_path": "OrochiChris/OrochiChris.def"
-  },
-  {
     "id": "Chrom",
     "display_name": "Chrom",
     "archetype": "Roster",
@@ -558,36 +218,6 @@
     "char_folder": "Chrom",
     "def_file": "Chrom.def",
     "def_path": "Chrom/Chrom.def"
-  },
-  {
-    "id": "Chun Li",
-    "display_name": "Chun Li",
-    "archetype": "unknown",
-    "author": "BeterHans",
-    "customizable": true,
-    "char_folder": "Chun_LI_JJ",
-    "def_file": "Chun_LI_JJ.def",
-    "def_path": "Chun_LI_JJ/Chun_LI_JJ.def"
-  },
-  {
-    "id": "Chun-Li",
-    "display_name": "Chun-Li",
-    "archetype": "Agile",
-    "author": "Capcom",
-    "customizable": true,
-    "char_folder": "Chun-Li",
-    "def_file": "Chun-Li.def",
-    "def_path": "Chun-Li/Chun-Li.def"
-  },
-  {
-    "id": "Chun_Li_JJ",
-    "display_name": "Chun_Li_JJ",
-    "archetype": "Agile",
-    "author": "Capcom",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "Chun_LI_JJ",
@@ -600,46 +230,6 @@
     "def_path": "Chun_LI_JJ/Chun_LI_JJ.def"
   },
   {
-    "id": "Cipry",
-    "display_name": "Cipry",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Cipry",
-    "def_file": "Cipry.def",
-    "def_path": "Cipry/Cipry.def"
-  },
-  {
-    "id": "Cipry POTS",
-    "display_name": "Cipry POTS",
-    "archetype": "unknown",
-    "author": "Luis Alberto-POTS",
-    "customizable": true,
-    "char_folder": "Cipry",
-    "def_file": "Cipry.def",
-    "def_path": "Cipry/Cipry.def"
-  },
-  {
-    "id": "Cipry_POTS",
-    "display_name": "Cipry_POTS",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Clone Krizalid",
-    "display_name": "Clone Krizalid",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "Clone_Krizalid",
-    "def_file": "Clone_Krizalid.def",
-    "def_path": "Clone_Krizalid/Clone_Krizalid.def"
-  },
-  {
     "id": "Clone_Krizalid",
     "display_name": "Clone_Krizalid",
     "archetype": "Roster",
@@ -648,16 +238,6 @@
     "char_folder": "Clone_Krizalid",
     "def_file": "Clone_Krizalid.def",
     "def_path": "Clone_Krizalid/Clone_Krizalid.def"
-  },
-  {
-    "id": "CM Punk",
-    "display_name": "CM Punk",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "CM_Punk",
-    "def_file": "CM_Punk.def",
-    "def_path": "CM_Punk/CM_Punk.def"
   },
   {
     "id": "CM_Punk",
@@ -690,26 +270,6 @@
     "def_path": "Colossus/Colossus.def"
   },
   {
-    "id": "Counter",
-    "display_name": "Counter",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "template_counter_01",
-    "def_file": "template_counter_01.def",
-    "def_path": "template_counter_01/template_counter_01.def"
-  },
-  {
-    "id": "CPS2_Blair",
-    "display_name": "CPS2_Blair",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "Crawd",
     "display_name": "Crawd",
     "archetype": "Roster",
@@ -718,136 +278,6 @@
     "char_folder": "Crawd",
     "def_file": "Crawd.def",
     "def_path": "Crawd/Crawd.def"
-  },
-  {
-    "id": "crawd",
-    "display_name": "crawd",
-    "archetype": "unknown",
-    "author": "ORETAMA",
-    "customizable": true,
-    "char_folder": "Crawd",
-    "def_file": "Crawd.def",
-    "def_path": "Crawd/Crawd.def"
-  },
-  {
-    "id": "custom_fighter_3",
-    "display_name": "custom_fighter_3",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_fighter_3",
-    "def_file": "custom_fighter_3.def",
-    "def_path": "custom_fighter_3/custom_fighter_3.def"
-  },
-  {
-    "id": "custom_hello",
-    "display_name": "custom_hello",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_hello",
-    "def_file": "custom_hello.def",
-    "def_path": "custom_hello/custom_hello.def"
-  },
-  {
-    "id": "custom_lodo_leeo",
-    "display_name": "custom_lodo_leeo",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_lodo_leeo",
-    "def_file": "custom_lodo_leeo.def",
-    "def_path": "custom_lodo_leeo/custom_lodo_leeo.def"
-  },
-  {
-    "id": "custom_sophie",
-    "display_name": "custom_sophie",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_sophie",
-    "def_file": "custom_sophie.def",
-    "def_path": "custom_sophie/custom_sophie.def"
-  },
-  {
-    "id": "custom_sunday",
-    "display_name": "custom_sunday",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_sunday",
-    "def_file": "custom_sunday.def",
-    "def_path": "custom_sunday/custom_sunday.def"
-  },
-  {
-    "id": "custom_tony",
-    "display_name": "custom_tony",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_tony",
-    "def_file": "custom_tony.def",
-    "def_path": "custom_tony/custom_tony.def"
-  },
-  {
-    "id": "custom_tony_batman",
-    "display_name": "custom_tony_batman",
-    "archetype": "Roster",
-    "author": "DC",
-    "customizable": true,
-    "char_folder": "custom_tony_batman",
-    "def_file": "custom_tony_batman.def",
-    "def_path": "custom_tony_batman/custom_tony_batman.def"
-  },
-  {
-    "id": "custom_tony_burgess",
-    "display_name": "custom_tony_burgess",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_tony_burgess",
-    "def_file": "custom_tony_burgess.def",
-    "def_path": "custom_tony_burgess/custom_tony_burgess.def"
-  },
-  {
-    "id": "custom_tony_lucifer",
-    "display_name": "custom_tony_lucifer",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_tony_lucifer",
-    "def_file": "custom_tony_lucifer.def",
-    "def_path": "custom_tony_lucifer/custom_tony_lucifer.def"
-  },
-  {
-    "id": "custom_tuesday",
-    "display_name": "custom_tuesday",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_tuesday",
-    "def_file": "custom_tuesday.def",
-    "def_path": "custom_tuesday/custom_tuesday.def"
-  },
-  {
-    "id": "custom_wednesday",
-    "display_name": "custom_wednesday",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "custom_wednesday",
-    "def_file": "custom_wednesday.def",
-    "def_path": "custom_wednesday/custom_wednesday.def"
-  },
-  {
-    "id": "CvS_Shang_Tsung",
-    "display_name": "CvS_Shang_Tsung",
-    "archetype": "unknown",
-    "author": "chuchoryu, Testament & d32ner Edit",
-    "customizable": true,
-    "char_folder": "Shang_Tsung",
-    "def_file": "Shang_Tsung.def",
-    "def_path": "Shang_Tsung/Shang_Tsung.def"
   },
   {
     "id": "Cyborg",
@@ -890,26 +320,6 @@
     "def_path": "Damnd/Damnd.def"
   },
   {
-    "id": "Dan Hibiki",
-    "display_name": "Dan Hibiki",
-    "archetype": "unknown",
-    "author": "Phantom.of.the.Server",
-    "customizable": true,
-    "char_folder": "EvilDan",
-    "def_file": "EvilDan.def",
-    "def_path": "EvilDan/EvilDan.def"
-  },
-  {
-    "id": "Dana Dee Shotoman",
-    "display_name": "Dana Dee Shotoman",
-    "archetype": "unknown",
-    "author": "AuraH, dragoon316, varo_hades",
-    "customizable": true,
-    "char_folder": "Dana_Dee",
-    "def_file": "Dana_Dee.def",
-    "def_path": "Dana_Dee/Dana_Dee.def"
-  },
-  {
     "id": "Dana_Dee",
     "display_name": "Dana_Dee",
     "archetype": "Roster",
@@ -928,16 +338,6 @@
     "char_folder": "Dante",
     "def_file": "Dante.def",
     "def_path": "Dante/Dante.def"
-  },
-  {
-    "id": "Dark Jon Talbain",
-    "display_name": "Dark Jon Talbain",
-    "archetype": "unknown",
-    "author": "Gmeos dos Jogos & Obby",
-    "customizable": true,
-    "char_folder": "DarkTalbain",
-    "def_file": "DarkTalbain.def",
-    "def_path": "DarkTalbain/DarkTalbain.def"
   },
   {
     "id": "Darkseid",
@@ -970,16 +370,6 @@
     "def_path": "Darth_Vader/Darth_Vader.def"
   },
   {
-    "id": "DarthVader",
-    "display_name": "DarthVader",
-    "archetype": "unknown",
-    "author": "Bambulin(bam77) & AxSeeker, edits by kenomancer and BDS",
-    "customizable": true,
-    "char_folder": "Darth_Vader",
-    "def_file": "Darth_Vader.def",
-    "def_path": "Darth_Vader/Darth_Vader.def"
-  },
-  {
     "id": "Date",
     "display_name": "Date",
     "archetype": "Roster",
@@ -998,16 +388,6 @@
     "char_folder": "Dean",
     "def_file": "Dean.def",
     "def_path": "Dean/Dean.def"
-  },
-  {
-    "id": "Death Adder",
-    "display_name": "Death Adder",
-    "archetype": "unknown",
-    "author": "BDS",
-    "customizable": true,
-    "char_folder": "Death_Adder",
-    "def_file": "Death_Adder.def",
-    "def_path": "Death_Adder/Death_Adder.def"
   },
   {
     "id": "Death_Adder",
@@ -1050,26 +430,6 @@
     "def_path": "Demetra/Demetra.def"
   },
   {
-    "id": "Demetra Volkova",
-    "display_name": "Demetra Volkova",
-    "archetype": "unknown",
-    "author": "GoldEX",
-    "customizable": true,
-    "char_folder": "Demetra",
-    "def_file": "Demetra.def",
-    "def_path": "Demetra/Demetra.def"
-  },
-  {
-    "id": "Demitri Maximoff",
-    "display_name": "Demitri Maximoff",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "Demitri_Maximoff",
-    "def_file": "Demitri_Maximoff.def",
-    "def_path": "Demitri_Maximoff/Demitri_Maximoff.def"
-  },
-  {
     "id": "Demitri_Maximoff",
     "display_name": "Demitri_Maximoff",
     "archetype": "Roster",
@@ -1100,16 +460,6 @@
     "def_path": "Dhalsim/Dhalsim.def"
   },
   {
-    "id": "Diddy Kong",
-    "display_name": "Diddy Kong",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "DiddyKong",
-    "def_file": "DiddyKong.def",
-    "def_path": "DiddyKong/DiddyKong.def"
-  },
-  {
     "id": "DiddyKong",
     "display_name": "DiddyKong",
     "archetype": "Roster",
@@ -1128,16 +478,6 @@
     "char_folder": "DivineLilith",
     "def_file": "DivineLilith.def",
     "def_path": "DivineLilith/DivineLilith.def"
-  },
-  {
-    "id": "donaiya",
-    "display_name": "donaiya",
-    "archetype": "unknown",
-    "author": "ana",
-    "customizable": true,
-    "char_folder": "Biker",
-    "def_file": "Biker.def",
-    "def_path": "Biker/Biker.def"
   },
   {
     "id": "Dr.Octopus",
@@ -1160,26 +500,6 @@
     "def_path": "DWKyosuke/DWKyosuke.def"
   },
   {
-    "id": "Eagle",
-    "display_name": "Eagle",
-    "archetype": "Roster",
-    "author": "CrazyKoopa",
-    "customizable": true,
-    "char_folder": "Eagle",
-    "def_file": "Eagle.def",
-    "def_path": "Eagle/Eagle.def"
-  },
-  {
-    "id": "Eaglesfending",
-    "display_name": "Eaglesfending",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "Earthquake",
     "display_name": "Earthquake",
     "archetype": "Roster",
@@ -1200,56 +520,6 @@
     "def_path": "Edward/Edward.def"
   },
   {
-    "id": "Edward Elric",
-    "display_name": "Edward Elric",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "Edward",
-    "def_file": "Edward.def",
-    "def_path": "Edward/Edward.def"
-  },
-  {
-    "id": "Eiji",
-    "display_name": "Eiji",
-    "archetype": "Roster",
-    "author": "Koopa901",
-    "customizable": true,
-    "char_folder": "Eiji",
-    "def_file": "Eiji.def",
-    "def_path": "Eiji/Eiji.def"
-  },
-  {
-    "id": "Eiji_02",
-    "display_name": "Eiji_02",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "El Gado",
-    "display_name": "El Gado",
-    "archetype": "unknown",
-    "author": "Your Name",
-    "customizable": true,
-    "char_folder": "El_Gado",
-    "def_file": "El_Gado.def",
-    "def_path": "El_Gado/El_Gado.def"
-  },
-  {
-    "id": "El_Gado",
-    "display_name": "El_Gado",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "El_Gado",
-    "def_file": "El_Gado.def",
-    "def_path": "El_Gado/El_Gado.def"
-  },
-  {
     "id": "Elena",
     "display_name": "Elena",
     "archetype": "Roster",
@@ -1264,16 +534,6 @@
     "display_name": "Elisabeth",
     "archetype": "Roster",
     "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Elisabeth",
-    "def_file": "Elisabeth.def",
-    "def_path": "Elisabeth/Elisabeth.def"
-  },
-  {
-    "id": "Elisabeth Blanctorche",
-    "display_name": "Elisabeth Blanctorche",
-    "archetype": "unknown",
-    "author": "Zmugens",
     "customizable": true,
     "char_folder": "Elisabeth",
     "def_file": "Elisabeth.def",
@@ -1350,26 +610,6 @@
     "def_path": "Fessenden/Fessenden.def"
   },
   {
-    "id": "Fighter #3",
-    "display_name": "Fighter #3",
-    "archetype": "Grappler",
-    "author": "Three",
-    "customizable": true,
-    "char_folder": "custom_fighter_3",
-    "def_file": "custom_fighter_3.def",
-    "def_path": "custom_fighter_3/custom_fighter_3.def"
-  },
-  {
-    "id": "Final Dictator",
-    "display_name": "Final Dictator",
-    "archetype": "unknown",
-    "author": "DOA",
-    "customizable": true,
-    "char_folder": "FinalBison",
-    "def_file": "FinalBison.def",
-    "def_path": "FinalBison/FinalBison.def"
-  },
-  {
     "id": "FinalBison",
     "display_name": "FinalBison",
     "archetype": "Roster",
@@ -1420,16 +660,6 @@
     "def_path": "Gato/Gato.def"
   },
   {
-    "id": "Gato Futaba",
-    "display_name": "Gato Futaba",
-    "archetype": "unknown",
-    "author": "GM & 2Dee4Ever",
-    "customizable": true,
-    "char_folder": "Gato",
-    "def_file": "Gato.def",
-    "def_path": "Gato/Gato.def"
-  },
-  {
     "id": "GBKnucklesPOTS",
     "display_name": "GBKnucklesPOTS",
     "archetype": "Roster",
@@ -1450,16 +680,6 @@
     "def_path": "Gillius/Gillius.def"
   },
   {
-    "id": "Gillius Rockhead",
-    "display_name": "Gillius Rockhead",
-    "archetype": "unknown",
-    "author": "Binho ,Laslab and ShinMaker",
-    "customizable": true,
-    "char_folder": "Gillius",
-    "def_file": "Gillius.def",
-    "def_path": "Gillius/Gillius.def"
-  },
-  {
     "id": "Gneiss",
     "display_name": "Gneiss",
     "archetype": "Roster",
@@ -1468,16 +688,6 @@
     "char_folder": "Gneiss",
     "def_file": "Gneiss.def",
     "def_path": "Gneiss/Gneiss.def"
-  },
-  {
-    "id": "Goenitz",
-    "display_name": "Goenitz",
-    "archetype": "Roster",
-    "author": "SNK",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "Goro",
@@ -1500,40 +710,10 @@
     "def_path": "Gouki/Gouki.def"
   },
   {
-    "id": "Grapple",
-    "display_name": "Grapple",
-    "archetype": "unknown",
-    "author": "BDS",
-    "customizable": true,
-    "char_folder": "template_grapple_01",
-    "def_file": "template_grapple_01.def",
-    "def_path": "template_grapple_01/template_grapple_01.def"
-  },
-  {
-    "id": "Guile",
-    "display_name": "Guile",
-    "archetype": "unknown",
-    "author": "Jmorphman",
-    "customizable": true,
-    "char_folder": "SF6_Guile",
-    "def_file": "SF6_Guile.def",
-    "def_path": "SF6_Guile/SF6_Guile.def"
-  },
-  {
     "id": "Gustab",
     "display_name": "Gustab",
     "archetype": "Roster",
     "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Gustab",
-    "def_file": "Gustab.def",
-    "def_path": "Gustab/Gustab.def"
-  },
-  {
-    "id": "Gustab Munchausen",
-    "display_name": "Gustab Munchausen",
-    "archetype": "unknown",
-    "author": "GoldEX",
     "customizable": true,
     "char_folder": "Gustab",
     "def_file": "Gustab.def",
@@ -1570,16 +750,6 @@
     "def_path": "Haggar/Haggar.def"
   },
   {
-    "id": "Hammer T.",
-    "display_name": "Hammer T.",
-    "archetype": "unknown",
-    "author": "Maniac",
-    "customizable": true,
-    "char_folder": "HammerT",
-    "def_file": "HammerT.def",
-    "def_path": "HammerT/HammerT.def"
-  },
-  {
     "id": "HammerT",
     "display_name": "HammerT",
     "archetype": "Roster",
@@ -1590,26 +760,6 @@
     "def_path": "HammerT/HammerT.def"
   },
   {
-    "id": "Hannah Dundee",
-    "display_name": "Hannah Dundee",
-    "archetype": "unknown",
-    "author": "Alexei Roschak",
-    "customizable": true,
-    "char_folder": "hannah_dundee",
-    "def_file": "hannah_dundee.def",
-    "def_path": "hannah_dundee/hannah_dundee.def"
-  },
-  {
-    "id": "Hannah_Dundee",
-    "display_name": "Hannah_Dundee",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "hannah_dundee",
     "display_name": "hannah_dundee",
     "archetype": "Roster",
@@ -1618,16 +768,6 @@
     "char_folder": "hannah_dundee",
     "def_file": "hannah_dundee.def",
     "def_path": "hannah_dundee/hannah_dundee.def"
-  },
-  {
-    "id": "Haruhi Suzumiya",
-    "display_name": "Haruhi Suzumiya",
-    "archetype": "unknown",
-    "author": "Flavioruru",
-    "customizable": true,
-    "char_folder": "Haruhi_Suzumiya",
-    "def_file": "Haruhi_Suzumiya.def",
-    "def_path": "Haruhi_Suzumiya/Haruhi_Suzumiya.def"
   },
   {
     "id": "Haruhi_Suzumiya",
@@ -1650,30 +790,10 @@
     "def_path": "Hayate/Hayate.def"
   },
   {
-    "id": "Hello",
-    "display_name": "Hello",
-    "archetype": "Grappler",
-    "author": "Its been so long",
-    "customizable": true,
-    "char_folder": "custom_hello",
-    "def_file": "custom_hello.def",
-    "def_path": "custom_hello/custom_hello.def"
-  },
-  {
     "id": "Hinako",
     "display_name": "Hinako",
     "archetype": "Roster",
     "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Hinako",
-    "def_file": "Hinako.def",
-    "def_path": "Hinako/Hinako.def"
-  },
-  {
-    "id": "Hinako Shijo",
-    "display_name": "Hinako Shijo",
-    "archetype": "unknown",
-    "author": "ZMugens",
     "customizable": true,
     "char_folder": "Hinako",
     "def_file": "Hinako.def",
@@ -1690,46 +810,6 @@
     "def_path": "Hinata/Hinata.def"
   },
   {
-    "id": "Hinata Wakaba",
-    "display_name": "Hinata Wakaba",
-    "archetype": "unknown",
-    "author": "Fervicante",
-    "customizable": true,
-    "char_folder": "Hinata",
-    "def_file": "Hinata.def",
-    "def_path": "Hinata/Hinata.def"
-  },
-  {
-    "id": "Hogg",
-    "display_name": "Hogg",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Hogg",
-    "def_file": "Hogg.def",
-    "def_path": "Hogg/Hogg.def"
-  },
-  {
-    "id": "Hong Meiling",
-    "display_name": "Hong Meiling",
-    "archetype": "unknown",
-    "author": "AuraH,DivineWolf,Kohaku,RicePigeon,Zero-Sennin,KamranBernstein,Shiva",
-    "customizable": true,
-    "char_folder": "Meiling",
-    "def_file": "Meiling.def",
-    "def_path": "Meiling/Meiling.def"
-  },
-  {
-    "id": "Hotaru Futaba",
-    "display_name": "Hotaru Futaba",
-    "archetype": "unknown",
-    "author": "Flavioruru",
-    "customizable": true,
-    "char_folder": "Hotaru_Futaba",
-    "def_file": "Hotaru_Futaba.def",
-    "def_path": "Hotaru_Futaba/Hotaru_Futaba.def"
-  },
-  {
     "id": "Hotaru_Futaba",
     "display_name": "Hotaru_Futaba",
     "archetype": "Roster",
@@ -1744,16 +824,6 @@
     "display_name": "Hugo",
     "archetype": "Roster",
     "author": "Capcom",
-    "customizable": true,
-    "char_folder": "Hugo",
-    "def_file": "Hugo.def",
-    "def_path": "Hugo/Hugo.def"
-  },
-  {
-    "id": "Hugo Andore",
-    "display_name": "Hugo Andore",
-    "archetype": "unknown",
-    "author": "GM",
     "customizable": true,
     "char_folder": "Hugo",
     "def_file": "Hugo.def",
@@ -1788,16 +858,6 @@
     "char_folder": "Inuyasha",
     "def_file": "Inuyasha.def",
     "def_path": "Inuyasha/Inuyasha.def"
-  },
-  {
-    "id": "Iron Man",
-    "display_name": "Iron Man",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "Iron_Man",
-    "def_file": "Iron_Man.def",
-    "def_path": "Iron_Man/Iron_Man.def"
   },
   {
     "id": "Iron_Man",
@@ -1850,16 +910,6 @@
     "def_path": "Jago/Jago.def"
   },
   {
-    "id": "Jam Kuradoberi",
-    "display_name": "Jam Kuradoberi",
-    "archetype": "unknown",
-    "author": "ZoneSeven",
-    "customizable": true,
-    "char_folder": "Jam_Kuradoberi",
-    "def_file": "Jam_Kuradoberi.def",
-    "def_path": "Jam_Kuradoberi/Jam_Kuradoberi.def"
-  },
-  {
     "id": "Jam_Kuradoberi",
     "display_name": "Jam_Kuradoberi",
     "archetype": "Roster",
@@ -1880,16 +930,6 @@
     "def_path": "Jhun/Jhun.def"
   },
   {
-    "id": "Jhun Hoon",
-    "display_name": "Jhun Hoon",
-    "archetype": "unknown",
-    "author": "ZMugens",
-    "customizable": true,
-    "char_folder": "Jhun",
-    "def_file": "Jhun.def",
-    "def_path": "Jhun/Jhun.def"
-  },
-  {
     "id": "Jimmy",
     "display_name": "Jimmy",
     "archetype": "Roster",
@@ -1898,26 +938,6 @@
     "char_folder": "Jimmy",
     "def_file": "Jimmy.def",
     "def_path": "Jimmy/Jimmy.def"
-  },
-  {
-    "id": "Jimmy Lewis",
-    "display_name": "Jimmy Lewis",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Jimmy",
-    "def_file": "Jimmy.def",
-    "def_path": "Jimmy/Jimmy.def"
-  },
-  {
-    "id": "John Crawley",
-    "display_name": "John Crawley",
-    "archetype": "unknown",
-    "author": "Laslab Games",
-    "customizable": true,
-    "char_folder": "JohnCrawley",
-    "def_file": "JohnCrawley.def",
-    "def_path": "JohnCrawley/JohnCrawley.def"
   },
   {
     "id": "JohnCrawley",
@@ -1930,16 +950,6 @@
     "def_path": "JohnCrawley/JohnCrawley.def"
   },
   {
-    "id": "Johnny Cage",
-    "display_name": "Johnny Cage",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "JohnnyCage",
-    "def_file": "JohnnyCage.def",
-    "def_path": "JohnnyCage/JohnnyCage.def"
-  },
-  {
     "id": "JohnnyCage",
     "display_name": "JohnnyCage",
     "archetype": "Roster",
@@ -1948,26 +958,6 @@
     "char_folder": "JohnnyCage",
     "def_file": "JohnnyCage.def",
     "def_path": "JohnnyCage/JohnnyCage.def"
-  },
-  {
-    "id": "Jos 'Pepe' Rodrguez",
-    "display_name": "Jos 'Pepe' Rodrguez",
-    "archetype": "unknown",
-    "author": "Saikou Shiva",
-    "customizable": true,
-    "char_folder": "Pepe",
-    "def_file": "Pepe.def",
-    "def_path": "Pepe/Pepe.def"
-  },
-  {
-    "id": "Joseph",
-    "display_name": "Joseph",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "Joseph_Joestar_(Part3)",
-    "def_file": "Joseph_Joestar_(Part3).def",
-    "def_path": "Joseph_Joestar_(Part3)/Joseph_Joestar_(Part3).def"
   },
   {
     "id": "Joseph_Joestar_(Part3)",
@@ -1990,26 +980,6 @@
     "def_path": "Jubei/Jubei.def"
   },
   {
-    "id": "Jubei Yamada",
-    "display_name": "Jubei Yamada",
-    "archetype": "unknown",
-    "author": "KarmaCharmeleon",
-    "customizable": true,
-    "char_folder": "Jubei",
-    "def_file": "Jubei.def",
-    "def_path": "Jubei/Jubei.def"
-  },
-  {
-    "id": "K-Core",
-    "display_name": "K-Core",
-    "archetype": "unknown",
-    "author": "ZuXurY",
-    "customizable": true,
-    "char_folder": "KCore",
-    "def_file": "KCore.def",
-    "def_path": "KCore/KCore.def"
-  },
-  {
     "id": "Kaede",
     "display_name": "Kaede",
     "archetype": "Roster",
@@ -2018,16 +988,6 @@
     "char_folder": "Kaede",
     "def_file": "Kaede.def",
     "def_path": "Kaede/Kaede.def"
-  },
-  {
-    "id": "Kagami Shinnosuke",
-    "display_name": "Kagami Shinnosuke",
-    "archetype": "unknown",
-    "author": "R@CE AKIR@ Editado por Magno Csar",
-    "customizable": true,
-    "char_folder": "Kagami_Shinnosuke",
-    "def_file": "Kagami_Shinnosuke.def",
-    "def_path": "Kagami_Shinnosuke/Kagami_Shinnosuke.def"
   },
   {
     "id": "Kagami_Shinnosuke",
@@ -2050,16 +1010,6 @@
     "def_path": "Kagome/Kagome.def"
   },
   {
-    "id": "Kamen Rider Kuuga",
-    "display_name": "Kamen Rider Kuuga",
-    "archetype": "unknown",
-    "author": "Setly's Edit - SonicSkills",
-    "customizable": true,
-    "char_folder": "KamenRiderKuuga",
-    "def_file": "KamenRiderKuuga.def",
-    "def_path": "KamenRiderKuuga/KamenRiderKuuga.def"
-  },
-  {
     "id": "KamenRiderKuuga",
     "display_name": "KamenRiderKuuga",
     "archetype": "Roster",
@@ -2078,36 +1028,6 @@
     "char_folder": "KCore",
     "def_file": "KCore.def",
     "def_path": "KCore/KCore.def"
-  },
-  {
-    "id": "Ken",
-    "display_name": "Ken",
-    "archetype": "Striker",
-    "author": "Capcom",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Ken Masters",
-    "display_name": "Ken Masters",
-    "archetype": "unknown",
-    "author": "Phantom.of.the.Server&Jmorphman",
-    "customizable": true,
-    "char_folder": "SFZKen",
-    "def_file": "SFZKen.def",
-    "def_path": "SFZKen/SFZKen.def"
-  },
-  {
-    "id": "Kenshin Himura",
-    "display_name": "Kenshin Himura",
-    "archetype": "unknown",
-    "author": "ZoneSeven",
-    "customizable": true,
-    "char_folder": "Kenshin_Himura",
-    "def_file": "Kenshin_Himura.def",
-    "def_path": "Kenshin_Himura/Kenshin_Himura.def"
   },
   {
     "id": "Kenshin_Himura",
@@ -2130,16 +1050,6 @@
     "def_path": "Kensou/Kensou.def"
   },
   {
-    "id": "kfm720",
-    "display_name": "kfm720",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "kfm720",
-    "def_file": "kfm720.def",
-    "def_path": "kfm720/kfm720.def"
-  },
-  {
     "id": "Khriz-POTS",
     "display_name": "Khriz-POTS",
     "archetype": "Roster",
@@ -2150,26 +1060,6 @@
     "def_path": "Khriz-POTS/Khriz-POTS.def"
   },
   {
-    "id": "Kim Dong Hwan",
-    "display_name": "Kim Dong Hwan",
-    "archetype": "unknown",
-    "author": "ZMugens",
-    "customizable": true,
-    "char_folder": "Kim_Dong_Hwan",
-    "def_file": "Kim_Dong_Hwan.def",
-    "def_path": "Kim_Dong_Hwan/Kim_Dong_Hwan.def"
-  },
-  {
-    "id": "Kim Jae Hoon",
-    "display_name": "Kim Jae Hoon",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Jae-POTS",
-    "def_file": "Jae-POTS.def",
-    "def_path": "Jae-POTS/Jae-POTS.def"
-  },
-  {
     "id": "Kim_Dong_Hwan",
     "display_name": "Kim_Dong_Hwan",
     "archetype": "Roster",
@@ -2178,26 +1068,6 @@
     "char_folder": "Kim_Dong_Hwan",
     "def_file": "Kim_Dong_Hwan.def",
     "def_path": "Kim_Dong_Hwan/Kim_Dong_Hwan.def"
-  },
-  {
-    "id": "King Leo",
-    "display_name": "King Leo",
-    "archetype": "unknown",
-    "author": "Saikou Shiva",
-    "customizable": true,
-    "char_folder": "King_Leo",
-    "def_file": "King_Leo.def",
-    "def_path": "King_Leo/King_Leo.def"
-  },
-  {
-    "id": "King Lion",
-    "display_name": "King Lion",
-    "archetype": "unknown",
-    "author": "Saikou Shiva",
-    "customizable": true,
-    "char_folder": "King_Lion",
-    "def_file": "King_Lion.def",
-    "def_path": "King_Lion/King_Lion.def"
   },
   {
     "id": "King_Leo",
@@ -2230,26 +1100,6 @@
     "def_path": "Kisarah/Kisarah.def"
   },
   {
-    "id": "Kisarah Westfield",
-    "display_name": "Kisarah Westfield",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Kisarah",
-    "def_file": "Kisarah.def",
-    "def_path": "Kisarah/Kisarah.def"
-  },
-  {
-    "id": "Knuckles",
-    "display_name": "Knuckles",
-    "archetype": "unknown",
-    "author": "GB Shades",
-    "customizable": true,
-    "char_folder": "GBKnucklesPOTS",
-    "def_file": "GBKnucklesPOTS.def",
-    "def_path": "GBKnucklesPOTS/GBKnucklesPOTS.def"
-  },
-  {
     "id": "KOF_Seth",
     "display_name": "KOF_Seth",
     "archetype": "Roster",
@@ -2270,26 +1120,6 @@
     "def_path": "Kratos/Kratos.def"
   },
   {
-    "id": "Kung Fu Man 720",
-    "display_name": "Kung Fu Man 720",
-    "archetype": "unknown",
-    "author": "Elecbyte",
-    "customizable": true,
-    "char_folder": "kfm720",
-    "def_file": "kfm720.def",
-    "def_path": "kfm720/kfm720.def"
-  },
-  {
-    "id": "Kyo Kusanagi",
-    "display_name": "Kyo Kusanagi",
-    "archetype": "unknown",
-    "author": "Falcon Rapper",
-    "customizable": true,
-    "char_folder": "Kyo_Kusanagi",
-    "def_file": "Kyo_Kusanagi.def",
-    "def_path": "Kyo_Kusanagi/Kyo_Kusanagi.def"
-  },
-  {
     "id": "Kyo_Kusanagi",
     "display_name": "Kyo_Kusanagi",
     "archetype": "Striker",
@@ -2298,26 +1128,6 @@
     "char_folder": "Kyo_Kusanagi",
     "def_file": "Kyo_Kusanagi.def",
     "def_path": "Kyo_Kusanagi/Kyo_Kusanagi.def"
-  },
-  {
-    "id": "Kyosuke Kagami",
-    "display_name": "Kyosuke Kagami",
-    "archetype": "unknown",
-    "author": "DivineWolf",
-    "customizable": true,
-    "char_folder": "DWKyosuke",
-    "def_file": "DWKyosuke.def",
-    "def_path": "DWKyosuke/DWKyosuke.def"
-  },
-  {
-    "id": "Lady Deathstrike",
-    "display_name": "Lady Deathstrike",
-    "archetype": "unknown",
-    "author": "BDS",
-    "customizable": true,
-    "char_folder": "Lady_Deathstrike",
-    "def_file": "Lady_Deathstrike.def",
-    "def_path": "Lady_Deathstrike/Lady_Deathstrike.def"
   },
   {
     "id": "Lady_Deathstrike",
@@ -2330,16 +1140,6 @@
     "def_path": "Lady_Deathstrike/Lady_Deathstrike.def"
   },
   {
-    "id": "Lee Rekka-POTS",
-    "display_name": "Lee Rekka-POTS",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Lee-POTS",
-    "def_file": "Lee-POTS.def",
-    "def_path": "Lee-POTS/Lee-POTS.def"
-  },
-  {
     "id": "Lee-POTS",
     "display_name": "Lee-POTS",
     "archetype": "Roster",
@@ -2348,16 +1148,6 @@
     "char_folder": "Lee-POTS",
     "def_file": "Lee-POTS.def",
     "def_path": "Lee-POTS/Lee-POTS.def"
-  },
-  {
-    "id": "Leon Kennedy",
-    "display_name": "Leon Kennedy",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "LeonKennedy",
-    "def_file": "LeonKennedy.def",
-    "def_path": "LeonKennedy/LeonKennedy.def"
   },
   {
     "id": "Leona",
@@ -2380,36 +1170,6 @@
     "def_path": "LeonKennedy/LeonKennedy.def"
   },
   {
-    "id": "Li Xiangfei",
-    "display_name": "Li Xiangfei",
-    "archetype": "unknown",
-    "author": "2Dee4Ever",
-    "customizable": true,
-    "char_folder": "LiXiangfei",
-    "def_file": "LiXiangfei.def",
-    "def_path": "LiXiangfei/LiXiangfei.def"
-  },
-  {
-    "id": "Lilith Aensland",
-    "display_name": "Lilith Aensland",
-    "archetype": "unknown",
-    "author": "DivineWolf",
-    "customizable": true,
-    "char_folder": "DivineLilith",
-    "def_file": "DivineLilith.def",
-    "def_path": "DivineLilith/DivineLilith.def"
-  },
-  {
-    "id": "Liu Kang",
-    "display_name": "Liu Kang",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "LiuKang",
-    "def_file": "LiuKang.def",
-    "def_path": "LiuKang/LiuKang.def"
-  },
-  {
     "id": "LiuKang",
     "display_name": "LiuKang",
     "archetype": "Roster",
@@ -2428,36 +1188,6 @@
     "char_folder": "LiXiangfei",
     "def_file": "LiXiangfei.def",
     "def_path": "LiXiangfei/LiXiangfei.def"
-  },
-  {
-    "id": "Lodo Leeo",
-    "display_name": "Lodo Leeo",
-    "archetype": "balanced",
-    "author": "Talox",
-    "customizable": true,
-    "char_folder": "custom_lodo_leeo",
-    "def_file": "custom_lodo_leeo.def",
-    "def_path": "custom_lodo_leeo/custom_lodo_leeo.def"
-  },
-  {
-    "id": "Lord Raptor",
-    "display_name": "Lord Raptor",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "Lord_Raptor",
-    "def_file": "Lord_Raptor.def",
-    "def_path": "Lord_Raptor/Lord_Raptor.def"
-  },
-  {
-    "id": "Lord Ravenous",
-    "display_name": "Lord Ravenous",
-    "archetype": "unknown",
-    "author": "Sckiredzu",
-    "customizable": true,
-    "char_folder": "Rave",
-    "def_file": "Rave.def",
-    "def_path": "Rave/Rave.def"
   },
   {
     "id": "Lord_Raptor",
@@ -2480,16 +1210,6 @@
     "def_path": "LUCIFER/Lucifer.def"
   },
   {
-    "id": "Magma Dragoon",
-    "display_name": "Magma Dragoon",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "Magma_Dragoon",
-    "def_file": "Magma_Dragoon.def",
-    "def_path": "Magma_Dragoon/Magma_Dragoon.def"
-  },
-  {
     "id": "Magma_Dragoon",
     "display_name": "Magma_Dragoon",
     "archetype": "Roster",
@@ -2498,16 +1218,6 @@
     "char_folder": "Magma_Dragoon",
     "def_file": "Magma_Dragoon.def",
     "def_path": "Magma_Dragoon/Magma_Dragoon.def"
-  },
-  {
-    "id": "Mai Shiranui (Classic)",
-    "display_name": "Mai Shiranui (Classic)",
-    "archetype": "unknown",
-    "author": "Flavioruru",
-    "customizable": true,
-    "char_folder": "Mai_Shiranui_(Classic)",
-    "def_file": "Mai_Shiranui_(Classic).def",
-    "def_path": "Mai_Shiranui_(Classic)/Mai_Shiranui_(Classic).def"
   },
   {
     "id": "Mai_Shiranui_(Classic)",
@@ -2530,26 +1240,6 @@
     "def_path": "Maki/Maki.def"
   },
   {
-    "id": "Makota",
-    "display_name": "Makota",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Makoto",
-    "display_name": "Makoto",
-    "archetype": "Roster",
-    "author": "KojiroBADNESS edited by varo_hades",
-    "customizable": true,
-    "char_folder": "Makoto",
-    "def_file": "Makoto.def",
-    "def_path": "Makoto/Makoto.def"
-  },
-  {
     "id": "Man-Thing",
     "display_name": "Man-Thing",
     "archetype": "Roster",
@@ -2570,16 +1260,6 @@
     "def_path": "Marco/Marco.def"
   },
   {
-    "id": "Marco Rodrigues",
-    "display_name": "Marco Rodrigues",
-    "archetype": "unknown",
-    "author": "R@CE AKIR@",
-    "customizable": true,
-    "char_folder": "Marco",
-    "def_file": "Marco.def",
-    "def_path": "Marco/Marco.def"
-  },
-  {
     "id": "Marrow",
     "display_name": "Marrow",
     "archetype": "Roster",
@@ -2590,16 +1270,6 @@
     "def_path": "Marrow/Marrow.def"
   },
   {
-    "id": "Mars People",
-    "display_name": "Mars People",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "Mars_People",
-    "def_file": "Mars_People.def",
-    "def_path": "Mars_People/Mars_People.def"
-  },
-  {
     "id": "Mars_People",
     "display_name": "Mars_People",
     "archetype": "Roster",
@@ -2608,26 +1278,6 @@
     "char_folder": "Mars_People",
     "def_file": "Mars_People.def",
     "def_path": "Mars_People/Mars_People.def"
-  },
-  {
-    "id": "Matlock",
-    "display_name": "Matlock",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Matlok",
-    "display_name": "Matlok",
-    "archetype": "Roster",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "Matlok",
-    "def_file": "Matlok.def",
-    "def_path": "Matlok/Matlok.def"
   },
   {
     "id": "Meiling",
@@ -2670,26 +1320,6 @@
     "def_path": "Mitsurugi/Mitsurugi.def"
   },
   {
-    "id": "Mitzoguchi",
-    "display_name": "Mitzoguchi",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Miu Kurosaki",
-    "display_name": "Miu Kurosaki",
-    "archetype": "unknown",
-    "author": "Flavioruru",
-    "customizable": true,
-    "char_folder": "Miu_Kurosaki",
-    "def_file": "Miu_Kurosaki.def",
-    "def_path": "Miu_Kurosaki/Miu_Kurosaki.def"
-  },
-  {
     "id": "Miu_Kurosaki",
     "display_name": "Miu_Kurosaki",
     "archetype": "Roster",
@@ -2698,26 +1328,6 @@
     "char_folder": "Miu_Kurosaki",
     "def_file": "Miu_Kurosaki.def",
     "def_path": "Miu_Kurosaki/Miu_Kurosaki.def"
-  },
-  {
-    "id": "Mizoguchi",
-    "display_name": "Mizoguchi",
-    "archetype": "Roster",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "Mizoguchi",
-    "def_file": "Mizoguchi.def",
-    "def_path": "Mizoguchi/Mizoguchi.def"
-  },
-  {
-    "id": "Moe Habana",
-    "display_name": "Moe Habana",
-    "archetype": "unknown",
-    "author": "GoldEX",
-    "customizable": true,
-    "char_folder": "Moe_Habana",
-    "def_file": "Moe_Habana.def",
-    "def_path": "Moe_Habana/Moe_Habana.def"
   },
   {
     "id": "Moe_Habana",
@@ -2750,16 +1360,6 @@
     "def_path": "morgue/morgue.def"
   },
   {
-    "id": "morgue",
-    "display_name": "morgue",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "morgue",
-    "def_file": "morgue.def",
-    "def_path": "morgue/morgue.def"
-  },
-  {
     "id": "Morrigan",
     "display_name": "Morrigan",
     "archetype": "Roster",
@@ -2768,56 +1368,6 @@
     "char_folder": "Morrigan",
     "def_file": "Morrigan.def",
     "def_path": "Morrigan/Morrigan.def"
-  },
-  {
-    "id": "Morrigan Aensland",
-    "display_name": "Morrigan Aensland",
-    "archetype": "unknown",
-    "author": "Phantom.of.the.Server",
-    "customizable": true,
-    "char_folder": "Morrigan",
-    "def_file": "Morrigan.def",
-    "def_path": "Morrigan/Morrigan.def"
-  },
-  {
-    "id": "Mr. X",
-    "display_name": "Mr. X",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "Mr._X",
-    "def_file": "Mr._X.def",
-    "def_path": "Mr._X/Mr._X.def"
-  },
-  {
-    "id": "Mr._X",
-    "display_name": "Mr._X",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Mr._X",
-    "def_file": "Mr._X.def",
-    "def_path": "Mr._X/Mr._X.def"
-  },
-  {
-    "id": "Mr.Karate",
-    "display_name": "Mr.Karate",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "Mr_Karate",
-    "def_file": "Mr_Karate.def",
-    "def_path": "Mr_Karate/Mr_Karate.def"
-  },
-  {
-    "id": "Mr.X",
-    "display_name": "Mr.X",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "Mr_Karate",
@@ -2860,36 +1410,6 @@
     "def_path": "Mustapha/mustapha.def"
   },
   {
-    "id": "mustapha",
-    "display_name": "mustapha",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Mustapha",
-    "def_file": "mustapha.def",
-    "def_path": "Mustapha/mustapha.def"
-  },
-  {
-    "id": "Nash",
-    "display_name": "Nash",
-    "archetype": "unknown",
-    "author": "Phantom.of.the.Server",
-    "customizable": true,
-    "char_folder": "nash_pots",
-    "def_file": "nash_pots.def",
-    "def_path": "nash_pots/nash_pots.def"
-  },
-  {
-    "id": "nash_pots",
-    "display_name": "nash_pots",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "nash_pots",
-    "def_file": "nash_pots.def",
-    "def_path": "nash_pots/nash_pots.def"
-  },
-  {
     "id": "Necro",
     "display_name": "Necro",
     "archetype": "Roster",
@@ -2908,26 +1428,6 @@
     "char_folder": "Ness",
     "def_file": "Ness.def",
     "def_path": "Ness/Ness.def"
-  },
-  {
-    "id": "NormalNash",
-    "display_name": "NormalNash",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Omega Red",
-    "display_name": "Omega Red",
-    "archetype": "unknown",
-    "author": "Shin Maker",
-    "customizable": true,
-    "char_folder": "Omega_Red",
-    "def_file": "Omega_Red.def",
-    "def_path": "Omega_Red/Omega_Red.def"
   },
   {
     "id": "Omega_Red",
@@ -2980,16 +1480,6 @@
     "def_path": "Othello/Othello.def"
   },
   {
-    "id": "Pai Chan",
-    "display_name": "Pai Chan",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "PaiChan",
-    "def_file": "PaiChan.def",
-    "def_path": "PaiChan/PaiChan.def"
-  },
-  {
     "id": "PaiChan",
     "display_name": "PaiChan",
     "archetype": "Roster",
@@ -2998,16 +1488,6 @@
     "char_folder": "PaiChan",
     "def_file": "PaiChan.def",
     "def_path": "PaiChan/PaiChan.def"
-  },
-  {
-    "id": "Patron Goddess of Magical Girls",
-    "display_name": "Patron Goddess of Magical Girls",
-    "archetype": "unknown",
-    "author": "JStudios2k",
-    "customizable": true,
-    "char_folder": "POTSMadokaS3",
-    "def_file": "POTSMadokaS3.def",
-    "def_path": "POTSMadokaS3/POTSMadokaS3.def"
   },
   {
     "id": "Pepe",
@@ -3040,16 +1520,6 @@
     "def_path": "poison/Poison.def"
   },
   {
-    "id": "POTS-Styled Kuro Aonix",
-    "display_name": "POTS-Styled Kuro Aonix",
-    "archetype": "unknown",
-    "author": "Witherower",
-    "customizable": true,
-    "char_folder": "POTSKuroAonix",
-    "def_file": "POTSKuroAonix.def",
-    "def_path": "POTSKuroAonix/POTSKuroAonix.def"
-  },
-  {
     "id": "POTSKuroAonix",
     "display_name": "POTSKuroAonix",
     "archetype": "Roster",
@@ -3078,16 +1548,6 @@
     "char_folder": "Pyron",
     "def_file": "Pyron.def",
     "def_path": "Pyron/Pyron.def"
-  },
-  {
-    "id": "Raiden",
-    "display_name": "Raiden",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "RaidenMK",
-    "def_file": "RaidenMK.def",
-    "def_path": "RaidenMK/RaidenMK.def"
   },
   {
     "id": "RaidenMK",
@@ -3160,16 +1620,6 @@
     "def_path": "Ray/Ray.def"
   },
   {
-    "id": "Red Puckett",
-    "display_name": "Red Puckett",
-    "archetype": "unknown",
-    "author": "Cipry",
-    "customizable": true,
-    "char_folder": "Red_Puckett",
-    "def_file": "Red_Puckett.def",
-    "def_path": "Red_Puckett/Red_Puckett.def"
-  },
-  {
     "id": "Red_Puckett",
     "display_name": "Red_Puckett",
     "archetype": "Roster",
@@ -3208,16 +1658,6 @@
     "char_folder": "Rolento",
     "def_file": "Rolento.def",
     "def_path": "Rolento/Rolento.def"
-  },
-  {
-    "id": "Rouge the Bat",
-    "display_name": "Rouge the Bat",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "RougeTheBat",
-    "def_file": "RougeTheBat.def",
-    "def_path": "RougeTheBat/RougeTheBat.def"
   },
   {
     "id": "RougeTheBat",
@@ -3260,36 +1700,6 @@
     "def_path": "Rumble/Rumble.def"
   },
   {
-    "id": "Rumble McSkirmish",
-    "display_name": "Rumble McSkirmish",
-    "archetype": "unknown",
-    "author": "KamenRiderGOUKI",
-    "customizable": true,
-    "char_folder": "Rumble",
-    "def_file": "Rumble.def",
-    "def_path": "Rumble/Rumble.def"
-  },
-  {
-    "id": "Rush",
-    "display_name": "Rush",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "template_rush_01",
-    "def_file": "template_rush_01.def",
-    "def_path": "template_rush_01/template_rush_01.def"
-  },
-  {
-    "id": "Ryoko",
-    "display_name": "Ryoko",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "RyokoKano",
-    "def_file": "RyokoKano.def",
-    "def_path": "RyokoKano/RyokoKano.def"
-  },
-  {
     "id": "RyokoKano",
     "display_name": "RyokoKano",
     "archetype": "Roster",
@@ -3308,16 +1718,6 @@
     "char_folder": "Ryu",
     "def_file": "Ryu.def",
     "def_path": "Ryu/Ryu.def"
-  },
-  {
-    "id": "Ryuhaku Todoh",
-    "display_name": "Ryuhaku Todoh",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "Todoh",
-    "def_file": "Todoh.def",
-    "def_path": "Todoh/Todoh.def"
   },
   {
     "id": "Sabretooth",
@@ -3340,26 +1740,6 @@
     "def_path": "Sabrewulf/Sabrewulf.def"
   },
   {
-    "id": "Sagat",
-    "display_name": "Sagat",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "SFV_Sagat",
-    "def_file": "SFV_Sagat.def",
-    "def_path": "SFV_Sagat/SFV_Sagat.def"
-  },
-  {
-    "id": "Samus Aran",
-    "display_name": "Samus Aran",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "SamusAran",
-    "def_file": "SamusAran.def",
-    "def_path": "SamusAran/SamusAran.def"
-  },
-  {
     "id": "SamusAran",
     "display_name": "SamusAran",
     "archetype": "Roster",
@@ -3368,16 +1748,6 @@
     "char_folder": "SamusAran",
     "def_file": "SamusAran.def",
     "def_path": "SamusAran/SamusAran.def"
-  },
-  {
-    "id": "Sarah Bryant",
-    "display_name": "Sarah Bryant",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "SarahBryant",
-    "def_file": "SarahBryant.def",
-    "def_path": "SarahBryant/SarahBryant.def"
   },
   {
     "id": "SarahBryant",
@@ -3420,16 +1790,6 @@
     "def_path": "Scorpion/Scorpion.def"
   },
   {
-    "id": "Seth",
-    "display_name": "Seth",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "KOF_Seth",
-    "def_file": "KOF_Seth.def",
-    "def_path": "KOF_Seth/KOF_Seth.def"
-  },
-  {
     "id": "SF6_Guile",
     "display_name": "SF6_Guile",
     "archetype": "Striker",
@@ -3450,16 +1810,6 @@
     "def_path": "SFV_Sagat/SFV_Sagat.def"
   },
   {
-    "id": "SFZKen",
-    "display_name": "SFZKen",
-    "archetype": "Striker",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "SFZKen",
-    "def_file": "SFZKen.def",
-    "def_path": "SFZKen/SFZKen.def"
-  },
-  {
     "id": "Shang_Tsung",
     "display_name": "Shang_Tsung",
     "archetype": "Roster",
@@ -3468,16 +1818,6 @@
     "char_folder": "Shang_Tsung",
     "def_file": "Shang_Tsung.def",
     "def_path": "Shang_Tsung/Shang_Tsung.def"
-  },
-  {
-    "id": "Shao Kahn",
-    "display_name": "Shao Kahn",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "ShaoKahn",
-    "def_file": "ShaoKahn.def",
-    "def_path": "ShaoKahn/ShaoKahn.def"
   },
   {
     "id": "ShaoKahn",
@@ -3490,36 +1830,6 @@
     "def_path": "ShaoKahn/ShaoKahn.def"
   },
   {
-    "id": "ShinGouki",
-    "display_name": "ShinGouki",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
-    "id": "Shiro Tokisada Amakusa",
-    "display_name": "Shiro Tokisada Amakusa",
-    "archetype": "unknown",
-    "author": "Testament",
-    "customizable": true,
-    "char_folder": "Amakusa",
-    "def_file": "Amakusa.def",
-    "def_path": "Amakusa/Amakusa.def"
-  },
-  {
-    "id": "Shishio Makoto",
-    "display_name": "Shishio Makoto",
-    "archetype": "unknown",
-    "author": "ZoneSeven",
-    "customizable": true,
-    "char_folder": "Shishio_Makoto",
-    "def_file": "Shishio_Makoto.def",
-    "def_path": "Shishio_Makoto/Shishio_Makoto.def"
-  },
-  {
     "id": "Shishio_Makoto",
     "display_name": "Shishio_Makoto",
     "archetype": "Roster",
@@ -3528,36 +1838,6 @@
     "char_folder": "Shishio_Makoto",
     "def_file": "Shishio_Makoto.def",
     "def_path": "Shishio_Makoto/Shishio_Makoto.def"
-  },
-  {
-    "id": "Sho Hayate",
-    "display_name": "Sho Hayate",
-    "archetype": "unknown",
-    "author": "GoldEX",
-    "customizable": true,
-    "char_folder": "Hayate",
-    "def_file": "Hayate.def",
-    "def_path": "Hayate/Hayate.def"
-  },
-  {
-    "id": "Sie Kensou",
-    "display_name": "Sie Kensou",
-    "archetype": "unknown",
-    "author": "2Dee4Ever, Dampir & SirHyperClaw",
-    "customizable": true,
-    "char_folder": "Kensou",
-    "def_file": "Kensou.def",
-    "def_path": "Kensou/Kensou.def"
-  },
-  {
-    "id": "Sinobu Amou",
-    "display_name": "Sinobu Amou",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Sinobu-POTS",
-    "def_file": "Sinobu-POTS.def",
-    "def_path": "Sinobu-POTS/Sinobu-POTS.def"
   },
   {
     "id": "Sinobu-POTS",
@@ -3610,16 +1890,6 @@
     "def_path": "Snake/Snake.def"
   },
   {
-    "id": "Solid Snake",
-    "display_name": "Solid Snake",
-    "archetype": "unknown",
-    "author": "GoldEX",
-    "customizable": true,
-    "char_folder": "Snake",
-    "def_file": "Snake.def",
-    "def_path": "Snake/Snake.def"
-  },
-  {
     "id": "Sonic",
     "display_name": "Sonic",
     "archetype": "Roster",
@@ -3628,16 +1898,6 @@
     "char_folder": "Sonic",
     "def_file": "Sonic.def",
     "def_path": "Sonic/Sonic.def"
-  },
-  {
-    "id": "Sophie",
-    "display_name": "Sophie",
-    "archetype": "Rushdown",
-    "author": "Tony",
-    "customizable": true,
-    "char_folder": "custom_sophie",
-    "def_file": "custom_sophie.def",
-    "def_path": "custom_sophie/custom_sophie.def"
   },
   {
     "id": "Spawn",
@@ -3660,16 +1920,6 @@
     "def_path": "Spider-Man/Spider-Man.def"
   },
   {
-    "id": "Squall Leonhart",
-    "display_name": "Squall Leonhart",
-    "archetype": "unknown",
-    "author": "ZoneSeven",
-    "customizable": true,
-    "char_folder": "Squall_Leonhart",
-    "def_file": "Squall_Leonhart.def",
-    "def_path": "Squall_Leonhart/Squall_Leonhart.def"
-  },
-  {
     "id": "Squall_Leonhart",
     "display_name": "Squall_Leonhart",
     "archetype": "Roster",
@@ -3690,16 +1940,6 @@
     "def_path": "Steel/Steel.def"
   },
   {
-    "id": "Steve Fox",
-    "display_name": "Steve Fox",
-    "archetype": "unknown",
-    "author": "Nexus",
-    "customizable": true,
-    "char_folder": "SteveFox",
-    "def_file": "SteveFox.def",
-    "def_path": "SteveFox/SteveFox.def"
-  },
-  {
     "id": "SteveFox",
     "display_name": "SteveFox",
     "archetype": "Roster",
@@ -3710,26 +1950,6 @@
     "def_path": "SteveFox/SteveFox.def"
   },
   {
-    "id": "Strike",
-    "display_name": "Strike",
-    "archetype": "unknown",
-    "author": "KarmaCharmeleon",
-    "customizable": true,
-    "char_folder": "template_strike_01",
-    "def_file": "template_strike_01.def",
-    "def_path": "template_strike_01/template_strike_01.def"
-  },
-  {
-    "id": "Sub-Zero",
-    "display_name": "Sub-Zero",
-    "archetype": "unknown",
-    "author": "SeanAltly",
-    "customizable": true,
-    "char_folder": "SubZero",
-    "def_file": "SubZero.def",
-    "def_path": "SubZero/SubZero.def"
-  },
-  {
     "id": "SubZero",
     "display_name": "SubZero",
     "archetype": "Roster",
@@ -3738,46 +1958,6 @@
     "char_folder": "SubZero",
     "def_file": "SubZero.def",
     "def_path": "SubZero/SubZero.def"
-  },
-  {
-    "id": "Summon",
-    "display_name": "Summon",
-    "archetype": "unknown",
-    "author": "BDS",
-    "customizable": true,
-    "char_folder": "template_summon_01",
-    "def_file": "template_summon_01.def",
-    "def_path": "template_summon_01/template_summon_01.def"
-  },
-  {
-    "id": "Sunday",
-    "display_name": "Sunday",
-    "archetype": "tank",
-    "author": "Tony",
-    "customizable": true,
-    "char_folder": "custom_sunday",
-    "def_file": "custom_sunday.def",
-    "def_path": "custom_sunday/custom_sunday.def"
-  },
-  {
-    "id": "Super Luigi",
-    "display_name": "Super Luigi",
-    "archetype": "unknown",
-    "author": "ZoneSeven",
-    "customizable": true,
-    "char_folder": "Super_Luigi",
-    "def_file": "Super_Luigi.def",
-    "def_path": "Super_Luigi/Super_Luigi.def"
-  },
-  {
-    "id": "Super Mario",
-    "display_name": "Super Mario",
-    "archetype": "unknown",
-    "author": "ZoneSeven",
-    "customizable": true,
-    "char_folder": "Super_Mario",
-    "def_file": "Super_Mario.def",
-    "def_path": "Super_Mario/Super_Mario.def"
   },
   {
     "id": "Super_Luigi",
@@ -3840,36 +2020,6 @@
     "def_path": "TamTam/TamTam.def"
   },
   {
-    "id": "tamtam",
-    "display_name": "tamtam",
-    "archetype": "unknown",
-    "author": "ali and ShinMaker e Laslab",
-    "customizable": true,
-    "char_folder": "TamTam",
-    "def_file": "TamTam.def",
-    "def_path": "TamTam/TamTam.def"
-  },
-  {
-    "id": "Tank",
-    "display_name": "Tank",
-    "archetype": "unknown",
-    "author": "ana",
-    "customizable": true,
-    "char_folder": "template_tank_01",
-    "def_file": "template_tank_01.def",
-    "def_path": "template_tank_01/template_tank_01.def"
-  },
-  {
-    "id": "Template_balanced_01",
-    "display_name": "Template_balanced_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "template_balanced_01",
     "display_name": "template_balanced_01",
     "archetype": "Roster",
@@ -3878,26 +2028,6 @@
     "char_folder": "template_balanced_01",
     "def_file": "template_balanced_01.def",
     "def_path": "template_balanced_01/template_balanced_01.def"
-  },
-  {
-    "id": "template_counter_01",
-    "display_name": "template_counter_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "template_counter_01",
-    "def_file": "template_counter_01.def",
-    "def_path": "template_counter_01/template_counter_01.def"
-  },
-  {
-    "id": "Template_grapple_01",
-    "display_name": "Template_grapple_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "template_grapple_01",
@@ -3910,16 +2040,6 @@
     "def_path": "template_grapple_01/template_grapple_01.def"
   },
   {
-    "id": "Template_rush_01",
-    "display_name": "Template_rush_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "template_rush_01",
     "display_name": "template_rush_01",
     "archetype": "Roster",
@@ -3930,26 +2050,6 @@
     "def_path": "template_rush_01/template_rush_01.def"
   },
   {
-    "id": "template_strike_01",
-    "display_name": "template_strike_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "template_strike_01",
-    "def_file": "template_strike_01.def",
-    "def_path": "template_strike_01/template_strike_01.def"
-  },
-  {
-    "id": "Template_summon_01",
-    "display_name": "Template_summon_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
-  },
-  {
     "id": "template_summon_01",
     "display_name": "template_summon_01",
     "archetype": "Roster",
@@ -3958,36 +2058,6 @@
     "char_folder": "template_summon_01",
     "def_file": "template_summon_01.def",
     "def_path": "template_summon_01/template_summon_01.def"
-  },
-  {
-    "id": "template_tank_01",
-    "display_name": "template_tank_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "template_tank_01",
-    "def_file": "template_tank_01.def",
-    "def_path": "template_tank_01/template_tank_01.def"
-  },
-  {
-    "id": "template_wild_01",
-    "display_name": "template_wild_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "template_wild_01",
-    "def_file": "template_wild_01.def",
-    "def_path": "template_wild_01/template_wild_01.def"
-  },
-  {
-    "id": "Template_zone_01",
-    "display_name": "Template_zone_01",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "",
-    "def_file": "",
-    "def_path": ""
   },
   {
     "id": "template_zone_01",
@@ -4008,26 +2078,6 @@
     "char_folder": "Tessa",
     "def_file": "Tessa.def",
     "def_path": "Tessa/Tessa.def"
-  },
-  {
-    "id": "The End",
-    "display_name": "The End",
-    "archetype": "unknown",
-    "author": "GoldEX",
-    "customizable": true,
-    "char_folder": "The_End",
-    "def_file": "The_End.def",
-    "def_path": "The_End/The_End.def"
-  },
-  {
-    "id": "The Mask for Capcom vs SNK Arrange by Majin Kaine",
-    "display_name": "The Mask for Capcom vs SNK Arrange by Majin Kaine",
-    "archetype": "unknown",
-    "author": "SonicSkills (Original by Mammalman & thatoneguy)",
-    "customizable": true,
-    "char_folder": "TheMask",
-    "def_file": "TheMask.def",
-    "def_path": "TheMask/TheMask.def"
   },
   {
     "id": "The_End",
@@ -4060,26 +2110,6 @@
     "def_path": "Thor/Thor.def"
   },
   {
-    "id": "Thor Odinson",
-    "display_name": "Thor Odinson",
-    "archetype": "unknown",
-    "author": "Loganir, BlackDragon, Acey & BDS",
-    "customizable": true,
-    "char_folder": "Thor",
-    "def_file": "Thor.def",
-    "def_path": "Thor/Thor.def"
-  },
-  {
-    "id": "Tiffany Lords",
-    "display_name": "Tiffany Lords",
-    "archetype": "unknown",
-    "author": "Fervicante&Li_Kun&Rhythmical",
-    "customizable": true,
-    "char_folder": "rTiffany",
-    "def_file": "rTiffany.def",
-    "def_path": "rTiffany/rTiffany.def"
-  },
-  {
     "id": "Tira",
     "display_name": "Tira",
     "archetype": "Roster",
@@ -4088,16 +2118,6 @@
     "char_folder": "Tira",
     "def_file": "Tira.def",
     "def_path": "Tira/Tira.def"
-  },
-  {
-    "id": "Tiranosaurio",
-    "display_name": "Tiranosaurio",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Tiranosaurio",
-    "def_file": "Tiranosaurio.def",
-    "def_path": "Tiranosaurio/Tiranosaurio.def"
   },
   {
     "id": "Todoh",
@@ -4110,16 +2130,6 @@
     "def_path": "Todoh/Todoh.def"
   },
   {
-    "id": "Ton Pooh",
-    "display_name": "Ton Pooh",
-    "archetype": "unknown",
-    "author": "varo_hades",
-    "customizable": true,
-    "char_folder": "Ton_Pooh",
-    "def_file": "Ton_Pooh.def",
-    "def_path": "Ton_Pooh/Ton_Pooh.def"
-  },
-  {
     "id": "Ton_Pooh",
     "display_name": "Ton_Pooh",
     "archetype": "Roster",
@@ -4128,76 +2138,6 @@
     "char_folder": "Ton_Pooh",
     "def_file": "Ton_Pooh.def",
     "def_path": "Ton_Pooh/Ton_Pooh.def"
-  },
-  {
-    "id": "Tony",
-    "display_name": "Tony",
-    "archetype": "Rushdown",
-    "author": "Tony B",
-    "customizable": true,
-    "char_folder": "custom_tony",
-    "def_file": "custom_tony.def",
-    "def_path": "custom_tony/custom_tony.def"
-  },
-  {
-    "id": "Tony Batman",
-    "display_name": "Tony Batman",
-    "archetype": "zoner",
-    "author": "Batman",
-    "customizable": true,
-    "char_folder": "custom_tony_batman",
-    "def_file": "custom_tony_batman.def",
-    "def_path": "custom_tony_batman/custom_tony_batman.def"
-  },
-  {
-    "id": "Tony Burgess",
-    "display_name": "Tony Burgess",
-    "archetype": "zoner",
-    "author": "Tone",
-    "customizable": true,
-    "char_folder": "custom_tony_burgess",
-    "def_file": "custom_tony_burgess.def",
-    "def_path": "custom_tony_burgess/custom_tony_burgess.def"
-  },
-  {
-    "id": "Tony Lucifer",
-    "display_name": "Tony Lucifer",
-    "archetype": "striker",
-    "author": "Tony",
-    "customizable": true,
-    "char_folder": "custom_tony_lucifer",
-    "def_file": "custom_tony_lucifer.def",
-    "def_path": "custom_tony_lucifer/custom_tony_lucifer.def"
-  },
-  {
-    "id": "Triceratops",
-    "display_name": "Triceratops",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Triceratops",
-    "def_file": "Triceratops.def",
-    "def_path": "Triceratops/Triceratops.def"
-  },
-  {
-    "id": "Tuesday",
-    "display_name": "Tuesday",
-    "archetype": "Rushdown",
-    "author": "Tony",
-    "customizable": true,
-    "char_folder": "custom_tuesday",
-    "def_file": "custom_tuesday.def",
-    "def_path": "custom_tuesday/custom_tuesday.def"
-  },
-  {
-    "id": "Tung Fu Rue",
-    "display_name": "Tung Fu Rue",
-    "archetype": "unknown",
-    "author": "Zmugens",
-    "customizable": true,
-    "char_folder": "Tung_Fu_Rue",
-    "def_file": "Tung_Fu_Rue.def",
-    "def_path": "Tung_Fu_Rue/Tung_Fu_Rue.def"
   },
   {
     "id": "Tung_Fu_Rue",
@@ -4240,26 +2180,6 @@
     "def_path": "TYROG/TYROG.def"
   },
   {
-    "id": "Tyrog2",
-    "display_name": "Tyrog2",
-    "archetype": "Roster",
-    "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Tyrog2",
-    "def_file": "Tyrog2.def",
-    "def_path": "Tyrog2/Tyrog2.def"
-  },
-  {
-    "id": "Urban Champion",
-    "display_name": "Urban Champion",
-    "archetype": "unknown",
-    "author": "NovaMagnolia",
-    "customizable": true,
-    "char_folder": "UrbanChampion_NM",
-    "def_file": "UrbanChampion_NM.def",
-    "def_path": "UrbanChampion_NM/UrbanChampion_NM.def"
-  },
-  {
     "id": "UrbanChampion_NM",
     "display_name": "UrbanChampion_NM",
     "archetype": "Roster",
@@ -4268,16 +2188,6 @@
     "char_folder": "UrbanChampion_NM",
     "def_file": "UrbanChampion_NM.def",
     "def_path": "UrbanChampion_NM/UrbanChampion_NM.def"
-  },
-  {
-    "id": "Uxas",
-    "display_name": "Uxas",
-    "archetype": "unknown",
-    "author": "Wucash, borderoflife, Gartanham and BDS",
-    "customizable": true,
-    "char_folder": "Darkseid",
-    "def_file": "Darkseid.def",
-    "def_path": "Darkseid/Darkseid.def"
   },
   {
     "id": "Vector",
@@ -4290,16 +2200,6 @@
     "def_path": "Vector/Vector.def"
   },
   {
-    "id": "Vega",
-    "display_name": "Vega",
-    "archetype": "unknown",
-    "author": "Froz & Emerie The G.O.A.T",
-    "customizable": true,
-    "char_folder": "Bison",
-    "def_file": "Bison.def",
-    "def_path": "Bison/Bison.def"
-  },
-  {
     "id": "Venom",
     "display_name": "Venom",
     "archetype": "Hybrid",
@@ -4308,16 +2208,6 @@
     "char_folder": "Venom",
     "def_file": "Venom.def",
     "def_path": "Venom/Venom.def"
-  },
-  {
-    "id": "Vice T.",
-    "display_name": "Vice T.",
-    "archetype": "unknown",
-    "author": "Maniac",
-    "customizable": true,
-    "char_folder": "ViceT",
-    "def_file": "ViceT.def",
-    "def_path": "ViceT/ViceT.def"
   },
   {
     "id": "ViceT",
@@ -4340,36 +2230,6 @@
     "def_path": "Voldo/Voldo.def"
   },
   {
-    "id": "Wednesday",
-    "display_name": "Wednesday",
-    "archetype": "Grappler",
-    "author": "Winner",
-    "customizable": true,
-    "char_folder": "custom_wednesday",
-    "def_file": "custom_wednesday.def",
-    "def_path": "custom_wednesday/custom_wednesday.def"
-  },
-  {
-    "id": "Wild",
-    "display_name": "Wild",
-    "archetype": "unknown",
-    "author": "MB",
-    "customizable": true,
-    "char_folder": "template_wild_01",
-    "def_file": "template_wild_01.def",
-    "def_path": "template_wild_01/template_wild_01.def"
-  },
-  {
-    "id": "Wild Wolf",
-    "display_name": "Wild Wolf",
-    "archetype": "unknown",
-    "author": "KarmaCharmeleon",
-    "customizable": true,
-    "char_folder": "WildWolf",
-    "def_file": "WildWolf.def",
-    "def_path": "WildWolf/WildWolf.def"
-  },
-  {
     "id": "WildWolf",
     "display_name": "WildWolf",
     "archetype": "Roster",
@@ -4378,16 +2238,6 @@
     "char_folder": "WildWolf",
     "def_file": "WildWolf.def",
     "def_path": "WildWolf/WildWolf.def"
-  },
-  {
-    "id": "Wrench T.",
-    "display_name": "Wrench T.",
-    "archetype": "unknown",
-    "author": "Maniac",
-    "customizable": true,
-    "char_folder": "WrenchT",
-    "def_file": "WrenchT.def",
-    "def_path": "WrenchT/WrenchT.def"
   },
   {
     "id": "WrenchT",
@@ -4410,30 +2260,10 @@
     "def_path": "Yang/Yang.def"
   },
   {
-    "id": "Yang Lee",
-    "display_name": "Yang Lee",
-    "archetype": "unknown",
-    "author": "KarmaCharmeleon",
-    "customizable": true,
-    "char_folder": "Yang",
-    "def_file": "Yang.def",
-    "def_path": "Yang/Yang.def"
-  },
-  {
     "id": "Yoko",
     "display_name": "Yoko",
     "archetype": "Roster",
     "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Yoko",
-    "def_file": "Yoko.def",
-    "def_path": "Yoko/Yoko.def"
-  },
-  {
-    "id": "Yoko Littner",
-    "display_name": "Yoko Littner",
-    "archetype": "unknown",
-    "author": "Warusaki3 & Cruz",
     "customizable": true,
     "char_folder": "Yoko",
     "def_file": "Yoko.def",
@@ -4454,16 +2284,6 @@
     "display_name": "Yun",
     "archetype": "Roster",
     "author": "Legacy Fighter",
-    "customizable": true,
-    "char_folder": "Yun",
-    "def_file": "Yun.def",
-    "def_path": "Yun/Yun.def"
-  },
-  {
-    "id": "Yun Lee",
-    "display_name": "Yun Lee",
-    "archetype": "unknown",
-    "author": "KarmaCharmeleon",
     "customizable": true,
     "char_folder": "Yun",
     "def_file": "Yun.def",
@@ -4508,15 +2328,5 @@
     "char_folder": "Zeus",
     "def_file": "Zeus.def",
     "def_path": "Zeus/Zeus.def"
-  },
-  {
-    "id": "Zone",
-    "display_name": "Zone",
-    "archetype": "unknown",
-    "author": "Maniac",
-    "customizable": true,
-    "char_folder": "template_zone_01",
-    "def_file": "template_zone_01.def",
-    "def_path": "template_zone_01/template_zone_01.def"
   }
 ]
