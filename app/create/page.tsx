@@ -471,23 +471,25 @@ export default function CreatePage() {
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
 
-  useEffect(() => {
-    fetch("/base_fighters.json")
-      .then((res) => res.json())
-      .then((data) => setBaseFighters(Array.isArray(data) ? data : []))
-      .catch(() => setBaseFighters([]));
-  }, []);
+useEffect(() => {
+  fetch("/live_roster.json")
+    .then((res) => res.json())
+    .then((data) => {
+      const fighters = (data.base_fighters || []).map((f: any) => ({
+        id: f.id,
+        display_name: f.name,
+        archetype: f.archetype || "unknown",
+        author: f.author || "unknown",
+        char_folder: f.char_folder,
+        def_file: f.def_file,
+        def_path: f.def_path,
+        customizable: true
+      }));
 
-  const validated = useMemo(() => validateFighter(fighter), [fighter]);
-  const remaining = validated.validation.remaining_points;
-
-  function update(mutator: (draft: FighterSubmission) => void) {
-    setFighter((prev) => {
-      const next = structuredClone(prev);
-      mutator(next);
-      return next;
-    });
-  }
+      setBaseFighters(fighters);
+    })
+    .catch(() => setBaseFighters([]));
+}, []);
 
   function updateField<T extends string | number | boolean>(path: string, value: T) {
     update((draft) => {
