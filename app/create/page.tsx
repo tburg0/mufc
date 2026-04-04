@@ -491,6 +491,9 @@ useEffect(() => {
     .catch(() => setBaseFighters([]));
 }, []);
 
+const validated = useMemo(() => validateFighter(fighter), [fighter]);
+const remaining = validated.validation.remaining_points;
+
   function updateField<T extends string | number | boolean>(path: string, value: T) {
     update((draft) => {
       const parts = path.split(".");
