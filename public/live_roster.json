@@ -1,4 +1,14 @@
-"base_fighters": [
+{
+  "generated_at": "2026-04-04T21:35:11.011832+00:00",
+  "counts": {
+    "native_candidates_raw": 423,
+    "native_unique": 290,
+    "submitted": 0,
+    "total_live": 290,
+    "base_selectable": 290,
+    "native_variant_groups": 131
+  },
+  "base_fighters": [
     {
       "id": "Abigail",
       "name": "Abigail",
