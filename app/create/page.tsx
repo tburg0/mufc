@@ -20,6 +20,9 @@ type Fighter = {
 const E = enums as Record<string, any>;
 const STATS = ["power", "speed", "defense", "grapple", "strike", "air", "stamina", "recovery"] as const;
 const AI = ["aggression", "combo_rate", "grapple_rate", "strike_rate", "air_rate", "throw_escape_rate", "guard_rate", "counter_rate", "special_usage", "super_usage", "risk_tolerance", "ring_control", "finish_priority"] as const;
+const MOVES = ["spinebuster", "counter_slam", "lariat", "roundhouse_burst", "knee_combo", "backfist", "dropkick", "suplex_throw"] as const;
+const FINISHERS = ["sitout_powerbomb", "storm_drop", "flash_high_kick", "super_lariat", "driver_drop", "skybreaker"] as const;
+const SUPER_FINISHERS = ["storm_drop", "chaos_driver", "critical_burst", "last_stand_bomb"] as const;
 const TEMPLATES: Record<string, string> = { lightweight_striker: "template_strike_01", balanced_midweight: "template_balanced_01", heavy_grappler: "template_grapple_01" };
 const OK: Record<string, Record<string, string[]>> = {
   body_class: { lightweight_striker: ["rushdown", "striker", "zoner"], balanced_midweight: ["balanced", "wildcard", "rushdown", "striker"], heavy_grappler: ["grappler", "counter_grappler", "tank"] },
@@ -159,11 +162,11 @@ export default function CreatePage() {
             <div className="builder-grid">
               <Field label="Template Base"><Pick value={fighter.moveset.template_base} set={(x) => setPath("moveset.template_base", x)} options={E.moveset.template_base} /></Field>
               <Field label="Moveset Style"><Pick value={fighter.moveset.moveset_style} set={(x) => setPath("moveset.moveset_style", x)} options={E.moveset.moveset_style} /></Field>
-              <Field label="Signature 1"><Pick value={fighter.moveset.signature_1} set={(x) => setPath("moveset.signature_1", x)} options={E.moves.signature_moves} /></Field>
-              <Field label="Signature 2"><Pick value={fighter.moveset.signature_2} set={(x) => setPath("moveset.signature_2", x)} options={E.moves.signature_moves} /></Field>
-              <Field label="Signature 3"><Pick value={fighter.moveset.signature_3} set={(x) => setPath("moveset.signature_3", x)} options={E.moves.signature_moves} /></Field>
-              <Field label="Finisher"><Pick value={fighter.moveset.finisher} set={(x) => setPath("moveset.finisher", x)} options={E.moves.finishers} /></Field>
-              <Field label="Super Finisher"><Pick value={fighter.moveset.super_finisher} set={(x) => setPath("moveset.super_finisher", x)} options={["", ...E.moves.super_finishers]} /></Field>
+              <Field label="Signature 1"><Pick value={fighter.moveset.signature_1} set={(x) => setPath("moveset.signature_1", x)} options={MOVES} /></Field>
+              <Field label="Signature 2"><Pick value={fighter.moveset.signature_2} set={(x) => setPath("moveset.signature_2", x)} options={MOVES} /></Field>
+              <Field label="Signature 3"><Pick value={fighter.moveset.signature_3} set={(x) => setPath("moveset.signature_3", x)} options={MOVES} /></Field>
+              <Field label="Finisher"><Pick value={fighter.moveset.finisher} set={(x) => setPath("moveset.finisher", x)} options={FINISHERS} /></Field>
+              <Field label="Super Finisher"><Pick value={fighter.moveset.super_finisher} set={(x) => setPath("moveset.super_finisher", x)} options={["", ...SUPER_FINISHERS]} /></Field>
               <Field label="Taunt Style"><Pick value={fighter.moveset.taunt_style} set={(x) => setPath("moveset.taunt_style", x)} options={E.moveset.taunt_style} /></Field>
               <Field label="Intro Style"><Pick value={fighter.moveset.intro_style} set={(x) => setPath("moveset.intro_style", x)} options={E.moveset.intro_style} /></Field>
               <Field label="Victory Pose"><Pick value={fighter.moveset.victory_pose} set={(x) => setPath("moveset.victory_pose", x)} options={E.moveset.victory_pose} /></Field>
