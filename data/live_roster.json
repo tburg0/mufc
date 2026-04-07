@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-04-04T21:35:11.011832+00:00",
+  "generated_at": "2026-04-07T01:35:23.882082+00:00",
   "counts": {
-    "native_candidates_raw": 423,
-    "native_unique": 290,
+    "native_candidates_raw": 458,
+    "native_unique": 317,
     "submitted": 0,
-    "total_live": 290,
-    "base_selectable": 290,
-    "native_variant_groups": 131
+    "total_live": 317,
+    "base_selectable": 317,
+    "native_variant_groups": 140
   },
   "base_fighters": [
     {
@@ -32,6 +32,40 @@
           "source": "native",
           "char_folder": "Abigail",
           "def_path": "Abigail/Abigail.def"
+        }
+      ]
+    },
+    {
+      "id": "AkiraYuki",
+      "name": "AkiraYuki",
+      "runtime": "AkiraYuki",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "AkiraYuki",
+      "def_path": "AkiraYuki/AkiraYuki.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Akirayuki",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "AkiraYuki",
+          "runtime": "AkiraYuki",
+          "author": null,
+          "source": "native",
+          "char_folder": "AkiraYuki",
+          "def_path": "AkiraYuki/AkiraYuki.def"
+        },
+        {
+          "name": "Akira Yuki",
+          "runtime": "Akira Yuki",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "AkiraYuki",
+          "def_path": "AkiraYuki/AkiraYuki.def"
         }
       ]
     },
@@ -92,6 +126,32 @@
           "source": "native",
           "char_folder": "Alfred",
           "def_path": "Alfred/Alfred.def"
+        }
+      ]
+    },
+    {
+      "id": "Allen",
+      "name": "Allen",
+      "runtime": "Allen",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Allen",
+      "def_path": "Allen/Allen.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Allen",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Allen",
+          "runtime": "Allen",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Allen",
+          "def_path": "Allen/Allen.def"
         }
       ]
     },
@@ -268,6 +328,32 @@
       ]
     },
     {
+      "id": "Angel",
+      "name": "Angel",
+      "runtime": "Angel",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Angel",
+      "def_path": "Angel/Angel.def",
+      "author": "KarmaCharmeleon",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Angel",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Angel",
+          "runtime": "Angel",
+          "author": "KarmaCharmeleon",
+          "source": "native",
+          "char_folder": "Angel",
+          "def_path": "Angel/Angel.def"
+        }
+      ]
+    },
+    {
       "id": "Anne Scott",
       "name": "Anne Scott",
       "runtime": "Anne Scott",
@@ -362,6 +448,40 @@
       ]
     },
     {
+      "id": "Ash",
+      "name": "Ash",
+      "runtime": "Ash",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Ash",
+      "def_path": "Ash/Ash.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Ash",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "Ash",
+          "runtime": "Ash",
+          "author": null,
+          "source": "native",
+          "char_folder": "Ash",
+          "def_path": "Ash/Ash.def"
+        },
+        {
+          "name": "Ash Crimson",
+          "runtime": "Ash Crimson",
+          "author": "KarmaCharmeleon",
+          "source": "native",
+          "char_folder": "Ash",
+          "def_path": "Ash/Ash.def"
+        }
+      ]
+    },
+    {
       "id": "Astaroth",
       "name": "Astaroth",
       "runtime": "Astaroth",
@@ -384,6 +504,32 @@
           "source": "native",
           "char_folder": "Astaroth",
           "def_path": "Astaroth/Astaroth.def"
+        }
+      ]
+    },
+    {
+      "id": "Asura",
+      "name": "Asura",
+      "runtime": "Asura",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Asura",
+      "def_path": "Asura/Asura.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Asura",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Asura",
+          "runtime": "Asura",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Asura",
+          "def_path": "Asura/Asura.def"
         }
       ]
     },
@@ -642,6 +788,40 @@
           "source": "native",
           "char_folder": "Blaze",
           "def_path": "Blaze/Blaze.def"
+        }
+      ]
+    },
+    {
+      "id": "BlueMary",
+      "name": "BlueMary",
+      "runtime": "BlueMary",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "BlueMary",
+      "def_path": "BlueMary/BlueMary.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Bluemary",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "BlueMary",
+          "runtime": "BlueMary",
+          "author": null,
+          "source": "native",
+          "char_folder": "BlueMary",
+          "def_path": "BlueMary/BlueMary.def"
+        },
+        {
+          "name": "Blue Mary",
+          "runtime": "Blue Mary",
+          "author": "Infinite",
+          "source": "native",
+          "char_folder": "BlueMary",
+          "def_path": "BlueMary/BlueMary.def"
         }
       ]
     },
@@ -2101,7 +2281,7 @@
       "runtime": "DWKyosuke",
       "source": "native",
       "selectable_as_base": true,
-      "char_folder": "DWKyosuke",
+      "char_folder": null,
       "def_path": null,
       "author": null,
       "archetype": null,
@@ -2116,16 +2296,8 @@
           "runtime": "DWKyosuke",
           "author": null,
           "source": "native",
-          "char_folder": "DWKyosuke",
+          "char_folder": null,
           "def_path": null
-        },
-        {
-          "name": "Kyosuke Kagami",
-          "runtime": "Kyosuke Kagami",
-          "author": "DivineWolf",
-          "source": "native",
-          "char_folder": "DWKyosuke",
-          "def_path": "DWKyosuke/Kyosuke.def"
         },
         {
           "name": "Kyosuke",
@@ -2948,6 +3120,40 @@
       ]
     },
     {
+      "id": "HadoJuri",
+      "name": "HadoJuri",
+      "runtime": "HadoJuri",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "HadoJuri",
+      "def_path": "HadoJuri/HadoJuri.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Hadojuri",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "HadoJuri",
+          "runtime": "HadoJuri",
+          "author": null,
+          "source": "native",
+          "char_folder": "HadoJuri",
+          "def_path": "HadoJuri/HadoJuri.def"
+        },
+        {
+          "name": "Juri Han2",
+          "runtime": "Juri Han2",
+          "author": "chucho & Prime, edited by Aura, edited by Andre.exe",
+          "source": "native",
+          "char_folder": "HadoJuri",
+          "def_path": "HadoJuri/HadoJuri.def"
+        }
+      ]
+    },
+    {
       "id": "Haggar",
       "name": "Haggar",
       "runtime": "Haggar",
@@ -2970,6 +3176,32 @@
           "source": "native",
           "char_folder": "Haggar",
           "def_path": "Haggar/Haggar.def"
+        }
+      ]
+    },
+    {
+      "id": "Hakufu",
+      "name": "Hakufu",
+      "runtime": "Hakufu",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Hakufu",
+      "def_path": "Hakufu/Hakufu.def",
+      "author": "Zmugens",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Hakufu",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Hakufu",
+          "runtime": "Hakufu",
+          "author": "Zmugens",
+          "source": "native",
+          "char_folder": "Hakufu",
+          "def_path": "Hakufu/Hakufu.def"
         }
       ]
     },
@@ -3102,6 +3334,32 @@
       ]
     },
     {
+      "id": "Hien",
+      "name": "Hien",
+      "runtime": "Hien",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Hien",
+      "def_path": "Hien/Hien.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Hien",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Hien",
+          "runtime": "Hien",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Hien",
+          "def_path": "Hien/Hien.def"
+        }
+      ]
+    },
+    {
       "id": "Hinako Shijo",
       "name": "Hinako Shijo",
       "runtime": "Hinako Shijo",
@@ -3166,6 +3424,32 @@
           "source": "native",
           "char_folder": "Hinata",
           "def_path": "Hinata/Hinata.def"
+        }
+      ]
+    },
+    {
+      "id": "Hokuto",
+      "name": "Hokuto",
+      "runtime": "Hokuto",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Hokuto",
+      "def_path": "Hokuto/Hokuto.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Hokuto",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Hokuto",
+          "runtime": "Hokuto",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Hokuto",
+          "def_path": "Hokuto/Hokuto.def"
         }
       ]
     },
@@ -3298,6 +3582,32 @@
       ]
     },
     {
+      "id": "Ichigo",
+      "name": "Ichigo",
+      "runtime": "Ichigo",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Ichigo",
+      "def_path": "Ichigo/Ichigo.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Ichigo",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Ichigo",
+          "runtime": "Ichigo",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Ichigo",
+          "def_path": "Ichigo/Ichigo.def"
+        }
+      ]
+    },
+    {
       "id": "Inferno",
       "name": "Inferno",
       "runtime": "Inferno",
@@ -3324,6 +3634,32 @@
       ]
     },
     {
+      "id": "Ingrid",
+      "name": "Ingrid",
+      "runtime": "Ingrid",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Ingrid",
+      "def_path": "Ingrid/Ingrid.def",
+      "author": "CrazyKoopa",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Ingrid",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Ingrid",
+          "runtime": "Ingrid",
+          "author": "CrazyKoopa",
+          "source": "native",
+          "char_folder": "Ingrid",
+          "def_path": "Ingrid/Ingrid.def"
+        }
+      ]
+    },
+    {
       "id": "Inuyasha",
       "name": "Inuyasha",
       "runtime": "Inuyasha",
@@ -3346,6 +3682,32 @@
           "source": "native",
           "char_folder": "Inuyasha",
           "def_path": "Inuyasha/Inuyasha.def"
+        }
+      ]
+    },
+    {
+      "id": "Iroha",
+      "name": "Iroha",
+      "runtime": "Iroha",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Iroha",
+      "def_path": "Iroha/Iroha.def",
+      "author": "Jax",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Iroha",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Iroha",
+          "runtime": "Iroha",
+          "author": "Jax",
+          "source": "native",
+          "char_folder": "Iroha",
+          "def_path": "Iroha/Iroha.def"
         }
       ]
     },
@@ -3592,27 +3954,19 @@
     {
       "id": "Jin Saotome",
       "name": "Jin Saotome",
-      "runtime": "Jin Saotome",
+      "runtime": "Jin_Saotome",
       "source": "native",
       "selectable_as_base": true,
       "char_folder": "Jin Saotome",
       "def_path": "Jin Saotome/Jin_Saotome.def",
-      "author": "MB",
+      "author": "Legacy Fighter",
       "archetype": "Roster",
       "power_index": 50,
       "fighter_id": null,
       "from_metadata": true,
       "base_character": "Jin Saotome",
-      "is_variant": true,
+      "is_variant": false,
       "variants": [
-        {
-          "name": "Jin Saotome",
-          "runtime": "Jin Saotome",
-          "author": "MB",
-          "source": "native",
-          "char_folder": "Jin Saotome",
-          "def_path": "Jin Saotome/Jin_Saotome.def"
-        },
         {
           "name": "Jin Saotome",
           "runtime": "Jin_Saotome",
@@ -3620,6 +3974,32 @@
           "source": "native",
           "char_folder": "Jin Saotome",
           "def_path": "Jin Saotome/Jin_Saotome.def"
+        }
+      ]
+    },
+    {
+      "id": "Jin Saotome",
+      "name": "Jin Saotome",
+      "runtime": "Jin Saotome",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Jin_Saotome",
+      "def_path": "Jin_Saotome/Jin_Saotome.def",
+      "author": "MB",
+      "archetype": "Roster",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Jin Saotome",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Jin Saotome",
+          "runtime": "Jin Saotome",
+          "author": "MB",
+          "source": "native",
+          "char_folder": "Jin_Saotome",
+          "def_path": "Jin_Saotome/Jin_Saotome.def"
         }
       ]
     },
@@ -4136,6 +4516,32 @@
       ]
     },
     {
+      "id": "Khrome",
+      "name": "Khrome",
+      "runtime": "Khrome",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Khrome",
+      "def_path": "Khrome/Khrome.def",
+      "author": "R@CE AKIR@ Editado por Magno Csar",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Khrome",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Khrome",
+          "runtime": "Khrome",
+          "author": "R@CE AKIR@ Editado por Magno Csar",
+          "source": "native",
+          "char_folder": "Khrome",
+          "def_path": "Khrome/Khrome.def"
+        }
+      ]
+    },
+    {
       "id": "Kim Dong Hwan",
       "name": "Kim Dong Hwan",
       "runtime": "Kim_Dong_Hwan",
@@ -4456,6 +4862,32 @@
           "source": "native",
           "char_folder": "Kyo_Kusanagi",
           "def_path": "Kyo_Kusanagi/Kyo_Kusanagi.def"
+        }
+      ]
+    },
+    {
+      "id": "Kyosuke Kagami",
+      "name": "Kyosuke Kagami",
+      "runtime": "Kyosuke Kagami",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Kyosuke",
+      "def_path": "Kyosuke/Kyosuke.def",
+      "author": "DivineWolf",
+      "archetype": "Roster",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Kyosuke",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Kyosuke Kagami",
+          "runtime": "Kyosuke Kagami",
+          "author": "DivineWolf",
+          "source": "native",
+          "char_folder": "Kyosuke",
+          "def_path": "Kyosuke/Kyosuke.def"
         }
       ]
     },
@@ -5008,6 +5440,32 @@
       ]
     },
     {
+      "id": "Maou",
+      "name": "Maou",
+      "runtime": "Maou",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Maou",
+      "def_path": "Maou/Maou.def",
+      "author": "GoldEX",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Maou",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Maou",
+          "runtime": "Maou",
+          "author": "GoldEX",
+          "source": "native",
+          "char_folder": "Maou",
+          "def_path": "Maou/Maou.def"
+        }
+      ]
+    },
+    {
       "id": "Marco Rodrigues",
       "name": "Marco Rodrigues",
       "runtime": "Marco Rodrigues",
@@ -5202,6 +5660,66 @@
           "source": "native",
           "char_folder": "Mess",
           "def_path": "Mess/Mess.def"
+        }
+      ]
+    },
+    {
+      "id": "Michelin",
+      "name": "Michelin",
+      "runtime": "Michelin",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Michelin",
+      "def_path": "Michelin/Michelin.def",
+      "author": "Cipriano",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Michelin",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Michelin",
+          "runtime": "Michelin",
+          "author": "Cipriano",
+          "source": "native",
+          "char_folder": "Michelin",
+          "def_path": "Michelin/Michelin.def"
+        }
+      ]
+    },
+    {
+      "id": "Mika",
+      "name": "Mika",
+      "runtime": "Mika",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Mika",
+      "def_path": "Mika/Mika.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Mika",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "Mika",
+          "runtime": "Mika",
+          "author": null,
+          "source": "native",
+          "char_folder": "Mika",
+          "def_path": "Mika/Mika.def"
+        },
+        {
+          "name": "Deafening Silence",
+          "runtime": "Deafening Silence",
+          "author": "JStudios2k",
+          "source": "native",
+          "char_folder": "Mika",
+          "def_path": "Mika/Mika.def"
         }
       ]
     },
@@ -5452,6 +5970,40 @@
           "source": "native",
           "char_folder": "Morgue",
           "def_path": "Morgue/Morgue.def"
+        }
+      ]
+    },
+    {
+      "id": "Moriya Minakata",
+      "name": "Moriya Minakata",
+      "runtime": "Moriya Minakata",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Moriya_Minakata",
+      "def_path": "Moriya_Minakata/Moriya_Minakata.def",
+      "author": "Zmugens",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Moriya Minakata",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "Moriya Minakata",
+          "runtime": "Moriya Minakata",
+          "author": "Zmugens",
+          "source": "native",
+          "char_folder": "Moriya_Minakata",
+          "def_path": "Moriya_Minakata/Moriya_Minakata.def"
+        },
+        {
+          "name": "Moriya Minakata",
+          "runtime": "Moriya_Minakata",
+          "author": null,
+          "source": "native",
+          "char_folder": "Moriya_Minakata",
+          "def_path": "Moriya_Minakata/Moriya_Minakata.def"
         }
       ]
     },
@@ -5800,6 +6352,40 @@
       ]
     },
     {
+      "id": "Noob Saibot",
+      "name": "Noob Saibot",
+      "runtime": "Noob Saibot",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Noob_Saibot",
+      "def_path": "Noob_Saibot/Noob_Saibot.def",
+      "author": "Fabry Taz, Frak20 & MB",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Noob Saibot",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "Noob Saibot",
+          "runtime": "Noob Saibot",
+          "author": "Fabry Taz, Frak20 & MB",
+          "source": "native",
+          "char_folder": "Noob_Saibot",
+          "def_path": "Noob_Saibot/Noob_Saibot.def"
+        },
+        {
+          "name": "Noob Saibot",
+          "runtime": "Noob_Saibot",
+          "author": null,
+          "source": "native",
+          "char_folder": "Noob_Saibot",
+          "def_path": "Noob_Saibot/Noob_Saibot.def"
+        }
+      ]
+    },
+    {
       "id": "Omega Red",
       "name": "Omega Red",
       "runtime": "Omega Red",
@@ -5908,6 +6494,32 @@
           "source": "native",
           "char_folder": "Othello",
           "def_path": "Othello/Othello.def"
+        }
+      ]
+    },
+    {
+      "id": "Ox",
+      "name": "Ox",
+      "runtime": "Ox",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Ox",
+      "def_path": "Ox/Ox.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Ox",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Ox",
+          "runtime": "Ox",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Ox",
+          "def_path": "Ox/Ox.def"
         }
       ]
     },
@@ -6438,6 +7050,32 @@
       ]
     },
     {
+      "id": "Rukia",
+      "name": "Rukia",
+      "runtime": "Rukia",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Rukia",
+      "def_path": "Rukia/Rukia.def",
+      "author": "Nexus",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Rukia",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Rukia",
+          "runtime": "Rukia",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "Rukia",
+          "def_path": "Rukia/Rukia.def"
+        }
+      ]
+    },
+    {
       "id": "Rumble McSkirmish",
       "name": "Rumble McSkirmish",
       "runtime": "Rumble McSkirmish",
@@ -6648,6 +7286,40 @@
           "source": "native",
           "char_folder": "SamusAran",
           "def_path": "SamusAran/SamusAran.def"
+        }
+      ]
+    },
+    {
+      "id": "Sanji",
+      "name": "Sanji",
+      "runtime": "Sanji",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Sanji",
+      "def_path": "Sanji/Sanji.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Sanji",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "Sanji",
+          "runtime": "Sanji",
+          "author": null,
+          "source": "native",
+          "char_folder": "Sanji",
+          "def_path": "Sanji/Sanji.def"
+        },
+        {
+          "name": "Vinsmoke Sanji",
+          "runtime": "Vinsmoke Sanji",
+          "author": "BurningSoul",
+          "source": "native",
+          "char_folder": "Sanji",
+          "def_path": "Sanji/Sanji.def"
         }
       ]
     },
@@ -7098,6 +7770,32 @@
       ]
     },
     {
+      "id": "Silber",
+      "name": "Silber",
+      "runtime": "Silber",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Silber",
+      "def_path": "Silber/Silber.def",
+      "author": "GoldEX",
+      "archetype": "unknown",
+      "power_index": 50,
+      "fighter_id": null,
+      "from_metadata": true,
+      "base_character": "Silber",
+      "is_variant": false,
+      "variants": [
+        {
+          "name": "Silber",
+          "runtime": "Silber",
+          "author": "GoldEX",
+          "source": "native",
+          "char_folder": "Silber",
+          "def_path": "Silber/Silber.def"
+        }
+      ]
+    },
+    {
       "id": "Sinobu Amou",
       "name": "Sinobu Amou",
       "runtime": "Sinobu Amou",
@@ -7206,6 +7904,40 @@
           "source": "native",
           "char_folder": "Slisaur",
           "def_path": "Slisaur/Slisaur.def"
+        }
+      ]
+    },
+    {
+      "id": "Smoke",
+      "name": "Smoke",
+      "runtime": "Smoke",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "Smoke",
+      "def_path": "Smoke/Smoke.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Smoke",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "Smoke",
+          "runtime": "Smoke",
+          "author": null,
+          "source": "native",
+          "char_folder": "Smoke",
+          "def_path": "Smoke/Smoke.def"
+        },
+        {
+          "name": "Cyber Smoke",
+          "runtime": "Cyber Smoke",
+          "author": "MB",
+          "source": "native",
+          "char_folder": "Smoke",
+          "def_path": "Smoke/Smoke.def"
         }
       ]
     },
@@ -7540,6 +8272,40 @@
           "source": "native",
           "char_folder": "Superman",
           "def_path": "Superman/Superman.def"
+        }
+      ]
+    },
+    {
+      "id": "SuperShadow",
+      "name": "SuperShadow",
+      "runtime": "SuperShadow",
+      "source": "native",
+      "selectable_as_base": true,
+      "char_folder": "SuperShadow",
+      "def_path": "SuperShadow/SuperShadow.def",
+      "author": null,
+      "archetype": null,
+      "power_index": null,
+      "fighter_id": null,
+      "from_metadata": false,
+      "base_character": "Supershadow",
+      "is_variant": true,
+      "variants": [
+        {
+          "name": "SuperShadow",
+          "runtime": "SuperShadow",
+          "author": null,
+          "source": "native",
+          "char_folder": "SuperShadow",
+          "def_path": "SuperShadow/SuperShadow.def"
+        },
+        {
+          "name": "Super Shadow",
+          "runtime": "Super Shadow",
+          "author": "Nexus",
+          "source": "native",
+          "char_folder": "SuperShadow",
+          "def_path": "SuperShadow/SuperShadow.def"
         }
       ]
     },
@@ -8634,6 +9400,23 @@
       ]
     },
     {
+      "base_character": "Akirayuki",
+      "primary_id": "AkiraYuki",
+      "primary_name": "AkiraYuki",
+      "members": [
+        {
+          "id": "AkiraYuki",
+          "name": "AkiraYuki",
+          "runtime": "AkiraYuki",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "AkiraYuki",
+          "def_path": "AkiraYuki/AkiraYuki.def",
+          "author": null
+        }
+      ]
+    },
+    {
       "base_character": "Alex",
       "primary_id": "Alex",
       "primary_name": "Alex",
@@ -8664,6 +9447,23 @@
           "char_folder": "Alfred",
           "def_path": "Alfred/Alfred.def",
           "author": "Legacy Fighter"
+        }
+      ]
+    },
+    {
+      "base_character": "Allen",
+      "primary_id": "Allen",
+      "primary_name": "Allen",
+      "members": [
+        {
+          "id": "Allen",
+          "name": "Allen",
+          "runtime": "Allen",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Allen",
+          "def_path": "Allen/Allen.def",
+          "author": "Nexus"
         }
       ]
     },
@@ -8780,6 +9580,23 @@
       ]
     },
     {
+      "base_character": "Angel",
+      "primary_id": "Angel",
+      "primary_name": "Angel",
+      "members": [
+        {
+          "id": "Angel",
+          "name": "Angel",
+          "runtime": "Angel",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Angel",
+          "def_path": "Angel/Angel.def",
+          "author": "KarmaCharmeleon"
+        }
+      ]
+    },
+    {
       "base_character": "Anne",
       "primary_id": "Anne Scott",
       "primary_name": "Anne Scott",
@@ -8831,6 +9648,23 @@
       ]
     },
     {
+      "base_character": "Ash",
+      "primary_id": "Ash",
+      "primary_name": "Ash",
+      "members": [
+        {
+          "id": "Ash",
+          "name": "Ash",
+          "runtime": "Ash",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "Ash",
+          "def_path": "Ash/Ash.def",
+          "author": null
+        }
+      ]
+    },
+    {
       "base_character": "Astaroth",
       "primary_id": "Astaroth",
       "primary_name": "Astaroth",
@@ -8843,6 +9677,23 @@
           "is_variant": false,
           "char_folder": "Astaroth",
           "def_path": "Astaroth/Astaroth.def",
+          "author": "Nexus"
+        }
+      ]
+    },
+    {
+      "base_character": "Asura",
+      "primary_id": "Asura",
+      "primary_name": "Asura",
+      "members": [
+        {
+          "id": "Asura",
+          "name": "Asura",
+          "runtime": "Asura",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Asura",
+          "def_path": "Asura/Asura.def",
           "author": "Nexus"
         }
       ]
@@ -9014,6 +9865,23 @@
           "char_folder": "Blaze",
           "def_path": "Blaze/Blaze.def",
           "author": "Legacy Fighter"
+        }
+      ]
+    },
+    {
+      "base_character": "Bluemary",
+      "primary_id": "BlueMary",
+      "primary_name": "BlueMary",
+      "members": [
+        {
+          "id": "BlueMary",
+          "name": "BlueMary",
+          "runtime": "BlueMary",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "BlueMary",
+          "def_path": "BlueMary/BlueMary.def",
+          "author": null
         }
       ]
     },
@@ -9789,7 +10657,7 @@
           "runtime": "DWKyosuke",
           "source": "native",
           "is_variant": true,
-          "char_folder": "DWKyosuke",
+          "char_folder": null,
           "def_path": null,
           "author": null
         }
@@ -10306,6 +11174,23 @@
       ]
     },
     {
+      "base_character": "Hadojuri",
+      "primary_id": "HadoJuri",
+      "primary_name": "HadoJuri",
+      "members": [
+        {
+          "id": "HadoJuri",
+          "name": "HadoJuri",
+          "runtime": "HadoJuri",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "HadoJuri",
+          "def_path": "HadoJuri/HadoJuri.def",
+          "author": null
+        }
+      ]
+    },
+    {
       "base_character": "Haggar",
       "primary_id": "Haggar",
       "primary_name": "Haggar",
@@ -10319,6 +11204,23 @@
           "char_folder": "Haggar",
           "def_path": "Haggar/Haggar.def",
           "author": "Nexus"
+        }
+      ]
+    },
+    {
+      "base_character": "Hakufu",
+      "primary_id": "Hakufu",
+      "primary_name": "Hakufu",
+      "members": [
+        {
+          "id": "Hakufu",
+          "name": "Hakufu",
+          "runtime": "Hakufu",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Hakufu",
+          "def_path": "Hakufu/Hakufu.def",
+          "author": "Zmugens"
         }
       ]
     },
@@ -10408,6 +11310,23 @@
       ]
     },
     {
+      "base_character": "Hien",
+      "primary_id": "Hien",
+      "primary_name": "Hien",
+      "members": [
+        {
+          "id": "Hien",
+          "name": "Hien",
+          "runtime": "Hien",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Hien",
+          "def_path": "Hien/Hien.def",
+          "author": "Nexus"
+        }
+      ]
+    },
+    {
       "base_character": "Hinako",
       "primary_id": "Hinako Shijo",
       "primary_name": "Hinako Shijo",
@@ -10455,6 +11374,23 @@
           "char_folder": "Hogg",
           "def_path": "Hogg/Hogg.def",
           "author": "By Potro"
+        }
+      ]
+    },
+    {
+      "base_character": "Hokuto",
+      "primary_id": "Hokuto",
+      "primary_name": "Hokuto",
+      "members": [
+        {
+          "id": "Hokuto",
+          "name": "Hokuto",
+          "runtime": "Hokuto",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Hokuto",
+          "def_path": "Hokuto/Hokuto.def",
+          "author": "Nexus"
         }
       ]
     },
@@ -10510,6 +11446,23 @@
       ]
     },
     {
+      "base_character": "Ichigo",
+      "primary_id": "Ichigo",
+      "primary_name": "Ichigo",
+      "members": [
+        {
+          "id": "Ichigo",
+          "name": "Ichigo",
+          "runtime": "Ichigo",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Ichigo",
+          "def_path": "Ichigo/Ichigo.def",
+          "author": "Nexus"
+        }
+      ]
+    },
+    {
       "base_character": "Inferno",
       "primary_id": "Inferno",
       "primary_name": "Inferno",
@@ -10527,6 +11480,23 @@
       ]
     },
     {
+      "base_character": "Ingrid",
+      "primary_id": "Ingrid",
+      "primary_name": "Ingrid",
+      "members": [
+        {
+          "id": "Ingrid",
+          "name": "Ingrid",
+          "runtime": "Ingrid",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Ingrid",
+          "def_path": "Ingrid/Ingrid.def",
+          "author": "CrazyKoopa"
+        }
+      ]
+    },
+    {
       "base_character": "Inuyasha",
       "primary_id": "Inuyasha",
       "primary_name": "Inuyasha",
@@ -10540,6 +11510,23 @@
           "char_folder": "Inuyasha",
           "def_path": "Inuyasha/Inuyasha.def",
           "author": "Nexus"
+        }
+      ]
+    },
+    {
+      "base_character": "Iroha",
+      "primary_id": "Iroha",
+      "primary_name": "Iroha",
+      "members": [
+        {
+          "id": "Iroha",
+          "name": "Iroha",
+          "runtime": "Iroha",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Iroha",
+          "def_path": "Iroha/Iroha.def",
+          "author": "Jax"
         }
       ]
     },
@@ -10706,10 +11693,20 @@
           "name": "Jin Saotome",
           "runtime": "Jin Saotome",
           "source": "native",
-          "is_variant": true,
+          "is_variant": false,
+          "char_folder": "Jin_Saotome",
+          "def_path": "Jin_Saotome/Jin_Saotome.def",
+          "author": "MB"
+        },
+        {
+          "id": "Jin Saotome",
+          "name": "Jin Saotome",
+          "runtime": "Jin_Saotome",
+          "source": "native",
+          "is_variant": false,
           "char_folder": "Jin Saotome",
           "def_path": "Jin Saotome/Jin_Saotome.def",
-          "author": "MB"
+          "author": "Legacy Fighter"
         }
       ]
     },
@@ -10986,6 +11983,23 @@
       ]
     },
     {
+      "base_character": "Khrome",
+      "primary_id": "Khrome",
+      "primary_name": "Khrome",
+      "members": [
+        {
+          "id": "Khrome",
+          "name": "Khrome",
+          "runtime": "Khrome",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Khrome",
+          "def_path": "Khrome/Khrome.def",
+          "author": "R@CE AKIR@ Editado por Magno Csar"
+        }
+      ]
+    },
+    {
       "base_character": "Kim Dong Hwan",
       "primary_id": "Kim Dong Hwan",
       "primary_name": "Kim Dong Hwan",
@@ -11118,6 +12132,23 @@
           "char_folder": "Kyo_Kusanagi",
           "def_path": "Kyo_Kusanagi/Kyo_Kusanagi.def",
           "author": "SNK"
+        }
+      ]
+    },
+    {
+      "base_character": "Kyosuke",
+      "primary_id": "Kyosuke Kagami",
+      "primary_name": "Kyosuke Kagami",
+      "members": [
+        {
+          "id": "Kyosuke Kagami",
+          "name": "Kyosuke Kagami",
+          "runtime": "Kyosuke Kagami",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Kyosuke",
+          "def_path": "Kyosuke/Kyosuke.def",
+          "author": "DivineWolf"
         }
       ]
     },
@@ -11404,6 +12435,23 @@
       ]
     },
     {
+      "base_character": "Maou",
+      "primary_id": "Maou",
+      "primary_name": "Maou",
+      "members": [
+        {
+          "id": "Maou",
+          "name": "Maou",
+          "runtime": "Maou",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Maou",
+          "def_path": "Maou/Maou.def",
+          "author": "GoldEX"
+        }
+      ]
+    },
+    {
       "base_character": "Marco",
       "primary_id": "Marco Rodrigues",
       "primary_name": "Marco Rodrigues",
@@ -11536,6 +12584,40 @@
           "char_folder": "Mess",
           "def_path": "Mess/Mess.def",
           "author": "Maniac"
+        }
+      ]
+    },
+    {
+      "base_character": "Michelin",
+      "primary_id": "Michelin",
+      "primary_name": "Michelin",
+      "members": [
+        {
+          "id": "Michelin",
+          "name": "Michelin",
+          "runtime": "Michelin",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Michelin",
+          "def_path": "Michelin/Michelin.def",
+          "author": "Cipriano"
+        }
+      ]
+    },
+    {
+      "base_character": "Mika",
+      "primary_id": "Mika",
+      "primary_name": "Mika",
+      "members": [
+        {
+          "id": "Mika",
+          "name": "Mika",
+          "runtime": "Mika",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "Mika",
+          "def_path": "Mika/Mika.def",
+          "author": null
         }
       ]
     },
@@ -11689,6 +12771,23 @@
           "char_folder": "Morgue",
           "def_path": "Morgue/Morgue.def",
           "author": "Maniac"
+        }
+      ]
+    },
+    {
+      "base_character": "Moriya Minakata",
+      "primary_id": "Moriya Minakata",
+      "primary_name": "Moriya Minakata",
+      "members": [
+        {
+          "id": "Moriya Minakata",
+          "name": "Moriya Minakata",
+          "runtime": "Moriya Minakata",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "Moriya_Minakata",
+          "def_path": "Moriya_Minakata/Moriya_Minakata.def",
+          "author": "Zmugens"
         }
       ]
     },
@@ -11883,6 +12982,23 @@
       ]
     },
     {
+      "base_character": "Noob Saibot",
+      "primary_id": "Noob Saibot",
+      "primary_name": "Noob Saibot",
+      "members": [
+        {
+          "id": "Noob Saibot",
+          "name": "Noob Saibot",
+          "runtime": "Noob Saibot",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "Noob_Saibot",
+          "def_path": "Noob_Saibot/Noob_Saibot.def",
+          "author": "Fabry Taz, Frak20 & MB"
+        }
+      ]
+    },
+    {
       "base_character": "Omega Red",
       "primary_id": "Omega Red",
       "primary_name": "Omega Red",
@@ -11947,6 +13063,23 @@
           "char_folder": "Othello",
           "def_path": "Othello/Othello.def",
           "author": "L.C"
+        }
+      ]
+    },
+    {
+      "base_character": "Ox",
+      "primary_id": "Ox",
+      "primary_name": "Ox",
+      "members": [
+        {
+          "id": "Ox",
+          "name": "Ox",
+          "runtime": "Ox",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Ox",
+          "def_path": "Ox/Ox.def",
+          "author": "Nexus"
         }
       ]
     },
@@ -12291,6 +13424,23 @@
       ]
     },
     {
+      "base_character": "Rukia",
+      "primary_id": "Rukia",
+      "primary_name": "Rukia",
+      "members": [
+        {
+          "id": "Rukia",
+          "name": "Rukia",
+          "runtime": "Rukia",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Rukia",
+          "def_path": "Rukia/Rukia.def",
+          "author": "Nexus"
+        }
+      ]
+    },
+    {
       "base_character": "Rumble",
       "primary_id": "Rumble McSkirmish",
       "primary_name": "Rumble McSkirmish",
@@ -12389,6 +13539,23 @@
           "char_folder": "SamusAran",
           "def_path": "SamusAran/SamusAran.def",
           "author": "Nexus"
+        }
+      ]
+    },
+    {
+      "base_character": "Sanji",
+      "primary_id": "Sanji",
+      "primary_name": "Sanji",
+      "members": [
+        {
+          "id": "Sanji",
+          "name": "Sanji",
+          "runtime": "Sanji",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "Sanji",
+          "def_path": "Sanji/Sanji.def",
+          "author": null
         }
       ]
     },
@@ -12617,6 +13784,23 @@
       ]
     },
     {
+      "base_character": "Silber",
+      "primary_id": "Silber",
+      "primary_name": "Silber",
+      "members": [
+        {
+          "id": "Silber",
+          "name": "Silber",
+          "runtime": "Silber",
+          "source": "native",
+          "is_variant": false,
+          "char_folder": "Silber",
+          "def_path": "Silber/Silber.def",
+          "author": "GoldEX"
+        }
+      ]
+    },
+    {
       "base_character": "Sinobu",
       "primary_id": "Sinobu Amou",
       "primary_name": "Sinobu Amou",
@@ -12681,6 +13865,23 @@
           "char_folder": "Slisaur",
           "def_path": "Slisaur/Slisaur.def",
           "author": "Maniac"
+        }
+      ]
+    },
+    {
+      "base_character": "Smoke",
+      "primary_id": "Smoke",
+      "primary_name": "Smoke",
+      "members": [
+        {
+          "id": "Smoke",
+          "name": "Smoke",
+          "runtime": "Smoke",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "Smoke",
+          "def_path": "Smoke/Smoke.def",
+          "author": null
         }
       ]
     },
@@ -12868,6 +14069,23 @@
           "char_folder": "Superman",
           "def_path": "Superman/Superman.def",
           "author": "DC"
+        }
+      ]
+    },
+    {
+      "base_character": "Supershadow",
+      "primary_id": "SuperShadow",
+      "primary_name": "SuperShadow",
+      "members": [
+        {
+          "id": "SuperShadow",
+          "name": "SuperShadow",
+          "runtime": "SuperShadow",
+          "source": "native",
+          "is_variant": true,
+          "char_folder": "SuperShadow",
+          "def_path": "SuperShadow/SuperShadow.def",
+          "author": null
         }
       ]
     },
