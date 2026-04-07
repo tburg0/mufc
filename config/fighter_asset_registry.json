@@ -82,6 +82,97 @@
     "tank_v1": "ai/tank_v1.json",
     "wildcard_v1": "ai/wildcard_v1.json"
   },
+  "assembly_modules": {
+    "body_class": {
+      "lightweight_striker": {
+        "allowed_archetypes": ["rushdown", "striker", "zoner"],
+        "runtime_template": "template_strike_01"
+      },
+      "balanced_midweight": {
+        "allowed_archetypes": ["balanced", "wildcard", "rushdown", "striker"],
+        "runtime_template": "template_balanced_01"
+      },
+      "heavy_grappler": {
+        "allowed_archetypes": ["grappler", "counter_grappler", "tank"],
+        "runtime_template": "template_grapple_01"
+      }
+    },
+    "locomotion_package": {
+      "measured_step": {
+        "allowed_body_classes": ["balanced_midweight", "heavy_grappler"]
+      },
+      "pressure_walk": {
+        "allowed_body_classes": ["balanced_midweight", "lightweight_striker"]
+      },
+      "ring_cutter": {
+        "allowed_body_classes": ["lightweight_striker"]
+      },
+      "juggernaut_stride": {
+        "allowed_body_classes": ["heavy_grappler"]
+      }
+    },
+    "strike_package": {
+      "balanced_hands": {
+        "allowed_archetypes": ["balanced", "wildcard", "striker"]
+      },
+      "kick_volley": {
+        "allowed_archetypes": ["rushdown", "striker"]
+      },
+      "counter_shots": {
+        "allowed_archetypes": ["counter_grappler", "balanced"]
+      },
+      "heavy_club": {
+        "allowed_archetypes": ["tank", "grappler"]
+      }
+    },
+    "grapple_package": {
+      "fundamental_grabs": {
+        "allowed_archetypes": ["balanced", "wildcard", "striker"]
+      },
+      "chain_wrestling": {
+        "allowed_archetypes": ["grappler", "counter_grappler", "balanced"]
+      },
+      "power_throws": {
+        "allowed_archetypes": ["grappler", "tank"]
+      }
+    },
+    "special_package": {
+      "ring_general": {
+        "allowed_archetypes": ["balanced", "wildcard"]
+      },
+      "burst_offense": {
+        "allowed_archetypes": ["rushdown", "striker"]
+      },
+      "space_control": {
+        "allowed_archetypes": ["zoner", "striker"]
+      },
+      "shutdown_counter": {
+        "allowed_archetypes": ["counter_grappler", "tank"]
+      }
+    },
+    "intro_package": {
+      "calm_walkout": {
+        "allowed_alignments": ["face", "tweener", "heel"]
+      },
+      "spotlight_pose": {
+        "allowed_alignments": ["face", "tweener"]
+      },
+      "menace_stare": {
+        "allowed_alignments": ["heel", "tweener"]
+      }
+    },
+    "victory_package": {
+      "stoic_exit": {
+        "allowed_alignments": ["face", "tweener", "heel"]
+      },
+      "crowd_pop": {
+        "allowed_alignments": ["face", "tweener"]
+      },
+      "cold_dismissal": {
+        "allowed_alignments": ["heel", "tweener"]
+      }
+    }
+  },
   "moves": {
     "signature_moves": [
       "spinebuster",
@@ -134,6 +225,11 @@
         "value_b": "armor_light",
         "reason": "unsupported sprite combination"
       }
-    ]
+    ],
+    "body_class_to_template": {
+      "lightweight_striker": ["template_strike_01", "template_rush_01"],
+      "balanced_midweight": ["template_balanced_01", "template_wild_01"],
+      "heavy_grappler": ["template_grapple_01", "template_tank_01", "template_counter_01"]
+    }
   }
 }

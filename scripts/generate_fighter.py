@@ -63,6 +63,15 @@ REQUIRED_AI = [
     "throw_escape_rate", "guard_rate", "counter_rate", "special_usage",
     "super_usage", "risk_tolerance", "ring_control", "finish_priority"
 ]
+REQUIRED_ASSEMBLY_FIELDS = [
+    "body_class",
+    "locomotion_package",
+    "strike_package",
+    "grapple_package",
+    "special_package",
+    "intro_package",
+    "victory_package",
+]
 
 
 def slugify(value: str) -> str:
@@ -85,6 +94,69 @@ def get_template_for_archetype(archetype: str) -> str:
 
 def get_ai_package_for_archetype(archetype: str) -> str:
     return DEFAULT_ARCHETYPE_AI_PACKAGE.get(slugify(archetype), "balanced_v1")
+
+
+def validate_assembly(fighter: Dict[str, Any]) -> Dict[str, Any]:
+    assembly = fighter.get("assembly")
+    if not assembly:
+        return {}
+    if not isinstance(assembly, dict):
+        raise ValueError("assembly must be an object when provided")
+
+    rules = CONFIG["fighter_validation_rules"].get("assembly_rules", {})
+    required_fields = rules.get("required_fields_when_present", REQUIRED_ASSEMBLY_FIELDS)
+    missing = [field for field in required_fields if not assembly.get(field)]
+    if missing:
+        raise ValueError(f'Missing assembly fields: {", ".join(missing)}')
+
+    registry = CONFIG["fighter_asset_registry"].get("assembly_modules", {})
+    archetype = slugify(fighter["classification"]["archetype"])
+    alignment = slugify(fighter["classification"].get("alignment", "tweener"))
+
+    body_class = slugify(assembly["body_class"])
+    body_cfg = registry.get("body_class", {}).get(body_class)
+    if not body_cfg:
+        raise ValueError(f"Unknown assembly body_class: {assembly['body_class']}")
+    if archetype not in [slugify(v) for v in body_cfg.get("allowed_archetypes", [])]:
+        raise ValueError(f"Body class {assembly['body_class']} is not allowed for archetype {fighter['classification']['archetype']}")
+
+    def validate_module(name: str, rule_key: str, expected_value: str) -> None:
+        key = slugify(assembly[name])
+        cfg = registry.get(name, {}).get(key)
+        if not cfg:
+            raise ValueError(f"Unknown assembly {name}: {assembly[name]}")
+        allowed = [slugify(v) for v in cfg.get(rule_key, [])]
+        if allowed and expected_value not in allowed:
+            raise ValueError(f"Assembly {name}={assembly[name]} is incompatible with {expected_value}")
+
+    validate_module("locomotion_package", "allowed_body_classes", body_class)
+    validate_module("strike_package", "allowed_archetypes", archetype)
+    validate_module("grapple_package", "allowed_archetypes", archetype)
+    validate_module("special_package", "allowed_archetypes", archetype)
+    validate_module("intro_package", "allowed_alignments", alignment)
+    validate_module("victory_package", "allowed_alignments", alignment)
+
+    return assembly
+
+
+def resolve_template_folder(fighter: Dict[str, Any], assembly: Dict[str, Any], archetype: str) -> Tuple[str, str]:
+    base_fighter = fighter.get("base_fighter") or {}
+
+    if assembly:
+        body_class = slugify(assembly["body_class"])
+        body_map = CONFIG["fighter_asset_registry"].get("compatibility_rules", {}).get("body_class_to_template", {})
+        options = body_map.get(body_class, [])
+        if options:
+            return options[0], "assembly_body_class"
+        body_cfg = CONFIG["fighter_asset_registry"].get("assembly_modules", {}).get("body_class", {}).get(body_class, {})
+        runtime_template = body_cfg.get("runtime_template")
+        if runtime_template:
+            return runtime_template, "assembly_body_class"
+
+    if base_fighter and base_fighter.get("char_folder"):
+        return base_fighter["char_folder"], "base_fighter"
+
+    return fighter["moveset"].get("template_base") or get_template_for_archetype(archetype), "archetype_template"
 
 
 def validate_stats(stats: Dict[str, Any]) -> None:
@@ -145,15 +217,9 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
     appearance = fighter["appearance"]
     stats = fighter["stats"]
     ai = fighter["ai_profile"]
-
     base_fighter = fighter.get("base_fighter") or {}
-
-    if base_fighter and base_fighter.get("char_folder"):
-        template_folder = base_fighter["char_folder"]
-        template_source = "base_fighter"
-    else:
-        template_folder = fighter["moveset"].get("template_base") or get_template_for_archetype(archetype)
-        template_source = "archetype_template"
+    assembly = validate_assembly(fighter)
+    template_folder, template_source = resolve_template_folder(fighter, assembly, archetype)
 
     runtime_character_id = f'custom_{slugify(fighter["fighter_id"])}'
 
@@ -197,6 +263,7 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
         "base_fighter_char_folder": base_fighter.get("char_folder", ""),
         "base_fighter_def_file": base_fighter.get("def_file", ""),
         "base_fighter_def_path": base_fighter.get("def_path", ""),
+        "assembly": assembly,
         "runtime_character_id": runtime_character_id,
         "runtime_display_name": fighter["identity"]["display_name"],
         "palette_id": palette_id,
@@ -226,6 +293,7 @@ def build_generated_payload(fighter: Dict[str, Any]) -> Dict[str, Any]:
         "status": "generated",
         "live": False,
         "base_fighter": fighter.get("base_fighter"),
+        "assembly": fighter.get("assembly", {}),
         "identity": {
             "name": fighter["identity"]["display_name"],
             "display_name": fighter["identity"]["display_name"],
@@ -271,20 +339,33 @@ def generate_one(fighter_id: str) -> Dict[str, Any]:
 
 
 def rebuild_aggregate_metadata() -> None:
-    fighters: Dict[str, Any] = {}
+    existing = load_json(AGGREGATE_META_FILE, {"fighters": {}})
+    fighters: Dict[str, Any] = existing.get("fighters", {}).copy()
+
+    # Keep native fighters already synced into aggregate metadata
+    preserved_native = {
+        name: data
+        for name, data in fighters.items()
+        if isinstance(data, dict) and data.get("source") == "native"
+    }
+
+    merged: Dict[str, Any] = dict(preserved_native)
+
     GENERATED_META_DIR.mkdir(parents=True, exist_ok=True)
 
     for path in GENERATED_META_DIR.glob("*.json"):
         data = load_json(path, {})
         if not data:
             continue
-        fighters[data["name"]] = {
+
+        merged[data["name"]] = {
             "author": data.get("author", ""),
             "power_index": data.get("power_index", 0),
             "archetype": data.get("archetype", "balanced"),
+            "source": "generated",
         }
 
-    save_json(AGGREGATE_META_FILE, {"fighters": fighters})
+    save_json(AGGREGATE_META_FILE, {"fighters": merged})
 
 
 def iter_ids_without_arg() -> Iterable[str]:

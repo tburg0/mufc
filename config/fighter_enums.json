@@ -148,5 +148,45 @@
       "belt_motion",
       "roar"
     ]
+  },
+  "assembly": {
+    "body_class": [
+      "lightweight_striker",
+      "balanced_midweight",
+      "heavy_grappler"
+    ],
+    "locomotion_package": [
+      "measured_step",
+      "pressure_walk",
+      "ring_cutter",
+      "juggernaut_stride"
+    ],
+    "strike_package": [
+      "balanced_hands",
+      "kick_volley",
+      "counter_shots",
+      "heavy_club"
+    ],
+    "grapple_package": [
+      "fundamental_grabs",
+      "chain_wrestling",
+      "power_throws"
+    ],
+    "special_package": [
+      "ring_general",
+      "burst_offense",
+      "space_control",
+      "shutdown_counter"
+    ],
+    "intro_package": [
+      "calm_walkout",
+      "spotlight_pose",
+      "menace_stare"
+    ],
+    "victory_package": [
+      "stoic_exit",
+      "crowd_pop",
+      "cold_dismissal"
+    ]
   }
 }

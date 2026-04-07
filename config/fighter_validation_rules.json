@@ -72,6 +72,20 @@
     "finisher_required": true,
     "super_finisher_optional": true
   },
+  "assembly_rules": {
+    "assembly_is_optional": true,
+    "body_class_drives_runtime_template_when_present": true,
+    "validate_module_compatibility": true,
+    "required_fields_when_present": [
+      "body_class",
+      "locomotion_package",
+      "strike_package",
+      "grapple_package",
+      "special_package",
+      "intro_package",
+      "victory_package"
+    ]
+  },
   "league_rules": {
     "default_eligible_for_singles": true,
     "default_eligible_for_tag": true,

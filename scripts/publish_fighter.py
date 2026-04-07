@@ -185,6 +185,7 @@ def generate_runtime_character(fighter_id: str) -> dict:
     identity = approved.get("identity", {})
     classification = approved.get("classification", {})
     appearance = approved.get("appearance", {})
+    assembly = approved.get("assembly", {})
     runtime_cfg = generated.get("runtime", {})
     derived_stats = generated.get("derived_stats", {})
 
@@ -225,6 +226,7 @@ def generate_runtime_character(fighter_id: str) -> dict:
         "creator": creator,
         "archetype": archetype,
         "base_template": template_name,
+        "assembly": assembly,
         "appearance": appearance,
         "palette_slot": palette_slot_from_appearance(appearance, runtime_cfg),
         "generated_stats": {
