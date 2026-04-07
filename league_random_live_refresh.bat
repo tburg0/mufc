@@ -13,13 +13,26 @@ if %errorlevel%==0 (
 :loop
 
 echo.
+echo ================= SUBMISSION IMPORT =================
+%PY% scripts\import_supabase_submissions.py
+if errorlevel 1 (
+  echo WARNING: submission import reported an error. Continuing.
+)
+
+echo ================= APPROVED PUBLISH =================
+%PY% scripts\publish_all_approved.py
+if errorlevel 1 (
+  echo WARNING: approved fighter publish reported an error. Continuing.
+)
+
 echo ================= LIVE ROSTER SYNC =================
 %PY% sync_live_roster.py
 if errorlevel 1 (
   echo WARNING: live roster sync reported an error. Continuing with existing live roster.
 )
 
-REM Pick the next matchup (and write current_match.txt + is_title_match.txt)
+echo.
+echo ================= MATCHMAKER =================
 %PY% matchmaker.py
 if errorlevel 1 (
   echo ERROR: matchmaker failed.

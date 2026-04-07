@@ -58,6 +58,22 @@ def sanitize_runtime_name(fighter_id: str) -> str:
     return f"custom_{slugify(fighter_id)}"
 
 
+def resolve_template_dir(template_name: str) -> Path:
+    direct_dir = CHARS_DIR / template_name
+    if direct_dir.exists():
+        return direct_dir
+
+    templates = CONFIG["fighter_asset_registry"].get("templates", {})
+    template_cfg = templates.get(template_name, {})
+    base_char_folder = template_cfg.get("base_char_folder")
+    if base_char_folder:
+        mapped_dir = CHARS_DIR / str(base_char_folder)
+        if mapped_dir.exists():
+            return mapped_dir
+
+    raise FileNotFoundError(f"Template folder not found: {direct_dir}")
+
+
 def find_template_def(template_dir: Path, template_name: str) -> Path:
     expected = template_dir / f"{template_name}.def"
     if expected.exists():
@@ -198,9 +214,7 @@ def generate_runtime_character(fighter_id: str) -> dict:
         raise ValueError("Approved fighter missing classification.archetype")
 
     template_name = runtime_cfg.get("template_folder") or DEFAULT_ARCHETYPE_TEMPLATE_MAP.get(slugify(archetype), "template_balanced_01")
-    template_dir = CHARS_DIR / template_name
-    if not template_dir.exists():
-        raise FileNotFoundError(f"Template folder not found: {template_dir}")
+    template_dir = resolve_template_dir(template_name)
 
     runtime_character = runtime_cfg.get("runtime_character_id") or sanitize_runtime_name(fighter_id)
     runtime_dir = CHARS_DIR / runtime_character

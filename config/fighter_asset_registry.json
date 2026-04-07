@@ -6,56 +6,56 @@
       "allowed_moveset_styles": ["balanced_pro", "technical_striker"],
       "default_ai_package": "balanced_v1",
       "default_stats_profile": "balanced_default",
-      "base_char_folder": "template_balanced_01"
+      "base_char_folder": "Alex"
     },
     "template_rush_01": {
       "archetypes": ["rushdown"],
       "allowed_moveset_styles": ["brawler", "kickboxer", "chaos_mixup"],
       "default_ai_package": "rushdown_v1",
       "default_stats_profile": "rushdown_default",
-      "base_char_folder": "template_rush_01"
+      "base_char_folder": "Guy"
     },
     "template_grapple_01": {
       "archetypes": ["grappler", "counter_grappler"],
       "allowed_moveset_styles": ["power_grapple", "chain_wrestler"],
       "default_ai_package": "grappler_v1",
       "default_stats_profile": "grappler_default",
-      "base_char_folder": "template_grapple_01"
+      "base_char_folder": "Haggar"
     },
     "template_strike_01": {
       "archetypes": ["striker"],
       "allowed_moveset_styles": ["kickboxer", "technical_striker"],
       "default_ai_package": "striker_v1",
       "default_stats_profile": "striker_default",
-      "base_char_folder": "template_strike_01"
+      "base_char_folder": "Ken"
     },
     "template_zone_01": {
       "archetypes": ["zoner"],
       "allowed_moveset_styles": ["anti_air_specialist", "technical_striker"],
       "default_ai_package": "zoner_v1",
       "default_stats_profile": "zoner_default",
-      "base_char_folder": "template_zone_01"
+      "base_char_folder": "Dhalsim"
     },
     "template_counter_01": {
       "archetypes": ["counter_grappler", "balanced"],
       "allowed_moveset_styles": ["chain_wrestler", "technical_striker"],
       "default_ai_package": "counter_v1",
       "default_stats_profile": "counter_default",
-      "base_char_folder": "template_counter_01"
+      "base_char_folder": "Oro"
     },
     "template_tank_01": {
       "archetypes": ["tank"],
       "allowed_moveset_styles": ["power_grapple", "brawler"],
       "default_ai_package": "tank_v1",
       "default_stats_profile": "tank_default",
-      "base_char_folder": "template_tank_01"
+      "base_char_folder": "Hulk"
     },
     "template_wild_01": {
       "archetypes": ["wildcard"],
       "allowed_moveset_styles": ["chaos_mixup", "brawler"],
       "default_ai_package": "wildcard_v1",
       "default_stats_profile": "wildcard_default",
-      "base_char_folder": "template_wild_01"
+      "base_char_folder": "EvilDan"
     }
   },
   "palette_map": {

@@ -70,11 +70,25 @@ def save_json(path: Path, data: dict):
 
 
 def run_script(script_rel_path: str, fighter_id: str):
-    subprocess.run(
+    return subprocess.run(
         ["py", script_rel_path, fighter_id],
         cwd=ROOT,
-        check=True,
+        capture_output=True,
+        text=True,
     )
+
+
+def extract_failure_reason(result: subprocess.CompletedProcess[str]) -> str:
+    combined = "\n".join(part for part in [result.stdout, result.stderr] if part).strip()
+    if not combined:
+        return f"Pipeline failed with exit code {result.returncode}"
+
+    lines = [line.strip() for line in combined.splitlines() if line.strip()]
+    for line in reversed(lines):
+        if "Traceback" in line:
+            continue
+        return line[:300]
+    return combined[:300]
 
 
 def validate_fighter(fighter: dict):
@@ -136,11 +150,49 @@ def process_submission(row: dict):
     approved_path = APPROVED_DIR / f"{fighter_id}.json"
     save_json(approved_path, fighter)
 
-    print(f"⚙️ Running pipeline for {fighter_id}")
+    print(f"[PIPELINE] Running pipeline for {fighter_id}")
 
     try:
-        run_script("scripts/generate_fighter.py", fighter_id)
-        run_script("scripts/publish_fighter.py", fighter_id)
+        generate = run_script("scripts/generate_fighter.py", fighter_id)
+        if generate.stdout:
+            print(generate.stdout.rstrip())
+        if generate.stderr:
+            print(generate.stderr.rstrip())
+        if generate.returncode != 0:
+            reason = extract_failure_reason(generate)
+            print(f"[REJECTED] {fighter_id}: {reason}")
+            save_json(REJECTED_DIR / f"{fighter_id}.json", fighter)
+            try:
+                patch_row(
+                    row["id"],
+                    {
+                        "status": "rejected",
+                        "rejection_reason": reason,
+                    },
+                )
+            except Exception as patch_err:
+                print(f"[WARN] Failed to patch rejected status for {fighter_id}: {patch_err}")
+            return
+
+        publish = run_script("scripts/publish_fighter.py", fighter_id)
+        if publish.stdout:
+            print(publish.stdout.rstrip())
+        if publish.stderr:
+            print(publish.stderr.rstrip())
+        if publish.returncode != 0:
+            reason = extract_failure_reason(publish)
+            print(f"[ERROR] Publish failed for {fighter_id}: {reason}")
+            try:
+                patch_row(
+                    row["id"],
+                    {
+                        "status": "publish_failed",
+                        "rejection_reason": reason,
+                    },
+                )
+            except Exception as patch_err:
+                print(f"[WARN] Failed to patch publish_failed status for {fighter_id}: {patch_err}")
+            return
 
         print(f"Published {fighter_id}")
 
@@ -154,8 +206,6 @@ def process_submission(row: dict):
         except Exception as patch_err:
             print(f"[WARN] Failed to patch published status for {fighter_id}: {patch_err}")
 
-    except subprocess.CalledProcessError as proc_err:
-        print(f"[ERROR] Pipeline failed for {fighter_id}: exit code {proc_err.returncode}")
     except Exception as err:
         print(f"[ERROR] Pipeline failed for {fighter_id}: {err}")
 

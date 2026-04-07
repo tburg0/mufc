@@ -96,6 +96,20 @@ def get_ai_package_for_archetype(archetype: str) -> str:
     return DEFAULT_ARCHETYPE_AI_PACKAGE.get(slugify(archetype), "balanced_v1")
 
 
+def choose_template_option(options: List[str], archetype: str) -> str:
+    if not options:
+        raise ValueError("No template options were provided")
+
+    compat = CONFIG["fighter_asset_registry"].get("compatibility_rules", {}).get("archetype_to_template", {})
+    preferred = [slugify(value) for value in compat.get(slugify(archetype), [])]
+
+    for option in options:
+        if slugify(option) in preferred:
+            return option
+
+    return options[0]
+
+
 def validate_assembly(fighter: Dict[str, Any]) -> Dict[str, Any]:
     assembly = fighter.get("assembly")
     if not assembly:
@@ -147,7 +161,7 @@ def resolve_template_folder(fighter: Dict[str, Any], assembly: Dict[str, Any], a
         body_map = CONFIG["fighter_asset_registry"].get("compatibility_rules", {}).get("body_class_to_template", {})
         options = body_map.get(body_class, [])
         if options:
-            return options[0], "assembly_body_class"
+            return choose_template_option(options, archetype), "assembly_body_class"
         body_cfg = CONFIG["fighter_asset_registry"].get("assembly_modules", {}).get("body_class", {}).get(body_class, {})
         runtime_template = body_cfg.get("runtime_template")
         if runtime_template:

@@ -22,6 +22,19 @@ if %errorlevel%==0 (
 )
 
 REM Initial sync before launching loop
+echo Syncing new fighter submissions...
+%PY% scripts\import_supabase_submissions.py
+if errorlevel 1 (
+  echo WARNING: submission import reported an error. Stream will still start.
+)
+
+echo Publishing approved fighters...
+%PY% scripts\publish_all_approved.py
+if errorlevel 1 (
+  echo WARNING: fighter publish reported an error. Stream will still start.
+)
+
+REM Initial sync before launching loop
 %PY% sync_live_roster.py
 if errorlevel 1 (
   echo WARNING: initial live roster sync reported an error. Stream will still start.
