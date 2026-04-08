@@ -1,80 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MUFC Overlay</title>
-  <link rel="stylesheet" href="ufc.css?v=3">
+  <link rel="stylesheet" href="ufc.css?v=4">
 </head>
 <body>
+  <div class="screen-glow"></div>
+  <div class="fight-flare left-flare"></div>
+  <div class="fight-flare right-flare"></div>
 
-<!-- Bottom Broadcast Bar -->
-<div class="top-strap" id="bottomBar">
-  <div class="brand">MUFC</div>
-
-  <div class="top-meta">
-    <div class="pill" id="matchNum">MATCH #—</div>
-    <div class="pill" id="matchLine">—</div>
-    <div class="pill" id="stageName">STAGE: —</div>
-    <div class="pill champ-pill" id="champName">CHAMP: —</div>
-    <div class="pill event-pill" id="matchNotice">—</div>
-  </div>
-</div>
-
-<!-- Title fight banner -->
-<div class="title-banner hidden" id="titleBanner">
-  🏆 CHAMPIONSHIP FIGHT 🏆
-</div>
-
-<!-- Debut banner -->
-<div class="debut-banner hidden" id="debutBanner"></div>
-
-<!-- Generic event banner -->
-<div class="event-banner hidden" id="eventBanner"></div>
-
-<!-- Tale of the Tape -->
-<div class="tot-card" id="totCard">
-  <div class="tot-title">TALE OF THE TAPE</div>
-  <div class="tot-sub" id="totSub">—</div>
-
-  <div class="tot-row">
-    <div class="fighter">
-      <div class="fighter-name" id="p1Name">—</div>
-      <div class="fighter-meta" id="p1Meta">—</div>
-      <div class="fighter-odds" id="p1Odds">—</div>
-    </div>
-
-    <div class="vs">VS</div>
-
-    <div class="fighter">
-      <div class="fighter-name" id="p2Name">—</div>
-      <div class="fighter-meta" id="p2Meta">—</div>
-      <div class="fighter-odds" id="p2Odds">—</div>
+  <div class="ticker-shell" id="tickerShell">
+    <div class="ticker-label">MUFC LIVE</div>
+    <div class="ticker-track">
+      <div class="ticker-text" id="tickerText">Loading stream ticker...</div>
     </div>
   </div>
 
-  <div class="tot-extra" id="h2h">H2H: —</div>
-  <div class="tot-extra" id="form">LAST 5: —</div>
-  <div class="tot-extra" id="mainEvent">MAIN EVENT: —</div>
-</div>
+  <div class="top-strap" id="bottomBar">
+    <div class="brand-lockup">
+      <div class="brand">MUFC</div>
+      <div class="brand-sub">AUTOMATED FIGHT LEAGUE</div>
+    </div>
 
-<!-- Leaderboard -->
-<div class="leader-panel" id="leaderPanel">
-  <div class="leader-title">TOP 10 (ELO)</div>
-  <pre id="leaderboard">—</pre>
-  <div class="champ-line" id="championLine">—</div>
-  <div class="champ-line" id="tagChampionLine">—</div>
-  <div class="last-result" id="lastResult">—</div>
-</div>
+    <div class="top-meta">
+      <div class="pill" id="matchNum">MATCH --</div>
+      <div class="pill" id="matchLine">--</div>
+      <div class="pill" id="stageName">STAGE: --</div>
+      <div class="pill champ-pill" id="champName">CHAMP: --</div>
+      <div class="pill event-pill" id="matchNotice">--</div>
+    </div>
+  </div>
 
-<!-- Persistent QR -->
-<a class="qr-block"
-   href="https://createaplayer.vercel.app/create"
-   target="_blank"
-   rel="noopener noreferrer">
-  <div class="qr-label">CREATE A FIGHTER!</div>
-  <img class="qr-img" src="frame.png" alt="Create a Fighter QR">
-</a>
+  <div class="title-banner hidden" id="titleBanner">CHAMPIONSHIP FIGHT</div>
+  <div class="debut-banner hidden" id="debutBanner"></div>
+  <div class="event-banner hidden" id="eventBanner"></div>
 
-<script src="ufc.js?v=3"></script>
+  <div class="debut-card hidden" id="debutCard">
+    <div class="debut-card-inner">
+      <div class="debut-kicker">CREATE-A-FIGHTER DEBUT</div>
+      <div class="debut-name" id="debutCardName">--</div>
+      <div class="debut-nickname" id="debutCardNickname">--</div>
+      <div class="debut-detail-row">
+        <div class="debut-detail">
+          <span class="debut-label">Created By</span>
+          <span class="debut-value" id="debutCardCreator">--</span>
+        </div>
+        <div class="debut-detail">
+          <span class="debut-label">Fighting Out Of</span>
+          <span class="debut-value" id="debutCardOrigin">--</span>
+        </div>
+        <div class="debut-detail">
+          <span class="debut-label">Style</span>
+          <span class="debut-value" id="debutCardStyle">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tot-card" id="totCard">
+    <div class="pulse-rings">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="tot-heading">
+      <div class="tot-title">TALE OF THE TAPE</div>
+      <div class="tot-sub" id="totSub">Broadcast comparison</div>
+    </div>
+
+    <div class="tot-row">
+      <div class="fighter fighter-left">
+        <div class="fighter-name" id="p1Name">--</div>
+        <div class="fighter-tag" id="p1Tag">--</div>
+        <div class="fighter-meta" id="p1Meta">--</div>
+        <div class="fighter-odds" id="p1Odds">ODDS --</div>
+      </div>
+
+      <div class="vs-wrap">
+        <div class="vs-mark">VS</div>
+      </div>
+
+      <div class="fighter fighter-right">
+        <div class="fighter-name" id="p2Name">--</div>
+        <div class="fighter-tag" id="p2Tag">--</div>
+        <div class="fighter-meta" id="p2Meta">--</div>
+        <div class="fighter-odds" id="p2Odds">ODDS --</div>
+      </div>
+    </div>
+
+    <div class="tot-grid">
+      <div class="tot-extra" id="h2h">H2H: --</div>
+      <div class="tot-extra" id="form">LAST 5: --</div>
+      <div class="tot-extra" id="originLine">ORIGIN: --</div>
+      <div class="tot-extra" id="styleLine">STYLE: --</div>
+      <div class="tot-extra" id="mainEvent">MAIN EVENT: --</div>
+      <div class="tot-extra" id="stakesLine">STAKES: --</div>
+    </div>
+  </div>
+
+  <div class="leader-panel" id="leaderPanel">
+    <div class="leader-title">TOP 10 (ELO)</div>
+    <pre id="leaderboard">--</pre>
+    <div class="champ-line" id="championLine">--</div>
+    <div class="champ-line" id="tagChampionLine">--</div>
+    <div class="last-result" id="lastResult">--</div>
+  </div>
+
+  <div class="leader-panel" id="hallPanel">
+    <div class="leader-title">HALL OF CHAMPIONS</div>
+    <pre id="hall">--</pre>
+  </div>
+
+  <div class="leader-panel" id="tagHallPanel">
+    <div class="leader-title">TAG TEAM HALL</div>
+    <pre id="tagHall">--</pre>
+  </div>
+
+  <a class="qr-block"
+     href="https://createaplayer.vercel.app/create"
+     target="_blank"
+     rel="noopener noreferrer">
+    <div class="qr-label">CREATE A FIGHTER</div>
+    <img class="qr-img" src="createaplayer_qr.png" alt="Create a Fighter QR code">
+  </a>
+
+  <script src="ufc.js?v=4"></script>
 </body>
 </html>
