@@ -12,9 +12,11 @@ RECORDS_FILE = "records.json"
 STATE_FILE = "league_state.json"
 HISTORY_FILE = "match_history.jsonl"
 LEADERBOARD_FILE = "leaderboard.txt"
+TAG_HALL_FILE = "tag_hall_of_champions.txt"
 CONTEXT_FILE = "match_context.json"
 ROYAL_FILE = "royal_bracket.json"
 TAG_SERIES_FILE = "tag_series.json"
+MAPPING_FILE = os.path.join("generated", "runtime_mapping.json")
 
 TOP_N = 10
 MIN_GAMES = 1
@@ -54,6 +56,30 @@ def read_current_match() -> Tuple[str, str]:
         raise ValueError("Bad current_match.txt format")
     p1, p2 = [x.strip() for x in line.split(",", 1)]
     return p1, p2
+
+
+def canonical_name(name: str, ctx: Dict[str, Any], mapping: Dict[str, Any]) -> str:
+    if not name:
+        return name
+
+    runtime_to_name: Dict[str, str] = {}
+    for display_name, entry in mapping.items():
+        if not isinstance(entry, dict):
+            continue
+        runtime = str(entry.get("runtime_character", "")).strip()
+        if runtime:
+            runtime_to_name[runtime] = display_name
+
+    if name in runtime_to_name:
+        return runtime_to_name[name]
+
+    for side in ("p1", "p2"):
+        runtime = str(ctx.get(f"{side}_runtime", "")).strip()
+        display = str(ctx.get(side, "")).strip()
+        if name == runtime and display:
+            return display
+
+    return name
 
 
 def ensure_entry(records: Dict[str, Any], name: str) -> None:
@@ -203,11 +229,80 @@ def rebuild_champion_stats(state: Dict[str, Any], records: Dict[str, Any]) -> No
         f.write("\n".join(lines) + "\n")
 
 
+def build_hall_of_champions(records: Dict[str, Any]) -> None:
+    rows = []
+
+    for name, rec in records.items():
+        if "+" in name:
+            continue
+
+        reigns = int(rec.get("reigns", 0))
+        defenses = int(rec.get("defenses", 0))
+        elo = float(rec.get("elo", ELO_START))
+        w = int(rec.get("W", 0))
+        l = int(rec.get("L", 0))
+
+        if reigns > 0:
+            rows.append((name, reigns, defenses, elo, w, l))
+
+    rows.sort(key=lambda x: (x[1], x[2], x[3]), reverse=True)
+
+    lines = [
+        "=== HALL OF CHAMPIONS ===",
+        "",
+        f"{'#':>2} {'Name':<18} {'Reigns':>6} {'Defs':>6} {'W-L':>9} {'Elo':>7}",
+        "-" * 72,
+    ]
+
+    for i, (name, r, d, e, w, l) in enumerate(rows[:20], 1):
+        lines.append(f"{i:>2}. {name:<18} {r:>6} {d:>6} {f'{w}-{l}':>9} {e:>7.2f}")
+
+    with open("hall_of_champions.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
+
+
+def build_tag_hall_of_champions(records: Dict[str, Any]) -> None:
+    rows = []
+
+    for name, rec in records.items():
+        if "+" not in name:
+            continue
+
+        reigns = int(rec.get("reigns", 0))
+        defenses = int(rec.get("defenses", 0))
+        elo = float(rec.get("elo", ELO_START))
+        w = int(rec.get("W", 0))
+        l = int(rec.get("L", 0))
+        display = " & ".join(part.strip() for part in name.split("+") if part.strip())
+
+        if reigns > 0 or defenses > 0 or (w + l) > 0:
+            rows.append((display, reigns, defenses, elo, w, l))
+
+    rows.sort(key=lambda x: (x[1], x[2], x[3], x[4]), reverse=True)
+
+    lines = [
+        "=== TAG TEAM HALL OF CHAMPIONS ===",
+        "",
+        f"{'#':>2} {'Name':<24} {'Reigns':>6} {'Defs':>6} {'W-L':>9} {'Elo':>7}",
+        "-" * 82,
+    ]
+
+    for i, (name, r, d, e, w, l) in enumerate(rows[:20], 1):
+        lines.append(f"{i:>2}. {name:<24} {r:>6} {d:>6} {f'{w}-{l}':>9} {e:>7.2f}")
+
+    with open(TAG_HALL_FILE, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+
 def main() -> None:
     p1, p2 = read_current_match()
     ctx: Dict[str, Any] = load_json(CONTEXT_FILE, {"type": "SINGLES"})
     state: Dict[str, Any] = load_json(STATE_FILE, {"match_count": 0, "champion": None})
     records: Dict[str, Any] = load_json(RECORDS_FILE, {})
+    mapping: Dict[str, Any] = load_json(MAPPING_FILE, {})
+
+    p1 = canonical_name(p1, ctx, mapping)
+    p2 = canonical_name(p2, ctx, mapping)
 
     res = wait_for_result(WAIT_SECONDS)
     if res is None:
@@ -335,17 +430,24 @@ def main() -> None:
                 tag_changed = False
                 if is_tag_title:
                     champs = state.get("tag_champions")
+
+                    ensure_entry(records, wkey)
+                    ensure_entry(records, lkey)
+
                     if not champs:
                         state["tag_champions"] = winner_pair
                         state["tag_reigns"] = int(state.get("tag_reigns", 0)) + 1
                         state["tag_defenses"] = 0
+                        records[wkey]["reigns"] = int(records[wkey].get("reigns", 0)) + 1
                         tag_changed = True
                     elif set(champs) == set(winner_pair):
                         state["tag_defenses"] = int(state.get("tag_defenses", 0)) + 1
+                        records[wkey]["defenses"] = int(records[wkey].get("defenses", 0)) + 1
                     else:
                         state["tag_champions"] = winner_pair
                         state["tag_reigns"] = int(state.get("tag_reigns", 0)) + 1
                         state["tag_defenses"] = 0
+                        records[wkey]["reigns"] = int(records[wkey].get("reigns", 0)) + 1
                         tag_changed = True
 
                 tag_series_event = {
@@ -368,6 +470,8 @@ def main() -> None:
     save_json_atomic(RECORDS_FILE, records)
     save_json_atomic(STATE_FILE, state)
     rebuild_champion_stats(state, records)
+    build_hall_of_champions(records)
+    build_tag_hall_of_champions(records)
 
     event = {
         "ts": now_ts(),
@@ -402,7 +506,7 @@ def main() -> None:
         "",
         f"Top {TOP_N} by Elo (min games: {MIN_GAMES})",
         "-" * 70,
-        f"{'#':>2} {'C':>1}  {'Name':<18} {'W-L':<9} {'Win%':>6}  {'Stk':>4}  {'Elo':>7}",
+        f"{'#':>2} {'C':>1}  {'Name':<18} {'W-L':<9} {'Win%':>6}  {'Stk':>4}  {'Elo':>7}  {'Ch':>3}",
         "-" * 70,
     ]
     top = build_top10_elo(records)
@@ -410,7 +514,10 @@ def main() -> None:
     for i, (name, w, l, g, elo_val) in enumerate(top, 1):
         cflag = "C" if name == champ else " "
         stk = fmt_streak(int(records.get(name, {}).get("streak", 0)))
-        lines.append(f"{i:>2}. {cflag:>1}  {name:<18} {w:>3}-{l:<3}  {win_pct(w, l)*100:>5.1f}%  {stk:>4}  {elo_val:>7.2f}")
+        reigns = int(records.get(name, {}).get("reigns", 0))
+        lines.append(
+            f"{i:>2}. {cflag:>1}  {name:<18} {w:>3}-{l:<3}  {win_pct(w, l)*100:>5.1f}%  {stk:>4}  {elo_val:>7.2f}  {reigns:>3}"
+        )
     lines += [
         "-" * 70,
         f"Champion: {champ} (Reign Def {state.get('reign_defenses', 0)})",

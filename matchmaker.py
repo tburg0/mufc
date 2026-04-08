@@ -112,6 +112,8 @@ def scan_native_character_dirs() -> List[Tuple[str, str]]:
         name = child.name
         if name.startswith(".") or name.lower() in {"stages", "sound"}:
             continue
+        if name.lower().startswith("custom_"):
+            continue
         defs = list(child.glob("*.def"))
         if not defs:
             continue
@@ -282,8 +284,69 @@ def is_main_event(name_a: str, name_b: str, records: Dict[str, Any], roster_name
 def choose_world_title_match(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     roster_names = [f["name"] for f in roster]
     champion = state.get("champion")
+
+    # Vacant title logic
     if not champion or champion not in roster_names:
+        contenders = leaderboard_names(records, roster_names)
+        if len(contenders) >= 2:
+            return {
+                "type": "SINGLES",
+                "p1": contenders[0],
+                "p2": contenders[1],
+                "is_world_title": True,
+                "title_reason": "Vacant championship match (#1 vs #2)",
+                "main_event": True,
+            }
         return None
+
+    # 1) Royal winner queue retains priority when present.
+    royal = state.get("royal_winner_queue")
+    if royal and royal in roster_names and royal != champion:
+        return {
+            "type": "SINGLES",
+            "p1": champion,
+            "p2": royal,
+            "is_world_title": True,
+            "title_reason": "Royal winner title shot",
+            "main_event": True,
+        }
+
+    # 2) Every N matches, force champ vs current #2 contender.
+    next_match_num = int(state.get("match_count", 0)) + 1
+    if next_match_num % TITLE_EVERY_N_MATCHES == 0:
+        contenders = top_two_contenders(records, roster_names, champion)
+        if contenders:
+            challenger = contenders[0]
+            return {
+                "type": "SINGLES",
+                "p1": champion,
+                "p2": challenger,
+                "is_world_title": True,
+                "title_reason": f"Scheduled title defense (every {TITLE_EVERY_N_MATCHES} matches)",
+                "main_event": True,
+            }
+
+    # 3) Hot streak contender gets a title shot.
+    contenders = [
+        name for name in roster_names
+        if name != champion and games_played(records, name) > 0 and streak(records, name) >= STREAK_TITLE_THRESHOLD
+    ]
+    if contenders:
+        contenders.sort(
+            key=lambda name: (streak(records, name), elo(records, name), games_played(records, name)),
+            reverse=True
+        )
+        challenger = contenders[0]
+        return {
+            "type": "SINGLES",
+            "p1": champion,
+            "p2": challenger,
+            "is_world_title": True,
+            "title_reason": f"{challenger} earned a title shot on a {streak(records, challenger)}-fight win streak",
+            "main_event": True,
+        }
+
+    return None
 
     # 1) Royal winner queue retains priority when present.
     royal = state.get("royal_winner_queue")

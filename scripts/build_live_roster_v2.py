@@ -161,6 +161,8 @@ def build_native_candidates() -> List[Dict[str, Any]]:
         for meta_name, meta in fighters.items():
             if not isinstance(meta, dict):
                 continue
+            if str(meta.get("source") or "native").casefold() != "native":
+                continue
             runtime = str(meta.get("select_entry") or meta_name).strip()
             char_folder = str(meta.get("char_folder") or resolve_runtime_to_folder(runtime) or "").strip()
             def_path = str(meta.get("def_path") or (f"{char_folder}/{meta.get('def_file')}" if char_folder and meta.get("def_file") else "")).strip()

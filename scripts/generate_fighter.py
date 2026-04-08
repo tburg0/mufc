@@ -356,30 +356,15 @@ def rebuild_aggregate_metadata() -> None:
     existing = load_json(AGGREGATE_META_FILE, {"fighters": {}})
     fighters: Dict[str, Any] = existing.get("fighters", {}).copy()
 
-    # Keep native fighters already synced into aggregate metadata
+    # Keep only native fighters in aggregate metadata. Generated CAFs live in
+    # generated/fighters_metadata and should not re-enter the native roster pool.
     preserved_native = {
         name: data
         for name, data in fighters.items()
         if isinstance(data, dict) and data.get("source") == "native"
     }
 
-    merged: Dict[str, Any] = dict(preserved_native)
-
-    GENERATED_META_DIR.mkdir(parents=True, exist_ok=True)
-
-    for path in GENERATED_META_DIR.glob("*.json"):
-        data = load_json(path, {})
-        if not data:
-            continue
-
-        merged[data["name"]] = {
-            "author": data.get("author", ""),
-            "power_index": data.get("power_index", 0),
-            "archetype": data.get("archetype", "balanced"),
-            "source": "generated",
-        }
-
-    save_json(AGGREGATE_META_FILE, {"fighters": merged})
+    save_json(AGGREGATE_META_FILE, {"fighters": preserved_native})
 
 
 def iter_ids_without_arg() -> Iterable[str]:
