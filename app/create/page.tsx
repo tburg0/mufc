@@ -76,7 +76,7 @@ export default function CreatePage() {
   async function save(status: "draft" | "submitted") {
     setSaving(true); setMsg("");
     const payload = { ...fighter, status, stats: { ...fighter.stats, point_budget_used: v.used }, created_at: fighter.created_at ?? new Date().toISOString(), updated_at: new Date().toISOString() };
-    try { const r = await fetch("/api/fighters", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }); const d = await r.json(); if (!r.ok) throw new Error(d.error || "Unable to save fighter."); setMsg(status === "submitted" ? "Fighter submitted to the live pipeline." : "Draft saved."); setFighter((p) => ({ ...p, status, created_at: payload.created_at, updated_at: payload.updated_at })); } catch (e) { setMsg(e instanceof Error ? e.message : "Unable to save fighter."); } finally { setSaving(false); }
+    try { const r = await fetch("/api/fighters", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }); const d = await r.json(); if (!r.ok) { const detailText = Array.isArray(d.details) ? ` ${d.details.join(" ")}` : ""; throw new Error((d.error || "Unable to save fighter.") + detailText); } setMsg(status === "submitted" ? "Fighter submitted to the live pipeline." : "Draft saved."); setFighter((p) => ({ ...p, status, created_at: payload.created_at, updated_at: payload.updated_at })); } catch (e) { setMsg(e instanceof Error ? e.message : "Unable to save fighter."); } finally { setSaving(false); }
   }
 
   return (

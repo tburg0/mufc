@@ -6,8 +6,8 @@ from typing import Any, Dict, List, Optional, Tuple
 
 ROOT = Path(__file__).resolve().parent.parent
 FIGHTERS_METADATA_FILE = ROOT / "fighters_metadata.json"
-PUBLISHED_ROSTER_FILE = ROOT / "published_roster.json"
-RUNTIME_MAPPING_FILE = ROOT / "runtime_mapping.json"
+PUBLISHED_ROSTER_FILE = ROOT / "generated" / "published_roster.json"
+RUNTIME_MAPPING_FILE = ROOT / "generated" / "runtime_mapping.json"
 CHARS_DIR = ROOT / "chars"
 OUTPUT_FILE = ROOT / "live_roster.json"
 
@@ -144,6 +144,8 @@ def scan_native_folders() -> List[str]:
         if not child.is_dir():
             continue
         if child.name.startswith(".") or child.name.casefold() in {"stages", "sound"}:
+            continue
+        if child.name.casefold().startswith("custom_"):
             continue
         if list(child.glob("*.def")):
             found.append(child.name)

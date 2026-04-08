@@ -1,18 +1,12 @@
 import assetRegistry from "../config/fighter_asset_registry.json";
 import enums from "../config/fighter_enums.json";
 import rules from "../config/fighter_validation_rules.json";
+import fs from "fs";
+import path from "path";
 
 type Dict = Record<string, any>;
 
-const REQUIRED_TOP_LEVEL = [
-  "fighter_id",
-  "identity",
-  "classification",
-  "appearance",
-  "stats",
-  "ai_profile",
-  "moveset",
-] as const;
+const REQUIRED_TOP_LEVEL = ["identity", "classification", "appearance", "stats", "ai_profile", "moveset"] as const;
 
 const REQUIRED_STATS = (rules as Dict).stat_rules.point_budget_fields as string[];
 const REQUIRED_AI = [
@@ -59,8 +53,68 @@ function validateEnumSection(section: string, values: Dict, errors: string[]) {
   }
 }
 
+function readJson(filePath: string): any {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function getExistingNamesAndIds() {
+  const root = process.cwd();
+  const names = new Set<string>();
+  const fighterIds = new Set<string>();
+
+  const addName = (value: unknown) => {
+    const text = String(value ?? "").trim();
+    if (text) {
+      names.add(text.toLowerCase());
+    }
+  };
+  const addId = (value: unknown) => {
+    const text = String(value ?? "").trim();
+    if (text) {
+      fighterIds.add(text.toLowerCase());
+    }
+  };
+
+  const baseManifest = readJson(path.join(root, "public", "base_fighters.json"));
+  if (Array.isArray(baseManifest)) {
+    for (const fighter of baseManifest) {
+      addName(fighter?.display_name);
+      addId(fighter?.id);
+    }
+  }
+
+  const liveRoster = readJson(path.join(root, "live_roster.json"));
+  if (liveRoster && typeof liveRoster === "object") {
+    for (const fighter of liveRoster.base_fighters ?? []) {
+      addName(fighter?.name);
+      addId(fighter?.id);
+    }
+    for (const fighter of liveRoster.submitted_fighters ?? []) {
+      addName(fighter?.name);
+      addId(fighter?.fighter_id ?? fighter?.id);
+    }
+  }
+
+  const publishedRoster = readJson(path.join(root, "generated", "published_roster.json"));
+  for (const fighter of publishedRoster?.fighters ?? []) {
+    addName(fighter?.name);
+    addId(fighter?.fighter_id);
+  }
+
+  return { names, fighterIds };
+}
+
 export function validateSubmittedFighter(fighter: Dict): string[] {
   const errors: string[] = [];
+
+  const fighterId = String(fighter.fighter_id ?? "").trim();
+  if (!fighterId) {
+    errors.push("fighter_id is required.");
+  }
 
   for (const key of REQUIRED_TOP_LEVEL) {
     if (!(key in fighter) || typeof fighter[key] !== "object" || fighter[key] === null) {
@@ -72,7 +126,6 @@ export function validateSubmittedFighter(fighter: Dict): string[] {
     return errors;
   }
 
-  const fighterId = String(fighter.fighter_id ?? "").trim();
   const displayName = String(fighter.identity?.display_name ?? "").trim();
   const archetype = String(fighter.classification?.archetype ?? "");
   const alignment = String(fighter.classification?.alignment ?? "");
@@ -87,6 +140,14 @@ export function validateSubmittedFighter(fighter: Dict): string[] {
 
   if (!displayName) {
     errors.push("identity.display_name is required.");
+  }
+
+  const existing = getExistingNamesAndIds();
+  if (existing.fighterIds.has(fighterId.toLowerCase())) {
+    errors.push(`fighter_id '${fighterId}' is already in use.`);
+  }
+  if (displayName && existing.names.has(displayName.toLowerCase())) {
+    errors.push(`display_name '${displayName}' is already in use.`);
   }
 
   validateEnumSection("classification", fighter.classification, errors);
