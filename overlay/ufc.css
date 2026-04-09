@@ -77,6 +77,61 @@ body.overlay-debut {
   z-index: 8000;
 }
 
+.fighter-strip {
+  position: absolute;
+  top: 182px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  width: 104px;
+  padding: 8px 10px 9px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(180deg, rgba(9, 12, 18, 0.44), rgba(9, 12, 18, 0.12));
+  box-shadow: none;
+  backdrop-filter: blur(2px);
+  z-index: 7200;
+  pointer-events: none;
+}
+
+.fighter-strip-left {
+  left: 24px;
+}
+
+.fighter-strip-right {
+  right: 24px;
+  align-items: flex-end;
+}
+
+.fighter-strip-rank {
+  color: rgba(243, 216, 143, 0.94);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+}
+
+.fighter-strip-record,
+.fighter-strip-streak {
+  color: #f7f8fb;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.fighter-strip-record {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.6px;
+}
+
+.fighter-strip-streak {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: rgba(216, 236, 255, 0.88);
+}
+
 .ticker-label {
   flex: 0 0 auto;
   height: 100%;
@@ -472,6 +527,8 @@ body.overlay-debut {
   margin: 0;
   color: #f3f5f7;
   font-size: 11px;
+  font-family: Consolas, "Cascadia Mono", "Lucida Console", monospace;
+  font-variant-ligatures: none;
   white-space: pre-wrap;
 }
 
@@ -581,6 +638,10 @@ body.overlay-title .ticker-shell {
   background: linear-gradient(90deg, rgba(169, 126, 28, 0.98), rgba(17, 20, 26, 0.98));
 }
 
+body.overlay-title .fighter-strip-rank {
+  color: rgba(243, 216, 143, 1);
+}
+
 body.overlay-title .title-banner {
   background: linear-gradient(90deg, rgba(42, 32, 7, 0.95), rgba(117, 84, 17, 0.94));
   box-shadow: 0 0 24px rgba(217, 187, 105, 0.24), 0 12px 28px rgba(0, 0, 0, 0.4);
@@ -597,6 +658,10 @@ body.overlay-title .vs-mark {
 
 body.overlay-debut .ticker-shell {
   background: linear-gradient(90deg, rgba(18, 95, 143, 0.98), rgba(16, 22, 28, 0.98));
+}
+
+body.overlay-debut .fighter-strip {
+  border-color: rgba(124, 212, 255, 0.12);
 }
 
 body.overlay-debut .debut-banner {

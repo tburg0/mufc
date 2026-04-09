@@ -321,6 +321,19 @@ function formatStreak(streak) {
   return "-";
 }
 
+function formatHudRank(rank) {
+  return rank && rank !== "NR" ? `${rank}` : "NR";
+}
+
+function formatHudRecord(record) {
+  return `${record.w}-${record.l}`;
+}
+
+function formatHudStreak(streak) {
+  const formatted = formatStreak(streak);
+  return formatted === "-" ? "Streak -" : `Streak ${formatted}`;
+}
+
 function summarizeOrigin(profile) {
   const hometown = String(profile?.identity?.hometown || "").trim();
   const country = String(profile?.identity?.country || "").trim();
@@ -608,6 +621,12 @@ async function update() {
 
     setText("p1Name", prematch.p1Name || p1);
     setText("p2Name", prematch.p2Name || p2);
+    setText("p1HudRank", formatHudRank(p1Rank));
+    setText("p2HudRank", formatHudRank(p2Rank));
+    setText("p1HudRecord", formatHudRecord(p1Rec));
+    setText("p2HudRecord", formatHudRecord(p2Rec));
+    setText("p1HudStreak", formatHudStreak(p1Rec.streak));
+    setText("p2HudStreak", formatHudStreak(p2Rec.streak));
     setText("p1Tag", `${p1Tier} | ${p1Rank}${p1Nickname ? ` | "${p1Nickname}"` : ""}`);
     setText("p2Tag", `${p2Tier} | ${p2Rank}${p2Nickname ? ` | "${p2Nickname}"` : ""}`);
 

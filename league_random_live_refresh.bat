@@ -73,7 +73,7 @@ set "STAGEARG=!STAGE:stages/=!"
 echo Using stage: !STAGEARG!
 
 echo Showing prematch card...
-timeout /t 10 >nul
+timeout /t 15 >nul
 
 start "" /max /wait mugen.exe %MUGENARGS% -s "!STAGEARG!"
 
