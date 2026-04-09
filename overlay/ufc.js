@@ -362,9 +362,27 @@ function buildDebutCardDetails(name, profile, fallbackMeta) {
   };
 }
 
-function buildTickerItems({ state, p1, p2, p1Profile, p2Profile, p1Rec, p2Rec, championText, tagChampText, prematch, lastResult }) {
+function buildTickerItems({
+  state,
+  matchNumber,
+  stageText,
+  p1,
+  p2,
+  p1Profile,
+  p2Profile,
+  p1Rec,
+  p2Rec,
+  championText,
+  tagChampText,
+  prematch,
+  lastResult,
+}) {
   const items = [];
+  items.push(`MATCH ${matchNumber}`);
   items.push(`${p1} vs ${p2}`);
+  if (stageText) {
+    items.push(stageText);
+  }
   if (prematch?.debut) {
     items.push(prematch.debut);
   }
@@ -575,21 +593,17 @@ async function update() {
     const p2Creator = summarizeCreator(p2Profile, p2Map);
     const isTitle = String(isTitleText || "").trim() === "1";
 
-    setText("matchNum", `MATCH #${(state?.match_count ?? 0) + 1}`);
-    setText("matchLine", `${p1Rank} ${p1} vs ${p2Rank} ${p2}`);
-    setText("stageName", "STAGE: --");
-
+    const matchNumber = `#${(state?.match_count ?? 0) + 1}`;
+    let stageLabel = "STAGE: --";
     try {
       const stage = String(await fetchText("current_stage.txt")).trim();
-      setText("stageName", `STAGE: ${stage || "--"}`);
+      stageLabel = `STAGE: ${stage || "--"}`;
     } catch {
-      setText("stageName", "STAGE: --");
+      stageLabel = "STAGE: --";
     }
 
     const champion = state?.champion ?? "--";
     const championRec = getRec(records, champion);
-    setText("champName", `CHAMP: ${champion} (${championRec.w}-${championRec.l})`);
-    setText("matchNotice", prematch.pillNotice || "--");
     setText("totSub", prematch.pre || "Broadcast comparison");
 
     setText("p1Name", prematch.p1Name || p1);
@@ -649,14 +663,11 @@ async function update() {
     show("debutBanner", Boolean(prematch.debut));
     setText("debutBanner", prematch.debut || "");
 
-    show("eventBanner", Boolean(prematch.eventNotice));
-    setText("eventBanner", prematch.eventNotice || "");
-
-    if (prematch.bannerText) {
+    if (prematch.bannerText && prematch.bannerText !== "DEBUT MATCH") {
       setText("titleBanner", prematch.bannerText);
       show("titleBanner", true);
     } else {
-      show("titleBanner", isTitle);
+      show("titleBanner", isTitle && !prematch.debut);
       if (isTitle) {
         setText("titleBanner", "CHAMPIONSHIP FIGHT");
       }
@@ -703,6 +714,8 @@ async function update() {
 
     const ticker = buildTickerItems({
       state,
+      matchNumber,
+      stageText: stageLabel,
       p1,
       p2,
       p1Profile,
