@@ -142,6 +142,8 @@ def load_submitted_roster() -> List[Dict[str, Any]]:
             "runtime": runtime,
             "source": "submitted",
             "fighter_id": fighter.get("fighter_id"),
+            "palette_slot": int(entry.get("palette_slot", 1) or 1),
+            "preferred_ai_level": int(entry.get("preferred_ai_level", 8) or 8),
         })
         seen_names.add(name)
     return fighters
@@ -159,14 +161,26 @@ def load_native_roster() -> List[Dict[str, Any]]:
         display_name, runtime = resolved
         if display_name in seen_names:
             continue
-        fighters.append({"name": display_name, "runtime": runtime, "source": "native"})
+        fighters.append({
+            "name": display_name,
+            "runtime": runtime,
+            "source": "native",
+            "palette_slot": 1,
+            "preferred_ai_level": 8,
+        })
         seen_names.add(display_name)
 
     # Then supplement with any additional valid /chars folders.
     for display_name, runtime in scan_native_character_dirs():
         if display_name in seen_names:
             continue
-        fighters.append({"name": display_name, "runtime": runtime, "source": "native"})
+        fighters.append({
+            "name": display_name,
+            "runtime": runtime,
+            "source": "native",
+            "palette_slot": 1,
+            "preferred_ai_level": 8,
+        })
         seen_names.add(display_name)
 
     return fighters
@@ -555,6 +569,10 @@ def fighter_lookup(roster: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     return {f["name"]: f for f in roster}
 
 
+def runtime_arg_for(fighter: Dict[str, Any]) -> str:
+    return fighter["runtime"]
+
+
 def main() -> None:
     state = load_json(STATE_FILE, {
         "match_count": 0,
@@ -583,8 +601,12 @@ def main() -> None:
 
     p1 = ctx["p1"]
     p2 = ctx["p2"]
-    r1 = lookup[p1]["runtime"]
-    r2 = lookup[p2]["runtime"]
+    fighter1 = lookup[p1]
+    fighter2 = lookup[p2]
+    r1 = runtime_arg_for(fighter1)
+    r2 = runtime_arg_for(fighter2)
+    ai1 = int(fighter1.get("preferred_ai_level", 8) or 8)
+    ai2 = int(fighter2.get("preferred_ai_level", 8) or 8)
 
     ctx.setdefault("is_world_title", False)
     ctx.setdefault("is_tag_series", False)
@@ -614,7 +636,7 @@ def main() -> None:
     ctx["roster_counts"] = counts
 
     write_text(MATCH_FILE, f"{p1},{p2}")
-    write_text(ARGS_FILE, f"-p1 {r1} -p2 {r2} -p1.ai 8 -p2.ai 8 -rounds {rounds}")
+    write_text(ARGS_FILE, f"-p1 {r1} -p2 {r2} -p1.ai {ai1} -p2.ai {ai2} -rounds {rounds}")
     write_text(TITLE_FLAG_FILE, "1" if (ctx["is_world_title"] or ctx["is_tag_title"]) else "0")
     save_json(CONTEXT_FILE, ctx)
 
@@ -623,15 +645,15 @@ def main() -> None:
     print(f"Runtime: {r1} vs {r2}")
     print(f"Roster pool: {counts['total']} total ({counts['submitted']} submitted, {counts['native']} native)")
     print(f"Rounds: {rounds}")
-    print(f"Using args: -p1 {r1} -p2 {r2} -p1.ai 8 -p2.ai 8 -rounds {rounds}")
+    print(f"Using args: -p1 {r1} -p2 {r2} -p1.ai {ai1} -p2.ai {ai2} -rounds {rounds}")
     if ctx["is_debut"]:
-        print(f"🔥 DEBUT MATCH: {ctx['debut_fighter']}")
+        print(f"DEBUT MATCH: {ctx['debut_fighter']}")
     if ctx["is_world_title"]:
-        print(f"🏆 WORLD TITLE: {ctx.get('title_reason')}")
+        print(f"WORLD TITLE: {ctx.get('title_reason')}")
     if ctx["is_tag_series"]:
-        print(f"🤝 TAG SERIES LEG {ctx.get('tag_leg')}")
+        print(f"TAG SERIES LEG {ctx.get('tag_leg')}")
         if ctx["is_tag_title"]:
-            print("🏆 TAG TITLE SERIES")
+            print("TAG TITLE SERIES")
     if ctx["main_event"]:
         print(f"MAIN EVENT: {ctx.get('main_event_reason') or 'Yes'}")
 

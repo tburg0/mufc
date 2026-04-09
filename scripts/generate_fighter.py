@@ -83,6 +83,10 @@ def palette_key_from_colors(appearance: Dict[str, Any]) -> str:
     return f'{appearance.get("primary_color","")}_{appearance.get("secondary_color","")}_{appearance.get("accent_color","")}'.strip("_").lower()
 
 
+def clamp(value: float, low: float, high: float) -> float:
+    return max(low, min(high, value))
+
+
 def get_template_for_archetype(archetype: str) -> str:
     archetype_key = slugify(archetype)
     asset_registry = CONFIG["fighter_asset_registry"].get("compatibility_rules", {})
@@ -242,6 +246,9 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
         palette_key, "palette_black_white_red_01.act"
     )
     ai_package = get_ai_package_for_archetype(archetype)
+    body_class = slugify(assembly.get("body_class", "balanced_midweight"))
+    locomotion = slugify(assembly.get("locomotion_package", "measured_step"))
+    preferred_range = slugify(ai.get("preferred_range", "mid"))
 
     power_index = round(
         (
@@ -260,6 +267,73 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
     life = int(800 + stats["stamina"] * 4 + stats["defense"] * 2)
     attack = int(60 + ((stats["power"] + stats["strike"] + stats["grapple"]) / 3) * 0.8)
     defence = int(60 + ((stats["defense"] + stats["recovery"]) / 2) * 0.6)
+
+    speed_factor = stats["speed"] / 65.0
+    air_factor = stats["air"] / 65.0
+    body_speed_mod = {
+        "lightweight_striker": 1.08,
+        "balanced_midweight": 1.0,
+        "heavy_grappler": 0.93,
+    }.get(body_class, 1.0)
+    locomotion_mod = {
+        "measured_step": 0.98,
+        "pressure_walk": 1.03,
+        "ring_cutter": 1.08,
+        "juggernaut_stride": 0.92,
+    }.get(locomotion, 1.0)
+
+    base_walk = clamp(2.7 * speed_factor * body_speed_mod * locomotion_mod, 2.1, 3.9)
+    base_run = clamp(base_walk * 1.7, 3.9, 7.2)
+    base_jump_x = clamp(3.1 * speed_factor * body_speed_mod, 2.4, 4.6)
+    base_jump_y = clamp(-8.5 - ((stats["air"] - 50) / 18.0), -11.6, -7.8)
+    y_accel = clamp(0.60 - ((stats["air"] - 50) / 500.0), 0.50, 0.68)
+
+    attack_dist = 160
+    if preferred_range == "close":
+        attack_dist = 145
+    elif preferred_range == "far":
+        attack_dist = 178
+    elif preferred_range == "adaptive":
+        attack_dist = 166
+
+    x_scale = 1.0
+    y_scale = 1.0
+    x_scale += {"small": -0.06, "athletic": 0.0, "large": 0.05, "giant": 0.12}.get(slugify(appearance.get("body_type", "")), 0.0)
+    y_scale += {"short": -0.06, "average": 0.0, "tall": 0.05}.get(slugify(appearance.get("height_class", "")), 0.0)
+    y_scale += {"lean": -0.02, "defined": 0.0, "bulky": 0.04}.get(slugify(appearance.get("physique", "")), 0.0)
+
+    runtime_tuning = {
+        "size": {
+            "xscale": round(clamp(x_scale, 0.86, 1.18), 3),
+            "yscale": round(clamp(y_scale, 0.88, 1.2), 3),
+            "attack_dist": int(attack_dist),
+        },
+        "velocity": {
+            "walk_fwd": round(base_walk, 3),
+            "walk_back": round(-base_walk * 0.72, 3),
+            "run_fwd_x": round(base_run, 3),
+            "run_fwd_y": 0.0,
+            "run_back_x": round(-base_walk * 1.55, 3),
+            "run_back_y": round(-2.2 - max(0.0, (speed_factor - 1.0) * 2.2), 3),
+            "jump_neu_x": 0.0,
+            "jump_neu_y": round(base_jump_y, 3),
+            "jump_fwd": round(base_jump_x, 3),
+            "jump_back": round(-base_jump_x * 1.04, 3),
+            "runjump_fwd_x": round(base_run * 1.18, 3),
+            "runjump_fwd_y": round(base_jump_y - 1.1, 3),
+            "runjump_back_x": round(-base_run * 1.12, 3),
+            "runjump_back_y": round(base_jump_y - 1.1, 3),
+            "airjump_neu_x": 0.0,
+            "airjump_neu_y": round(clamp(base_jump_y + 2.0, -9.0, -6.0), 3),
+            "airjump_back": round(-2.3 * air_factor, 3),
+            "airjump_fwd": round(2.3 * air_factor, 3),
+        },
+        "movement": {
+            "airjump_num": 1 if stats["air"] >= 78 and body_class != "heavy_grappler" else 0,
+            "airjump_height": 34 if stats["air"] >= 78 and body_class != "heavy_grappler" else 0,
+            "yaccel": round(y_accel, 3),
+        },
+    }
 
     derived_stats = {
         "life": life,
@@ -283,6 +357,7 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
         "palette_id": palette_id,
         "portrait_asset": fighter["appearance"].get("portrait_style", "portrait_serious_base.png"),
         "ai_package": ai_package,
+        "runtime_tuning": runtime_tuning,
         "generator_version": "base-fighter-enabled-1.1",
     }
 

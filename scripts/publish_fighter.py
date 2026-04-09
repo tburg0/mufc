@@ -136,6 +136,37 @@ def patch_info_names(def_path: Path, display_name: str):
         f.writelines(out)
 
 
+def patch_palette_defaults(def_path: Path, palette_slot: int):
+    with def_path.open("r", encoding="utf-8", errors="ignore") as f:
+        lines = f.readlines()
+
+    out = []
+    in_info = False
+    inserted = False
+    desired = f"pal.defaults = {palette_slot}\n"
+
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("[") and stripped.endswith("]"):
+            if in_info and not inserted:
+                out.append(desired)
+                inserted = True
+            in_info = stripped.lower() == "[info]"
+            out.append(line)
+            continue
+        if in_info and stripped.lower().startswith("pal.defaults"):
+            out.append(desired)
+            inserted = True
+            continue
+        out.append(line)
+
+    if in_info and not inserted:
+        out.append(desired)
+
+    with def_path.open("w", encoding="utf-8") as f:
+        f.writelines(out)
+
+
 def patch_data_stats(runtime_dir: Path, life: int, attack: int, defence: int):
     candidate_files = list(runtime_dir.glob("*.cns")) + list(runtime_dir.glob("*.st"))
     for path in candidate_files:
@@ -165,6 +196,93 @@ def patch_data_stats(runtime_dir: Path, life: int, attack: int, defence: int):
                     touched = True
                     continue
             out.append(line)
+        if touched:
+            with path.open("w", encoding="utf-8") as f:
+                f.writelines(out)
+
+
+def patch_runtime_constants(runtime_dir: Path, tuning: Dict[str, Any]):
+    size_cfg = tuning.get("size", {})
+    vel_cfg = tuning.get("velocity", {})
+    move_cfg = tuning.get("movement", {})
+    candidate_files = list(runtime_dir.glob("*.cns")) + list(runtime_dir.glob("*.st"))
+    if not candidate_files:
+        return
+
+    section_map = {
+        "data": {},
+        "size": {
+            "xscale": size_cfg.get("xscale"),
+            "yscale": size_cfg.get("yscale"),
+            "attack.dist": size_cfg.get("attack_dist"),
+        },
+        "velocity": {
+            "walk.fwd": vel_cfg.get("walk_fwd"),
+            "walk.back": vel_cfg.get("walk_back"),
+            "run.fwd": f"{vel_cfg.get('run_fwd_x')}, {vel_cfg.get('run_fwd_y')}",
+            "run.back": f"{vel_cfg.get('run_back_x')}, {vel_cfg.get('run_back_y')}",
+            "jump.neu": f"{vel_cfg.get('jump_neu_x')}, {vel_cfg.get('jump_neu_y')}",
+            "jump.fwd": vel_cfg.get("jump_fwd"),
+            "jump.back": vel_cfg.get("jump_back"),
+            "runjump.fwd": f"{vel_cfg.get('runjump_fwd_x')}, {vel_cfg.get('runjump_fwd_y')}",
+            "runjump.back": f"{vel_cfg.get('runjump_back_x')}, {vel_cfg.get('runjump_back_y')}",
+            "airjump.neu": f"{vel_cfg.get('airjump_neu_x')}, {vel_cfg.get('airjump_neu_y')}",
+            "airjump.back": vel_cfg.get("airjump_back"),
+            "airjump.fwd": vel_cfg.get("airjump_fwd"),
+        },
+        "movement": {
+            "airjump.num": move_cfg.get("airjump_num"),
+            "airjump.height": move_cfg.get("airjump_height"),
+            "yaccel": move_cfg.get("yaccel"),
+        },
+    }
+
+    for path in candidate_files:
+        with path.open("r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+
+        out = []
+        current_section = None
+        touched = False
+        seen = {key: set() for key in section_map}
+
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("[") and stripped.endswith("]"):
+                section_name = stripped[1:-1].strip().lower()
+                if current_section in section_map:
+                    pending = {
+                        key: value
+                        for key, value in section_map[current_section].items()
+                        if value is not None and key not in seen[current_section]
+                    }
+                    for key, value in pending.items():
+                        out.append(f"{key} = {value}\n")
+                        touched = True
+                current_section = section_name
+                out.append(line)
+                continue
+
+            if current_section in section_map:
+                line_key = stripped.split("=", 1)[0].strip().lower() if "=" in stripped else None
+                if line_key and line_key in section_map[current_section] and section_map[current_section][line_key] is not None:
+                    out.append(f"{line_key} = {section_map[current_section][line_key]}\n")
+                    seen[current_section].add(line_key)
+                    touched = True
+                    continue
+
+            out.append(line)
+
+        if current_section in section_map:
+            pending = {
+                key: value
+                for key, value in section_map[current_section].items()
+                if value is not None and key not in seen[current_section]
+            }
+            for key, value in pending.items():
+                out.append(f"{key} = {value}\n")
+                touched = True
+
         if touched:
             with path.open("w", encoding="utf-8") as f:
                 f.writelines(out)
@@ -231,7 +349,10 @@ def generate_runtime_character(fighter_id: str) -> dict:
     life = int(derived_stats.get("life", 1000))
     attack = int(derived_stats.get("attack", 100))
     defence = int(derived_stats.get("defence", 100))
+    palette_slot = palette_slot_from_appearance(appearance, runtime_cfg)
+    patch_palette_defaults(runtime_def, palette_slot)
     patch_data_stats(runtime_dir, life, attack, defence)
+    patch_runtime_constants(runtime_dir, runtime_cfg.get("runtime_tuning", {}))
 
     runtime_meta = {
         "fighter_id": fighter_id,
@@ -242,13 +363,14 @@ def generate_runtime_character(fighter_id: str) -> dict:
         "base_template": template_name,
         "assembly": assembly,
         "appearance": appearance,
-        "palette_slot": palette_slot_from_appearance(appearance, runtime_cfg),
+        "palette_slot": palette_slot,
         "generated_stats": {
             "life": life,
             "attack": attack,
             "defence": defence,
             "preferred_ai_level": preferred_ai_level(approved.get("ai_profile", {})),
         },
+        "runtime_tuning": runtime_cfg.get("runtime_tuning", {}),
         "league_metadata": generated.get("league_metadata", {}),
     }
     save_json(runtime_dir / "fighter_meta.json", runtime_meta)
@@ -299,6 +421,8 @@ def publish_fighter(fighter_id: str):
         "archetype": archetype,
         "published": True,
         "palette_slot": runtime_meta["palette_slot"],
+        "preferred_ai_level": runtime_meta["generated_stats"]["preferred_ai_level"],
+        "runtime_tuning": runtime_meta.get("runtime_tuning", {}),
     }
     save_json(MAPPING_FILE, mapping)
 
