@@ -1,0 +1,157 @@
+{
+  "schema_version": "1.0.0",
+  "profiles": {
+    "strike_package": {
+      "balanced_hands": {
+        "damage_scale": 1.0,
+        "velocity_scale": 1.0,
+        "range_scale": 1.0,
+        "walk_scale": 1.0,
+        "run_scale": 1.0,
+        "jump_scale": 1.0,
+        "attack_dist_delta": 0
+      },
+      "kick_volley": {
+        "damage_scale": 1.05,
+        "velocity_scale": 1.08,
+        "range_scale": 1.03,
+        "walk_scale": 1.02,
+        "run_scale": 1.03,
+        "jump_scale": 1.05,
+        "attack_dist_delta": 4
+      },
+      "counter_shots": {
+        "damage_scale": 0.98,
+        "velocity_scale": 0.98,
+        "range_scale": 1.0,
+        "counter_damage_scale": 1.12,
+        "counter_velocity_scale": 1.08,
+        "attack_dist_delta": 2
+      },
+      "heavy_club": {
+        "damage_scale": 1.12,
+        "velocity_scale": 0.93,
+        "range_scale": 0.97,
+        "walk_scale": 0.98,
+        "run_scale": 0.97,
+        "jump_scale": 0.95,
+        "attack_dist_delta": -6
+      }
+    },
+    "grapple_package": {
+      "fundamental_grabs": {
+        "damage_scale": 1.0,
+        "velocity_scale": 1.0,
+        "range_scale": 1.0,
+        "attack_dist_delta": 0
+      },
+      "chain_wrestling": {
+        "damage_scale": 1.05,
+        "velocity_scale": 1.03,
+        "range_scale": 1.09,
+        "walk_scale": 1.01,
+        "run_scale": 1.01,
+        "attack_dist_delta": -4
+      },
+      "power_throws": {
+        "damage_scale": 1.12,
+        "velocity_scale": 0.95,
+        "range_scale": 0.97,
+        "walk_scale": 0.98,
+        "run_scale": 0.97,
+        "jump_scale": 0.97,
+        "attack_dist_delta": -8
+      }
+    },
+    "special_package": {
+      "ring_general": {
+        "damage_scale": 1.0,
+        "velocity_scale": 1.0,
+        "range_scale": 1.0,
+        "attack_dist_delta": 0
+      },
+      "burst_offense": {
+        "damage_scale": 1.07,
+        "velocity_scale": 1.08,
+        "range_scale": 1.02,
+        "walk_scale": 1.02,
+        "run_scale": 1.04,
+        "jump_scale": 1.02,
+        "attack_dist_delta": -6
+      },
+      "space_control": {
+        "damage_scale": 1.04,
+        "velocity_scale": 1.03,
+        "range_scale": 1.12,
+        "attack_dist_delta": 14
+      },
+      "shutdown_counter": {
+        "damage_scale": 0.99,
+        "velocity_scale": 0.98,
+        "range_scale": 1.03,
+        "counter_damage_scale": 1.15,
+        "counter_velocity_scale": 1.1,
+        "attack_dist_delta": 8
+      }
+    }
+  },
+  "templates": {
+    "template_balanced_01": {
+      "strike": [{ "file": "States/Special.st", "states": [1000, 1030, 1100, 1130] }],
+      "grapple": [{ "file": "States/Special.st", "states": [1400, 1450, 1480, 1500, 1530] }],
+      "special": [{ "file": "States/Special.st", "states": [1200, 1230, 1300, 1330] }],
+      "counter": [{ "file": "States/Special.st", "states": [2900, 2910] }]
+    },
+    "template_rush_01": {
+      "strike": [{ "file": "Specials.cns", "states": [1000, 2050, 2051, 2052, 2000, 2100, 1060, 1065] }],
+      "grapple": [{ "file": "Specials.cns", "states": [1950, 1953, 1954, 1955, 1961] }],
+      "special": [{ "file": "Specials.cns", "states": [1080, 1083, 1001, 1002, 1003, 1004, 1014, 2003, 2103, 2004] }],
+      "counter": []
+    },
+    "template_grapple_01": {
+      "strike": [{ "file": "Specials.cns", "states": [1000, 1005, 1100, 1105] }],
+      "grapple": [{ "file": "Specials.cns", "states": [1050, 1055, 1070, 1075, 1170, 1175, 1950, 1953, 1954, 1955, 1960, 1963, 1964, 1965, 1970, 1973, 1974, 1975, 1980, 1983, 1984, 1985] }],
+      "special": [{ "file": "Specials.cns", "states": [1000, 1005, 1100, 1105] }],
+      "counter": []
+    },
+    "template_strike_01": {
+      "strike": [{ "file": "States/Special.st", "states": [1000, 1030, 1100, 1130, 1200, 1230] }],
+      "grapple": [{ "file": "States/Special.st", "states": [1400, 1405, 1410, 1420, 1430, 1435, 1436, 1437, 1438] }],
+      "special": [{ "file": "States/Special.st", "states": [1240, 1245, 1250, 1260, 1300, 1330, 1500, 1530, 1600] }],
+      "counter": [{ "file": "States/Special.st", "states": [2900, 2910] }]
+    },
+    "template_zone_01": {
+      "strike": [{ "file": "States/Special.st", "states": [1000, 1030, 1100, 1130] }],
+      "grapple": [{ "file": "States/Special.st", "states": [1500, 1501, 1502, 1511, 1512, 1521, 1522] }],
+      "special": [{ "file": "States/Special.st", "states": [1200, 1230, 1300, 1310, 1320, 1400, 1430, 1530] }],
+      "counter": [{ "file": "States/Special.st", "states": [2900, 2910] }]
+    },
+    "template_counter_01": {
+      "strike": [{ "file": "States/Special.st", "states": [1000, 1030, 1100, 1130, 1230] }],
+      "grapple": [{ "file": "States/Special.st", "states": [1300, 1330, 1400, 1430] }],
+      "special": [{ "file": "States/Special.st", "states": [1200, 1205, 1210, 1280, 1290] }],
+      "counter": [{ "file": "States/Special.st", "states": [2900, 2910] }]
+    },
+    "template_tank_01": {
+      "strike": [{ "file": "States/Special.st", "states": [1000, 1050, 1100, 1150] }],
+      "grapple": [{ "file": "States/Special.st", "states": [1200, 1250, 1300, 1350, 1531, 1532] }],
+      "special": [{ "file": "States/Special.st", "states": [2500, 2510] }],
+      "counter": [{ "file": "States/Special.st", "states": [2900, 2910] }]
+    },
+    "template_wild_01": {
+      "strike": [
+        { "file": "States/Specials.st", "states": [1000, 1020, 1100, 1130, 1160] },
+        { "file": "States/EX-Specials.st", "states": [1010, 1110, 1140, 1150] }
+      ],
+      "grapple": [
+        { "file": "States/Specials.st", "states": [1500, 1501, 1502, 1700, 1800] },
+        { "file": "States/EX-Specials.st", "states": [1510, 1511, 1512] }
+      ],
+      "special": [
+        { "file": "States/Specials.st", "states": [1200, 1250, 1300, 1400, 1600, 1601, 1900] },
+        { "file": "States/EX-Specials.st", "states": [1210, 1220, 1260] }
+      ],
+      "counter": []
+    }
+  }
+}

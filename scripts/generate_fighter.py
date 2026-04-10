@@ -33,6 +33,9 @@ CONFIG = {
     "fighter_enums": load_json(CONFIG_DIR / "fighter_enums.json", {}),
     "fighter_asset_registry": load_json(CONFIG_DIR / "fighter_asset_registry.json", {}),
     "fighter_validation_rules": load_json(CONFIG_DIR / "fighter_validation_rules.json", {}),
+    "runtime_package_effects": load_json(CONFIG_DIR / "runtime_package_effects.json", {}),
+    "runtime_move_loadouts": load_json(CONFIG_DIR / "runtime_move_loadouts.json", {}),
+    "runtime_move_variants": load_json(CONFIG_DIR / "runtime_move_variants.json", {}),
 }
 
 DEFAULT_ARCHETYPE_TEMPLATE_MAP = {
@@ -112,6 +115,111 @@ def choose_template_option(options: List[str], archetype: str) -> str:
             return option
 
     return options[0]
+
+
+def get_package_profile(axis: str, package_name: str) -> Dict[str, Any]:
+    profiles = CONFIG["runtime_package_effects"].get("profiles", {}).get(axis, {})
+    return profiles.get(slugify(package_name), {})
+
+
+def derive_package_tuning(assembly: Dict[str, Any]) -> Dict[str, Any]:
+    package_tuning: Dict[str, Any] = {}
+    for axis in ("strike_package", "grapple_package", "special_package"):
+        selected = assembly.get(axis, "")
+        package_tuning[axis] = {
+            "selected": slugify(selected),
+            "profile": get_package_profile(axis, selected),
+        }
+    return package_tuning
+
+
+def derive_move_loadout(template_folder: str, moveset: Dict[str, Any]) -> Dict[str, Any]:
+    template_cfg = CONFIG["runtime_move_loadouts"].get("templates", {}).get(template_folder, {})
+    if not template_cfg:
+        return {"template": template_folder, "enabled_families": [], "enabled_states": [], "selections": {}}
+
+    enabled_families: List[str] = []
+
+    def add_families(names: List[str]) -> None:
+        for name in names:
+            if name and name not in enabled_families:
+                enabled_families.append(name)
+
+    selectors = {
+        "signature_1": template_cfg.get("signatures", {}).get(moveset.get("signature_1", ""), []),
+        "signature_2": template_cfg.get("signatures", {}).get(moveset.get("signature_2", ""), []),
+        "signature_3": template_cfg.get("signatures", {}).get(moveset.get("signature_3", ""), []),
+        "finisher": template_cfg.get("finishers", {}).get(moveset.get("finisher", ""), []),
+        "super_finisher": template_cfg.get("super_finishers", {}).get(moveset.get("super_finisher", ""), []),
+    }
+
+    for names in selectors.values():
+        add_families(list(names))
+
+    if not enabled_families:
+        add_families(list(template_cfg.get("defaults", [])))
+
+    family_states = template_cfg.get("families", {})
+    enabled_states: List[int] = []
+    for family in enabled_families:
+        for state_no in family_states.get(family, []):
+            if int(state_no) not in enabled_states:
+                enabled_states.append(int(state_no))
+
+    return {
+        "template": template_folder,
+        "enabled_families": enabled_families,
+        "enabled_states": enabled_states,
+        "selections": {
+            "signature_1": moveset.get("signature_1", ""),
+            "signature_2": moveset.get("signature_2", ""),
+            "signature_3": moveset.get("signature_3", ""),
+            "finisher": moveset.get("finisher", ""),
+            "super_finisher": moveset.get("super_finisher", ""),
+        },
+    }
+
+
+def derive_move_variant_plan(template_folder: str, moveset: Dict[str, Any], move_loadout: Dict[str, Any]) -> Dict[str, Any]:
+    template_cfg = CONFIG["runtime_move_variants"].get("templates", {}).get(template_folder, {})
+    selectors = ("signature_1", "signature_2", "signature_3", "finisher", "super_finisher")
+    selected_variants: Dict[str, Dict[str, Any]] = {}
+    family_profiles: Dict[str, Dict[str, Any]] = {}
+
+    for selector in selectors:
+        move_name = moveset.get(selector, "")
+        selector_cfg = template_cfg.get(selector, {})
+        variant = selector_cfg.get(move_name)
+        if not variant:
+            continue
+        family = variant.get("family")
+        if not family or family not in move_loadout.get("enabled_families", []):
+            continue
+
+        selected_variants[selector] = {
+            "move": move_name,
+            "family": family,
+            "label": variant.get("label", move_name),
+            "summary": variant.get("summary", ""),
+            "damage_scale": float(variant.get("damage_scale", 1.0) or 1.0),
+            "velocity_scale": float(variant.get("velocity_scale", 1.0) or 1.0),
+            "range_scale": float(variant.get("range_scale", 1.0) or 1.0),
+        }
+
+        family_profile = family_profiles.setdefault(
+            family,
+            {"damage_scale": 1.0, "velocity_scale": 1.0, "range_scale": 1.0, "sources": []},
+        )
+        family_profile["damage_scale"] *= selected_variants[selector]["damage_scale"]
+        family_profile["velocity_scale"] *= selected_variants[selector]["velocity_scale"]
+        family_profile["range_scale"] *= selected_variants[selector]["range_scale"]
+        family_profile["sources"].append(selector)
+
+    return {
+        "template": template_folder,
+        "selected_variants": selected_variants,
+        "family_profiles": family_profiles,
+    }
 
 
 def validate_assembly(fighter: Dict[str, Any]) -> Dict[str, Any]:
@@ -238,6 +346,9 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
     base_fighter = fighter.get("base_fighter") or {}
     assembly = validate_assembly(fighter)
     template_folder, template_source = resolve_template_folder(fighter, assembly, archetype)
+    package_tuning = derive_package_tuning(assembly)
+    move_loadout = derive_move_loadout(template_folder, fighter.get("moveset", {}))
+    move_variant_plan = derive_move_variant_plan(template_folder, fighter.get("moveset", {}), move_loadout)
 
     runtime_character_id = f'custom_{slugify(fighter["fighter_id"])}'
 
@@ -249,6 +360,16 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
     body_class = slugify(assembly.get("body_class", "balanced_midweight"))
     locomotion = slugify(assembly.get("locomotion_package", "measured_step"))
     preferred_range = slugify(ai.get("preferred_range", "mid"))
+    global_walk_scale = 1.0
+    global_run_scale = 1.0
+    global_jump_scale = 1.0
+    global_attack_dist_delta = 0
+    for package_data in package_tuning.values():
+        profile = package_data.get("profile", {})
+        global_walk_scale *= float(profile.get("walk_scale", 1.0) or 1.0)
+        global_run_scale *= float(profile.get("run_scale", 1.0) or 1.0)
+        global_jump_scale *= float(profile.get("jump_scale", 1.0) or 1.0)
+        global_attack_dist_delta += int(profile.get("attack_dist_delta", 0) or 0)
 
     power_index = round(
         (
@@ -282,9 +403,9 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
         "juggernaut_stride": 0.92,
     }.get(locomotion, 1.0)
 
-    base_walk = clamp(2.7 * speed_factor * body_speed_mod * locomotion_mod, 2.1, 3.9)
-    base_run = clamp(base_walk * 1.7, 3.9, 7.2)
-    base_jump_x = clamp(3.1 * speed_factor * body_speed_mod, 2.4, 4.6)
+    base_walk = clamp(2.7 * speed_factor * body_speed_mod * locomotion_mod * global_walk_scale, 2.1, 3.9)
+    base_run = clamp(base_walk * 1.7 * global_run_scale, 3.9, 7.2)
+    base_jump_x = clamp(3.1 * speed_factor * body_speed_mod * global_jump_scale, 2.4, 4.6)
     base_jump_y = clamp(-8.5 - ((stats["air"] - 50) / 18.0), -11.6, -7.8)
     y_accel = clamp(0.60 - ((stats["air"] - 50) / 500.0), 0.50, 0.68)
 
@@ -295,6 +416,7 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
         attack_dist = 178
     elif preferred_range == "adaptive":
         attack_dist = 166
+    attack_dist += global_attack_dist_delta
 
     x_scale = 1.0
     y_scale = 1.0
@@ -358,7 +480,10 @@ def derive_runtime_and_league(fighter: Dict[str, Any]) -> Tuple[Dict[str, Any], 
         "portrait_asset": fighter["appearance"].get("portrait_style", "portrait_serious_base.png"),
         "ai_package": ai_package,
         "runtime_tuning": runtime_tuning,
-        "generator_version": "base-fighter-enabled-1.1",
+        "package_tuning": package_tuning,
+        "move_loadout": move_loadout,
+        "move_variant_plan": move_variant_plan,
+        "generator_version": "package-tuning-1.2",
     }
 
     league_metadata = {

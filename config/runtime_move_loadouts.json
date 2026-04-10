@@ -1,0 +1,331 @@
+{
+  "schema_version": "1.0.0",
+  "templates": {
+    "template_balanced_01": {
+      "command_files": ["Command.st"],
+      "families": {
+        "flash_chop": [1000, 1030],
+        "slash_elbow": [1100, 1130],
+        "air_stampede": [1200, 1230],
+        "power_bomb": [1400, 1450, 1480],
+        "spiral_ddt": [1500, 1530],
+        "zero_counter": [2900, 2910],
+        "boomerang_raid": [3000],
+        "stun_gun": [3100]
+      },
+      "signatures": {
+        "backfist": ["flash_chop"],
+        "roundhouse_burst": ["slash_elbow"],
+        "dropkick": ["air_stampede"],
+        "spinebuster": ["power_bomb"],
+        "suplex_throw": ["spiral_ddt"],
+        "counter_slam": ["zero_counter"],
+        "lariat": ["flash_chop"],
+        "knee_combo": ["slash_elbow"]
+      },
+      "finishers": {
+        "driver_drop": ["spiral_ddt"],
+        "sitout_powerbomb": ["power_bomb"],
+        "storm_drop": ["stun_gun"],
+        "flash_high_kick": ["slash_elbow"],
+        "super_lariat": ["boomerang_raid"],
+        "skybreaker": ["stun_gun"]
+      },
+      "super_finishers": {
+        "storm_drop": ["stun_gun"],
+        "chaos_driver": ["stun_gun"],
+        "critical_burst": ["boomerang_raid"],
+        "last_stand_bomb": ["stun_gun"]
+      },
+      "defaults": ["flash_chop", "slash_elbow", "spiral_ddt"]
+    },
+    "template_rush_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "hayagake": [1000],
+        "flame_blast": [1080],
+        "teleport": [1060],
+        "bushin_jump": [2050, 2051, 2052],
+        "bushin_senpukyaku": [2000, 2100],
+        "grab_chain": [1950],
+        "bushin_gorai": [3000],
+        "bushin_barrage": [3100]
+      },
+      "signatures": {
+        "backfist": ["hayagake"],
+        "roundhouse_burst": ["bushin_senpukyaku"],
+        "dropkick": ["bushin_jump"],
+        "spinebuster": ["grab_chain"],
+        "suplex_throw": ["grab_chain"],
+        "counter_slam": ["teleport"],
+        "lariat": ["flame_blast"],
+        "knee_combo": ["bushin_senpukyaku"]
+      },
+      "finishers": {
+        "driver_drop": ["bushin_barrage"],
+        "sitout_powerbomb": ["grab_chain"],
+        "storm_drop": ["bushin_barrage"],
+        "flash_high_kick": ["bushin_gorai"],
+        "super_lariat": ["bushin_barrage"],
+        "skybreaker": ["bushin_gorai"]
+      },
+      "super_finishers": {
+        "storm_drop": ["bushin_barrage"],
+        "chaos_driver": ["bushin_barrage"],
+        "critical_burst": ["bushin_gorai"],
+        "last_stand_bomb": ["bushin_barrage"]
+      },
+      "defaults": ["hayagake", "bushin_senpukyaku", "bushin_jump"]
+    },
+    "template_grapple_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "spinning_lariat": [1000, 1005, 1100, 1105],
+        "violent_axe": [1050],
+        "pipe_smack": [1070, 1170],
+        "anti_air_toss": [1950, 1970, 1980],
+        "super_pipe_smash": [3000],
+        "body_press": [3100]
+      },
+      "signatures": {
+        "backfist": ["violent_axe"],
+        "roundhouse_burst": ["pipe_smack"],
+        "dropkick": ["pipe_smack"],
+        "spinebuster": ["anti_air_toss"],
+        "suplex_throw": ["anti_air_toss"],
+        "counter_slam": ["anti_air_toss"],
+        "lariat": ["spinning_lariat"],
+        "knee_combo": ["violent_axe"]
+      },
+      "finishers": {
+        "driver_drop": ["body_press"],
+        "sitout_powerbomb": ["anti_air_toss"],
+        "storm_drop": ["body_press"],
+        "flash_high_kick": ["pipe_smack"],
+        "super_lariat": ["super_pipe_smash"],
+        "skybreaker": ["body_press"]
+      },
+      "super_finishers": {
+        "storm_drop": ["body_press"],
+        "chaos_driver": ["body_press"],
+        "critical_burst": ["super_pipe_smash"],
+        "last_stand_bomb": ["body_press"]
+      },
+      "defaults": ["spinning_lariat", "anti_air_toss", "violent_axe"]
+    },
+    "template_strike_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "hadoken": [1000, 1030],
+        "shoryuken": [1100, 1130],
+        "tatsu": [1200, 1230],
+        "axe_kick": [1400],
+        "zenpou_tenshi": [1500, 1530],
+        "zero_counter": [2900, 2910],
+        "shoryureppa": [3000],
+        "shinryuken": [3100],
+        "shippu_jinraikyaku": [3200],
+        "kuzuryureppa": [3400],
+        "shinbu_messatsu": [3500]
+      },
+      "signatures": {
+        "backfist": ["hadoken"],
+        "roundhouse_burst": ["axe_kick"],
+        "dropkick": ["tatsu"],
+        "spinebuster": ["zenpou_tenshi"],
+        "suplex_throw": ["zenpou_tenshi"],
+        "counter_slam": ["zero_counter"],
+        "lariat": ["tatsu"],
+        "knee_combo": ["shoryuken"]
+      },
+      "finishers": {
+        "driver_drop": ["shinryuken"],
+        "sitout_powerbomb": ["zenpou_tenshi"],
+        "storm_drop": ["shinbu_messatsu"],
+        "flash_high_kick": ["shippu_jinraikyaku"],
+        "super_lariat": ["kuzuryureppa"],
+        "skybreaker": ["shoryureppa"]
+      },
+      "super_finishers": {
+        "storm_drop": ["shinryuken"],
+        "chaos_driver": ["shinbu_messatsu"],
+        "critical_burst": ["kuzuryureppa"],
+        "last_stand_bomb": ["shoryureppa"]
+      },
+      "defaults": ["hadoken", "shoryuken", "tatsu"]
+    },
+    "template_zone_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "yoga_fire": [1000, 1030],
+        "yoga_flame": [1100, 1130],
+        "yoga_blast": [1200, 1230],
+        "teleport": [1300],
+        "drill_throw": [1500, 1530],
+        "slide_counter": [2900, 2910],
+        "yoga_inferno": [3000],
+        "yoga_stream": [3100],
+        "yoga_strike": [3200],
+        "yoga_legend": [3300],
+        "yoga_catastrophe": [3400]
+      },
+      "signatures": {
+        "backfist": ["yoga_fire"],
+        "roundhouse_burst": ["yoga_flame"],
+        "dropkick": ["drill_throw"],
+        "spinebuster": ["drill_throw"],
+        "suplex_throw": ["drill_throw"],
+        "counter_slam": ["slide_counter"],
+        "lariat": ["yoga_blast"],
+        "knee_combo": ["teleport"]
+      },
+      "finishers": {
+        "driver_drop": ["yoga_stream"],
+        "sitout_powerbomb": ["drill_throw"],
+        "storm_drop": ["yoga_catastrophe"],
+        "flash_high_kick": ["yoga_strike"],
+        "super_lariat": ["yoga_legend"],
+        "skybreaker": ["yoga_inferno"]
+      },
+      "super_finishers": {
+        "storm_drop": ["yoga_catastrophe"],
+        "chaos_driver": ["yoga_legend"],
+        "critical_burst": ["yoga_strike"],
+        "last_stand_bomb": ["yoga_stream"]
+      },
+      "defaults": ["yoga_fire", "yoga_flame", "teleport"]
+    },
+    "template_counter_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "fireball": [1000, 1030],
+        "uppercut": [1100, 1130],
+        "orb_control": [1200],
+        "command_throw": [1300, 1330, 1400, 1430],
+        "counter": [2900, 2910],
+        "yagyou_dama": [3000, 3100],
+        "kishin_tsui": [3200],
+        "kishin_riki": [3300],
+        "tengu_ishi": [3400]
+      },
+      "signatures": {
+        "backfist": ["fireball"],
+        "roundhouse_burst": ["uppercut"],
+        "dropkick": ["orb_control"],
+        "spinebuster": ["command_throw"],
+        "suplex_throw": ["command_throw"],
+        "counter_slam": ["counter"],
+        "lariat": ["uppercut"],
+        "knee_combo": ["orb_control"]
+      },
+      "finishers": {
+        "driver_drop": ["kishin_riki"],
+        "sitout_powerbomb": ["command_throw"],
+        "storm_drop": ["tengu_ishi"],
+        "flash_high_kick": ["kishin_tsui"],
+        "super_lariat": ["yagyou_dama"],
+        "skybreaker": ["tengu_ishi"]
+      },
+      "super_finishers": {
+        "storm_drop": ["kishin_riki"],
+        "chaos_driver": ["tengu_ishi"],
+        "critical_burst": ["yagyou_dama"],
+        "last_stand_bomb": ["kishin_tsui"]
+      },
+      "defaults": ["fireball", "uppercut", "command_throw"]
+    },
+    "template_tank_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "gamma_charge": [1000, 1050],
+        "gamma_slam": [1100, 1150],
+        "grab_suite": [1200, 1250, 1300, 1350],
+        "counter": [2900, 2910],
+        "savage_hulk": [3000],
+        "gamma_tsunami": [3100],
+        "gamma_quake": [3200],
+        "gamma_crush": [3300],
+        "thunderclap": [3500]
+      },
+      "signatures": {
+        "backfist": ["gamma_charge"],
+        "roundhouse_burst": ["gamma_slam"],
+        "dropkick": ["gamma_slam"],
+        "spinebuster": ["grab_suite"],
+        "suplex_throw": ["grab_suite"],
+        "counter_slam": ["counter"],
+        "lariat": ["gamma_charge"],
+        "knee_combo": ["gamma_slam"]
+      },
+      "finishers": {
+        "driver_drop": ["gamma_tsunami"],
+        "sitout_powerbomb": ["grab_suite"],
+        "storm_drop": ["gamma_crush"],
+        "flash_high_kick": ["savage_hulk"],
+        "super_lariat": ["thunderclap"],
+        "skybreaker": ["gamma_quake"]
+      },
+      "super_finishers": {
+        "storm_drop": ["gamma_crush"],
+        "chaos_driver": ["gamma_tsunami"],
+        "critical_burst": ["gamma_quake"],
+        "last_stand_bomb": ["thunderclap"]
+      },
+      "defaults": ["gamma_charge", "gamma_slam", "grab_suite"]
+    },
+    "template_wild_01": {
+      "command_files": ["Command.cmd"],
+      "families": {
+        "gadouken": [1000, 1020, 1010],
+        "koryuken": [1100, 1130, 1110, 1140, 1150],
+        "dankuu": [1200, 1250, 1210, 1220, 1260],
+        "premium_sign": [1300],
+        "gadou_shoukouken": [1400],
+        "zuki": [1600],
+        "roll_attack": [1700],
+        "air_escape": [1900],
+        "shinkuu_gadouken": [3000],
+        "kouryuu_rekka": [3100],
+        "hishou_buraiken": [3200],
+        "chouhatsu_densetsu": [3300],
+        "max_shinkuu_gadouken": [3400],
+        "max_hisshou_buraiken": [3500],
+        "shissou_buraiken": [3600],
+        "oyaji_blast": [3700],
+        "metsu_gadouken": [3800],
+        "tenma_gou_dankuu": [3900],
+        "otoko_michi": [4000],
+        "chouhatsu_shinwa": [4100],
+        "jun_koku_satsu": [4200],
+        "haoh_gadouken": [4300],
+        "shun_goku_satsu": [4400],
+        "chouhatsu_gouhadou": [4500]
+      },
+      "signatures": {
+        "backfist": ["gadouken"],
+        "roundhouse_burst": ["dankuu"],
+        "dropkick": ["roll_attack"],
+        "spinebuster": ["zuki"],
+        "suplex_throw": ["air_escape"],
+        "counter_slam": ["premium_sign"],
+        "lariat": ["gadou_shoukouken"],
+        "knee_combo": ["koryuken"]
+      },
+      "finishers": {
+        "driver_drop": ["hishou_buraiken"],
+        "sitout_powerbomb": ["otoko_michi"],
+        "storm_drop": ["haoh_gadouken"],
+        "flash_high_kick": ["tenma_gou_dankuu"],
+        "super_lariat": ["metsu_gadouken"],
+        "skybreaker": ["kouryuu_rekka"]
+      },
+      "super_finishers": {
+        "storm_drop": ["shinkuu_gadouken"],
+        "chaos_driver": ["shun_goku_satsu"],
+        "critical_burst": ["max_hisshou_buraiken"],
+        "last_stand_bomb": ["haoh_gadouken"]
+      },
+      "defaults": ["gadouken", "koryuken", "dankuu"]
+    }
+  }
+}

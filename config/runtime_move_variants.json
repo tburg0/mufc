@@ -1,0 +1,370 @@
+{
+  "schema_version": "1.0.0",
+  "templates": {
+    "template_balanced_01": {
+      "signature_1": {
+        "backfist": { "family": "flash_chop", "label": "Knife-Edge Burst", "summary": "Shorter startup and cleaner mid-range checks.", "damage_scale": 1.03, "velocity_scale": 1.02, "range_scale": 1.04 },
+        "roundhouse_burst": { "family": "slash_elbow", "label": "Crash Elbow", "summary": "Heavier elbow route with more launch force.", "damage_scale": 1.06, "velocity_scale": 1.04, "range_scale": 1.0 },
+        "dropkick": { "family": "air_stampede", "label": "Rising Stampede", "summary": "Further jump-in commitment and longer reach.", "damage_scale": 1.02, "velocity_scale": 1.05, "range_scale": 1.07 },
+        "spinebuster": { "family": "power_bomb", "label": "Lift And Dump", "summary": "Safer command-grab range with modest damage.", "damage_scale": 1.04, "velocity_scale": 1.0, "range_scale": 1.06 },
+        "suplex_throw": { "family": "spiral_ddt", "label": "Snap Spiral", "summary": "Quicker throw family variant with less drift.", "damage_scale": 1.05, "velocity_scale": 0.98, "range_scale": 1.02 },
+        "counter_slam": { "family": "zero_counter", "label": "Snare Counter", "summary": "Counter family leans on catch radius and punish pop.", "damage_scale": 1.04, "velocity_scale": 1.06, "range_scale": 1.08 },
+        "lariat": { "family": "flash_chop", "label": "Cross-Line Lariat", "summary": "Wider but slightly slower chop route.", "damage_scale": 1.05, "velocity_scale": 0.97, "range_scale": 1.08 },
+        "knee_combo": { "family": "slash_elbow", "label": "Knee Lift Chain", "summary": "Elbow family plays more vertical and combo-heavy.", "damage_scale": 1.01, "velocity_scale": 1.06, "range_scale": 0.99 }
+      },
+      "signature_2": {
+        "backfist": { "family": "flash_chop", "label": "Knife-Edge Burst", "summary": "Secondary strike route keeps the chop family crisp and fast.", "damage_scale": 1.02, "velocity_scale": 1.02, "range_scale": 1.03 },
+        "roundhouse_burst": { "family": "slash_elbow", "label": "Crash Elbow", "summary": "Secondary elbow route adds harder launch.", "damage_scale": 1.04, "velocity_scale": 1.04, "range_scale": 1.0 },
+        "dropkick": { "family": "air_stampede", "label": "Rising Stampede", "summary": "Secondary jump-in route favors reach.", "damage_scale": 1.01, "velocity_scale": 1.04, "range_scale": 1.06 },
+        "spinebuster": { "family": "power_bomb", "label": "Lift And Dump", "summary": "Secondary grab route stays compact but sturdy.", "damage_scale": 1.03, "velocity_scale": 1.0, "range_scale": 1.05 },
+        "suplex_throw": { "family": "spiral_ddt", "label": "Snap Spiral", "summary": "Secondary throw route gets a snappier catch.", "damage_scale": 1.04, "velocity_scale": 0.99, "range_scale": 1.02 },
+        "counter_slam": { "family": "zero_counter", "label": "Snare Counter", "summary": "Secondary counter route favors punish range.", "damage_scale": 1.03, "velocity_scale": 1.05, "range_scale": 1.06 },
+        "lariat": { "family": "flash_chop", "label": "Cross-Line Lariat", "summary": "Secondary lariat route widens the lane.", "damage_scale": 1.04, "velocity_scale": 0.98, "range_scale": 1.07 },
+        "knee_combo": { "family": "slash_elbow", "label": "Knee Lift Chain", "summary": "Secondary knee route becomes more vertical.", "damage_scale": 1.01, "velocity_scale": 1.05, "range_scale": 1.0 }
+      },
+      "signature_3": {
+        "backfist": { "family": "flash_chop", "label": "Knife-Edge Burst", "summary": "Tertiary strike route preserves a clean mid-line weapon.", "damage_scale": 1.02, "velocity_scale": 1.01, "range_scale": 1.03 },
+        "roundhouse_burst": { "family": "slash_elbow", "label": "Crash Elbow", "summary": "Tertiary elbow route stays explosive.", "damage_scale": 1.04, "velocity_scale": 1.03, "range_scale": 1.0 },
+        "dropkick": { "family": "air_stampede", "label": "Rising Stampede", "summary": "Tertiary dropkick route keeps the long entry.", "damage_scale": 1.01, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "spinebuster": { "family": "power_bomb", "label": "Lift And Dump", "summary": "Tertiary grab route leans into stable command range.", "damage_scale": 1.03, "velocity_scale": 1.0, "range_scale": 1.04 },
+        "suplex_throw": { "family": "spiral_ddt", "label": "Snap Spiral", "summary": "Tertiary throw route keeps tighter recovery.", "damage_scale": 1.04, "velocity_scale": 0.99, "range_scale": 1.01 },
+        "counter_slam": { "family": "zero_counter", "label": "Snare Counter", "summary": "Tertiary counter route keeps catch-and-pop pressure.", "damage_scale": 1.03, "velocity_scale": 1.04, "range_scale": 1.06 },
+        "lariat": { "family": "flash_chop", "label": "Cross-Line Lariat", "summary": "Tertiary lariat route stays broad and steady.", "damage_scale": 1.04, "velocity_scale": 0.98, "range_scale": 1.06 },
+        "knee_combo": { "family": "slash_elbow", "label": "Knee Lift Chain", "summary": "Tertiary knee route still pops opponents upward.", "damage_scale": 1.01, "velocity_scale": 1.05, "range_scale": 1.0 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "spiral_ddt", "label": "Driver Drop Finish", "summary": "Throw finisher spikes harder and ends faster.", "damage_scale": 1.12, "velocity_scale": 1.04, "range_scale": 1.0 },
+        "sitout_powerbomb": { "family": "power_bomb", "label": "Sitout Bomb", "summary": "Big burst on the command-grab family.", "damage_scale": 1.14, "velocity_scale": 1.0, "range_scale": 1.02 },
+        "storm_drop": { "family": "stun_gun", "label": "Storm Drop", "summary": "Headbutt super becomes the closing sequence.", "damage_scale": 1.13, "velocity_scale": 1.05, "range_scale": 1.0 },
+        "flash_high_kick": { "family": "slash_elbow", "label": "Flash High Kick", "summary": "Strike family leans toward launcher finish pressure.", "damage_scale": 1.1, "velocity_scale": 1.08, "range_scale": 1.02 },
+        "super_lariat": { "family": "boomerang_raid", "label": "Super Lariat", "summary": "Rush super gets more carry and corner push.", "damage_scale": 1.12, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "skybreaker": { "family": "stun_gun", "label": "Skybreaker", "summary": "Command-super version favors lift and slam height.", "damage_scale": 1.1, "velocity_scale": 1.08, "range_scale": 1.01 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "stun_gun", "label": "Storm Drop Super", "summary": "Primary super route is tuned as a headliner finish.", "damage_scale": 1.18, "velocity_scale": 1.06, "range_scale": 1.02 },
+        "chaos_driver": { "family": "stun_gun", "label": "Chaos Driver", "summary": "Adds extra crush and rebound emphasis.", "damage_scale": 1.2, "velocity_scale": 1.09, "range_scale": 1.0 },
+        "critical_burst": { "family": "boomerang_raid", "label": "Critical Burst", "summary": "Rush super becomes the showcase closer.", "damage_scale": 1.16, "velocity_scale": 1.08, "range_scale": 1.04 },
+        "last_stand_bomb": { "family": "stun_gun", "label": "Last Stand Bomb", "summary": "Late-match super route gets the heaviest pop.", "damage_scale": 1.22, "velocity_scale": 1.05, "range_scale": 1.01 }
+      }
+    },
+    "template_rush_01": {
+      "signature_1": {
+        "backfist": { "family": "hayagake", "label": "Slip Rush", "summary": "Ground burst route starts quicker and skims farther.", "damage_scale": 1.03, "velocity_scale": 1.08, "range_scale": 1.05 },
+        "roundhouse_burst": { "family": "bushin_senpukyaku", "label": "Cyclone Rush", "summary": "Spin route becomes more oppressive on entry.", "damage_scale": 1.05, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "dropkick": { "family": "bushin_jump", "label": "Vault Entry", "summary": "Jump chain commits harder and crosses space faster.", "damage_scale": 1.02, "velocity_scale": 1.09, "range_scale": 1.06 },
+        "spinebuster": { "family": "grab_chain", "label": "Crash Catch", "summary": "Grab route gains a cleaner close-range scoop.", "damage_scale": 1.07, "velocity_scale": 1.0, "range_scale": 1.05 },
+        "suplex_throw": { "family": "grab_chain", "label": "Snap Chain Throw", "summary": "Throw chain gets more carry than raw impact.", "damage_scale": 1.05, "velocity_scale": 1.01, "range_scale": 1.06 },
+        "counter_slam": { "family": "teleport", "label": "Ghost Step", "summary": "Mobility route becomes a sharper whiff punish setup.", "damage_scale": 1.0, "velocity_scale": 1.12, "range_scale": 1.08 },
+        "lariat": { "family": "flame_blast", "label": "Flare Swipe", "summary": "Flame route widens its control lane.", "damage_scale": 1.04, "velocity_scale": 1.03, "range_scale": 1.08 },
+        "knee_combo": { "family": "bushin_senpukyaku", "label": "Knee Barrage", "summary": "Rush route becomes more combo-driven and airborne.", "damage_scale": 1.04, "velocity_scale": 1.07, "range_scale": 1.03 }
+      },
+      "signature_2": {
+        "backfist": { "family": "hayagake", "label": "Slip Rush", "summary": "Secondary rush tool keeps the fast burst entry.", "damage_scale": 1.02, "velocity_scale": 1.07, "range_scale": 1.04 },
+        "roundhouse_burst": { "family": "bushin_senpukyaku", "label": "Cyclone Rush", "summary": "Secondary spin route still chases hard.", "damage_scale": 1.04, "velocity_scale": 1.05, "range_scale": 1.03 },
+        "dropkick": { "family": "bushin_jump", "label": "Vault Entry", "summary": "Secondary jump chain keeps explosive movement.", "damage_scale": 1.02, "velocity_scale": 1.08, "range_scale": 1.05 },
+        "spinebuster": { "family": "grab_chain", "label": "Crash Catch", "summary": "Secondary throw route stays sticky in close.", "damage_scale": 1.06, "velocity_scale": 1.0, "range_scale": 1.04 },
+        "suplex_throw": { "family": "grab_chain", "label": "Snap Chain Throw", "summary": "Secondary chain throw keeps carry pressure.", "damage_scale": 1.04, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "counter_slam": { "family": "teleport", "label": "Ghost Step", "summary": "Secondary mobility route favors spacing traps.", "damage_scale": 1.0, "velocity_scale": 1.1, "range_scale": 1.07 },
+        "lariat": { "family": "flame_blast", "label": "Flare Swipe", "summary": "Secondary flame route keeps a broad lane.", "damage_scale": 1.03, "velocity_scale": 1.03, "range_scale": 1.07 },
+        "knee_combo": { "family": "bushin_senpukyaku", "label": "Knee Barrage", "summary": "Secondary knee route preserves combo momentum.", "damage_scale": 1.03, "velocity_scale": 1.06, "range_scale": 1.03 }
+      },
+      "signature_3": {
+        "backfist": { "family": "hayagake", "label": "Slip Rush", "summary": "Tertiary burst route stays dangerous in scramble spots.", "damage_scale": 1.02, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "roundhouse_burst": { "family": "bushin_senpukyaku", "label": "Cyclone Rush", "summary": "Tertiary spin route still tears through space.", "damage_scale": 1.04, "velocity_scale": 1.05, "range_scale": 1.03 },
+        "dropkick": { "family": "bushin_jump", "label": "Vault Entry", "summary": "Tertiary jump route keeps aerial chase value.", "damage_scale": 1.02, "velocity_scale": 1.07, "range_scale": 1.05 },
+        "spinebuster": { "family": "grab_chain", "label": "Crash Catch", "summary": "Tertiary grab route still punishes hesitation.", "damage_scale": 1.05, "velocity_scale": 1.0, "range_scale": 1.04 },
+        "suplex_throw": { "family": "grab_chain", "label": "Snap Chain Throw", "summary": "Tertiary throw route stays mobile and sticky.", "damage_scale": 1.04, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "counter_slam": { "family": "teleport", "label": "Ghost Step", "summary": "Tertiary mobility route keeps fake-out value.", "damage_scale": 1.0, "velocity_scale": 1.09, "range_scale": 1.06 },
+        "lariat": { "family": "flame_blast", "label": "Flare Swipe", "summary": "Tertiary flame route preserves wide control.", "damage_scale": 1.03, "velocity_scale": 1.02, "range_scale": 1.06 },
+        "knee_combo": { "family": "bushin_senpukyaku", "label": "Knee Barrage", "summary": "Tertiary knee route remains a combo bridge.", "damage_scale": 1.03, "velocity_scale": 1.05, "range_scale": 1.02 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "bushin_barrage", "label": "Barrage Finish", "summary": "Rush super gets a faster kill sequence.", "damage_scale": 1.13, "velocity_scale": 1.08, "range_scale": 1.02 },
+        "sitout_powerbomb": { "family": "grab_chain", "label": "Chain Drop Finish", "summary": "Grab family becomes the dedicated ender.", "damage_scale": 1.15, "velocity_scale": 1.01, "range_scale": 1.03 },
+        "storm_drop": { "family": "bushin_barrage", "label": "Storm Barrage", "summary": "Pressure super gets more sustained rush-down.", "damage_scale": 1.14, "velocity_scale": 1.09, "range_scale": 1.03 },
+        "flash_high_kick": { "family": "bushin_gorai", "label": "Flash Gorai", "summary": "Kick super turns into the headline closer.", "damage_scale": 1.14, "velocity_scale": 1.1, "range_scale": 1.03 },
+        "super_lariat": { "family": "bushin_barrage", "label": "Runover Barrage", "summary": "Multi-hit finisher leans into carry and crowd pop.", "damage_scale": 1.15, "velocity_scale": 1.09, "range_scale": 1.04 },
+        "skybreaker": { "family": "bushin_gorai", "label": "Skybreaker Kick", "summary": "Kick ender gets a bigger vertical payoff.", "damage_scale": 1.13, "velocity_scale": 1.1, "range_scale": 1.02 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "bushin_barrage", "label": "Storm Barrage Super", "summary": "Main rush super becomes the marquee finish.", "damage_scale": 1.19, "velocity_scale": 1.1, "range_scale": 1.03 },
+        "chaos_driver": { "family": "bushin_barrage", "label": "Chaos Barrage", "summary": "Rush super gets extra maul and chase.", "damage_scale": 1.2, "velocity_scale": 1.11, "range_scale": 1.04 },
+        "critical_burst": { "family": "bushin_gorai", "label": "Critical Gorai", "summary": "Kick super becomes the hard burst option.", "damage_scale": 1.18, "velocity_scale": 1.12, "range_scale": 1.03 },
+        "last_stand_bomb": { "family": "bushin_barrage", "label": "Last Stand Barrage", "summary": "Late-match rush super hits with maximum momentum.", "damage_scale": 1.21, "velocity_scale": 1.1, "range_scale": 1.04 }
+      }
+    },
+    "template_grapple_01": {
+      "signature_1": {
+        "backfist": { "family": "violent_axe", "label": "Hook Line", "summary": "Strike route becomes a grabber's space-clearing arm swing.", "damage_scale": 1.05, "velocity_scale": 1.01, "range_scale": 1.08 },
+        "roundhouse_burst": { "family": "pipe_smack", "label": "Lift Crash", "summary": "Smash route becomes a nastier close-range pop.", "damage_scale": 1.08, "velocity_scale": 1.02, "range_scale": 1.04 },
+        "dropkick": { "family": "pipe_smack", "label": "Body Splash", "summary": "Air route becomes a heavier crashing smash.", "damage_scale": 1.07, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "spinebuster": { "family": "anti_air_toss", "label": "Chain Dump", "summary": "Throw route leans into repeated slam pressure.", "damage_scale": 1.09, "velocity_scale": 1.01, "range_scale": 1.06 },
+        "suplex_throw": { "family": "anti_air_toss", "label": "Snap Suplex Route", "summary": "Throw route gains more carry and ring control.", "damage_scale": 1.08, "velocity_scale": 1.02, "range_scale": 1.06 },
+        "counter_slam": { "family": "anti_air_toss", "label": "Trap Toss", "summary": "Counter route becomes a harder punish-and-dump sequence.", "damage_scale": 1.07, "velocity_scale": 1.04, "range_scale": 1.07 },
+        "lariat": { "family": "spinning_lariat", "label": "Kill Lane", "summary": "Lariat route widens into a heavy anti-approach lane.", "damage_scale": 1.06, "velocity_scale": 1.0, "range_scale": 1.09 },
+        "knee_combo": { "family": "violent_axe", "label": "Knee Lift Slam", "summary": "Strike route becomes a sturdier combo bridge into throws.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.03 }
+      },
+      "signature_2": {
+        "backfist": { "family": "violent_axe", "label": "Hook Line", "summary": "Secondary strike route keeps broad grappler control.", "damage_scale": 1.04, "velocity_scale": 1.01, "range_scale": 1.07 },
+        "roundhouse_burst": { "family": "pipe_smack", "label": "Lift Crash", "summary": "Secondary smash route still chunks on contact.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.04 },
+        "dropkick": { "family": "pipe_smack", "label": "Body Splash", "summary": "Secondary air route stays heavy and direct.", "damage_scale": 1.06, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "spinebuster": { "family": "anti_air_toss", "label": "Chain Dump", "summary": "Secondary throw route keeps slam pressure.", "damage_scale": 1.08, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "suplex_throw": { "family": "anti_air_toss", "label": "Snap Suplex Route", "summary": "Secondary throw route preserves carry.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.05 },
+        "counter_slam": { "family": "anti_air_toss", "label": "Trap Toss", "summary": "Secondary counter route keeps the punish dump.", "damage_scale": 1.06, "velocity_scale": 1.04, "range_scale": 1.07 },
+        "lariat": { "family": "spinning_lariat", "label": "Kill Lane", "summary": "Secondary lane route still controls space.", "damage_scale": 1.05, "velocity_scale": 1.0, "range_scale": 1.08 },
+        "knee_combo": { "family": "violent_axe", "label": "Knee Lift Slam", "summary": "Secondary strike route keeps throw-link utility.", "damage_scale": 1.05, "velocity_scale": 1.03, "range_scale": 1.03 }
+      },
+      "signature_3": {
+        "backfist": { "family": "violent_axe", "label": "Hook Line", "summary": "Tertiary strike route still feels like a grappler's gatekeeper.", "damage_scale": 1.04, "velocity_scale": 1.0, "range_scale": 1.07 },
+        "roundhouse_burst": { "family": "pipe_smack", "label": "Lift Crash", "summary": "Tertiary smash route remains a wall-break threat.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.03 },
+        "dropkick": { "family": "pipe_smack", "label": "Body Splash", "summary": "Tertiary air route keeps heavy-body entry.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.04 },
+        "spinebuster": { "family": "anti_air_toss", "label": "Chain Dump", "summary": "Tertiary throw route preserves repeated slam identity.", "damage_scale": 1.08, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "suplex_throw": { "family": "anti_air_toss", "label": "Snap Suplex Route", "summary": "Tertiary throw route keeps positional control.", "damage_scale": 1.07, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "counter_slam": { "family": "anti_air_toss", "label": "Trap Toss", "summary": "Tertiary counter route stays reliable into grapples.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.06 },
+        "lariat": { "family": "spinning_lariat", "label": "Kill Lane", "summary": "Tertiary lane route remains broad and mean.", "damage_scale": 1.05, "velocity_scale": 1.0, "range_scale": 1.08 },
+        "knee_combo": { "family": "violent_axe", "label": "Knee Lift Slam", "summary": "Tertiary strike route still bridges into big throws.", "damage_scale": 1.05, "velocity_scale": 1.02, "range_scale": 1.03 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "body_press", "label": "Driver Finish", "summary": "Driver route becomes the marquee closeout throw.", "damage_scale": 1.16, "velocity_scale": 1.03, "range_scale": 1.04 },
+        "sitout_powerbomb": { "family": "anti_air_toss", "label": "Chain Finish", "summary": "Throw family becomes the dedicated slam finisher.", "damage_scale": 1.15, "velocity_scale": 1.02, "range_scale": 1.05 },
+        "storm_drop": { "family": "body_press", "label": "Earthshaker Finish", "summary": "Impact super becomes the heavy crowd-pop ender.", "damage_scale": 1.17, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "flash_high_kick": { "family": "pipe_smack", "label": "Reversal Finish", "summary": "Punish route becomes the fast grappler closer.", "damage_scale": 1.14, "velocity_scale": 1.05, "range_scale": 1.03 },
+        "super_lariat": { "family": "super_pipe_smash", "label": "Lariat Finish", "summary": "Impact route becomes the ring-rattling finish.", "damage_scale": 1.15, "velocity_scale": 1.04, "range_scale": 1.06 },
+        "skybreaker": { "family": "body_press", "label": "Sky Driver", "summary": "Driver super gets more vertical crush and spotlight.", "damage_scale": 1.16, "velocity_scale": 1.04, "range_scale": 1.04 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "body_press", "label": "Earthshaker Super", "summary": "Impact route becomes the premium grappler super.", "damage_scale": 1.21, "velocity_scale": 1.05, "range_scale": 1.06 },
+        "chaos_driver": { "family": "body_press", "label": "Chaos Driver", "summary": "Driver route becomes the biggest slam on the card.", "damage_scale": 1.22, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "critical_burst": { "family": "super_pipe_smash", "label": "Critical Chain", "summary": "Throw route becomes the extended finisher sequence.", "damage_scale": 1.2, "velocity_scale": 1.03, "range_scale": 1.06 },
+        "last_stand_bomb": { "family": "body_press", "label": "Last Stand Shaker", "summary": "Impact route becomes the comeback quake.", "damage_scale": 1.22, "velocity_scale": 1.04, "range_scale": 1.07 }
+      }
+    },
+    "template_strike_01": {
+      "signature_1": {
+        "backfist": { "family": "hadoken", "label": "Drive Shot", "summary": "Projectile route plays faster and flatter.", "damage_scale": 1.02, "velocity_scale": 1.08, "range_scale": 1.06 },
+        "roundhouse_burst": { "family": "axe_kick", "label": "Axe Crash", "summary": "Kick route becomes a harder wall-break tool.", "damage_scale": 1.07, "velocity_scale": 1.03, "range_scale": 1.0 },
+        "dropkick": { "family": "tatsu", "label": "Cyclone Dropkick", "summary": "Spin route gets more travel and air control.", "damage_scale": 1.03, "velocity_scale": 1.07, "range_scale": 1.05 },
+        "spinebuster": { "family": "zenpou_tenshi", "label": "Shoulder Driver", "summary": "Throw family tightens for direct close pressure.", "damage_scale": 1.08, "velocity_scale": 1.01, "range_scale": 1.01 },
+        "suplex_throw": { "family": "zenpou_tenshi", "label": "Snap Capture", "summary": "Command throw route favors faster catch spacing.", "damage_scale": 1.05, "velocity_scale": 1.0, "range_scale": 1.05 },
+        "counter_slam": { "family": "zero_counter", "label": "Burst Counter", "summary": "Counter route favors punish pop and chase.", "damage_scale": 1.06, "velocity_scale": 1.08, "range_scale": 1.07 },
+        "lariat": { "family": "tatsu", "label": "Spin Lariat", "summary": "Kick family widens into crowd-control arcs.", "damage_scale": 1.05, "velocity_scale": 1.01, "range_scale": 1.08 },
+        "knee_combo": { "family": "shoryuken", "label": "Knee Rise", "summary": "Uppercut family becomes a combo launcher.", "damage_scale": 1.04, "velocity_scale": 1.09, "range_scale": 1.0 }
+      },
+      "signature_2": {
+        "backfist": { "family": "hadoken", "label": "Drive Shot", "summary": "Secondary projectile route stays flat and quick.", "damage_scale": 1.02, "velocity_scale": 1.07, "range_scale": 1.05 },
+        "roundhouse_burst": { "family": "axe_kick", "label": "Axe Crash", "summary": "Secondary kick route still cracks guards.", "damage_scale": 1.05, "velocity_scale": 1.03, "range_scale": 1.0 },
+        "dropkick": { "family": "tatsu", "label": "Cyclone Dropkick", "summary": "Secondary spin route keeps chase value.", "damage_scale": 1.03, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "spinebuster": { "family": "zenpou_tenshi", "label": "Shoulder Driver", "summary": "Secondary throw route stays direct.", "damage_scale": 1.06, "velocity_scale": 1.01, "range_scale": 1.02 },
+        "suplex_throw": { "family": "zenpou_tenshi", "label": "Snap Capture", "summary": "Secondary catch route keeps fast timing.", "damage_scale": 1.04, "velocity_scale": 1.0, "range_scale": 1.04 },
+        "counter_slam": { "family": "zero_counter", "label": "Burst Counter", "summary": "Secondary counter route preserves pop-up reward.", "damage_scale": 1.05, "velocity_scale": 1.07, "range_scale": 1.06 },
+        "lariat": { "family": "tatsu", "label": "Spin Lariat", "summary": "Secondary spin route keeps wide space denial.", "damage_scale": 1.04, "velocity_scale": 1.01, "range_scale": 1.07 },
+        "knee_combo": { "family": "shoryuken", "label": "Knee Rise", "summary": "Secondary uppercut route stays combo-rich.", "damage_scale": 1.03, "velocity_scale": 1.08, "range_scale": 1.0 }
+      },
+      "signature_3": {
+        "backfist": { "family": "hadoken", "label": "Drive Shot", "summary": "Tertiary projectile route still anchors neutral.", "damage_scale": 1.02, "velocity_scale": 1.06, "range_scale": 1.05 },
+        "roundhouse_burst": { "family": "axe_kick", "label": "Axe Crash", "summary": "Tertiary kick route remains a wall-break threat.", "damage_scale": 1.05, "velocity_scale": 1.02, "range_scale": 1.0 },
+        "dropkick": { "family": "tatsu", "label": "Cyclone Dropkick", "summary": "Tertiary spin route still travels far.", "damage_scale": 1.02, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "spinebuster": { "family": "zenpou_tenshi", "label": "Shoulder Driver", "summary": "Tertiary throw route keeps direct reach.", "damage_scale": 1.06, "velocity_scale": 1.01, "range_scale": 1.02 },
+        "suplex_throw": { "family": "zenpou_tenshi", "label": "Snap Capture", "summary": "Tertiary catch route keeps cleaner spacing.", "damage_scale": 1.04, "velocity_scale": 1.0, "range_scale": 1.04 },
+        "counter_slam": { "family": "zero_counter", "label": "Burst Counter", "summary": "Tertiary counter route still punishes hard.", "damage_scale": 1.05, "velocity_scale": 1.06, "range_scale": 1.06 },
+        "lariat": { "family": "tatsu", "label": "Spin Lariat", "summary": "Tertiary spin route stays broad and stable.", "damage_scale": 1.04, "velocity_scale": 1.01, "range_scale": 1.07 },
+        "knee_combo": { "family": "shoryuken", "label": "Knee Rise", "summary": "Tertiary uppercut route preserves lift.", "damage_scale": 1.03, "velocity_scale": 1.07, "range_scale": 1.0 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "shinryuken", "label": "Shinryuken Finish", "summary": "Uppercut super closes rounds harder.", "damage_scale": 1.12, "velocity_scale": 1.07, "range_scale": 1.01 },
+        "flash_high_kick": { "family": "shippu_jinraikyaku", "label": "Flash Kick Finish", "summary": "Kick super becomes the featured closer.", "damage_scale": 1.14, "velocity_scale": 1.08, "range_scale": 1.02 },
+        "super_lariat": { "family": "kuzuryureppa", "label": "Rushdown Closer", "summary": "Long travel super becomes more chase-heavy.", "damage_scale": 1.13, "velocity_scale": 1.09, "range_scale": 1.04 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "shinryuken", "label": "Storm Ascent", "summary": "Air-launch super gets extra burst.", "damage_scale": 1.18, "velocity_scale": 1.09, "range_scale": 1.02 },
+        "chaos_driver": { "family": "shinbu_messatsu", "label": "Chaos Messatsu", "summary": "Rush super becomes the premium route.", "damage_scale": 1.2, "velocity_scale": 1.08, "range_scale": 1.03 },
+        "critical_burst": { "family": "kuzuryureppa", "label": "Critical Reppa", "summary": "Pressure super gets more forward carry.", "damage_scale": 1.17, "velocity_scale": 1.1, "range_scale": 1.05 },
+        "last_stand_bomb": { "family": "shoryureppa", "label": "Last Stand Reppa", "summary": "Emergency super favors immediate burst.", "damage_scale": 1.19, "velocity_scale": 1.06, "range_scale": 1.01 }
+      }
+    },
+    "template_zone_01": {
+      "signature_1": {
+        "backfist": { "family": "yoga_fire", "label": "Needle Flame", "summary": "Projectile route fires flatter and from longer space.", "damage_scale": 1.03, "velocity_scale": 1.06, "range_scale": 1.1 },
+        "roundhouse_burst": { "family": "yoga_flame", "label": "Burn Line", "summary": "Flame route holds space longer and punishes dashes.", "damage_scale": 1.06, "velocity_scale": 1.02, "range_scale": 1.08 },
+        "dropkick": { "family": "drill_throw", "label": "Drill Snare", "summary": "Drill route reaches farther before the catch.", "damage_scale": 1.04, "velocity_scale": 1.05, "range_scale": 1.07 },
+        "spinebuster": { "family": "drill_throw", "label": "Yoga Trap Grab", "summary": "Throw route becomes more of a space-control snare.", "damage_scale": 1.05, "velocity_scale": 1.02, "range_scale": 1.09 },
+        "suplex_throw": { "family": "drill_throw", "label": "Temple Toss", "summary": "Throw route leans into carry and corner drag.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.08 },
+        "counter_slam": { "family": "slide_counter", "label": "Ash Counter", "summary": "Counter route becomes a stronger whiff-punish tool.", "damage_scale": 1.05, "velocity_scale": 1.07, "range_scale": 1.09 },
+        "lariat": { "family": "yoga_blast", "label": "Stretch Wall", "summary": "Blast route widens the anti-approach lane.", "damage_scale": 1.04, "velocity_scale": 1.03, "range_scale": 1.11 },
+        "knee_combo": { "family": "teleport", "label": "Ghost Step Yoga", "summary": "Teleport route sharpens into a combo starter.", "damage_scale": 1.0, "velocity_scale": 1.11, "range_scale": 1.08 }
+      },
+      "signature_2": {
+        "backfist": { "family": "yoga_fire", "label": "Needle Flame", "summary": "Secondary projectile route keeps long neutral influence.", "damage_scale": 1.02, "velocity_scale": 1.05, "range_scale": 1.09 },
+        "roundhouse_burst": { "family": "yoga_flame", "label": "Burn Line", "summary": "Secondary flame route still walls space.", "damage_scale": 1.05, "velocity_scale": 1.02, "range_scale": 1.07 },
+        "dropkick": { "family": "drill_throw", "label": "Drill Snare", "summary": "Secondary drill route keeps catch range.", "damage_scale": 1.03, "velocity_scale": 1.04, "range_scale": 1.07 },
+        "spinebuster": { "family": "drill_throw", "label": "Yoga Trap Grab", "summary": "Secondary throw route keeps the snare feel.", "damage_scale": 1.04, "velocity_scale": 1.02, "range_scale": 1.08 },
+        "suplex_throw": { "family": "drill_throw", "label": "Temple Toss", "summary": "Secondary throw route keeps carry.", "damage_scale": 1.05, "velocity_scale": 1.03, "range_scale": 1.08 },
+        "counter_slam": { "family": "slide_counter", "label": "Ash Counter", "summary": "Secondary counter route preserves spacing punishment.", "damage_scale": 1.04, "velocity_scale": 1.06, "range_scale": 1.08 },
+        "lariat": { "family": "yoga_blast", "label": "Stretch Wall", "summary": "Secondary blast route keeps lane denial.", "damage_scale": 1.03, "velocity_scale": 1.03, "range_scale": 1.1 },
+        "knee_combo": { "family": "teleport", "label": "Ghost Step Yoga", "summary": "Secondary teleport route stays slippery.", "damage_scale": 1.0, "velocity_scale": 1.1, "range_scale": 1.08 }
+      },
+      "signature_3": {
+        "backfist": { "family": "yoga_fire", "label": "Needle Flame", "summary": "Tertiary projectile route still rules long range.", "damage_scale": 1.02, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "roundhouse_burst": { "family": "yoga_flame", "label": "Burn Line", "summary": "Tertiary flame route remains a space wall.", "damage_scale": 1.05, "velocity_scale": 1.01, "range_scale": 1.07 },
+        "dropkick": { "family": "drill_throw", "label": "Drill Snare", "summary": "Tertiary drill route preserves reach.", "damage_scale": 1.03, "velocity_scale": 1.04, "range_scale": 1.06 },
+        "spinebuster": { "family": "drill_throw", "label": "Yoga Trap Grab", "summary": "Tertiary throw route still punishes over-commitment.", "damage_scale": 1.04, "velocity_scale": 1.02, "range_scale": 1.08 },
+        "suplex_throw": { "family": "drill_throw", "label": "Temple Toss", "summary": "Tertiary throw route keeps carry identity.", "damage_scale": 1.05, "velocity_scale": 1.02, "range_scale": 1.07 },
+        "counter_slam": { "family": "slide_counter", "label": "Ash Counter", "summary": "Tertiary counter route still tags approaches.", "damage_scale": 1.04, "velocity_scale": 1.06, "range_scale": 1.08 },
+        "lariat": { "family": "yoga_blast", "label": "Stretch Wall", "summary": "Tertiary blast route stays broad.", "damage_scale": 1.03, "velocity_scale": 1.02, "range_scale": 1.09 },
+        "knee_combo": { "family": "teleport", "label": "Ghost Step Yoga", "summary": "Tertiary teleport route keeps mix potential.", "damage_scale": 1.0, "velocity_scale": 1.09, "range_scale": 1.07 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "yoga_stream", "label": "Yoga Stream Finish", "summary": "Beam super becomes the clean finisher route.", "damage_scale": 1.14, "velocity_scale": 1.05, "range_scale": 1.06 },
+        "sitout_powerbomb": { "family": "drill_throw", "label": "Temple Crash", "summary": "Throw route transforms into a punishing ender.", "damage_scale": 1.15, "velocity_scale": 1.03, "range_scale": 1.07 },
+        "storm_drop": { "family": "yoga_catastrophe", "label": "Catastrophe Finish", "summary": "Orb super becomes the stream-closing spectacle.", "damage_scale": 1.16, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "flash_high_kick": { "family": "yoga_strike", "label": "Strike Finish", "summary": "Strike super emphasizes direct burst over setup.", "damage_scale": 1.14, "velocity_scale": 1.07, "range_scale": 1.04 },
+        "super_lariat": { "family": "yoga_legend", "label": "Legend Finish", "summary": "Buff super becomes the marquee momentum swing.", "damage_scale": 1.15, "velocity_scale": 1.06, "range_scale": 1.05 },
+        "skybreaker": { "family": "yoga_inferno", "label": "Inferno Finish", "summary": "Flame super becomes the harsh point-blank closer.", "damage_scale": 1.15, "velocity_scale": 1.04, "range_scale": 1.03 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "yoga_catastrophe", "label": "Catastrophe Super", "summary": "Orb super gets top billing with extra control.", "damage_scale": 1.2, "velocity_scale": 1.06, "range_scale": 1.09 },
+        "chaos_driver": { "family": "yoga_legend", "label": "Chaos Legend", "summary": "Utility super becomes a dangerous snowball button.", "damage_scale": 1.18, "velocity_scale": 1.08, "range_scale": 1.07 },
+        "critical_burst": { "family": "yoga_strike", "label": "Critical Strike", "summary": "Strike super becomes the burst headline.", "damage_scale": 1.19, "velocity_scale": 1.09, "range_scale": 1.05 },
+        "last_stand_bomb": { "family": "yoga_stream", "label": "Last Stand Stream", "summary": "Beam super turns into the emergency checkmate.", "damage_scale": 1.21, "velocity_scale": 1.06, "range_scale": 1.07 }
+      }
+    },
+    "template_counter_01": {
+      "signature_1": {
+        "backfist": { "family": "fireball", "label": "Hermit Shot", "summary": "Projectile route stays compact but nastier in neutral.", "damage_scale": 1.03, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "roundhouse_burst": { "family": "uppercut", "label": "Old Man Rise", "summary": "Uppercut route gets sharper anti-air lift.", "damage_scale": 1.05, "velocity_scale": 1.07, "range_scale": 1.02 },
+        "dropkick": { "family": "orb_control", "label": "Orb Chase", "summary": "Orb route gains more travel and spacing pressure.", "damage_scale": 1.03, "velocity_scale": 1.06, "range_scale": 1.09 },
+        "spinebuster": { "family": "command_throw", "label": "Hermit Clamp", "summary": "Throw route becomes more suffocating on contact.", "damage_scale": 1.08, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "suplex_throw": { "family": "command_throw", "label": "Ancient Toss", "summary": "Throw route favors carry and positioning.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.06 },
+        "counter_slam": { "family": "counter", "label": "Punish Palm", "summary": "Counter family gets stronger catch range and swing.", "damage_scale": 1.06, "velocity_scale": 1.08, "range_scale": 1.09 },
+        "lariat": { "family": "uppercut", "label": "Palm Sweep", "summary": "Strike family widens and checks more space.", "damage_scale": 1.04, "velocity_scale": 1.04, "range_scale": 1.06 },
+        "knee_combo": { "family": "orb_control", "label": "Orb Lift", "summary": "Orb route becomes a stronger juggle bridge.", "damage_scale": 1.03, "velocity_scale": 1.07, "range_scale": 1.08 }
+      },
+      "signature_2": {
+        "backfist": { "family": "fireball", "label": "Hermit Shot", "summary": "Secondary projectile route keeps stable control.", "damage_scale": 1.02, "velocity_scale": 1.05, "range_scale": 1.07 },
+        "roundhouse_burst": { "family": "uppercut", "label": "Old Man Rise", "summary": "Secondary uppercut route still lifts cleanly.", "damage_scale": 1.04, "velocity_scale": 1.06, "range_scale": 1.02 },
+        "dropkick": { "family": "orb_control", "label": "Orb Chase", "summary": "Secondary orb route keeps travel threat.", "damage_scale": 1.02, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "spinebuster": { "family": "command_throw", "label": "Hermit Clamp", "summary": "Secondary throw route stays sticky up close.", "damage_scale": 1.07, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "suplex_throw": { "family": "command_throw", "label": "Ancient Toss", "summary": "Secondary throw route preserves carry.", "damage_scale": 1.06, "velocity_scale": 1.02, "range_scale": 1.05 },
+        "counter_slam": { "family": "counter", "label": "Punish Palm", "summary": "Secondary counter route keeps punish range.", "damage_scale": 1.05, "velocity_scale": 1.07, "range_scale": 1.08 },
+        "lariat": { "family": "uppercut", "label": "Palm Sweep", "summary": "Secondary strike route still checks wide space.", "damage_scale": 1.03, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "knee_combo": { "family": "orb_control", "label": "Orb Lift", "summary": "Secondary orb route keeps juggle flow.", "damage_scale": 1.02, "velocity_scale": 1.06, "range_scale": 1.08 }
+      },
+      "signature_3": {
+        "backfist": { "family": "fireball", "label": "Hermit Shot", "summary": "Tertiary projectile route still anchors neutral.", "damage_scale": 1.02, "velocity_scale": 1.04, "range_scale": 1.07 },
+        "roundhouse_burst": { "family": "uppercut", "label": "Old Man Rise", "summary": "Tertiary uppercut route stays reliable.", "damage_scale": 1.04, "velocity_scale": 1.05, "range_scale": 1.02 },
+        "dropkick": { "family": "orb_control", "label": "Orb Chase", "summary": "Tertiary orb route keeps route pressure.", "damage_scale": 1.02, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "spinebuster": { "family": "command_throw", "label": "Hermit Clamp", "summary": "Tertiary throw route still bites hard.", "damage_scale": 1.06, "velocity_scale": 1.01, "range_scale": 1.04 },
+        "suplex_throw": { "family": "command_throw", "label": "Ancient Toss", "summary": "Tertiary throw route preserves positioning.", "damage_scale": 1.06, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "counter_slam": { "family": "counter", "label": "Punish Palm", "summary": "Tertiary counter route still punishes greed.", "damage_scale": 1.05, "velocity_scale": 1.06, "range_scale": 1.08 },
+        "lariat": { "family": "uppercut", "label": "Palm Sweep", "summary": "Tertiary strike route preserves width.", "damage_scale": 1.03, "velocity_scale": 1.03, "range_scale": 1.05 },
+        "knee_combo": { "family": "orb_control", "label": "Orb Lift", "summary": "Tertiary orb route stays combo-friendly.", "damage_scale": 1.02, "velocity_scale": 1.06, "range_scale": 1.07 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "kishin_riki", "label": "Kishin Finish", "summary": "Power super becomes the dedicated closer.", "damage_scale": 1.14, "velocity_scale": 1.05, "range_scale": 1.04 },
+        "sitout_powerbomb": { "family": "command_throw", "label": "Hermit Crush", "summary": "Throw route becomes the finisher grip.", "damage_scale": 1.15, "velocity_scale": 1.02, "range_scale": 1.04 },
+        "storm_drop": { "family": "tengu_ishi", "label": "Tengu Finish", "summary": "Stone super becomes the dramatic headliner.", "damage_scale": 1.16, "velocity_scale": 1.06, "range_scale": 1.05 },
+        "flash_high_kick": { "family": "kishin_tsui", "label": "Tsui Finish", "summary": "Rush super becomes the burst punish ender.", "damage_scale": 1.14, "velocity_scale": 1.07, "range_scale": 1.04 },
+        "super_lariat": { "family": "yagyou_dama", "label": "Orb Finish", "summary": "Orb super becomes the long-control kill route.", "damage_scale": 1.15, "velocity_scale": 1.06, "range_scale": 1.07 },
+        "skybreaker": { "family": "tengu_ishi", "label": "Sky Stone Finish", "summary": "Stone route gains a heavier payoff.", "damage_scale": 1.15, "velocity_scale": 1.06, "range_scale": 1.04 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "kishin_riki", "label": "Kishin Storm", "summary": "Power super becomes the headline punish.", "damage_scale": 1.19, "velocity_scale": 1.06, "range_scale": 1.05 },
+        "chaos_driver": { "family": "tengu_ishi", "label": "Chaos Tengu", "summary": "Stone super gets extra control and weight.", "damage_scale": 1.2, "velocity_scale": 1.07, "range_scale": 1.06 },
+        "critical_burst": { "family": "yagyou_dama", "label": "Critical Orb", "summary": "Orb super becomes the burst-control finisher.", "damage_scale": 1.18, "velocity_scale": 1.08, "range_scale": 1.08 },
+        "last_stand_bomb": { "family": "kishin_tsui", "label": "Last Stand Tsui", "summary": "Rush super becomes the emergency breaker.", "damage_scale": 1.2, "velocity_scale": 1.08, "range_scale": 1.05 }
+      }
+    },
+    "template_tank_01": {
+      "signature_1": {
+        "backfist": { "family": "gamma_charge", "label": "Gamma Ram", "summary": "Charge route becomes a harder body-check with better lane control.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.07 },
+        "roundhouse_burst": { "family": "gamma_slam", "label": "Gamma Crash", "summary": "Slam route leans into brutal close-range knockback.", "damage_scale": 1.08, "velocity_scale": 1.02, "range_scale": 1.04 },
+        "dropkick": { "family": "gamma_slam", "label": "Leaping Smash", "summary": "Heavy jump-in route closes distance with a chunkier landing.", "damage_scale": 1.07, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "spinebuster": { "family": "grab_suite", "label": "Titan Clamp", "summary": "Grab route becomes a suffocating close-range clamp.", "damage_scale": 1.09, "velocity_scale": 1.01, "range_scale": 1.06 },
+        "suplex_throw": { "family": "grab_suite", "label": "Titan Heave", "summary": "Throw route favors carry and ring-position control.", "damage_scale": 1.08, "velocity_scale": 1.02, "range_scale": 1.06 },
+        "counter_slam": { "family": "counter", "label": "Gamma Reversal", "summary": "Counter route punishes over-commitment with heavier swing-back.", "damage_scale": 1.07, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "lariat": { "family": "gamma_charge", "label": "Rampage Lane", "summary": "Charge route widens into a crowd-clearing bulldoze.", "damage_scale": 1.07, "velocity_scale": 1.01, "range_scale": 1.09 },
+        "knee_combo": { "family": "gamma_slam", "label": "Knee Crush", "summary": "Slam route gets a denser launcher with better pop.", "damage_scale": 1.06, "velocity_scale": 1.04, "range_scale": 1.03 }
+      },
+      "signature_2": {
+        "backfist": { "family": "gamma_charge", "label": "Gamma Ram", "summary": "Secondary charge route keeps heavy forward pressure.", "damage_scale": 1.05, "velocity_scale": 1.03, "range_scale": 1.06 },
+        "roundhouse_burst": { "family": "gamma_slam", "label": "Gamma Crash", "summary": "Secondary slam route still chunks at close range.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.04 },
+        "dropkick": { "family": "gamma_slam", "label": "Leaping Smash", "summary": "Secondary jump-in route keeps bruiser momentum.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.05 },
+        "spinebuster": { "family": "grab_suite", "label": "Titan Clamp", "summary": "Secondary grab route remains a high-pressure hold.", "damage_scale": 1.08, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "suplex_throw": { "family": "grab_suite", "label": "Titan Heave", "summary": "Secondary throw route keeps positional carry.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.05 },
+        "counter_slam": { "family": "counter", "label": "Gamma Reversal", "summary": "Secondary counter route keeps the punish swing.", "damage_scale": 1.06, "velocity_scale": 1.05, "range_scale": 1.07 },
+        "lariat": { "family": "gamma_charge", "label": "Rampage Lane", "summary": "Secondary bulldoze route keeps lane denial.", "damage_scale": 1.06, "velocity_scale": 1.01, "range_scale": 1.08 },
+        "knee_combo": { "family": "gamma_slam", "label": "Knee Crush", "summary": "Secondary slam route stays combo-viable for a tank.", "damage_scale": 1.05, "velocity_scale": 1.04, "range_scale": 1.03 }
+      },
+      "signature_3": {
+        "backfist": { "family": "gamma_charge", "label": "Gamma Ram", "summary": "Tertiary charge route still anchors the bruiser identity.", "damage_scale": 1.05, "velocity_scale": 1.02, "range_scale": 1.06 },
+        "roundhouse_burst": { "family": "gamma_slam", "label": "Gamma Crash", "summary": "Tertiary slam route remains a direct wall-breaker.", "damage_scale": 1.07, "velocity_scale": 1.02, "range_scale": 1.03 },
+        "dropkick": { "family": "gamma_slam", "label": "Leaping Smash", "summary": "Tertiary jump route keeps big-body entry threat.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.04 },
+        "spinebuster": { "family": "grab_suite", "label": "Titan Clamp", "summary": "Tertiary grab route still punishes panic buttons.", "damage_scale": 1.08, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "suplex_throw": { "family": "grab_suite", "label": "Titan Heave", "summary": "Tertiary throw route preserves carry and dump.", "damage_scale": 1.07, "velocity_scale": 1.01, "range_scale": 1.05 },
+        "counter_slam": { "family": "counter", "label": "Gamma Reversal", "summary": "Tertiary counter route stays reliable into heavy punishes.", "damage_scale": 1.06, "velocity_scale": 1.04, "range_scale": 1.07 },
+        "lariat": { "family": "gamma_charge", "label": "Rampage Lane", "summary": "Tertiary lane route keeps broad body-control.", "damage_scale": 1.06, "velocity_scale": 1.0, "range_scale": 1.08 },
+        "knee_combo": { "family": "gamma_slam", "label": "Knee Crush", "summary": "Tertiary slam route preserves pop-up utility.", "damage_scale": 1.05, "velocity_scale": 1.03, "range_scale": 1.03 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "gamma_tsunami", "label": "Tsunami Finish", "summary": "Power super becomes the massive closeout route.", "damage_scale": 1.16, "velocity_scale": 1.04, "range_scale": 1.05 },
+        "sitout_powerbomb": { "family": "grab_suite", "label": "Titan Drop", "summary": "Grab family becomes the dedicated crushing finisher.", "damage_scale": 1.15, "velocity_scale": 1.02, "range_scale": 1.05 },
+        "storm_drop": { "family": "gamma_crush", "label": "Crush Finish", "summary": "Crush super becomes the featured ender for tank builds.", "damage_scale": 1.17, "velocity_scale": 1.04, "range_scale": 1.04 },
+        "flash_high_kick": { "family": "savage_hulk", "label": "Savage Finish", "summary": "Wild bruiser super becomes a direct crowd-pop closer.", "damage_scale": 1.15, "velocity_scale": 1.05, "range_scale": 1.03 },
+        "super_lariat": { "family": "thunderclap", "label": "Thunder Finish", "summary": "Shockwave route becomes the ring-shaking finisher.", "damage_scale": 1.16, "velocity_scale": 1.03, "range_scale": 1.06 },
+        "skybreaker": { "family": "gamma_quake", "label": "Quake Finish", "summary": "Quake super emphasizes slam force and tremor reach.", "damage_scale": 1.16, "velocity_scale": 1.04, "range_scale": 1.05 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "gamma_crush", "label": "Gamma Crush Super", "summary": "Crush route becomes the top-billed heavyweight super.", "damage_scale": 1.21, "velocity_scale": 1.05, "range_scale": 1.05 },
+        "chaos_driver": { "family": "gamma_tsunami", "label": "Chaos Tsunami", "summary": "Power route becomes the full-force marquee slam.", "damage_scale": 1.22, "velocity_scale": 1.05, "range_scale": 1.06 },
+        "critical_burst": { "family": "gamma_quake", "label": "Critical Quake", "summary": "Quake route becomes the emergency earthshaker.", "damage_scale": 1.2, "velocity_scale": 1.06, "range_scale": 1.06 },
+        "last_stand_bomb": { "family": "thunderclap", "label": "Last Stand Thunder", "summary": "Shockwave route turns into the desperate comeback bomb.", "damage_scale": 1.23, "velocity_scale": 1.04, "range_scale": 1.07 }
+      }
+    },
+    "template_wild_01": {
+      "signature_1": {
+        "backfist": { "family": "gadouken", "label": "Chaos Shot", "summary": "Projectile route stays erratic but lands with stronger mid-range punch.", "damage_scale": 1.04, "velocity_scale": 1.07, "range_scale": 1.08 },
+        "roundhouse_burst": { "family": "dankuu", "label": "Wild Dankuu", "summary": "Kick route becomes a more explosive rush-in sequence.", "damage_scale": 1.06, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "dropkick": { "family": "roll_attack", "label": "Rolling Burst", "summary": "Rolling route gains more carry and scramble chaos.", "damage_scale": 1.05, "velocity_scale": 1.08, "range_scale": 1.06 },
+        "spinebuster": { "family": "zuki", "label": "Bruiser Zuki", "summary": "Strike route turns into a dirtier close-range body blow.", "damage_scale": 1.07, "velocity_scale": 1.03, "range_scale": 1.04 },
+        "suplex_throw": { "family": "air_escape", "label": "Chaos Escape Toss", "summary": "Mobility route doubles as a slippery throw setup.", "damage_scale": 1.04, "velocity_scale": 1.09, "range_scale": 1.06 },
+        "counter_slam": { "family": "premium_sign", "label": "Premium Trap", "summary": "Counter route becomes a more theatrical punish swing.", "damage_scale": 1.06, "velocity_scale": 1.07, "range_scale": 1.08 },
+        "lariat": { "family": "gadou_shoukouken", "label": "Chaos Smash", "summary": "Projectile burst route turns into a big-space disruptor.", "damage_scale": 1.05, "velocity_scale": 1.05, "range_scale": 1.09 },
+        "knee_combo": { "family": "koryuken", "label": "Knee Shoryu", "summary": "Uppercut route becomes the combo-launch wild card.", "damage_scale": 1.05, "velocity_scale": 1.08, "range_scale": 1.02 }
+      },
+      "signature_2": {
+        "backfist": { "family": "gadouken", "label": "Chaos Shot", "summary": "Secondary projectile route keeps the unstable neutral check.", "damage_scale": 1.03, "velocity_scale": 1.06, "range_scale": 1.08 },
+        "roundhouse_burst": { "family": "dankuu", "label": "Wild Dankuu", "summary": "Secondary kick route still forces scramble pressure.", "damage_scale": 1.05, "velocity_scale": 1.06, "range_scale": 1.04 },
+        "dropkick": { "family": "roll_attack", "label": "Rolling Burst", "summary": "Secondary roll route preserves noisy forward carry.", "damage_scale": 1.04, "velocity_scale": 1.07, "range_scale": 1.06 },
+        "spinebuster": { "family": "zuki", "label": "Bruiser Zuki", "summary": "Secondary strike route keeps heavy-body pressure.", "damage_scale": 1.06, "velocity_scale": 1.03, "range_scale": 1.03 },
+        "suplex_throw": { "family": "air_escape", "label": "Chaos Escape Toss", "summary": "Secondary mobility route stays slippery and awkward to read.", "damage_scale": 1.03, "velocity_scale": 1.08, "range_scale": 1.05 },
+        "counter_slam": { "family": "premium_sign", "label": "Premium Trap", "summary": "Secondary counter route keeps flashy punishment.", "damage_scale": 1.05, "velocity_scale": 1.06, "range_scale": 1.08 },
+        "lariat": { "family": "gadou_shoukouken", "label": "Chaos Smash", "summary": "Secondary burst route still blasts wide space.", "damage_scale": 1.04, "velocity_scale": 1.05, "range_scale": 1.08 },
+        "knee_combo": { "family": "koryuken", "label": "Knee Shoryu", "summary": "Secondary uppercut route keeps launch potential.", "damage_scale": 1.04, "velocity_scale": 1.07, "range_scale": 1.02 }
+      },
+      "signature_3": {
+        "backfist": { "family": "gadouken", "label": "Chaos Shot", "summary": "Tertiary projectile route still gives wildcard builds teeth at range.", "damage_scale": 1.03, "velocity_scale": 1.06, "range_scale": 1.07 },
+        "roundhouse_burst": { "family": "dankuu", "label": "Wild Dankuu", "summary": "Tertiary kick route keeps abrupt air-to-ground pressure.", "damage_scale": 1.05, "velocity_scale": 1.05, "range_scale": 1.04 },
+        "dropkick": { "family": "roll_attack", "label": "Rolling Burst", "summary": "Tertiary roll route stays chaotic and mobile.", "damage_scale": 1.04, "velocity_scale": 1.07, "range_scale": 1.05 },
+        "spinebuster": { "family": "zuki", "label": "Bruiser Zuki", "summary": "Tertiary strike route preserves rough close-range damage.", "damage_scale": 1.06, "velocity_scale": 1.02, "range_scale": 1.03 },
+        "suplex_throw": { "family": "air_escape", "label": "Chaos Escape Toss", "summary": "Tertiary mobility route still creates weird punish windows.", "damage_scale": 1.03, "velocity_scale": 1.08, "range_scale": 1.05 },
+        "counter_slam": { "family": "premium_sign", "label": "Premium Trap", "summary": "Tertiary counter route stays loud and dangerous.", "damage_scale": 1.05, "velocity_scale": 1.06, "range_scale": 1.07 },
+        "lariat": { "family": "gadou_shoukouken", "label": "Chaos Smash", "summary": "Tertiary burst route preserves broad disruption.", "damage_scale": 1.04, "velocity_scale": 1.04, "range_scale": 1.08 },
+        "knee_combo": { "family": "koryuken", "label": "Knee Shoryu", "summary": "Tertiary uppercut route remains a volatile launcher.", "damage_scale": 1.04, "velocity_scale": 1.07, "range_scale": 1.01 }
+      },
+      "finisher": {
+        "driver_drop": { "family": "hishou_buraiken", "label": "Buraiken Finish", "summary": "Rush super becomes the signature chaos finisher.", "damage_scale": 1.15, "velocity_scale": 1.08, "range_scale": 1.04 },
+        "sitout_powerbomb": { "family": "otoko_michi", "label": "Otoko Finish", "summary": "Risk-heavy route becomes the all-in closer.", "damage_scale": 1.17, "velocity_scale": 1.05, "range_scale": 1.03 },
+        "storm_drop": { "family": "haoh_gadouken", "label": "Haoh Finish", "summary": "Massive projectile super becomes the statement ender.", "damage_scale": 1.16, "velocity_scale": 1.07, "range_scale": 1.08 },
+        "flash_high_kick": { "family": "tenma_gou_dankuu", "label": "Tenma Finish", "summary": "Aerial kick super becomes the flashiest closeout tool.", "damage_scale": 1.15, "velocity_scale": 1.09, "range_scale": 1.04 },
+        "super_lariat": { "family": "metsu_gadouken", "label": "Metsu Finish", "summary": "Beam route becomes the dramatic momentum break.", "damage_scale": 1.16, "velocity_scale": 1.07, "range_scale": 1.07 },
+        "skybreaker": { "family": "kouryuu_rekka", "label": "Rekka Finish", "summary": "Rekka super becomes the chase-heavy finisher route.", "damage_scale": 1.15, "velocity_scale": 1.09, "range_scale": 1.04 }
+      },
+      "super_finisher": {
+        "storm_drop": { "family": "shinkuu_gadouken", "label": "Shinkuu Storm", "summary": "Projectile super becomes the marquee wildcard cannon.", "damage_scale": 1.2, "velocity_scale": 1.08, "range_scale": 1.09 },
+        "chaos_driver": { "family": "shun_goku_satsu", "label": "Chaos Satsu", "summary": "Demon route becomes the ultimate all-in super.", "damage_scale": 1.23, "velocity_scale": 1.04, "range_scale": 1.03 },
+        "critical_burst": { "family": "max_hisshou_buraiken", "label": "Critical Buraiken", "summary": "Rush super becomes the burst-heavy headline finish.", "damage_scale": 1.21, "velocity_scale": 1.09, "range_scale": 1.05 },
+        "last_stand_bomb": { "family": "haoh_gadouken", "label": "Last Stand Haoh", "summary": "Projectile super turns into the comeback cannon.", "damage_scale": 1.22, "velocity_scale": 1.08, "range_scale": 1.09 }
+      }
+    }
+  }
+}

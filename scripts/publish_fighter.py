@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict
 
@@ -45,6 +47,9 @@ def save_json(path: Path, data):
 
 CONFIG = {
     "fighter_asset_registry": load_json(CONFIG_DIR / "fighter_asset_registry.json", {}),
+    "runtime_package_effects": load_json(CONFIG_DIR / "runtime_package_effects.json", {}),
+    "runtime_move_loadouts": load_json(CONFIG_DIR / "runtime_move_loadouts.json", {}),
+    "runtime_move_variants": load_json(CONFIG_DIR / "runtime_move_variants.json", {}),
 }
 
 
@@ -56,6 +61,26 @@ def slugify(value: str) -> str:
 
 def sanitize_runtime_name(fighter_id: str) -> str:
     return f"custom_{slugify(fighter_id)}"
+
+
+def remove_tree_with_retries(path: Path, attempts: int = 8, delay_seconds: float = 0.35) -> None:
+    if not path.exists():
+        return
+
+    last_error = None
+    for attempt in range(attempts):
+        try:
+            shutil.rmtree(path)
+            return
+        except PermissionError as exc:
+            last_error = exc
+            time.sleep(delay_seconds)
+        except OSError as exc:
+            last_error = exc
+            time.sleep(delay_seconds)
+
+    if last_error:
+        raise last_error
 
 
 def resolve_template_dir(template_name: str) -> Path:
@@ -201,6 +226,390 @@ def patch_data_stats(runtime_dir: Path, life: int, attack: int, defence: int):
                 f.writelines(out)
 
 
+def split_top_level_csv(value: str) -> list[str]:
+    parts = []
+    current = []
+    depth = 0
+    for ch in value:
+        if ch == "," and depth == 0:
+            parts.append("".join(current).strip())
+            current = []
+            continue
+        if ch == "(":
+            depth += 1
+        elif ch == ")" and depth > 0:
+            depth -= 1
+        current.append(ch)
+    parts.append("".join(current).strip())
+    return parts
+
+
+def wrap_scaled_expr(expr: str, scale: float, rounding: str | None = None) -> str:
+    if scale == 1.0:
+        return expr
+    wrapped = f"(({expr}) * {scale:.3f})"
+    if rounding == "ceil":
+        return f"ceil{wrapped}"
+    if rounding == "floor":
+        return f"floor{wrapped}"
+    return wrapped
+
+
+def scale_assignment_value(value: str, scale: float, rounding: str | None = None) -> str:
+    parts = split_top_level_csv(value)
+    scaled = [wrap_scaled_expr(part, scale, rounding) for part in parts]
+    return ", ".join(scaled)
+
+
+def scale_distance_triggers(line: str, scale: float) -> str:
+    if scale == 1.0 or "P2" not in line:
+        return line
+
+    def repl(match: re.Match[str]) -> str:
+        raw = match.group(2)
+        scaled = round(float(raw) * scale, 3)
+        if scaled.is_integer():
+            scaled_text = str(int(scaled))
+        else:
+            scaled_text = f"{scaled:.3f}".rstrip("0").rstrip(".")
+        return f"{match.group(1)}{scaled_text}"
+
+    pattern = r"((?:P2BodyDist|P2Dist)\s+x\s*[<>]=?\s*)(-?\d+(?:\.\d+)?)"
+    return re.sub(pattern, repl, line)
+
+
+def merge_state_scale(targets_by_file: Dict[str, Dict[int, Dict[str, float]]], file_name: str, state_no: int, scales: Dict[str, float]) -> None:
+    file_targets = targets_by_file.setdefault(file_name, {})
+    state_targets = file_targets.setdefault(state_no, {})
+    for key, value in scales.items():
+        if key.endswith("_scale"):
+            state_targets[key] = state_targets.get(key, 1.0) * float(value)
+
+
+def build_runtime_state_targets(template_name: str, package_tuning: Dict[str, Any]) -> Dict[str, Dict[int, Dict[str, float]]]:
+    template_cfg = CONFIG["runtime_package_effects"].get("templates", {}).get(template_name, {})
+    targets_by_file: Dict[str, Dict[int, Dict[str, float]]] = {}
+    family_rules = [
+        ("strike_package", "strike", "damage_scale", "velocity_scale", "range_scale"),
+        ("grapple_package", "grapple", "damage_scale", "velocity_scale", "range_scale"),
+        ("special_package", "special", "damage_scale", "velocity_scale", "range_scale"),
+    ]
+
+    for axis, family, damage_key, velocity_key, range_key in family_rules:
+        profile = package_tuning.get(axis, {}).get("profile", {})
+        scales = {
+            "damage_scale": profile.get(damage_key, 1.0),
+            "velocity_scale": profile.get(velocity_key, 1.0),
+            "range_scale": profile.get(range_key, 1.0),
+        }
+        for target in template_cfg.get(family, []):
+            file_name = str(target.get("file", ""))
+            for state_no in target.get("states", []):
+                merge_state_scale(targets_by_file, file_name, int(state_no), scales)
+
+    for axis in ("strike_package", "special_package"):
+        profile = package_tuning.get(axis, {}).get("profile", {})
+        if not profile.get("counter_damage_scale") and not profile.get("counter_velocity_scale"):
+            continue
+        scales = {
+            "damage_scale": profile.get("counter_damage_scale", 1.0),
+            "velocity_scale": profile.get("counter_velocity_scale", 1.0),
+            "range_scale": profile.get("range_scale", 1.0),
+        }
+        for target in template_cfg.get("counter", []):
+            file_name = str(target.get("file", ""))
+            for state_no in target.get("states", []):
+                merge_state_scale(targets_by_file, file_name, int(state_no), scales)
+
+    return targets_by_file
+
+
+def apply_move_variant_targets(
+    template_name: str,
+    move_variant_plan: Dict[str, Any],
+    targets_by_file: Dict[str, Dict[int, Dict[str, float]]],
+) -> Dict[str, Dict[int, Dict[str, float]]]:
+    template_cfg = CONFIG["runtime_move_loadouts"].get("templates", {}).get(template_name, {})
+    family_profiles = move_variant_plan.get("family_profiles", {})
+    if not template_cfg or not family_profiles:
+        return targets_by_file
+
+    family_to_group = {
+        "flash_chop": "strike",
+        "slash_elbow": "strike",
+        "air_stampede": "special",
+        "power_bomb": "grapple",
+        "spiral_ddt": "grapple",
+        "zero_counter": "counter",
+        "boomerang_raid": "special",
+        "stun_gun": "special",
+        "hadoken": "strike",
+        "shoryuken": "strike",
+        "tatsu": "special",
+        "axe_kick": "strike",
+        "zenpou_tenshi": "grapple",
+        "shoryureppa": "special",
+        "shinryuken": "special",
+        "shippu_jinraikyaku": "special",
+        "kuzuryureppa": "special",
+        "shinbu_messatsu": "special",
+        "spinning_lariat": "strike",
+        "violent_axe": "strike",
+        "pipe_smack": "special",
+        "anti_air_toss": "grapple",
+        "super_pipe_smash": "special",
+        "body_press": "special",
+    }
+
+    package_template_cfg = CONFIG["runtime_package_effects"].get("templates", {}).get(template_name, {})
+    loadout_families = template_cfg.get("families", {})
+
+    for family, states in loadout_families.items():
+        profile = family_profiles.get(family)
+        if not profile:
+            continue
+        group = family_to_group.get(family)
+        if not group:
+            continue
+        target_files = package_template_cfg.get(group, [])
+        scales = {
+            "damage_scale": float(profile.get("damage_scale", 1.0) or 1.0),
+            "velocity_scale": float(profile.get("velocity_scale", 1.0) or 1.0),
+            "range_scale": float(profile.get("range_scale", 1.0) or 1.0),
+        }
+        state_set = {int(s) for s in states}
+        for target in target_files:
+            file_name = str(target.get("file", ""))
+            available_states = {int(s) for s in target.get("states", [])}
+            for state_no in sorted(state_set & available_states):
+                merge_state_scale(targets_by_file, file_name, state_no, scales)
+
+    return targets_by_file
+
+
+def patch_runtime_package_states(runtime_dir: Path, template_name: str, package_tuning: Dict[str, Any]) -> None:
+    targets_by_file = build_runtime_state_targets(template_name, package_tuning)
+    if not targets_by_file:
+        return
+
+    statedef_re = re.compile(r"^\[\s*statedef\s+(\d+)\s*\]$", re.IGNORECASE)
+    section_re = re.compile(r"^\[.*\]$")
+
+    for relative_path, state_map in targets_by_file.items():
+        path = runtime_dir / relative_path
+        if not path.exists():
+            continue
+
+        with path.open("r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+
+        out = []
+        current_state = None
+        current_scales: Dict[str, float] | None = None
+        current_type = None
+        touched = False
+
+        for line in lines:
+            stripped = line.strip()
+            statedef_match = statedef_re.match(stripped)
+            if statedef_match:
+                current_state = int(statedef_match.group(1))
+                current_scales = state_map.get(current_state)
+                current_type = None
+                out.append(line)
+                continue
+
+            if section_re.match(stripped):
+                current_type = None
+                out.append(line)
+                continue
+
+            if current_scales and stripped.lower().startswith("type"):
+                _, value = stripped.split("=", 1)
+                current_type = value.strip().lower()
+                out.append(line)
+                continue
+
+            updated = line
+            if current_scales:
+                damage_scale = float(current_scales.get("damage_scale", 1.0))
+                velocity_scale = float(current_scales.get("velocity_scale", 1.0))
+                range_scale = float(current_scales.get("range_scale", 1.0))
+
+                if current_type == "hitdef" and stripped.lower().startswith("damage"):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), damage_scale, 'ceil')}\n"
+                elif current_type == "hitdef" and stripped.lower().startswith(("ground.velocity", "guard.velocity", "air.velocity", "airguard.velocity")):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), velocity_scale)}\n"
+                elif current_type in ("velset", "veladd") and stripped.lower().startswith(("x", "y")):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), velocity_scale)}\n"
+                elif current_type == "targetlifeadd" and stripped.lower().startswith("value"):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), damage_scale, 'floor')}\n"
+                elif stripped.lower().startswith("trigger") and ("P2BodyDist x" in stripped or "P2Dist x" in stripped):
+                    updated = scale_distance_triggers(line, range_scale)
+
+            if updated != line:
+                touched = True
+            out.append(updated)
+
+        if touched:
+            with path.open("w", encoding="utf-8") as f:
+                f.writelines(out)
+
+
+def patch_runtime_move_variants(
+    runtime_dir: Path,
+    template_name: str,
+    package_tuning: Dict[str, Any],
+    move_variant_plan: Dict[str, Any],
+) -> None:
+    targets_by_file = build_runtime_state_targets(template_name, package_tuning)
+    targets_by_file = apply_move_variant_targets(template_name, move_variant_plan, targets_by_file)
+    if not targets_by_file:
+        return
+
+    statedef_re = re.compile(r"^\[\s*statedef\s+(\d+)\s*\]$", re.IGNORECASE)
+    section_re = re.compile(r"^\[.*\]$")
+
+    for relative_path, state_map in targets_by_file.items():
+        path = runtime_dir / relative_path
+        if not path.exists():
+            continue
+
+        with path.open("r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+
+        out = []
+        current_state = None
+        current_scales: Dict[str, float] | None = None
+        current_type = None
+        touched = False
+
+        for line in lines:
+            stripped = line.strip()
+            statedef_match = statedef_re.match(stripped)
+            if statedef_match:
+                current_state = int(statedef_match.group(1))
+                current_scales = state_map.get(current_state)
+                current_type = None
+                out.append(line)
+                continue
+
+            if section_re.match(stripped):
+                current_type = None
+                out.append(line)
+                continue
+
+            if current_scales and stripped.lower().startswith("type"):
+                _, value = stripped.split("=", 1)
+                current_type = value.strip().lower()
+                out.append(line)
+                continue
+
+            updated = line
+            if current_scales:
+                damage_scale = float(current_scales.get("damage_scale", 1.0))
+                velocity_scale = float(current_scales.get("velocity_scale", 1.0))
+                range_scale = float(current_scales.get("range_scale", 1.0))
+
+                if current_type == "hitdef" and stripped.lower().startswith("damage"):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), damage_scale, 'ceil')}\n"
+                elif current_type == "hitdef" and stripped.lower().startswith(("ground.velocity", "guard.velocity", "air.velocity", "airguard.velocity")):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), velocity_scale)}\n"
+                elif current_type in ("velset", "veladd") and stripped.lower().startswith(("x", "y")):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), velocity_scale)}\n"
+                elif current_type == "targetlifeadd" and stripped.lower().startswith("value"):
+                    key, value = line.split("=", 1)
+                    updated = f"{key}= {scale_assignment_value(value.strip(), damage_scale, 'floor')}\n"
+                elif stripped.lower().startswith("trigger") and ("P2BodyDist x" in stripped or "P2Dist x" in stripped):
+                    updated = scale_distance_triggers(line, range_scale)
+
+            if updated != line:
+                touched = True
+            out.append(updated)
+
+        if touched:
+            with path.open("w", encoding="utf-8") as f:
+                f.writelines(out)
+
+
+def patch_runtime_move_loadout(runtime_dir: Path, template_name: str, move_loadout: Dict[str, Any]) -> None:
+    template_cfg = CONFIG["runtime_move_loadouts"].get("templates", {}).get(template_name, {})
+    if not template_cfg:
+        return
+
+    configurable_states = {
+        int(state_no)
+        for states in template_cfg.get("families", {}).values()
+        for state_no in states
+    }
+    enabled_states = {int(state_no) for state_no in move_loadout.get("enabled_states", [])}
+    disabled_states = configurable_states - enabled_states
+    disable_marker = "; CAF loadout disabled"
+
+    section_re = re.compile(r"^\[.*\]$")
+
+    for relative_path in template_cfg.get("command_files", []):
+        path = runtime_dir / relative_path
+        if not path.exists():
+            continue
+
+        with path.open("r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()
+
+        blocks: list[list[str]] = []
+        current: list[str] = []
+        for line in lines:
+            if section_re.match(line.strip()) and current:
+                blocks.append(current)
+                current = [line]
+            else:
+                current.append(line)
+        if current:
+            blocks.append(current)
+
+        rewritten: list[str] = []
+        touched = False
+
+        for block in blocks:
+            sanitized = [line for line in block if disable_marker not in line]
+            if len(sanitized) != len(block):
+                touched = True
+
+            block_value = None
+            is_change_state = False
+            type_index = None
+
+            for idx, line in enumerate(sanitized):
+                stripped = line.strip()
+                lowered = stripped.lower()
+                if not stripped or stripped.startswith(";"):
+                    continue
+                if lowered.startswith("type") and "=" in stripped:
+                    rhs = stripped.split("=", 1)[1].strip().lower()
+                    if rhs == "changestate":
+                        is_change_state = True
+                        type_index = idx
+                elif lowered.startswith("value") and "=" in stripped:
+                    raw = stripped.split("=", 1)[1].strip()
+                    if raw.lstrip("-").isdigit():
+                        block_value = int(raw)
+
+            if is_change_state and block_value in disabled_states and type_index is not None:
+                sanitized.insert(type_index + 1, f"triggerAll = 0 {disable_marker}\n")
+                touched = True
+
+            rewritten.extend(sanitized)
+
+        if touched:
+            with path.open("w", encoding="utf-8") as f:
+                f.writelines(rewritten)
 def patch_runtime_constants(runtime_dir: Path, tuning: Dict[str, Any]):
     size_cfg = tuning.get("size", {})
     vel_cfg = tuning.get("velocity", {})
@@ -337,7 +746,7 @@ def generate_runtime_character(fighter_id: str) -> dict:
     runtime_character = runtime_cfg.get("runtime_character_id") or sanitize_runtime_name(fighter_id)
     runtime_dir = CHARS_DIR / runtime_character
     if runtime_dir.exists():
-        shutil.rmtree(runtime_dir)
+        remove_tree_with_retries(runtime_dir)
     shutil.copytree(template_dir, runtime_dir)
 
     template_def = find_template_def(runtime_dir, template_name)
@@ -353,6 +762,13 @@ def generate_runtime_character(fighter_id: str) -> dict:
     patch_palette_defaults(runtime_def, palette_slot)
     patch_data_stats(runtime_dir, life, attack, defence)
     patch_runtime_constants(runtime_dir, runtime_cfg.get("runtime_tuning", {}))
+    patch_runtime_move_variants(
+        runtime_dir,
+        template_name,
+        runtime_cfg.get("package_tuning", {}),
+        runtime_cfg.get("move_variant_plan", {}),
+    )
+    patch_runtime_move_loadout(runtime_dir, template_name, runtime_cfg.get("move_loadout", {}))
 
     runtime_meta = {
         "fighter_id": fighter_id,
@@ -371,6 +787,9 @@ def generate_runtime_character(fighter_id: str) -> dict:
             "preferred_ai_level": preferred_ai_level(approved.get("ai_profile", {})),
         },
         "runtime_tuning": runtime_cfg.get("runtime_tuning", {}),
+        "package_tuning": runtime_cfg.get("package_tuning", {}),
+        "move_loadout": runtime_cfg.get("move_loadout", {}),
+        "move_variant_plan": runtime_cfg.get("move_variant_plan", {}),
         "league_metadata": generated.get("league_metadata", {}),
     }
     save_json(runtime_dir / "fighter_meta.json", runtime_meta)
@@ -423,6 +842,9 @@ def publish_fighter(fighter_id: str):
         "palette_slot": runtime_meta["palette_slot"],
         "preferred_ai_level": runtime_meta["generated_stats"]["preferred_ai_level"],
         "runtime_tuning": runtime_meta.get("runtime_tuning", {}),
+        "package_tuning": runtime_meta.get("package_tuning", {}),
+        "move_loadout": runtime_meta.get("move_loadout", {}),
+        "move_variant_plan": runtime_meta.get("move_variant_plan", {}),
     }
     save_json(MAPPING_FILE, mapping)
 
