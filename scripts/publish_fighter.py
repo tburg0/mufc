@@ -63,6 +63,21 @@ def sanitize_runtime_name(fighter_id: str) -> str:
     return f"custom_{slugify(fighter_id)}"
 
 
+def runtime_def_path(runtime_character: str) -> Path:
+    runtime_folder = str(runtime_character or "").replace("\\", "/").strip().split("/", 1)[0].strip()
+    return CHARS_DIR / runtime_folder / f"{runtime_folder}.def"
+
+
+def ensure_runtime_character_ready(runtime_meta: Dict[str, Any]) -> None:
+    runtime_character = str(runtime_meta.get("runtime_character") or "").strip()
+    if not runtime_character:
+        raise ValueError("Runtime generation did not return a runtime_character")
+
+    runtime_def = runtime_def_path(runtime_character)
+    if not runtime_def.exists():
+        raise FileNotFoundError(f"Runtime character def file missing after generation: {runtime_def}")
+
+
 def remove_tree_with_retries(path: Path, attempts: int = 8, delay_seconds: float = 0.35) -> None:
     if not path.exists():
         return
@@ -801,6 +816,7 @@ def publish_fighter(fighter_id: str):
     generated_path = GENERATED_DIR / f"{fighter_id}.json"
     generated = load_json(generated_path)
     runtime_meta = generate_runtime_character(fighter_id)
+    ensure_runtime_character_ready(runtime_meta)
 
     fighter_name = approved.get("identity", {}).get("display_name")
     creator = approved.get("identity", {}).get("creator_name")

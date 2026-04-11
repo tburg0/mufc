@@ -53,6 +53,12 @@ def team_key(a: str, b: str) -> str:
     return f"{x}+{y}"
 
 
+def canonical_team_key(names: List[str]) -> str:
+    if len(names) != 2:
+        return "+".join(names)
+    return team_key(names[0], names[1])
+
+
 # -------------------------
 # Roster loading
 # -------------------------
@@ -136,6 +142,12 @@ def load_submitted_roster() -> List[Dict[str, Any]]:
         entry = mapping.get(name) or {}
         runtime = entry.get("runtime_character")
         if not runtime:
+            continue
+        runtime_token = str(runtime).replace("\\", "/").strip()
+        runtime_folder = runtime_token.split("/", 1)[0].strip()
+        runtime_dir = CHARS_DIR / runtime_folder
+        runtime_def = runtime_dir / f"{runtime_folder}.def"
+        if not runtime_folder or not runtime_dir.is_dir() or not runtime_def.exists():
             continue
         fighters.append({
             "name": name,
@@ -566,7 +578,99 @@ def maybe_start_tag_series(state: Dict[str, Any], roster: List[Dict[str, Any]], 
 # -------------------------
 
 def fighter_lookup(roster: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
-    return {f["name"]: f for f in roster}
+    lookup: Dict[str, Dict[str, Any]] = {}
+    for fighter in roster:
+        for alias in (
+            fighter.get("name"),
+            fighter.get("runtime"),
+            fighter.get("fighter_id"),
+        ):
+            key = str(alias or "").strip()
+            if key:
+                lookup[key] = fighter
+    return lookup
+
+
+def canonical_fighter_name(name: Optional[str], lookup: Dict[str, Dict[str, Any]]) -> Optional[str]:
+    key = str(name or "").strip()
+    if not key:
+        return None
+    fighter = lookup.get(key)
+    if fighter:
+        return fighter["name"]
+    return key
+
+
+def normalize_tag_series_state(lookup: Dict[str, Dict[str, Any]]) -> None:
+    series = load_json(TAG_SERIES_FILE, {"active": False})
+    if not series.get("active"):
+        return
+
+    changed = False
+
+    for team_field in ("teamA", "teamB"):
+        raw_team = series.get(team_field, [])
+        normalized_team = [canonical_fighter_name(name, lookup) for name in raw_team]
+        if normalized_team != raw_team:
+            series[team_field] = normalized_team
+            changed = True
+
+    team_a = series.get("teamA", [])
+    team_b = series.get("teamB", [])
+    if len(team_a) == 2:
+        desired = canonical_team_key(team_a)
+        if series.get("teamA_key") != desired:
+            series["teamA_key"] = desired
+            changed = True
+    if len(team_b) == 2:
+        desired = canonical_team_key(team_b)
+        if series.get("teamB_key") != desired:
+            series["teamB_key"] = desired
+            changed = True
+
+    for leg in series.get("legs", []):
+        for field in ("p1", "p2", "winner"):
+            raw_value = leg.get(field)
+            normalized_value = canonical_fighter_name(raw_value, lookup)
+            if normalized_value != raw_value:
+                leg[field] = normalized_value
+                changed = True
+
+    if changed:
+        save_json(TAG_SERIES_FILE, series)
+
+
+def invalidate_active_tag_series(reason: str) -> None:
+    series = load_json(TAG_SERIES_FILE, {"active": False})
+    if not series.get("active"):
+        return
+    series["active"] = False
+    series["invalid_reason"] = reason
+    save_json(TAG_SERIES_FILE, series)
+
+
+def context_fighters_resolvable(ctx: Optional[Dict[str, Any]], lookup: Dict[str, Dict[str, Any]]) -> bool:
+    if not ctx:
+        return False
+    p1 = str(ctx.get("p1") or "").strip()
+    p2 = str(ctx.get("p2") or "").strip()
+    return bool(p1 and p2 and p1 in lookup and p2 in lookup)
+
+
+def active_tag_series_members(lookup: Dict[str, Dict[str, Any]]) -> Tuple[bool, List[str]]:
+    series = load_json(TAG_SERIES_FILE, {"active": False})
+    if not series.get("active"):
+        return True, []
+
+    names: List[str] = []
+    for team_field in ("teamA", "teamB"):
+        for name in series.get(team_field, []):
+            key = str(name or "").strip()
+            if key:
+                names.append(key)
+
+    missing = [name for name in names if name not in lookup]
+    return not missing, missing
 
 
 def runtime_arg_for(fighter: Dict[str, Any]) -> str:
@@ -589,13 +693,25 @@ def main() -> None:
         return
 
     lookup = fighter_lookup(roster)
+    normalize_tag_series_state(lookup)
     roster_names = [f["name"] for f in roster]
 
+    tag_series_ok, missing_members = active_tag_series_members(lookup)
+    if not tag_series_ok:
+        invalidate_active_tag_series(f"Missing roster entries for tag series teams: {', '.join(missing_members)}")
+
     ctx = active_tag_series_match(records)
+    if ctx is not None and not context_fighters_resolvable(ctx, lookup):
+        missing = [name for name in (ctx.get("p1"), ctx.get("p2")) if str(name or "").strip() not in lookup]
+        invalidate_active_tag_series(f"Missing roster entries for active tag series: {', '.join(missing)}")
+        ctx = None
     if ctx is None:
         ctx = choose_world_title_match(state, roster, records)
     if ctx is None:
         ctx = maybe_start_tag_series(state, roster, records)
+        if ctx is not None and not context_fighters_resolvable(ctx, lookup):
+            missing = [name for name in (ctx.get("p1"), ctx.get("p2")) if str(name or "").strip() not in lookup]
+            raise RuntimeError(f"Generated tag series includes unavailable fighters: {', '.join(missing)}")
     if ctx is None:
         ctx = choose_regular_singles(state, roster, records)
 
