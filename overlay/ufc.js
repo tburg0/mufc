@@ -329,12 +329,13 @@ function parsePrematch(text) {
 
   const debutLine = lines.find((line) => line.includes("DEBUT MATCH"));
   const royalLine = lines.find((line) => line.includes("ROYAL TOURNAMENT"));
+  const grandPrixLine = lines.find((line) => line.includes("GRAND PRIX"));
   const tagSeriesLine = lines.find((line) => line.includes("TAG SERIES"));
   const worldTitleLine = lines.find((line) => line.includes("CHAMPIONSHIP FIGHT"));
   const tagTitleLine = lines.find((line) => line.includes("TAG TEAM CHAMPIONSHIP"));
 
   result.debut = debutLine ? debutLine.trim() : null;
-  result.eventNotice = royalLine?.trim() || tagSeriesLine?.trim() || null;
+  result.eventNotice = royalLine?.trim() || grandPrixLine?.trim() || tagSeriesLine?.trim() || null;
 
   if (tagTitleLine) {
     result.pillNotice = tagTitleLine.trim();
@@ -461,12 +462,73 @@ function summarizeNickname(profile) {
   return nickname || null;
 }
 
+function titleizeToken(value) {
+  return String(value || "")
+    .trim()
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .replace(/\b\w/g, (match) => match.toUpperCase());
+}
+
+function isCustomProfile(profile) {
+  return Boolean(profile?.fighter_id);
+}
+
 function summarizeStyle(profile, fallbackMeta) {
   const archetype = String(profile?.classification?.archetype || fallbackMeta?.archetype || "").trim();
   const weight = String(profile?.classification?.weight_class || "").trim();
   const stance = String(profile?.classification?.stance || "").trim();
   const chunks = [archetype, weight, stance].filter(Boolean);
   return chunks.length ? chunks.join(" | ") : "Style unavailable";
+}
+
+function summarizeAlignment(profile) {
+  const alignment = String(profile?.classification?.alignment || "").trim();
+  const division = String(profile?.classification?.division || "").trim();
+  const chunks = [alignment, division].filter(Boolean);
+  return chunks.length ? chunks.join(" | ") : null;
+}
+
+function summarizeSignature(profile) {
+  const choices = [
+    profile?.moveset?.finisher,
+    profile?.moveset?.signature_1,
+    profile?.moveset?.signature_2,
+    profile?.moveset?.signature_3,
+    profile?.moveset?.moveset_style,
+  ];
+  const selected = choices.find((value) => String(value || "").trim());
+  return selected ? titleizeToken(selected) : null;
+}
+
+function summarizeProfileBadge(profile) {
+  if (isCustomProfile(profile)) {
+    return "CAF";
+  }
+  return "ROSTER";
+}
+
+function buildIdentityCallout(name, profile, fallbackMeta) {
+  const creator = summarizeCreator(profile, fallbackMeta);
+  const origin = summarizeOrigin(profile);
+  const nickname = summarizeNickname(profile);
+  const signature = summarizeSignature(profile);
+  const style = summarizeStyle(profile, fallbackMeta);
+  const alignment = summarizeAlignment(profile);
+  const identityBits = [
+    nickname ? `"${nickname}"` : null,
+    origin ? `from ${origin}` : null,
+    alignment,
+  ].filter(Boolean);
+  return [
+    `${name} ${isCustomProfile(profile) ? "CAF" : "fighter"}`,
+    creator && !isPlaceholderAuthor(creator) ? `by ${creator}` : null,
+    identityBits.length ? `| ${identityBits.join(" | ")}` : null,
+    signature ? `| Signature ${signature}` : null,
+    style && style !== "Style unavailable" ? `| ${style}` : null,
+  ]
+    .filter(Boolean)
+    .join(" ");
 }
 
 function summarizeCreator(profile, fallbackMeta) {
@@ -479,12 +541,13 @@ function summarizeCreator(profile, fallbackMeta) {
 
 function buildDebutCardDetails(name, profile, fallbackMeta) {
   const nickname = summarizeNickname(profile);
+  const signature = summarizeSignature(profile);
   return {
     name: name || "--",
     nickname: nickname ? `"${nickname}"` : "A new CAF enters the league",
     creator: summarizeCreator(profile, fallbackMeta),
     origin: summarizeOrigin(profile) || "Origin undisclosed",
-    style: summarizeStyle(profile, fallbackMeta),
+    style: [summarizeStyle(profile, fallbackMeta), signature ? `Sig ${signature}` : null].filter(Boolean).join(" | "),
   };
 }
 
@@ -524,6 +587,10 @@ function buildTickerItems({
 
   const p1Origin = summarizeOrigin(p1Profile);
   const p2Origin = summarizeOrigin(p2Profile);
+  const p1Signature = summarizeSignature(p1Profile);
+  const p2Signature = summarizeSignature(p2Profile);
+  const p1Style = summarizeStyle(p1Profile, null);
+  const p2Style = summarizeStyle(p2Profile, null);
   if (p1Origin) {
     items.push(`${p1} fighting out of ${p1Origin}`);
   }
@@ -534,9 +601,23 @@ function buildTickerItems({
   const p1Creator = summarizeCreator(p1Profile, null);
   const p2Creator = summarizeCreator(p2Profile, null);
   if (p1Profile) {
+    items.push(buildIdentityCallout(p1, p1Profile, null));
+    if (p1Signature) {
+      items.push(`${p1} signature move ${p1Signature}`);
+    }
+    if (p1Style && p1Style !== "Style unavailable") {
+      items.push(`${p1} style ${p1Style}`);
+    }
     items.push(`${p1} created by ${p1Creator}`);
   }
   if (p2Profile) {
+    items.push(buildIdentityCallout(p2, p2Profile, null));
+    if (p2Signature) {
+      items.push(`${p2} signature move ${p2Signature}`);
+    }
+    if (p2Style && p2Style !== "Style unavailable") {
+      items.push(`${p2} style ${p2Style}`);
+    }
     items.push(`${p2} created by ${p2Creator}`);
   }
 
@@ -744,8 +825,14 @@ async function update() {
     setText("p2HudRecord", formatHudRecord(p2Rec));
     setText("p1HudStreak", formatHudStreak(p1Rec.streak));
     setText("p2HudStreak", formatHudStreak(p2Rec.streak));
-    setText("p1Tag", `${p1Tier} | ${p1Rank}${p1Nickname ? ` | "${p1Nickname}"` : ""}`);
-    setText("p2Tag", `${p2Tier} | ${p2Rank}${p2Nickname ? ` | "${p2Nickname}"` : ""}`);
+    setText(
+      "p1Tag",
+      `${summarizeProfileBadge(p1Profile)} | ${p1Tier} | ${p1Rank}${p1Nickname ? ` | "${p1Nickname}"` : ""}`
+    );
+    setText(
+      "p2Tag",
+      `${summarizeProfileBadge(p2Profile)} | ${p2Tier} | ${p2Rank}${p2Nickname ? ` | "${p2Nickname}"` : ""}`
+    );
 
     setText(
       "p1Meta",
@@ -754,6 +841,7 @@ async function update() {
         `Power ${p1Power} | ${p1Style}`,
         `Creator: ${p1Creator}`,
         p1Origin ? `From: ${p1Origin}` : null,
+        summarizeSignature(p1Profile) ? `Signature: ${summarizeSignature(p1Profile)}` : null,
         `Titles: ${p1Rec.reigns} reigns | ${p1Rec.defenses} defenses`,
       ].filter(Boolean).join("\n")
     );
@@ -765,6 +853,7 @@ async function update() {
         `Power ${p2Power} | ${p2Style}`,
         `Creator: ${p2Creator}`,
         p2Origin ? `From: ${p2Origin}` : null,
+        summarizeSignature(p2Profile) ? `Signature: ${summarizeSignature(p2Profile)}` : null,
         `Titles: ${p2Rec.reigns} reigns | ${p2Rec.defenses} defenses`,
       ].filter(Boolean).join("\n")
     );
@@ -777,7 +866,12 @@ async function update() {
     setText("h2h", prematch.h2h);
     setText("form", prematch.form);
     setText("originLine", `ORIGIN: ${p1Origin || "--"}  ||  ${p2Origin || "--"}`);
+    setText("creatorLine", `CREATORS: ${p1Creator || "--"}  ||  ${p2Creator || "--"}`);
     setText("styleLine", `STYLE: ${p1Style}  ||  ${p2Style}`);
+    setText(
+      "signatureLine",
+      `SIGNATURES: ${summarizeSignature(p1Profile) || "--"}  ||  ${summarizeSignature(p2Profile) || "--"}`
+    );
     setText("mainEvent", prematch.main);
 
     let stakes = "STAKES: Standard league match";
@@ -789,6 +883,14 @@ async function update() {
       stakes = `STAKES: ${prematch.story.replace("STORY:", "").trim()}`;
     } else if (prematch.bannerText) {
       stakes = `STAKES: ${prematch.bannerText}`;
+    }
+    const cafCount = [p1Profile, p2Profile].filter(Boolean).length;
+    if (cafCount === 2) {
+      stakes += ` | CREATOR SHOWCASE: ${p1Creator} vs ${p2Creator}`;
+    } else if (cafCount === 1) {
+      const cafName = p1Profile ? p1 : p2;
+      const cafCreator = p1Profile ? p1Creator : p2Creator;
+      stakes += ` | CAF SPOTLIGHT: ${cafName} by ${cafCreator}`;
     }
     setText("stakesLine", stakes);
 

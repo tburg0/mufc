@@ -528,8 +528,16 @@ body.overlay-prematch-panels .fighter-strip {
 }
 
 #originLine,
+#creatorLine,
+#signatureLine,
 #stakesLine {
   color: var(--ice);
+}
+
+#creatorLine,
+#signatureLine {
+  border-color: rgba(124, 212, 255, 0.12);
+  background: linear-gradient(180deg, rgba(124, 212, 255, 0.08), rgba(255, 255, 255, 0.03));
 }
 
 .leader-panel {

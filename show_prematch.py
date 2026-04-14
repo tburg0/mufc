@@ -174,6 +174,7 @@ def main() -> None:
 
     is_world_title = bool(ctx.get("is_world_title", False))
     is_royal = bool(ctx.get("is_royal", False))
+    is_grand_prix = bool(ctx.get("is_grand_prix", False))
     is_tag_series = bool(ctx.get("is_tag_series", False))
     is_tag_title = bool(ctx.get("is_tag_title", False))
     is_debut = bool(ctx.get("is_debut", False))
@@ -240,6 +241,8 @@ def main() -> None:
             lines_out.append(f"🔥 DEBUT MATCH: {debut_fighter}")
         if is_royal and ctx.get("royal_round"):
             lines_out.append(f"⚔️ ROYAL TOURNAMENT: {ctx.get('royal_round')} (Winner earns title shot)")
+        if is_grand_prix and ctx.get("grand_prix_round"):
+            lines_out.append(f"🏁 GRAND PRIX: {ctx.get('grand_prix_round')} (Winner earns title shot)")
         if is_world_title:
             lines_out.append("🏆🏆🏆 CHAMPIONSHIP FIGHT! 🏆🏆🏆")
             if ctx.get("title_reason"):

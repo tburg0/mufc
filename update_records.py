@@ -15,6 +15,7 @@ LEADERBOARD_FILE = "leaderboard.txt"
 TAG_HALL_FILE = "tag_hall_of_champions.txt"
 CONTEXT_FILE = "match_context.json"
 ROYAL_FILE = "royal_bracket.json"
+GRAND_PRIX_FILE = "grand_prix_bracket.json"
 TAG_SERIES_FILE = "tag_series.json"
 MAPPING_FILE = os.path.join("generated", "runtime_mapping.json")
 
@@ -178,6 +179,76 @@ def royal_advance(bracket: Dict[str, Any], winner: str) -> Dict[str, Any]:
     return bracket
 
 
+def grand_prix_advance(bracket: Dict[str, Any], winner: str) -> Dict[str, Any]:
+    rd = bracket.get("round")
+    if rd == "SF":
+        winners = bracket.setdefault("winners_sf", [])
+        winners.append(winner)
+        if len(winners) >= 2:
+            bracket["final"] = [[winners[0], winners[1]]]
+            bracket["round"] = "F"
+    elif rd == "F":
+        bracket["winner"] = winner
+        bracket["active"] = False
+    return bracket
+
+
+def append_title_queue(state: Dict[str, Any], fighter: str, source: str) -> None:
+    queue = state.setdefault("tournament_title_queue", [])
+    if any(str(item.get("fighter") or "").strip() == fighter for item in queue if isinstance(item, dict)):
+        return
+    queue.append({"fighter": fighter, "source": source})
+    state["title_due"] = True
+
+
+def update_rivalries(state: Dict[str, Any], p1: str, p2: str, winner: str, r1: int, r2: int, ctx: Dict[str, Any]) -> None:
+    rivalries = state.setdefault("rivalries", [])
+    fighters = sorted([p1, p2], key=lambda s: s.lower())
+    next_match_number = int(state.get("match_count", 0)) + 1
+
+    existing = None
+    for item in rivalries:
+        if not isinstance(item, dict):
+            continue
+        tracked = item.get("fighters") or []
+        if sorted([str(name) for name in tracked], key=lambda s: s.lower()) == fighters:
+            existing = item
+            break
+
+    if existing is None:
+        existing = {
+            "fighters": fighters,
+            "meetings": 0,
+            "wins": {fighters[0]: 0, fighters[1]: 0},
+            "intensity": 0,
+            "last_winner": None,
+            "last_match_count": 0,
+        }
+        rivalries.append(existing)
+
+    existing["meetings"] = int(existing.get("meetings", 0)) + 1
+    wins = existing.setdefault("wins", {fighters[0]: 0, fighters[1]: 0})
+    wins[winner] = int(wins.get(winner, 0)) + 1
+    existing["last_winner"] = winner
+    existing["last_match_count"] = next_match_number
+
+    margin = abs(r1 - r2)
+    intensity = float(existing.get("intensity", 0))
+    if str(ctx.get("booking_reason") or "").strip().lower() == "rivalry rematch":
+        intensity += 2.5
+    if margin <= 1:
+        intensity += 1.5
+    if abs(int(wins.get(fighters[0], 0)) - int(wins.get(fighters[1], 0))) <= 1:
+        intensity += 1.0
+    existing["intensity"] = round(min(99.0, intensity), 2)
+
+    rivalries[:] = sorted(
+        [item for item in rivalries if isinstance(item, dict)],
+        key=lambda item: (float(item.get("intensity", 0)), int(item.get("meetings", 0)), int(item.get("last_match_count", 0))),
+        reverse=True,
+    )[:40]
+
+
 def update_individual(records: Dict[str, Any], winner: str, loser: str) -> None:
     ensure_entry(records, winner)
     ensure_entry(records, loser)
@@ -331,6 +402,7 @@ def main() -> None:
 
     is_world_title = bool(ctx.get("is_world_title", False))
     is_royal = bool(ctx.get("is_royal", False))
+    is_grand_prix = bool(ctx.get("is_grand_prix", False))
     is_tag_series = bool(ctx.get("is_tag_series", False))
     is_tag_title = bool(ctx.get("is_tag_title", False))
     is_debut = bool(ctx.get("is_debut", False))
@@ -363,6 +435,9 @@ def main() -> None:
                 append_champion_history(champion_pre, winner, f"{winner} def. {loser} ({p1} {r1}-{r2} {p2})")
 
         state["royal_winner_queue"] = None
+        if state.get("tournament_title_queue"):
+            state["tournament_title_queue"] = []
+        state["title_due"] = False
 
     if is_royal:
         bracket = load_json(ROYAL_FILE, {"active": False})
@@ -371,6 +446,15 @@ def main() -> None:
             save_json_atomic(ROYAL_FILE, bracket)
             if bracket.get("winner"):
                 state["royal_winner_queue"] = bracket["winner"]
+                append_title_queue(state, bracket["winner"], "Royal winner")
+
+    if is_grand_prix:
+        bracket = load_json(GRAND_PRIX_FILE, {"active": False})
+        if bracket.get("active") or bracket.get("round") == "F":
+            bracket = grand_prix_advance(bracket, winner)
+            save_json_atomic(GRAND_PRIX_FILE, bracket)
+            if bracket.get("winner"):
+                append_title_queue(state, bracket["winner"], "Grand Prix winner")
 
     tag_series_event = None
     if is_tag_series:
@@ -477,6 +561,12 @@ def main() -> None:
                     "tag_changed": tag_changed,
                 }
 
+    if not is_tag_series and not is_world_title and not is_royal and not is_grand_prix:
+        if bool(ctx.get("contender_implication", False)):
+            state["contender_queue"] = winner
+            state["title_due"] = True
+        update_rivalries(state, p1, p2, winner, r1, r2, ctx)
+
     state["match_count"] = int(state.get("match_count", 0)) + 1
     save_json_atomic(RECORDS_FILE, records)
     save_json_atomic(STATE_FILE, state)
@@ -496,6 +586,8 @@ def main() -> None:
         "title_reason": ctx.get("title_reason"),
         "royal": is_royal,
         "royal_round": ctx.get("royal_round"),
+        "grand_prix": is_grand_prix,
+        "grand_prix_round": ctx.get("grand_prix_round"),
         "tag_series": is_tag_series,
         "tag_series_id": ctx.get("tag_series_id"),
         "tag_leg": ctx.get("tag_leg"),
@@ -503,6 +595,8 @@ def main() -> None:
         "debut_fighter": ctx.get("debut_fighter"),
         "main_event": bool(ctx.get("main_event", False)),
         "main_event_reason": ctx.get("main_event_reason"),
+        "booking_reason": ctx.get("booking_reason"),
+        "contender_implication": bool(ctx.get("contender_implication", False)),
         "champion_after": state.get("champion"),
         "title_changed": title_changed,
     }

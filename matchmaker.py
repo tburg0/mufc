@@ -13,6 +13,7 @@ SELECT_FILE = ROOT / "data" / "select.def"
 CHARS_DIR = ROOT / "chars"
 TAG_SERIES_FILE = ROOT / "tag_series.json"
 ROYAL_FILE = ROOT / "royal_bracket.json"
+GRAND_PRIX_FILE = ROOT / "grand_prix_bracket.json"
 
 MATCH_FILE = ROOT / "current_match.txt"
 ARGS_FILE = ROOT / "mugen_args.txt"
@@ -23,14 +24,18 @@ ROUNDS_NORMAL = 2
 ROUNDS_TITLE = 3
 TAG_SERIES_TRIGGER_EVERY = 6
 TITLE_EVERY_N_MATCHES = 5
-ROYAL_TRIGGER_EVERY = 18
+SPECIAL_EVENT_EVERY = 12
 ROYAL_FIELD_SIZE = 8
+GRAND_PRIX_FIELD_SIZE = 4
 STREAK_TITLE_THRESHOLD = 3
 TOP_N_MAIN_EVENT = 10
 DEBUT_PROTECTION_TOP_RANK_CUTOFF = 12
 RECENT_MATCHUP_AVOID_WINDOW = 8
 RIVALRY_MIN_MEETINGS = 2
 RIVALRY_HISTORY_TAIL = 400
+RIVALRY_COOLDOWN_MATCHES = 5
+RIVALRY_MAX_TRACKED = 40
+CONTENDER_LADDER_TOP_N = 8
 ELO_START = 1500.0
 
 
@@ -399,6 +404,42 @@ def rivalry_candidates(roster_names: List[str], records: Dict[str, Any], events:
     return scored
 
 
+def state_rivalry_candidates(
+    state: Dict[str, Any],
+    roster_names: List[str],
+    records: Dict[str, Any],
+    current_match_number: int,
+) -> List[Tuple[float, str, str]]:
+    tracked = state.get("rivalries") or []
+    scored: List[Tuple[float, str, str]] = []
+    roster_set = set(roster_names)
+    for item in tracked:
+        if not isinstance(item, dict):
+            continue
+        fighters = item.get("fighters") or []
+        if len(fighters) != 2:
+            continue
+        a, b = str(fighters[0]).strip(), str(fighters[1]).strip()
+        if not a or not b or a not in roster_set or b not in roster_set:
+            continue
+        meetings = int(item.get("meetings", 0))
+        if meetings < RIVALRY_MIN_MEETINGS:
+            continue
+        last_match = int(item.get("last_match_count", 0))
+        if current_match_number - last_match < RIVALRY_COOLDOWN_MATCHES:
+            continue
+        wins = item.get("wins") or {}
+        diff = abs(int(wins.get(a, 0)) - int(wins.get(b, 0)))
+        if diff > 2:
+            continue
+        intensity = float(item.get("intensity", 0))
+        elo_gap = abs(elo(records, a) - elo(records, b))
+        score = intensity + meetings * 2.0 - (elo_gap / 90.0)
+        scored.append((score, a, b))
+    scored.sort(key=lambda entry: entry[0], reverse=True)
+    return scored
+
+
 def contender_pool(records: Dict[str, Any], roster_names: List[str], champion: Optional[str], top_n: int = 12) -> List[str]:
     board = leaderboard_names(records, roster_names)
     return [name for name in board[:top_n] if name != champion]
@@ -503,6 +544,37 @@ def choose_rebound_match(
     return None
 
 
+def choose_contender_eliminator(
+    state: Dict[str, Any],
+    roster_names: List[str],
+    records: Dict[str, Any],
+    events: List[Dict[str, Any]],
+    champion: Optional[str],
+) -> Optional[Tuple[str, str]]:
+    contenders = contender_pool(records, roster_names, champion, top_n=CONTENDER_LADDER_TOP_N)
+    reserved = str(state.get("contender_queue") or "").strip()
+    if reserved:
+        contenders = [name for name in contenders if name != reserved]
+    best: Optional[Tuple[float, str, str]] = None
+    for index, a in enumerate(contenders):
+        for b in contenders[index + 1:]:
+            if recently_matched(a, b, events):
+                continue
+            gp_a = games_played(records, a)
+            gp_b = games_played(records, b)
+            if gp_a <= 0 or gp_b <= 0:
+                continue
+            rank_gap = abs((rank_of(a, records, roster_names) or 99) - (rank_of(b, records, roster_names) or 99))
+            elo_gap = abs(elo(records, a) - elo(records, b))
+            streak_bonus = max(streak(records, a), 0) + max(streak(records, b), 0)
+            score = 18.0 - rank_gap - (elo_gap / 85.0) + streak_bonus
+            if best is None or score > best[0]:
+                best = (score, a, b)
+    if best:
+        return best[1], best[2]
+    return None
+
+
 # -------------------------
 # Match builders
 # -------------------------
@@ -525,9 +597,29 @@ def choose_world_title_match(state: Dict[str, Any], roster: List[Dict[str, Any]]
             }
         return None
 
-    # 1) Royal winner queue retains priority when present.
+    # 1) Tournament winners retain priority when present.
+    tournament_queue = state.get("tournament_title_queue") or []
+    if tournament_queue:
+        payload = tournament_queue.pop(0)
+        challenger = str(payload.get("fighter") or "").strip() if isinstance(payload, dict) else str(payload).strip()
+        source = str(payload.get("source") or "Tournament winner") if isinstance(payload, dict) else "Tournament winner"
+        if challenger and challenger in roster_names and challenger != champion:
+            state["tournament_title_queue"] = tournament_queue
+            state["title_due"] = bool(tournament_queue) or bool(state.get("contender_queue"))
+            return {
+                "type": "SINGLES",
+                "p1": champion,
+                "p2": challenger,
+                "is_world_title": True,
+                "title_reason": f"{source} title shot",
+                "main_event": True,
+            }
+
+    # Backward compatibility for older queue field.
     royal = state.get("royal_winner_queue")
     if royal and royal in roster_names and royal != champion:
+        state["royal_winner_queue"] = None
+        state["title_due"] = bool(state.get("contender_queue"))
         return {
             "type": "SINGLES",
             "p1": champion,
@@ -537,7 +629,21 @@ def choose_world_title_match(state: Dict[str, Any], roster: List[Dict[str, Any]]
             "main_event": True,
         }
 
-    # 2) Every N matches, force champ vs current #2 contender.
+    # 2) Contender ladder winner gets the next available title shot.
+    contender = str(state.get("contender_queue") or "").strip()
+    if state.get("title_due") and contender and contender in roster_names and contender != champion:
+        state["contender_queue"] = None
+        state["title_due"] = False
+        return {
+            "type": "SINGLES",
+            "p1": champion,
+            "p2": contender,
+            "is_world_title": True,
+            "title_reason": "Contender eliminator winner title shot",
+            "main_event": True,
+        }
+
+    # 3) Every N matches, force champ vs current #1 contender.
     next_match_num = int(state.get("match_count", 0)) + 1
     if next_match_num % TITLE_EVERY_N_MATCHES == 0:
         contenders = top_two_contenders(records, roster_names, champion)
@@ -552,7 +658,7 @@ def choose_world_title_match(state: Dict[str, Any], roster: List[Dict[str, Any]]
                 "main_event": True,
             }
 
-    # 3) Hot streak contender gets a title shot.
+    # 4) Hot streak contender gets a title shot.
     contenders = [
         name for name in roster_names
         if name != champion and games_played(records, name) > 0 and streak(records, name) >= STREAK_TITLE_THRESHOLD
@@ -614,11 +720,44 @@ def active_royal_match(roster_names: List[str]) -> Optional[Dict[str, Any]]:
     return None
 
 
-def maybe_start_royal_tournament(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
-    if state.get("royal_winner_queue"):
+def active_grand_prix_match(roster_names: List[str]) -> Optional[Dict[str, Any]]:
+    bracket = load_json(GRAND_PRIX_FILE, {"active": False})
+    if not bracket.get("active"):
         return None
-    next_match_num = int(state.get("match_count", 0)) + 1
-    if next_match_num % ROYAL_TRIGGER_EVERY != 0:
+
+    round_name = str(bracket.get("round") or "").strip()
+    round_map = {
+        "SF": bracket.get("sf", []),
+        "F": bracket.get("final", []),
+    }
+    pairings = round_map.get(round_name, [])
+    winners_sf = set(bracket.get("winners_sf", []))
+
+    for pair in pairings:
+        if not isinstance(pair, list) or len(pair) != 2:
+            continue
+        p1, p2 = str(pair[0]).strip(), str(pair[1]).strip()
+        if p1 not in roster_names or p2 not in roster_names:
+            continue
+        if round_name == "SF" and (p1 in winners_sf or p2 in winners_sf):
+            continue
+        if round_name == "F" and bracket.get("winner"):
+            continue
+        return {
+            "type": "SINGLES",
+            "p1": p1,
+            "p2": p2,
+            "is_grand_prix": True,
+            "grand_prix_round": round_name,
+            "title_reason": "Winner earns a world title shot",
+            "main_event": True,
+            "main_event_reason": f"Grand Prix {round_name}",
+        }
+    return None
+
+
+def maybe_start_royal_tournament(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    if state.get("tournament_title_queue") or state.get("royal_winner_queue"):
         return None
 
     roster_names = [f["name"] for f in roster]
@@ -672,9 +811,53 @@ def maybe_start_royal_tournament(state: Dict[str, Any], roster: List[Dict[str, A
     return active_royal_match(roster_names)
 
 
+def maybe_start_grand_prix_tournament(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    if state.get("tournament_title_queue") or state.get("royal_winner_queue"):
+        return None
+
+    roster_names = [f["name"] for f in roster]
+    champion = state.get("champion")
+    field = contender_pool(records, roster_names, champion, top_n=max(GRAND_PRIX_FIELD_SIZE, 6))
+    if len(field) < GRAND_PRIX_FIELD_SIZE:
+        board = leaderboard_names(records, roster_names)
+        for name in board:
+            if name != champion and name not in field:
+                field.append(name)
+            if len(field) >= GRAND_PRIX_FIELD_SIZE:
+                break
+    if len(field) < GRAND_PRIX_FIELD_SIZE:
+        return None
+    field = field[:GRAND_PRIX_FIELD_SIZE]
+    random.shuffle(field)
+
+    bracket = {
+        "active": True,
+        "created_ts": __import__("time").time(),
+        "round": "SF",
+        "field": field,
+        "sf": [[field[0], field[1]], [field[2], field[3]]],
+        "final": [],
+        "winner": None,
+        "winners_sf": [],
+    }
+    save_json(GRAND_PRIX_FILE, bracket)
+    return active_grand_prix_match(roster_names)
+
+
+def maybe_start_scheduled_tournament(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    next_match_num = int(state.get("match_count", 0)) + 1
+    if next_match_num % SPECIAL_EVENT_EVERY != 0:
+        return None
+    cycle = next_match_num // SPECIAL_EVENT_EVERY
+    if cycle % 2 == 1:
+        return maybe_start_grand_prix_tournament(state, roster, records, events)
+    return maybe_start_royal_tournament(state, roster, records, events)
+
+
 def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Dict[str, Any]:
     roster_names = [f["name"] for f in roster]
     champion = state.get("champion")
+    current_match_number = int(state.get("match_count", 0)) + 1
 
     debut_name = choose_debut_fighter(state, roster, records)
     if debut_name:
@@ -692,7 +875,7 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "booking_reason": "Protected debut showcase",
         }
 
-    rivalry = rivalry_candidates(roster_names, records, events)
+    rivalry = state_rivalry_candidates(state, roster_names, records, current_match_number) or rivalry_candidates(roster_names, records, events)
     if rivalry and random.random() < 0.45:
         _, p1, p2 = rivalry[0]
         return {
@@ -706,6 +889,23 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "main_event": is_main_event(p1, p2, records, roster_names, team_mode=False),
             "main_event_reason": "Rivalry rematch",
             "booking_reason": "Rivalry rematch",
+        }
+
+    contender_eliminator = choose_contender_eliminator(state, roster_names, records, events, champion)
+    if contender_eliminator and random.random() < 0.6:
+        p1, p2 = contender_eliminator
+        return {
+            "type": "SINGLES",
+            "p1": p1,
+            "p2": p2,
+            "is_world_title": False,
+            "is_debut": False,
+            "debut_fighter": None,
+            "title_reason": None,
+            "main_event": True,
+            "main_event_reason": "Contender eliminator",
+            "booking_reason": "Contender eliminator",
+            "contender_implication": True,
         }
 
     contender = choose_contender_showcase(roster_names, records, events, champion)
@@ -760,6 +960,7 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
         "main_event": is_main_event(p1, p2, records, roster_names, team_mode=False),
         "main_event_reason": "Top-10 vs Top-10" if is_main_event(p1, p2, records, roster_names, team_mode=False) else None,
         "booking_reason": "Open booking",
+        "contender_implication": False,
     }
 
 
@@ -994,8 +1195,12 @@ def main() -> None:
         "champion": None,
         "debut_queue": [],
         "royal_winner_queue": None,
+        "tournament_title_queue": [],
+        "contender_queue": None,
         "tag_champions": None,
         "tag_series_count": 0,
+        "title_due": False,
+        "rivalries": [],
     })
     records = load_json(RECORDS_FILE, {})
     recent_events = read_recent_events(HISTORY_FILE, RIVALRY_HISTORY_TAIL)
@@ -1015,6 +1220,8 @@ def main() -> None:
     ctx = active_tag_series_match(records)
     if ctx is None:
         ctx = active_royal_match(roster_names)
+    if ctx is None:
+        ctx = active_grand_prix_match(roster_names)
     if ctx is not None and not context_fighters_resolvable(ctx, lookup):
         missing = [name for name in (ctx.get("p1"), ctx.get("p2")) if str(name or "").strip() not in lookup]
         invalidate_active_tag_series(f"Missing roster entries for active tag series: {', '.join(missing)}")
@@ -1022,7 +1229,7 @@ def main() -> None:
     if ctx is None:
         ctx = choose_world_title_match(state, roster, records)
     if ctx is None:
-        ctx = maybe_start_royal_tournament(state, roster, records, recent_events)
+        ctx = maybe_start_scheduled_tournament(state, roster, records, recent_events)
     if ctx is None:
         ctx = maybe_start_tag_series(state, roster, records)
         if ctx is not None and not context_fighters_resolvable(ctx, lookup):
@@ -1047,8 +1254,11 @@ def main() -> None:
     ctx.setdefault("debut_fighter", None)
     ctx.setdefault("royal_round", None)
     ctx.setdefault("is_royal", False)
+    ctx.setdefault("grand_prix_round", None)
+    ctx.setdefault("is_grand_prix", False)
     ctx.setdefault("main_event", False)
     ctx.setdefault("main_event_reason", None)
+    ctx.setdefault("contender_implication", False)
 
     if not ctx["main_event"]:
         if ctx["is_world_title"]:
@@ -1067,6 +1277,7 @@ def main() -> None:
     ctx["match_number"] = int(state.get("match_count", 0)) + 1
     ctx["roster_counts"] = counts
 
+    save_json(STATE_FILE, state)
     write_text(MATCH_FILE, f"{p1},{p2}")
     write_text(ARGS_FILE, f"-p1 {r1} -p2 {r2} -p1.ai {ai1} -p2.ai {ai2} -rounds {rounds}")
     write_text(TITLE_FLAG_FILE, "1" if (ctx["is_world_title"] or ctx["is_tag_title"]) else "0")
