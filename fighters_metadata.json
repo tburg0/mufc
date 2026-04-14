@@ -122,15 +122,8 @@
       "customizable": true
     },
     "Alfred-POTS": {
-      "author": "Zmugens",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "Alfred-POTS",
-      "customizable": true,
-      "char_folder": "Alfred",
-      "def_file": "Alfred.def",
-      "def_path": "Alfred/Alfred.def"
+      "alias_to": "Alfred",
+      "source": "native_alias"
     },
     "Amakusa": {
       "author": "Testament",
@@ -378,15 +371,8 @@
       "customizable": true
     },
     "Cassandra-POTS": {
-      "author": "ZMugens",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "Cassandra-POTS",
-      "customizable": true,
-      "char_folder": "Cassandra",
-      "def_file": "Cassandra.def",
-      "def_path": "Cassandra/Cassandra.def"
+      "alias_to": "Cassandra",
+      "source": "native_alias"
     },
     "Cervantes": {
       "author": "Nexus",
@@ -433,14 +419,8 @@
       "customizable": true
     },
     "Chun_Li_JJ": {
-      "author": "Capcom",
-      "archetype": "Agile",
-      "power_index": 72,
-      "source": "native",
-      "select_entry": "Chun_Li_JJ",
-      "char_folder": "Chun_LI_JJ",
-      "def_file": "Chun_LI_JJ.def",
-      "def_path": "Chun_LI_JJ/Chun_LI_JJ.def"
+      "alias_to": "Chun_LI_JJ",
+      "source": "native_alias"
     },
     "Cipry_POTS": {
       "author": "Legacy Fighter",
@@ -1228,14 +1208,8 @@
       "def_path": "Jhun/Jhun.def"
     },
     "JohnCrawley": {
-      "author": "Laslab Games",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "JohnCrawley",
-      "char_folder": "JohnCrawley",
-      "def_file": "JohnCrawley.def",
-      "def_path": "JohnCrawley/JohnCrawley.def"
+      "alias_to": "John Crawley",
+      "source": "native_alias"
     },
     "JohnnyCage": {
       "author": "Nexus",
@@ -1381,14 +1355,8 @@
       "def_path": "King_Leo/King_Leo.def"
     },
     "King_Lion": {
-      "author": "Saikou Shiva",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "King_Lion",
-      "char_folder": "King_Lion",
-      "def_file": "King_Lion.def",
-      "def_path": "King_Lion/King_Lion.def"
+      "alias_to": "King Lion",
+      "source": "native_alias"
     },
     "Kisarah": {
       "author": "Zmugens",
@@ -1514,14 +1482,8 @@
       "customizable": true
     },
     "Magma_Dragoon": {
-      "author": "MB",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "Magma_Dragoon",
-      "char_folder": "Magma_Dragoon",
-      "def_file": "Magma_Dragoon.def",
-      "def_path": "Magma_Dragoon/Magma_Dragoon.def"
+      "alias_to": "Magma Dragoon",
+      "source": "native_alias"
     },
     "Mai_Shiranui_(Classic)": {
       "author": "SNK",
@@ -1682,15 +1644,8 @@
       "customizable": true
     },
     "Morgue": {
-      "author": "Maniac",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "Morgue",
-      "customizable": true,
-      "char_folder": "morgue",
-      "def_file": "morgue.def",
-      "def_path": "morgue/morgue.def"
+      "alias_to": "morgue",
+      "source": "native_alias"
     },
     "Morrigan": {
       "author": "Phantom.of.the.Server",
@@ -2538,15 +2493,8 @@
       "customizable": true
     },
     "Tyrog": {
-      "author": "Dark Ruler",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "Tyrog",
-      "customizable": true,
-      "char_folder": "Tyrog2",
-      "def_file": "Tyrog2.def",
-      "def_path": "Tyrog2/Tyrog2.def"
+      "alias_to": "Tyrog2",
+      "source": "native_alias"
     },
     "Tyrog2": {
       "author": "Dark Ruler",
@@ -2780,13 +2728,8 @@
       "def_path": "Blaze/Blaze.def"
     },
     "Cammy_Infinite": {
-      "author": "Capcom",
-      "archetype": "Agile",
-      "power_index": 72,
-      "source": "native",
-      "char_folder": "Cammy_Infinite",
-      "def_file": "Cammy_Infinite.def",
-      "def_path": "Cammy_Infinite/Cammy_Infinite.def"
+      "alias_to": "Cammy Sf6",
+      "source": "native_alias"
     },
     "Cassandra": {
       "author": "ZMugens",
@@ -2827,103 +2770,48 @@
       "def_path": "Cipry/Cipry.def"
     },
     "custom_fighter_3": {
-      "author": "Legacy Fighter",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_fighter_3",
-      "def_file": "custom_fighter_3.def",
-      "def_path": "custom_fighter_3/custom_fighter_3.def"
+      "alias_to": "Fighter #3",
+      "source": "native_alias"
     },
     "custom_hello": {
-      "author": "Legacy Fighter",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_hello",
-      "def_file": "custom_hello.def",
-      "def_path": "custom_hello/custom_hello.def"
+      "alias_to": "Hello",
+      "source": "native_alias"
     },
     "custom_lodo_leeo": {
-      "author": "KarmaCharmeleon",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_lodo_leeo",
-      "def_file": "custom_lodo_leeo.def",
-      "def_path": "custom_lodo_leeo/custom_lodo_leeo.def"
+      "alias_to": "Lodo Leeo",
+      "source": "native_alias"
     },
     "custom_sophie": {
-      "author": "Legacy Fighter",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_sophie",
-      "def_file": "custom_sophie.def",
-      "def_path": "custom_sophie/custom_sophie.def"
+      "alias_to": "Sophie",
+      "source": "native_alias"
     },
     "custom_sunday": {
-      "author": "Arretoman & Emerie The G.O.A.T",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_sunday",
-      "def_file": "custom_sunday.def",
-      "def_path": "custom_sunday/custom_sunday.def"
+      "alias_to": "Sunday",
+      "source": "native_alias"
     },
     "custom_tony": {
-      "author": "Phantom.of.the.Server",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_tony",
-      "def_file": "custom_tony.def",
-      "def_path": "custom_tony/custom_tony.def"
+      "alias_to": "Tony",
+      "source": "native_alias"
     },
     "custom_tony_batman": {
-      "author": "DC",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_tony_batman",
-      "def_file": "custom_tony_batman.def",
-      "def_path": "custom_tony_batman/custom_tony_batman.def"
+      "alias_to": "Tony Batman",
+      "source": "native_alias"
     },
     "custom_tony_burgess": {
-      "author": "Knuckles8864",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_tony_burgess",
-      "def_file": "custom_tony_burgess.def",
-      "def_path": "custom_tony_burgess/custom_tony_burgess.def"
+      "alias_to": "Tony Burgess",
+      "source": "native_alias"
     },
     "custom_tony_lucifer": {
-      "author": "Phantom.of.the.Server&Jmorphman",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_tony_lucifer",
-      "def_file": "custom_tony_lucifer.def",
-      "def_path": "custom_tony_lucifer/custom_tony_lucifer.def"
+      "alias_to": "Tony Lucifer",
+      "source": "native_alias"
     },
     "custom_tuesday": {
-      "author": "Legacy Fighter",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_tuesday",
-      "def_file": "custom_tuesday.def",
-      "def_path": "custom_tuesday/custom_tuesday.def"
+      "alias_to": "Tuesday",
+      "source": "native_alias"
     },
     "custom_wednesday": {
-      "author": "Legacy Fighter",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "custom_wednesday",
-      "def_file": "custom_wednesday.def",
-      "def_path": "custom_wednesday/custom_wednesday.def"
+      "alias_to": "Wednesday",
+      "source": "native_alias"
     },
     "Eagle": {
       "author": "CrazyKoopa",
@@ -3030,13 +2918,8 @@
       "def_path": "Mr._X/Mr._X.def"
     },
     "mustapha": {
-      "author": "Oscarnaiz",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "char_folder": "Mustapha",
-      "def_file": "mustapha.def",
-      "def_path": "Mustapha/mustapha.def"
+      "alias_to": "Mustapha",
+      "source": "native_alias"
     },
     "nash_pots": {
       "author": "Legacy Fighter",
@@ -3166,104 +3049,44 @@
       "customizable": true
     },
     "Shiro Tokisada Amakusa": {
-      "author": "Testament",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Amakusa",
-      "def_file": "Amakusa.def",
-      "def_path": "Amakusa/Amakusa.def"
+      "alias_to": "Amakusa",
+      "source": "native_alias"
     },
     "Amy Sorel": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Amy_Sorel",
-      "def_file": "Amy_Sorel.def",
-      "def_path": "Amy_Sorel/Amy_Sorel.def"
+      "alias_to": "Amy_Sorel",
+      "source": "native_alias"
     },
     "Andore Jr.": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Andore_Jr",
-      "def_file": "Andore_Jr.def",
-      "def_path": "Andore_Jr/Andore_Jr.def"
+      "alias_to": "Andore_Jr",
+      "source": "native_alias"
     },
     "Annie Murakami": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Annie",
-      "def_file": "Annie.def",
-      "def_path": "Annie/Annie.def"
+      "alias_to": "Annie",
+      "source": "native_alias"
     },
     "donaiya": {
-      "author": "ana",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Biker",
-      "def_file": "Biker.def",
-      "def_path": "Biker/Biker.def"
+      "alias_to": "Biker",
+      "source": "native_alias"
     },
     "Vega": {
-      "author": "Froz & Emerie The G.O.A.T",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Bison",
-      "def_file": "Bison.def",
-      "def_path": "Bison/Bison.def"
+      "alias_to": "Bison",
+      "source": "native_alias"
     },
     "Black Elmer": {
-      "author": "Maniac",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "BlackElmer",
-      "def_file": "BlackElmer.def",
-      "def_path": "BlackElmer/BlackElmer.def"
+      "alias_to": "BlackElmer",
+      "source": "native_alias"
     },
     "Blair Dame": {
-      "author": "Dampir&DivineWolf",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Blair",
-      "def_file": "Blair.def",
-      "def_path": "Blair/Blair.def"
+      "alias_to": "Blair",
+      "source": "native_alias"
     },
     "Blaze Agent": {
-      "author": "Zmugens & Laslab",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Blaze",
-      "def_file": "Blaze.def",
-      "def_path": "Blaze/Blaze.def"
+      "alias_to": "Blaze",
+      "source": "native_alias"
     },
     "butcher": {
-      "author": "Maniac",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Butcher",
-      "def_file": "Butcher.def",
-      "def_path": "Butcher/Butcher.def"
+      "alias_to": "Butcher",
+      "source": "native_alias"
     },
     "Cammy Sf6": {
       "author": "Vaan",
@@ -3277,394 +3100,160 @@
       "select_entry": "Cammy_Infinite/Cammy_Infinite.def"
     },
     "Candy Diamond": {
-      "author": "Flavioruru",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Candy_Diamond",
-      "def_file": "Candy_Diamond.def",
-      "def_path": "Candy_Diamond/Candy_Diamond.def"
+      "alias_to": "Candy_Diamond",
+      "source": "native_alias"
     },
     "Chun Li": {
-      "author": "BeterHans",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Chun_LI_JJ",
-      "def_file": "Chun_LI_JJ.def",
-      "def_path": "Chun_LI_JJ/Chun_LI_JJ.def"
+      "alias_to": "Chun_LI_JJ",
+      "source": "native_alias"
     },
     "Cipry POTS": {
-      "author": "Luis Alberto-POTS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Cipry",
-      "def_file": "Cipry.def",
-      "def_path": "Cipry/Cipry.def"
+      "alias_to": "Cipry",
+      "source": "native_alias"
     },
     "Clone Krizalid": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Clone_Krizalid",
-      "def_file": "Clone_Krizalid.def",
-      "def_path": "Clone_Krizalid/Clone_Krizalid.def"
+      "alias_to": "Clone_Krizalid",
+      "source": "native_alias"
     },
     "CM Punk": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "CM_Punk",
-      "def_file": "CM_Punk.def",
-      "def_path": "CM_Punk/CM_Punk.def"
+      "alias_to": "CM_Punk",
+      "source": "native_alias"
     },
     "crawd": {
-      "author": "ORETAMA",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Crawd",
-      "def_file": "Crawd.def",
-      "def_path": "Crawd/Crawd.def"
+      "alias_to": "Crawd",
+      "source": "native_alias"
     },
     "Dana Dee Shotoman": {
-      "author": "AuraH, dragoon316, varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Dana_Dee",
-      "def_file": "Dana_Dee.def",
-      "def_path": "Dana_Dee/Dana_Dee.def"
+      "alias_to": "Dana_Dee",
+      "source": "native_alias"
     },
     "Uxas": {
-      "author": "Wucash, borderoflife, Gartanham and BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Darkseid",
-      "def_file": "Darkseid.def",
-      "def_path": "Darkseid/Darkseid.def"
+      "alias_to": "Darkseid",
+      "source": "native_alias"
     },
     "Dark Jon Talbain": {
-      "author": "Gmeos dos Jogos & Obby",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "DarkTalbain",
-      "def_file": "DarkTalbain.def",
-      "def_path": "DarkTalbain/DarkTalbain.def"
+      "alias_to": "DarkTalbain",
+      "source": "native_alias"
     },
     "DarthVader": {
-      "author": "Bambulin(bam77) & AxSeeker, edits by kenomancer and BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Darth_Vader",
-      "def_file": "Darth_Vader.def",
-      "def_path": "Darth_Vader/Darth_Vader.def"
+      "alias_to": "Darth_Vader",
+      "source": "native_alias"
     },
     "Death Adder": {
-      "author": "BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Death_Adder",
-      "def_file": "Death_Adder.def",
-      "def_path": "Death_Adder/Death_Adder.def"
+      "alias_to": "Death_Adder",
+      "source": "native_alias"
     },
     "Demetra Volkova": {
-      "author": "GoldEX",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Demetra",
-      "def_file": "Demetra.def",
-      "def_path": "Demetra/Demetra.def"
+      "alias_to": "Demetra",
+      "source": "native_alias"
     },
     "Demitri Maximoff": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Demitri_Maximoff",
-      "def_file": "Demitri_Maximoff.def",
-      "def_path": "Demitri_Maximoff/Demitri_Maximoff.def"
+      "alias_to": "Demitri_Maximoff",
+      "source": "native_alias"
     },
     "Diddy Kong": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "DiddyKong",
-      "def_file": "DiddyKong.def",
-      "def_path": "DiddyKong/DiddyKong.def"
+      "alias_to": "DiddyKong",
+      "source": "native_alias"
     },
     "Lilith Aensland": {
-      "author": "DivineWolf",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "DivineLilith",
-      "def_file": "DivineLilith.def",
-      "def_path": "DivineLilith/DivineLilith.def"
+      "alias_to": "DivineLilith",
+      "source": "native_alias"
     },
     "Kyosuke Kagami": {
-      "author": "DivineWolf",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "DWKyosuke",
-      "def_file": "DWKyosuke.def",
-      "def_path": "DWKyosuke/DWKyosuke.def"
+      "alias_to": "DWKyosuke",
+      "source": "native_alias"
     },
     "Edward Elric": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Edward",
-      "def_file": "Edward.def",
-      "def_path": "Edward/Edward.def"
+      "alias_to": "Edward",
+      "source": "native_alias"
     },
     "El Gado": {
-      "author": "Your Name",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "El_Gado",
-      "def_file": "El_Gado.def",
-      "def_path": "El_Gado/El_Gado.def"
+      "alias_to": "El_Gado",
+      "source": "native_alias"
     },
     "Elisabeth Blanctorche": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Elisabeth",
-      "def_file": "Elisabeth.def",
-      "def_path": "Elisabeth/Elisabeth.def"
+      "alias_to": "Elisabeth",
+      "source": "native_alias"
     },
     "Dan Hibiki": {
-      "author": "Phantom.of.the.Server",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "EvilDan",
-      "def_file": "EvilDan.def",
-      "def_path": "EvilDan/EvilDan.def"
+      "alias_to": "EvilDan",
+      "source": "native_alias"
     },
     "Final Dictator": {
-      "author": "DOA",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "FinalBison",
-      "def_file": "FinalBison.def",
-      "def_path": "FinalBison/FinalBison.def"
+      "alias_to": "FinalBison",
+      "source": "native_alias"
     },
     "Gato Futaba": {
-      "author": "GM & 2Dee4Ever",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Gato",
-      "def_file": "Gato.def",
-      "def_path": "Gato/Gato.def"
+      "alias_to": "Gato",
+      "source": "native_alias"
     },
     "Knuckles": {
-      "author": "GB Shades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "GBKnucklesPOTS",
-      "def_file": "GBKnucklesPOTS.def",
-      "def_path": "GBKnucklesPOTS/GBKnucklesPOTS.def"
+      "alias_to": "GBKnucklesPOTS",
+      "source": "native_alias"
     },
     "Gillius Rockhead": {
-      "author": "Binho ,Laslab and ShinMaker",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Gillius",
-      "def_file": "Gillius.def",
-      "def_path": "Gillius/Gillius.def"
+      "alias_to": "Gillius",
+      "source": "native_alias"
     },
     "Gustab Munchausen": {
-      "author": "GoldEX",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Gustab",
-      "def_file": "Gustab.def",
-      "def_path": "Gustab/Gustab.def"
+      "alias_to": "Gustab",
+      "source": "native_alias"
     },
     "Hammer T.": {
-      "author": "Maniac",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "HammerT",
-      "def_file": "HammerT.def",
-      "def_path": "HammerT/HammerT.def"
+      "alias_to": "HammerT",
+      "source": "native_alias"
     },
     "Hannah Dundee": {
-      "author": "Alexei Roschak",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "hannah_dundee",
-      "def_file": "hannah_dundee.def",
-      "def_path": "hannah_dundee/hannah_dundee.def"
+      "alias_to": "hannah_dundee",
+      "source": "native_alias"
     },
     "Haruhi Suzumiya": {
-      "author": "Flavioruru",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Haruhi_Suzumiya",
-      "def_file": "Haruhi_Suzumiya.def",
-      "def_path": "Haruhi_Suzumiya/Haruhi_Suzumiya.def"
+      "alias_to": "Haruhi_Suzumiya",
+      "source": "native_alias"
     },
     "Sho Hayate": {
-      "author": "GoldEX",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Hayate",
-      "def_file": "Hayate.def",
-      "def_path": "Hayate/Hayate.def"
+      "alias_to": "Hayate",
+      "source": "native_alias"
     },
     "Hinako Shijo": {
-      "author": "ZMugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Hinako",
-      "def_file": "Hinako.def",
-      "def_path": "Hinako/Hinako.def"
+      "alias_to": "Hinako",
+      "source": "native_alias"
     },
     "Hinata Wakaba": {
-      "author": "Fervicante",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Hinata",
-      "def_file": "Hinata.def",
-      "def_path": "Hinata/Hinata.def"
+      "alias_to": "Hinata",
+      "source": "native_alias"
     },
     "CADILLACS Hogg": {
-      "author": "By Potro",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Hogg",
-      "def_file": "Hogg.def",
-      "def_path": "Hogg/Hogg.def"
+      "alias_to": "Hogg",
+      "source": "native_alias"
     },
     "Hotaru Futaba": {
-      "author": "Flavioruru",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Hotaru_Futaba",
-      "def_file": "Hotaru_Futaba.def",
-      "def_path": "Hotaru_Futaba/Hotaru_Futaba.def"
+      "alias_to": "Hotaru_Futaba",
+      "source": "native_alias"
     },
     "Hugo Andore": {
-      "author": "GM",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Hugo",
-      "def_file": "Hugo.def",
-      "def_path": "Hugo/Hugo.def"
+      "alias_to": "Hugo",
+      "source": "native_alias"
     },
     "Iron Man": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Iron_Man",
-      "def_file": "Iron_Man.def",
-      "def_path": "Iron_Man/Iron_Man.def"
+      "alias_to": "Iron_Man",
+      "source": "native_alias"
     },
     "Kim Jae Hoon": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Jae-POTS",
-      "def_file": "Jae-POTS.def",
-      "def_path": "Jae-POTS/Jae-POTS.def"
+      "alias_to": "Jae-POTS",
+      "source": "native_alias"
     },
     "Jam Kuradoberi": {
-      "author": "ZoneSeven",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Jam_Kuradoberi",
-      "def_file": "Jam_Kuradoberi.def",
-      "def_path": "Jam_Kuradoberi/Jam_Kuradoberi.def"
+      "alias_to": "Jam_Kuradoberi",
+      "source": "native_alias"
     },
     "Jhun Hoon": {
-      "author": "ZMugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Jhun",
-      "def_file": "Jhun.def",
-      "def_path": "Jhun/Jhun.def"
+      "alias_to": "Jhun",
+      "source": "native_alias"
     },
     "Jimmy Lewis": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Jimmy",
-      "def_file": "Jimmy.def",
-      "def_path": "Jimmy/Jimmy.def"
+      "alias_to": "Jimmy",
+      "source": "native_alias"
     },
     "John Crawley": {
       "author": "Laslab Games",
@@ -3678,114 +3267,48 @@
       "select_entry": "JohnCrawley/JohnCrawley.def"
     },
     "Johnny Cage": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "JohnnyCage",
-      "def_file": "JohnnyCage.def",
-      "def_path": "JohnnyCage/JohnnyCage.def"
+      "alias_to": "JohnnyCage",
+      "source": "native_alias"
     },
     "Joseph": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Joseph_Joestar_(Part3)",
-      "def_file": "Joseph_Joestar_(Part3).def",
-      "def_path": "Joseph_Joestar_(Part3)/Joseph_Joestar_(Part3).def"
+      "alias_to": "Joseph_Joestar_(Part3)",
+      "source": "native_alias"
     },
     "Jubei Yamada": {
-      "author": "KarmaCharmeleon",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Jubei",
-      "def_file": "Jubei.def",
-      "def_path": "Jubei/Jubei.def"
+      "alias_to": "Jubei",
+      "source": "native_alias"
     },
     "Kagami Shinnosuke": {
-      "author": "R@CE AKIR@ Editado por Magno Csar",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Kagami_Shinnosuke",
-      "def_file": "Kagami_Shinnosuke.def",
-      "def_path": "Kagami_Shinnosuke/Kagami_Shinnosuke.def"
+      "alias_to": "Kagami_Shinnosuke",
+      "source": "native_alias"
     },
     "Kamen Rider Kuuga": {
-      "author": "Setly's Edit - SonicSkills",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "KamenRiderKuuga",
-      "def_file": "KamenRiderKuuga.def",
-      "def_path": "KamenRiderKuuga/KamenRiderKuuga.def"
+      "alias_to": "KamenRiderKuuga",
+      "source": "native_alias"
     },
     "K-Core": {
-      "author": "ZuXurY",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "KCore",
-      "def_file": "KCore.def",
-      "def_path": "KCore/KCore.def"
+      "alias_to": "KCore",
+      "source": "native_alias"
     },
     "Kenshin Himura": {
-      "author": "ZoneSeven",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Kenshin_Himura",
-      "def_file": "Kenshin_Himura.def",
-      "def_path": "Kenshin_Himura/Kenshin_Himura.def"
+      "alias_to": "Kenshin_Himura",
+      "source": "native_alias"
     },
     "Sie Kensou": {
-      "author": "2Dee4Ever, Dampir & SirHyperClaw",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Kensou",
-      "def_file": "Kensou.def",
-      "def_path": "Kensou/Kensou.def"
+      "alias_to": "Kensou",
+      "source": "native_alias"
     },
     "Kung Fu Man 720": {
-      "author": "Elecbyte",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "kfm720",
-      "def_file": "kfm720.def",
-      "def_path": "kfm720/kfm720.def"
+      "alias_to": "kfm720",
+      "source": "native_alias"
     },
     "Kim Dong Hwan": {
-      "author": "ZMugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Kim_Dong_Hwan",
-      "def_file": "Kim_Dong_Hwan.def",
-      "def_path": "Kim_Dong_Hwan/Kim_Dong_Hwan.def"
+      "alias_to": "Kim_Dong_Hwan",
+      "source": "native_alias"
     },
     "King Leo": {
-      "author": "Saikou Shiva",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "King_Leo",
-      "def_file": "King_Leo.def",
-      "def_path": "King_Leo/King_Leo.def"
+      "alias_to": "King_Leo",
+      "source": "native_alias"
     },
     "King Lion": {
       "author": "Saikou Shiva",
@@ -3799,94 +3322,40 @@
       "select_entry": "King_Lion/King_Lion.def"
     },
     "Kisarah Westfield": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Kisarah",
-      "def_file": "Kisarah.def",
-      "def_path": "Kisarah/Kisarah.def"
+      "alias_to": "Kisarah",
+      "source": "native_alias"
     },
     "Seth": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "KOF_Seth",
-      "def_file": "KOF_Seth.def",
-      "def_path": "KOF_Seth/KOF_Seth.def"
+      "alias_to": "KOF_Seth",
+      "source": "native_alias"
     },
     "Kyo Kusanagi": {
-      "author": "Falcon Rapper",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Kyo_Kusanagi",
-      "def_file": "Kyo_Kusanagi.def",
-      "def_path": "Kyo_Kusanagi/Kyo_Kusanagi.def"
+      "alias_to": "Kyo_Kusanagi",
+      "source": "native_alias"
     },
     "Lady Deathstrike": {
-      "author": "BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Lady_Deathstrike",
-      "def_file": "Lady_Deathstrike.def",
-      "def_path": "Lady_Deathstrike/Lady_Deathstrike.def"
+      "alias_to": "Lady_Deathstrike",
+      "source": "native_alias"
     },
     "Lee Rekka-POTS": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Lee-POTS",
-      "def_file": "Lee-POTS.def",
-      "def_path": "Lee-POTS/Lee-POTS.def"
+      "alias_to": "Lee-POTS",
+      "source": "native_alias"
     },
     "Leon Kennedy": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "LeonKennedy",
-      "def_file": "LeonKennedy.def",
-      "def_path": "LeonKennedy/LeonKennedy.def"
+      "alias_to": "LeonKennedy",
+      "source": "native_alias"
     },
     "Liu Kang": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "LiuKang",
-      "def_file": "LiuKang.def",
-      "def_path": "LiuKang/LiuKang.def"
+      "alias_to": "LiuKang",
+      "source": "native_alias"
     },
     "Li Xiangfei": {
-      "author": "2Dee4Ever",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "LiXiangfei",
-      "def_file": "LiXiangfei.def",
-      "def_path": "LiXiangfei/LiXiangfei.def"
+      "alias_to": "LiXiangfei",
+      "source": "native_alias"
     },
     "Lord Raptor": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Lord_Raptor",
-      "def_file": "Lord_Raptor.def",
-      "def_path": "Lord_Raptor/Lord_Raptor.def"
+      "alias_to": "Lord_Raptor",
+      "source": "native_alias"
     },
     "Magma Dragoon": {
       "author": "MB",
@@ -3900,94 +3369,40 @@
       "select_entry": "Magma_Dragoon/Magma_Dragoon.def"
     },
     "Mai Shiranui (Classic)": {
-      "author": "Flavioruru",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Mai_Shiranui_(Classic)",
-      "def_file": "Mai_Shiranui_(Classic).def",
-      "def_path": "Mai_Shiranui_(Classic)/Mai_Shiranui_(Classic).def"
+      "alias_to": "Mai_Shiranui_(Classic)",
+      "source": "native_alias"
     },
     "Marco Rodrigues": {
-      "author": "R@CE AKIR@",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Marco",
-      "def_file": "Marco.def",
-      "def_path": "Marco/Marco.def"
+      "alias_to": "Marco",
+      "source": "native_alias"
     },
     "Mars People": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Mars_People",
-      "def_file": "Mars_People.def",
-      "def_path": "Mars_People/Mars_People.def"
+      "alias_to": "Mars_People",
+      "source": "native_alias"
     },
     "Hong Meiling": {
-      "author": "AuraH,DivineWolf,Kohaku,RicePigeon,Zero-Sennin,KamranBernstein,Shiva",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Meiling",
-      "def_file": "Meiling.def",
-      "def_path": "Meiling/Meiling.def"
+      "alias_to": "Meiling",
+      "source": "native_alias"
     },
     "Miu Kurosaki": {
-      "author": "Flavioruru",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Miu_Kurosaki",
-      "def_file": "Miu_Kurosaki.def",
-      "def_path": "Miu_Kurosaki/Miu_Kurosaki.def"
+      "alias_to": "Miu_Kurosaki",
+      "source": "native_alias"
     },
     "Moe Habana": {
-      "author": "GoldEX",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Moe_Habana",
-      "def_file": "Moe_Habana.def",
-      "def_path": "Moe_Habana/Moe_Habana.def"
+      "alias_to": "Moe_Habana",
+      "source": "native_alias"
     },
     "Morrigan Aensland": {
-      "author": "Phantom.of.the.Server",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Morrigan",
-      "def_file": "Morrigan.def",
-      "def_path": "Morrigan/Morrigan.def"
+      "alias_to": "Morrigan",
+      "source": "native_alias"
     },
     "Mr. X": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Mr._X",
-      "def_file": "Mr._X.def",
-      "def_path": "Mr._X/Mr._X.def"
+      "alias_to": "Mr._X",
+      "source": "native_alias"
     },
     "Mr.Karate": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Mr_Karate",
-      "def_file": "Mr_Karate.def",
-      "def_path": "Mr_Karate/Mr_Karate.def"
+      "alias_to": "Mr_Karate",
+      "source": "native_alias"
     },
     "Nash": {
       "author": "Phantom.of.the.Server",
@@ -4001,44 +3416,20 @@
       "select_entry": "nash/Nash.def"
     },
     "Omega Red": {
-      "author": "Shin Maker",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Omega_Red",
-      "def_file": "Omega_Red.def",
-      "def_path": "Omega_Red/Omega_Red.def"
+      "alias_to": "Omega_Red",
+      "source": "native_alias"
     },
     "Chris": {
-      "author": "ReixSeiryu & Chazzanova",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "OrochiChris",
-      "def_file": "OrochiChris.def",
-      "def_path": "OrochiChris/OrochiChris.def"
+      "alias_to": "OrochiChris",
+      "source": "native_alias"
     },
     "Pai Chan": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "PaiChan",
-      "def_file": "PaiChan.def",
-      "def_path": "PaiChan/PaiChan.def"
+      "alias_to": "PaiChan",
+      "source": "native_alias"
     },
     "Jos 'Pepe' Rodrguez": {
-      "author": "Saikou Shiva",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Pepe",
-      "def_file": "Pepe.def",
-      "def_path": "Pepe/Pepe.def"
+      "alias_to": "Pepe",
+      "source": "native_alias"
     },
     "POTS-Styled Kuro Aonix": {
       "author": "Witherower",
@@ -4052,484 +3443,196 @@
       "select_entry": "KuroAonix/KuroAonix.def"
     },
     "Patron Goddess of Magical Girls": {
-      "author": "JStudios2k",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "POTSMadokaS3",
-      "def_file": "POTSMadokaS3.def",
-      "def_path": "POTSMadokaS3/POTSMadokaS3.def"
+      "alias_to": "POTSMadokaS3",
+      "source": "native_alias"
     },
     "Raiden": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "RaidenMK",
-      "def_file": "RaidenMK.def",
-      "def_path": "RaidenMK/RaidenMK.def"
+      "alias_to": "RaidenMK",
+      "source": "native_alias"
     },
     "Lord Ravenous": {
-      "author": "Sckiredzu",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Rave",
-      "def_file": "Rave.def",
-      "def_path": "Rave/Rave.def"
+      "alias_to": "Rave",
+      "source": "native_alias"
     },
     "Red Puckett": {
-      "author": "Cipry",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Red_Puckett",
-      "def_file": "Red_Puckett.def",
-      "def_path": "Red_Puckett/Red_Puckett.def"
+      "alias_to": "Red_Puckett",
+      "source": "native_alias"
     },
     "Rouge the Bat": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "RougeTheBat",
-      "def_file": "RougeTheBat.def",
-      "def_path": "RougeTheBat/RougeTheBat.def"
+      "alias_to": "RougeTheBat",
+      "source": "native_alias"
     },
     "Tiffany Lords": {
-      "author": "Fervicante&Li_Kun&Rhythmical",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "rTiffany",
-      "def_file": "rTiffany.def",
-      "def_path": "rTiffany/rTiffany.def"
+      "alias_to": "rTiffany",
+      "source": "native_alias"
     },
     "Rumble McSkirmish": {
-      "author": "KamenRiderGOUKI",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Rumble",
-      "def_file": "Rumble.def",
-      "def_path": "Rumble/Rumble.def"
+      "alias_to": "Rumble",
+      "source": "native_alias"
     },
     "Ryoko": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "RyokoKano",
-      "def_file": "RyokoKano.def",
-      "def_path": "RyokoKano/RyokoKano.def"
+      "alias_to": "RyokoKano",
+      "source": "native_alias"
     },
     "Samus Aran": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SamusAran",
-      "def_file": "SamusAran.def",
-      "def_path": "SamusAran/SamusAran.def"
+      "alias_to": "SamusAran",
+      "source": "native_alias"
     },
     "Sarah Bryant": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SarahBryant",
-      "def_file": "SarahBryant.def",
-      "def_path": "SarahBryant/SarahBryant.def"
+      "alias_to": "SarahBryant",
+      "source": "native_alias"
     },
     "Guile": {
-      "author": "Jmorphman",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SF6_Guile",
-      "def_file": "SF6_Guile.def",
-      "def_path": "SF6_Guile/SF6_Guile.def"
+      "alias_to": "SF6_Guile",
+      "source": "native_alias"
     },
     "Sagat": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SFV_Sagat",
-      "def_file": "SFV_Sagat.def",
-      "def_path": "SFV_Sagat/SFV_Sagat.def"
+      "alias_to": "SFV_Sagat",
+      "source": "native_alias"
     },
     "Ken Masters": {
-      "author": "Phantom.of.the.Server&Jmorphman",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SFZKen",
-      "def_file": "SFZKen.def",
-      "def_path": "SFZKen/SFZKen.def"
+      "alias_to": "SFZKen",
+      "source": "native_alias"
     },
     "CvS_Shang_Tsung": {
-      "author": "chuchoryu, Testament & d32ner Edit",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Shang_Tsung",
-      "def_file": "Shang_Tsung.def",
-      "def_path": "Shang_Tsung/Shang_Tsung.def"
+      "alias_to": "Shang_Tsung",
+      "source": "native_alias"
     },
     "Shao Kahn": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "ShaoKahn",
-      "def_file": "ShaoKahn.def",
-      "def_path": "ShaoKahn/ShaoKahn.def"
+      "alias_to": "ShaoKahn",
+      "source": "native_alias"
     },
     "Shishio Makoto": {
-      "author": "ZoneSeven",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Shishio_Makoto",
-      "def_file": "Shishio_Makoto.def",
-      "def_path": "Shishio_Makoto/Shishio_Makoto.def"
+      "alias_to": "Shishio_Makoto",
+      "source": "native_alias"
     },
     "Sinobu Amou": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Sinobu-POTS",
-      "def_file": "Sinobu-POTS.def",
-      "def_path": "Sinobu-POTS/Sinobu-POTS.def"
+      "alias_to": "Sinobu-POTS",
+      "source": "native_alias"
     },
     "Solid Snake": {
-      "author": "GoldEX",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Snake",
-      "def_file": "Snake.def",
-      "def_path": "Snake/Snake.def"
+      "alias_to": "Snake",
+      "source": "native_alias"
     },
     "Squall Leonhart": {
-      "author": "ZoneSeven",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Squall_Leonhart",
-      "def_file": "Squall_Leonhart.def",
-      "def_path": "Squall_Leonhart/Squall_Leonhart.def"
+      "alias_to": "Squall_Leonhart",
+      "source": "native_alias"
     },
     "Steve Fox": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SteveFox",
-      "def_file": "SteveFox.def",
-      "def_path": "SteveFox/SteveFox.def"
+      "alias_to": "SteveFox",
+      "source": "native_alias"
     },
     "Sub-Zero": {
-      "author": "SeanAltly",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "SubZero",
-      "def_file": "SubZero.def",
-      "def_path": "SubZero/SubZero.def"
+      "alias_to": "SubZero",
+      "source": "native_alias"
     },
     "Super Luigi": {
-      "author": "ZoneSeven",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Super_Luigi",
-      "def_file": "Super_Luigi.def",
-      "def_path": "Super_Luigi/Super_Luigi.def"
+      "alias_to": "Super_Luigi",
+      "source": "native_alias"
     },
     "Super Mario": {
-      "author": "ZoneSeven",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Super_Mario",
-      "def_file": "Super_Mario.def",
-      "def_path": "Super_Mario/Super_Mario.def"
+      "alias_to": "Super_Mario",
+      "source": "native_alias"
     },
     "tamtam": {
-      "author": "ali and ShinMaker e Laslab",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "TamTam",
-      "def_file": "TamTam.def",
-      "def_path": "TamTam/TamTam.def"
+      "alias_to": "TamTam",
+      "source": "native_alias"
     },
     "Balanced": {
-      "author": "Nexus",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_balanced_01",
-      "def_file": "template_balanced_01.def",
-      "def_path": "template_balanced_01/template_balanced_01.def"
+      "alias_to": "template_balanced_01",
+      "source": "native_alias"
     },
     "Counter": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_counter_01",
-      "def_file": "template_counter_01.def",
-      "def_path": "template_counter_01/template_counter_01.def"
+      "alias_to": "template_counter_01",
+      "source": "native_alias"
     },
     "Grapple": {
-      "author": "BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_grapple_01",
-      "def_file": "template_grapple_01.def",
-      "def_path": "template_grapple_01/template_grapple_01.def"
+      "alias_to": "template_grapple_01",
+      "source": "native_alias"
     },
     "Rush": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_rush_01",
-      "def_file": "template_rush_01.def",
-      "def_path": "template_rush_01/template_rush_01.def"
+      "alias_to": "template_rush_01",
+      "source": "native_alias"
     },
     "Strike": {
-      "author": "KarmaCharmeleon",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_strike_01",
-      "def_file": "template_strike_01.def",
-      "def_path": "template_strike_01/template_strike_01.def"
+      "alias_to": "template_strike_01",
+      "source": "native_alias"
     },
     "Summon": {
-      "author": "BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_summon_01",
-      "def_file": "template_summon_01.def",
-      "def_path": "template_summon_01/template_summon_01.def"
+      "alias_to": "template_summon_01",
+      "source": "native_alias"
     },
     "Tank": {
-      "author": "ana",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_tank_01",
-      "def_file": "template_tank_01.def",
-      "def_path": "template_tank_01/template_tank_01.def"
+      "alias_to": "template_tank_01",
+      "source": "native_alias"
     },
     "Wild": {
-      "author": "MB",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_wild_01",
-      "def_file": "template_wild_01.def",
-      "def_path": "template_wild_01/template_wild_01.def"
+      "alias_to": "template_wild_01",
+      "source": "native_alias"
     },
     "Zone": {
-      "author": "Maniac",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "template_zone_01",
-      "def_file": "template_zone_01.def",
-      "def_path": "template_zone_01/template_zone_01.def"
+      "alias_to": "template_zone_01",
+      "source": "native_alias"
     },
     "The End": {
-      "author": "GoldEX",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "The_End",
-      "def_file": "The_End.def",
-      "def_path": "The_End/The_End.def"
+      "alias_to": "The_End",
+      "source": "native_alias"
     },
     "The Mask for Capcom vs SNK Arrange by Majin Kaine": {
-      "author": "SonicSkills (Original by Mammalman & thatoneguy)",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "TheMask",
-      "def_file": "TheMask.def",
-      "def_path": "TheMask/TheMask.def"
+      "alias_to": "TheMask",
+      "source": "native_alias"
     },
     "Thor Odinson": {
-      "author": "Loganir, BlackDragon, Acey & BDS",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Thor",
-      "def_file": "Thor.def",
-      "def_path": "Thor/Thor.def"
+      "alias_to": "Thor",
+      "source": "native_alias"
     },
     "CADILLACS TIRANOSAURIO": {
-      "author": "By Potro",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Tiranosaurio",
-      "def_file": "Tiranosaurio.def",
-      "def_path": "Tiranosaurio/Tiranosaurio.def"
+      "alias_to": "Tiranosaurio",
+      "source": "native_alias"
     },
     "Ryuhaku Todoh": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Todoh",
-      "def_file": "Todoh.def",
-      "def_path": "Todoh/Todoh.def"
+      "alias_to": "Todoh",
+      "source": "native_alias"
     },
     "Ton Pooh": {
-      "author": "varo_hades",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Ton_Pooh",
-      "def_file": "Ton_Pooh.def",
-      "def_path": "Ton_Pooh/Ton_Pooh.def"
+      "alias_to": "Ton_Pooh",
+      "source": "native_alias"
     },
     "CADILLACS TRICERATOPS": {
-      "author": "By Potro",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Triceratops",
-      "def_file": "Triceratops.def",
-      "def_path": "Triceratops/Triceratops.def"
+      "alias_to": "Triceratops",
+      "source": "native_alias"
     },
     "Tung Fu Rue": {
-      "author": "Zmugens",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Tung_Fu_Rue",
-      "def_file": "Tung_Fu_Rue.def",
-      "def_path": "Tung_Fu_Rue/Tung_Fu_Rue.def"
+      "alias_to": "Tung_Fu_Rue",
+      "source": "native_alias"
     },
     "Urban Champion": {
-      "author": "NovaMagnolia",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "UrbanChampion_NM",
-      "def_file": "UrbanChampion_NM.def",
-      "def_path": "UrbanChampion_NM/UrbanChampion_NM.def"
+      "alias_to": "UrbanChampion_NM",
+      "source": "native_alias"
     },
     "Vice T.": {
-      "author": "Maniac",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "ViceT",
-      "def_file": "ViceT.def",
-      "def_path": "ViceT/ViceT.def"
+      "alias_to": "ViceT",
+      "source": "native_alias"
     },
     "Wild Wolf": {
-      "author": "KarmaCharmeleon",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "WildWolf",
-      "def_file": "WildWolf.def",
-      "def_path": "WildWolf/WildWolf.def"
+      "alias_to": "WildWolf",
+      "source": "native_alias"
     },
     "Wrench T.": {
-      "author": "Maniac",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "WrenchT",
-      "def_file": "WrenchT.def",
-      "def_path": "WrenchT/WrenchT.def"
+      "alias_to": "WrenchT",
+      "source": "native_alias"
     },
     "Yang Lee": {
-      "author": "KarmaCharmeleon",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Yang",
-      "def_file": "Yang.def",
-      "def_path": "Yang/Yang.def"
+      "alias_to": "Yang",
+      "source": "native_alias"
     },
     "Yoko Littner": {
-      "author": "Warusaki3 & Cruz",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Yoko",
-      "def_file": "Yoko.def",
-      "def_path": "Yoko/Yoko.def"
+      "alias_to": "Yoko",
+      "source": "native_alias"
     },
     "Yun Lee": {
-      "author": "KarmaCharmeleon",
-      "archetype": "unknown",
-      "power_index": 50,
-      "source": "native",
-      "customizable": true,
-      "char_folder": "Yun",
-      "def_file": "Yun.def",
-      "def_path": "Yun/Yun.def"
+      "alias_to": "Yun",
+      "source": "native_alias"
     },
     "2B": {
       "author": "Nexus, Carnage777, Betalille",
@@ -5550,14 +4653,8 @@
       "def_path": "Kung_Fu_Girl/Kung_Fu_Girl.def"
     },
     "Kuro Aonix": {
-      "author": "Witherower",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "KuroAonix",
-      "char_folder": "KuroAonix",
-      "def_file": "KuroAonix.def",
-      "def_path": "KuroAonix/KuroAonix.def"
+      "alias_to": "POTS-Styled Kuro Aonix",
+      "source": "native_alias"
     },
     "Lee Rekka": {
       "author": "Zmugens",
@@ -5600,14 +4697,8 @@
       "def_path": "Manjimaru/Manjimaru.def"
     },
     "nash": {
-      "author": "Phantom.of.the.Server",
-      "archetype": "Roster",
-      "power_index": 50,
-      "source": "native",
-      "select_entry": "nash",
-      "char_folder": "nash",
-      "def_file": "Nash.def",
-      "def_path": "nash/Nash.def"
+      "alias_to": "Nash",
+      "source": "native_alias"
     },
     "Paul": {
       "author": "GoldEX",

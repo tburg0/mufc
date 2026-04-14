@@ -230,10 +230,23 @@ def audit() -> Dict[str, Any]:
             continue
 
         if len(names) > 1:
-            metadata_duplicate_folder_entries.append({
-                "folder": folder.name,
-                "entries": names,
-            })
+            duplicate_groups: Dict[str, List[str]] = {}
+            for name in names:
+                entry = meta.get(name, {})
+                signature = str(
+                    entry.get("def_path")
+                    or entry.get("def_file")
+                    or entry.get("select_entry")
+                    or name
+                ).strip()
+                duplicate_groups.setdefault(signature, []).append(name)
+            repeated = [group for group in duplicate_groups.values() if len(group) > 1]
+            if repeated:
+                metadata_duplicate_folder_entries.append({
+                    "folder": folder.name,
+                    "entries": names,
+                    "redundant_groups": repeated,
+                })
 
         for name in names:
             entry = meta.get(name, {})
