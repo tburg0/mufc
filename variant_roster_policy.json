@@ -1,0 +1,74 @@
+{
+  "Ash": {
+    "variants": [
+      { "def_file": "Ash.def", "key": "Ash Crimson", "public": true, "role": "primary" },
+      { "def_file": "EvilAsh.def", "key": "Evil Ash", "public": true, "role": "variant" },
+      { "def_file": "NormalAsh.def", "key": "Ash Normal", "public": false, "role": "internal_duplicate" }
+    ]
+  },
+  "Cammy_Infinite": {
+    "variants": [
+      { "def_file": "Cammy_Infinite.def", "key": "Cammy Sf6", "public": true, "role": "primary" },
+      { "def_file": "CammyInfinite.def", "key": "Cammy Sf6 Legacy", "public": false, "role": "internal_duplicate" }
+    ]
+  },
+  "Chun-Li": {
+    "variants": [
+      { "def_file": "Chun-Li.def", "key": "Chun-Li", "public": true, "role": "primary" },
+      { "def_file": "Classic Chun-Li.def", "key": "Classic Chun-Li", "public": true, "role": "variant" }
+    ]
+  },
+  "Dudley": {
+    "variants": [
+      { "def_file": "Dudley.def", "key": "Dudley", "public": true, "role": "primary" },
+      { "def_file": "Dudley.211210.def", "key": "Dudley 10-12-30", "public": false, "role": "internal_revision" }
+    ]
+  },
+  "Iori": {
+    "variants": [
+      { "def_file": "Iori.def", "key": "Iori Yagami", "public": true, "role": "primary" },
+      { "def_file": "EXIori.def", "key": "EX Iori", "public": true, "role": "variant" },
+      { "def_file": "OrochiIori.def", "key": "Orochi Iori", "public": true, "role": "variant" },
+      { "def_file": "ClawIori.def", "key": "Claw Iori", "public": false, "role": "internal_variant" },
+      { "def_file": "NormalIori.def", "key": "Normal Iori", "public": false, "role": "internal_duplicate" }
+    ]
+  },
+  "JohnCrawley": {
+    "variants": [
+      { "def_file": "JohnCrawley.def", "key": "John Crawley", "public": true, "role": "primary" },
+      { "def_file": "EN.def", "key": "John Crawley Ending", "public": false, "role": "internal_sidecar" },
+      { "def_file": "OP.def", "key": "John Crawley Opening", "public": false, "role": "internal_sidecar" }
+    ]
+  },
+  "King_Lion": {
+    "variants": [
+      { "def_file": "King_Lion.def", "key": "King Lion", "public": true, "role": "primary" },
+      { "def_file": "Shin_King_Lion.def", "key": "Shin King Lion", "public": true, "role": "variant" }
+    ]
+  },
+  "KuroAonix": {
+    "variants": [
+      { "def_file": "KuroAonix.def", "key": "POTS-Styled Kuro Aonix", "public": true, "role": "primary" },
+      { "def_file": "HD.def", "key": "Kuro Aonix HD", "public": false, "role": "internal_revision" }
+    ]
+  },
+  "Magma_Dragoon": {
+    "variants": [
+      { "def_file": "Magma_Dragoon.def", "key": "Magma Dragoon", "public": true, "role": "primary" },
+      { "def_file": "Magma Dragoon Boss.def", "key": "Magma Dragoon Boss", "public": true, "role": "variant" }
+    ]
+  },
+  "nash": {
+    "variants": [
+      { "def_file": "Nash.def", "key": "Nash", "public": true, "role": "primary" },
+      { "def_file": "shadownash.def", "key": "Shadow Nash", "public": true, "role": "variant" },
+      { "def_file": "normalnash.def", "key": "Normal Nash", "public": false, "role": "internal_duplicate" }
+    ]
+  },
+  "Zero": {
+    "variants": [
+      { "def_file": "Zero.def", "key": "Zero", "public": true, "role": "primary" },
+      { "def_file": "BZero.def", "key": "Black Zero", "public": true, "role": "variant" }
+    ]
+  }
+}

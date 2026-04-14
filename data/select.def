@@ -81,6 +81,8 @@ Angela, random
 Annie/Annie.def, random
 Asetl, random
 Astaroth, random
+Ash/Ash.def, random
+Ash/EvilAsh.def, random
 Atomic_Guy, random
 Bandamax, random
 Bao, random
@@ -107,6 +109,8 @@ Charlotte, random
 Chelnov, random
 Chonshu, random
 Chrom, random
+Chun-Li/Chun-Li.def, random
+Chun-Li/Classic Chun-Li.def, random
 Chun_Li_JJ, random
 Cipry/Cipry.def, random
 Clone_Krizalid, random
@@ -138,7 +142,7 @@ DiddyKong, random
 DivineLilith, random
 DivineYuka, random
 Dr.Octopus, random
-Dudley, random
+Dudley/Dudley.def, random
 Kyosuke/Kyosuke.def, random
 Eagle/eaglesfending.def, random
 Edward, random
@@ -183,6 +187,9 @@ Hulk, random
 Inferno, random
 Ingrid, random
 Inuyasha, random
+Iori/Iori.def, random
+Iori/EXIori.def, random
+Iori/OrochiIori.def, random
 Iron_Man, random
 Ivy, random
 Jack, random
@@ -192,7 +199,7 @@ Jam_Kuradoberi, random
 Jean, random
 Jimmy, random
 Jhun, random
-JohnCrawley, random
+JohnCrawley/JohnCrawley.def, random
 JohnnyCage, random
 Joseph_Joestar/Joseph_Joestar.def, random
 Jubei, random
@@ -208,7 +215,8 @@ Kensou, random
 Khriz/Khriz.def, random
 Kim_Dong_Hwan, random
 King_Leo, random
-King_Lion, random
+King_Lion/King_Lion.def, random
+King_Lion/Shin_King_Lion.def, random
 Kisarah, random
 Seth/Seth.def, random
 Kratos, random
@@ -224,7 +232,8 @@ LiXiangfei, random
 Lord_Raptor, random
 Lucia, random
 Lucifer, random
-Magma_Dragoon, random
+Magma_Dragoon/Magma_Dragoon.def, random
+Magma_Dragoon/Magma Dragoon Boss.def, random
 Mai_Shiranui/Mai_Shiranui.def, random
 Maki, random
 Makoto/Makoto.def, random
@@ -251,7 +260,8 @@ Musah, random
 Mustapha, random
 Necro, random
 Ness, random
-nash/normalnash.def, random
+nash/Nash.def, random
+nash/shadownash.def, random
 Omega_Red, random
 Orchid, random
 Oro, random
@@ -350,7 +360,8 @@ Yoshimitsu, random
 Yun, random
 Zasalamel, random
 Zeku, random
-Zero, random
+Zero/Zero.def, random
+Zero/BZero.def, random
 Zeus, random
 Ziria, random
 

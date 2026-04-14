@@ -2699,7 +2699,7 @@
       "archetype": "Roster",
       "power_index": 50,
       "source": "native",
-      "select_entry": "Zero",
+      "select_entry": "Zero/Zero.def",
       "char_folder": "Zero",
       "def_file": "Zero.def",
       "def_path": "Zero/Zero.def",
@@ -2805,7 +2805,8 @@
       "char_folder": "Chun-Li",
       "def_file": "Chun-Li.def",
       "def_path": "Chun-Li/Chun-Li.def",
-      "customizable": true
+      "customizable": true,
+      "select_entry": "Chun-Li/Chun-Li.def"
     },
     "Chun_LI_JJ": {
       "author": "Capcom",
@@ -3272,7 +3273,8 @@
       "customizable": true,
       "char_folder": "Cammy_Infinite",
       "def_file": "Cammy_Infinite.def",
-      "def_path": "Cammy_Infinite/Cammy_Infinite.def"
+      "def_path": "Cammy_Infinite/Cammy_Infinite.def",
+      "select_entry": "Cammy_Infinite/Cammy_Infinite.def"
     },
     "Candy Diamond": {
       "author": "Flavioruru",
@@ -3672,7 +3674,8 @@
       "customizable": true,
       "char_folder": "JohnCrawley",
       "def_file": "JohnCrawley.def",
-      "def_path": "JohnCrawley/JohnCrawley.def"
+      "def_path": "JohnCrawley/JohnCrawley.def",
+      "select_entry": "JohnCrawley/JohnCrawley.def"
     },
     "Johnny Cage": {
       "author": "Nexus",
@@ -3792,7 +3795,8 @@
       "customizable": true,
       "char_folder": "King_Lion",
       "def_file": "King_Lion.def",
-      "def_path": "King_Lion/King_Lion.def"
+      "def_path": "King_Lion/King_Lion.def",
+      "select_entry": "King_Lion/King_Lion.def"
     },
     "Kisarah Westfield": {
       "author": "Zmugens",
@@ -3892,7 +3896,8 @@
       "customizable": true,
       "char_folder": "Magma_Dragoon",
       "def_file": "Magma_Dragoon.def",
-      "def_path": "Magma_Dragoon/Magma_Dragoon.def"
+      "def_path": "Magma_Dragoon/Magma_Dragoon.def",
+      "select_entry": "Magma_Dragoon/Magma_Dragoon.def"
     },
     "Mai Shiranui (Classic)": {
       "author": "Flavioruru",
@@ -3990,9 +3995,10 @@
       "power_index": 50,
       "source": "native",
       "customizable": true,
-      "char_folder": "nash_pots",
-      "def_file": "nash_pots.def",
-      "def_path": "nash_pots/nash_pots.def"
+      "char_folder": "nash",
+      "def_file": "Nash.def",
+      "def_path": "nash/Nash.def",
+      "select_entry": "nash/Nash.def"
     },
     "Omega Red": {
       "author": "Shin Maker",
@@ -4040,9 +4046,10 @@
       "power_index": 50,
       "source": "native",
       "customizable": true,
-      "char_folder": "POTSKuroAonix",
-      "def_file": "POTSKuroAonix.def",
-      "def_path": "POTSKuroAonix/POTSKuroAonix.def"
+      "char_folder": "KuroAonix",
+      "def_file": "KuroAonix.def",
+      "def_path": "KuroAonix/KuroAonix.def",
+      "select_entry": "KuroAonix/KuroAonix.def"
     },
     "Patron Goddess of Magical Girls": {
       "author": "JStudios2k",
@@ -4610,7 +4617,8 @@
       "source": "native",
       "char_folder": "Ash",
       "def_file": "Ash.def",
-      "def_path": "Ash/Ash.def"
+      "def_path": "Ash/Ash.def",
+      "select_entry": "Ash/Ash.def"
     },
     "Ash": {
       "alias_to": "Ash Crimson",
@@ -4875,7 +4883,8 @@
       "source": "native",
       "char_folder": "Iori",
       "def_file": "Iori.def",
-      "def_path": "Iori/Iori.def"
+      "def_path": "Iori/Iori.def",
+      "select_entry": "Iori/Iori.def"
     },
     "Iori": {
       "alias_to": "Iori Yagami",
@@ -4944,8 +4953,14 @@
       "source": "native_alias"
     },
     "Joseph_Joestar": {
-      "alias_to": "Joseph",
-      "source": "native_alias"
+      "source": "native",
+      "author": "MB",
+      "archetype": "Roster",
+      "power_index": 50,
+      "select_entry": "Joseph_Joestar",
+      "char_folder": "Joseph_Joestar",
+      "def_file": "Joseph_Joestar.def",
+      "def_path": "Joseph_Joestar/Joseph_Joestar.def"
     },
     "Joseph Joestar": {
       "alias_to": "Joseph",
@@ -4987,8 +5002,14 @@
       "source": "native_alias"
     },
     "Khriz": {
-      "alias_to": "Khriz-POTS",
-      "source": "native_alias"
+      "source": "native",
+      "author": "Zmugens",
+      "archetype": "Roster",
+      "power_index": 50,
+      "select_entry": "Khriz",
+      "char_folder": "Khriz",
+      "def_file": "Khriz.def",
+      "def_path": "Khriz/Khriz.def"
     },
     "Khrome": {
       "author": "R@CE AKIR@ Editado por Magno Csar",
@@ -5004,8 +5025,14 @@
       "source": "native_alias"
     },
     "Kyosuke": {
-      "alias_to": "Kyosuke Kagami",
-      "source": "native_alias"
+      "source": "native",
+      "author": "DivineWolf",
+      "archetype": "Roster",
+      "power_index": 50,
+      "select_entry": "Kyosuke",
+      "char_folder": "Kyosuke",
+      "def_file": "Kyosuke.def",
+      "def_path": "Kyosuke/Kyosuke.def"
     },
     "Lee": {
       "alias_to": "Lee Rekka-POTS",
@@ -5060,8 +5087,14 @@
       "source": "native_alias"
     },
     "Mai_Shiranui": {
-      "alias_to": "Mai Shiranui (Classic)",
-      "source": "native_alias"
+      "source": "native",
+      "author": "Flavioruru",
+      "archetype": "Roster",
+      "power_index": 50,
+      "select_entry": "Mai_Shiranui",
+      "char_folder": "Mai_Shiranui",
+      "def_file": "Mai_Shiranui.def",
+      "def_path": "Mai_Shiranui/Mai_Shiranui.def"
     },
     "Mai Shiranui": {
       "alias_to": "Mai Shiranui (Classic)",
@@ -5328,8 +5361,14 @@
       "def_path": "Silber/Silber.def"
     },
     "Sinobu": {
-      "alias_to": "Sinobu Amou",
-      "source": "native_alias"
+      "source": "native",
+      "author": "Zmugens",
+      "archetype": "Roster",
+      "power_index": 50,
+      "select_entry": "Sinobu",
+      "char_folder": "Sinobu",
+      "def_file": "Sinobu.def",
+      "def_path": "Sinobu/Sinobu.def"
     },
     "Slayer": {
       "author": "Sckiredzu",
@@ -5367,8 +5406,14 @@
       "source": "native_alias"
     },
     "Tiffany": {
-      "alias_to": "Tiffany Lords",
-      "source": "native_alias"
+      "source": "native",
+      "author": "Fervicante&Li_Kun&Rhythmical",
+      "archetype": "Roster",
+      "power_index": 50,
+      "select_entry": "Tiffany",
+      "char_folder": "Tiffany",
+      "def_file": "Tiffany.def",
+      "def_path": "Tiffany/Tiffany.def"
     },
     "UrbanChampion": {
       "alias_to": "Urban Champion",
@@ -5413,6 +5458,346 @@
       "char_folder": "Yungmie",
       "def_file": "Yungmie.def",
       "def_path": "Yungmie/Yungmie.def"
+    },
+    "Dan": {
+      "author": "RagingRowen",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Dan",
+      "char_folder": "Dan",
+      "def_file": "Dan.def",
+      "def_path": "Dan/Dan.def"
+    },
+    "DivineYuka": {
+      "author": "DivineWolf",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "DivineYuka",
+      "char_folder": "DivineYuka",
+      "def_file": "DivineYuka.def",
+      "def_path": "DivineYuka/DivineYuka.def"
+    },
+    "Dudley": {
+      "author": "DickBuckus",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Dudley/Dudley.def",
+      "char_folder": "Dudley",
+      "def_file": "Dudley.def",
+      "def_path": "Dudley/Dudley.def"
+    },
+    "Felicia_Y": {
+      "author": "Jesuszilla",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Felicia_Y",
+      "char_folder": "Felicia_Y",
+      "def_file": "Felicia_Y.def",
+      "def_path": "Felicia_Y/Felicia_Y.def"
+    },
+    "Filia": {
+      "author": "varo_hades",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Filia",
+      "char_folder": "Filia",
+      "def_file": "Filia.def",
+      "def_path": "Filia/Filia.def"
+    },
+    "Garuda": {
+      "author": "MB",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Garuda",
+      "char_folder": "Garuda",
+      "def_file": "Garuda.def",
+      "def_path": "Garuda/Garuda.def"
+    },
+    "Jae Hoon": {
+      "author": "Zmugens",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Jae",
+      "char_folder": "Jae",
+      "def_file": "Jae.def",
+      "def_path": "Jae/Jae.def"
+    },
+    "k'": {
+      "author": "Chazzanova & Dampir",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "k'",
+      "char_folder": "k'",
+      "def_file": "k'.def",
+      "def_path": "k'/k'.def"
+    },
+    "Kung_Fu_Girl": {
+      "author": "DivineWolf",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Kung_Fu_Girl",
+      "char_folder": "Kung_Fu_Girl",
+      "def_file": "Kung_Fu_Girl.def",
+      "def_path": "Kung_Fu_Girl/Kung_Fu_Girl.def"
+    },
+    "Kuro Aonix": {
+      "author": "Witherower",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "KuroAonix",
+      "char_folder": "KuroAonix",
+      "def_file": "KuroAonix.def",
+      "def_path": "KuroAonix/KuroAonix.def"
+    },
+    "Lee Rekka": {
+      "author": "Zmugens",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Lee",
+      "char_folder": "Lee",
+      "def_file": "Lee.def",
+      "def_path": "Lee/Lee.def"
+    },
+    "Lita_Luwanda": {
+      "author": "Satsui Rafael/Nexus Gaming/DivineWolf",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Lita_Luwanda",
+      "char_folder": "Lita_Luwanda",
+      "def_file": "Lita_Luwanda.def",
+      "def_path": "Lita_Luwanda/Lita_Luwanda.def"
+    },
+    "Kaname Madoka": {
+      "author": "JStudios2k",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Madoka",
+      "char_folder": "Madoka",
+      "def_file": "Madoka.def",
+      "def_path": "Madoka/Madoka.def"
+    },
+    "Manjimaru": {
+      "author": "Gmeos dos Jogos",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Manjimaru",
+      "char_folder": "Manjimaru",
+      "def_file": "Manjimaru.def",
+      "def_path": "Manjimaru/Manjimaru.def"
+    },
+    "nash": {
+      "author": "Phantom.of.the.Server",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "nash",
+      "char_folder": "nash",
+      "def_file": "Nash.def",
+      "def_path": "nash/Nash.def"
+    },
+    "Paul": {
+      "author": "GoldEX",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Paul",
+      "char_folder": "Paul",
+      "def_file": "Paul.def",
+      "def_path": "Paul/Paul.def"
+    },
+    "Rogue": {
+      "author": "GoldEX",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Rogue",
+      "char_folder": "Rogue",
+      "def_file": "Rogue.def",
+      "def_path": "Rogue/Rogue.def"
+    },
+    "Sora": {
+      "author": "Nexus Gaming (FG)",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Sora",
+      "char_folder": "Sora",
+      "def_file": "Sora.def",
+      "def_path": "Sora/Sora.def"
+    },
+    "Spyro": {
+      "author": "JoeStar",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Spyro",
+      "char_folder": "Spyro",
+      "def_file": "Spyro.def",
+      "def_path": "Spyro/Spyro.def"
+    },
+    "Urban Champion NM": {
+      "author": "NovaMagnolia",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "UrbanChampion",
+      "char_folder": "UrbanChampion",
+      "def_file": "UrbanChampion.def",
+      "def_path": "UrbanChampion/UrbanChampion.def"
+    },
+    "Ziria": {
+      "author": "Gmeos dos Jogos",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Ziria",
+      "char_folder": "Ziria",
+      "def_file": "Ziria.def",
+      "def_path": "Ziria/Ziria.def"
+    },
+    "Guile_Roster": {
+      "author": "Jmorphman",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Guile",
+      "char_folder": "Guile",
+      "def_file": "Guile.def",
+      "def_path": "Guile/Guile.def"
+    },
+    "Knuckles_Roster": {
+      "author": "GB Shades",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Knuckles",
+      "char_folder": "Knuckles",
+      "def_file": "Knuckles.def",
+      "def_path": "Knuckles/Knuckles.def"
+    },
+    "Raiden_Roster": {
+      "author": "Nexus",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Raiden",
+      "char_folder": "Raiden",
+      "def_file": "Raiden.def",
+      "def_path": "Raiden/Raiden.def"
+    },
+    "Seth_Roster": {
+      "author": "Zmugens",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Seth",
+      "char_folder": "Seth",
+      "def_file": "Seth.def",
+      "def_path": "Seth/Seth.def"
+    },
+    "Tony_Roster": {
+      "author": "Phantom.of.the.Server",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Tony",
+      "char_folder": "Tony",
+      "def_file": "Tony.def",
+      "def_path": "Tony/Tony.def"
+    },
+    "Evil Ash": {
+      "author": "KarmaCharmeleon",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Ash/EvilAsh.def",
+      "char_folder": "Ash",
+      "def_file": "EvilAsh.def",
+      "def_path": "Ash/EvilAsh.def"
+    },
+    "Classic Chun-Li": {
+      "author": "Emerie The G.O.A.T",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Chun-Li/Classic Chun-Li.def",
+      "char_folder": "Chun-Li",
+      "def_file": "Classic Chun-Li.def",
+      "def_path": "Chun-Li/Classic Chun-Li.def"
+    },
+    "EX Iori": {
+      "author": "KarmaCharmeleon",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Iori/EXIori.def",
+      "char_folder": "Iori",
+      "def_file": "EXIori.def",
+      "def_path": "Iori/EXIori.def"
+    },
+    "Orochi Iori": {
+      "author": "KarmaCharmeleon",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Iori/OrochiIori.def",
+      "char_folder": "Iori",
+      "def_file": "OrochiIori.def",
+      "def_path": "Iori/OrochiIori.def"
+    },
+    "Shin King Lion": {
+      "author": "Saikou Shiva",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "King_Lion/Shin_King_Lion.def",
+      "char_folder": "King_Lion",
+      "def_file": "Shin_King_Lion.def",
+      "def_path": "King_Lion/Shin_King_Lion.def"
+    },
+    "Magma Dragoon Boss": {
+      "author": "MB",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Magma_Dragoon/Magma Dragoon Boss.def",
+      "char_folder": "Magma_Dragoon",
+      "def_file": "Magma Dragoon Boss.def",
+      "def_path": "Magma_Dragoon/Magma Dragoon Boss.def"
+    },
+    "Shadow Nash": {
+      "author": "Phantom.of.the.Server",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "nash/shadownash.def",
+      "char_folder": "nash",
+      "def_file": "shadownash.def",
+      "def_path": "nash/shadownash.def"
+    },
+    "Black Zero": {
+      "author": "BDS",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "Zero/BZero.def",
+      "char_folder": "Zero",
+      "def_file": "BZero.def",
+      "def_path": "Zero/BZero.def"
     }
   }
 }

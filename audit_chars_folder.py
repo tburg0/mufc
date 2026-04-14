@@ -8,11 +8,22 @@ ROOT = Path(__file__).resolve().parent
 CHARS_DIR = ROOT / "chars"
 SELECT_FILE = ROOT / "data" / "select.def"
 META_FILE = ROOT / "fighters_metadata.json"
+VARIANT_POLICY_FILE = ROOT / "variant_roster_policy.json"
 PUBLISHED_ROSTER_FILE = ROOT / "generated" / "published_roster.json"
 RUNTIME_MAPPING_FILE = ROOT / "generated" / "runtime_mapping.json"
 BLACKLIST_FILE = ROOT / "generated" / "load_blacklist.json"
 REPORT_JSON = ROOT / "generated" / "chars_audit_report.json"
 REPORT_TXT = ROOT / "generated" / "chars_audit_report.txt"
+
+SIDECAR_DEF_MARKERS = (
+    "intro",
+    "ending",
+    "end",
+    "command",
+    "test",
+    "ai",
+    "unotag",
+)
 
 
 def load_json(path: Path, default: Any) -> Any:
@@ -22,6 +33,10 @@ def load_json(path: Path, default: Any) -> Any:
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return default
+
+
+def load_variant_policy() -> Dict[str, Any]:
+    return load_json(VARIANT_POLICY_FILE, {})
 
 
 def parse_select_entries() -> List[str]:
@@ -100,6 +115,14 @@ def best_def(folder: Path) -> Optional[Path]:
     return defs[0]
 
 
+def is_sidecar_def(def_name: str, primary: Optional[Path]) -> bool:
+    stem = Path(def_name).stem.lower()
+    primary_stem = primary.stem.lower() if primary else ""
+    if stem == primary_stem:
+        return False
+    return any(marker in stem for marker in SIDECAR_DEF_MARKERS)
+
+
 def build_metadata_indexes(meta_wrap: Dict[str, Any]) -> tuple[Dict[str, Any], Dict[str, List[str]]]:
     fighters = meta_wrap.get("fighters", {}) if isinstance(meta_wrap, dict) and "fighters" in meta_wrap else meta_wrap
     by_folder: Dict[str, List[str]] = {}
@@ -116,9 +139,10 @@ def build_metadata_indexes(meta_wrap: Dict[str, Any]) -> tuple[Dict[str, Any], D
 def audit() -> Dict[str, Any]:
     meta_wrap = load_json(META_FILE, {})
     meta, meta_by_folder = build_metadata_indexes(meta_wrap)
-    roster = load_json(PUBLISHED_ROSTER_FILE, {"fighters": []})
-    mapping = load_json(RUNTIME_MAPPING_FILE, {})
-    blacklist = load_json(BLACKLIST_FILE, {"fighters": {}, "stages": {}, "history": []})
+    variant_policy = load_variant_policy()
+    roster = load_json(PUBLISHED_ROSTER_FILE, {"fighters": []}) or {"fighters": []}
+    mapping = load_json(RUNTIME_MAPPING_FILE, {}) or {}
+    blacklist = load_json(BLACKLIST_FILE, {"fighters": {}, "stages": {}, "history": []}) or {"fighters": {}, "stages": {}, "history": []}
 
     report: Dict[str, Any] = {
         "scanned_at": __import__("time").strftime("%Y-%m-%dT%H:%M:%S"),
@@ -126,6 +150,10 @@ def audit() -> Dict[str, Any]:
         "broken_select_entries": [],
         "folders_missing_def": [],
         "folders_multiple_defs": [],
+        "folders_multiple_defs_sidecar_only": [],
+        "folders_multiple_defs_variant": [],
+        "folders_multiple_defs_variant_policy_covered": [],
+        "folders_multiple_defs_variant_unreviewed": [],
         "metadata_missing_for_folder": [],
         "metadata_placeholder_author_with_real_def_author": [],
         "metadata_duplicate_folder_entries": [],
@@ -141,6 +169,10 @@ def audit() -> Dict[str, Any]:
 
     folders_missing_def = []
     folders_multiple_defs = []
+    folders_multiple_defs_sidecar_only = []
+    folders_multiple_defs_variant = []
+    folders_multiple_defs_variant_policy_covered = []
+    folders_multiple_defs_variant_unreviewed = []
     metadata_missing_for_folder = []
     metadata_placeholder_author_with_real_def_author = []
     metadata_duplicate_folder_entries = []
@@ -156,12 +188,35 @@ def audit() -> Dict[str, Any]:
             folders_missing_def.append(folder.name)
             continue
         if len(defs) > 1:
-            folders_multiple_defs.append({
+            primary = best_def(folder)
+            detail = {
                 "folder": folder.name,
                 "defs": [item.name for item in defs],
-            })
+            }
+            folders_multiple_defs.append(detail)
+            others = [item.name for item in defs if primary is None or item.name != primary.name]
+            if others and all(is_sidecar_def(name, primary) for name in others):
+                folders_multiple_defs_sidecar_only.append({
+                    **detail,
+                    "primary_def": primary.name if primary else None,
+                })
+            else:
+                variant_detail = {
+                    **detail,
+                    "primary_def": primary.name if primary else None,
+                }
+                folders_multiple_defs_variant.append(variant_detail)
+                policy = variant_policy.get(folder.name) if isinstance(variant_policy, dict) else None
+                if isinstance(policy, dict) and policy.get("variants"):
+                    folders_multiple_defs_variant_policy_covered.append({
+                        **variant_detail,
+                        "policy_variants": policy.get("variants"),
+                    })
+                else:
+                    folders_multiple_defs_variant_unreviewed.append(variant_detail)
+        else:
+            primary = best_def(folder)
 
-        primary = best_def(folder)
         info = parse_def_info(primary) if primary else {}
         def_author = str(info.get("author") or "").strip()
         names = meta_by_folder.get(folder.name.lower(), [])
@@ -194,6 +249,10 @@ def audit() -> Dict[str, Any]:
 
     report["folders_missing_def"] = folders_missing_def
     report["folders_multiple_defs"] = folders_multiple_defs
+    report["folders_multiple_defs_sidecar_only"] = folders_multiple_defs_sidecar_only
+    report["folders_multiple_defs_variant"] = folders_multiple_defs_variant
+    report["folders_multiple_defs_variant_policy_covered"] = folders_multiple_defs_variant_policy_covered
+    report["folders_multiple_defs_variant_unreviewed"] = folders_multiple_defs_variant_unreviewed
     report["metadata_missing_for_folder"] = metadata_missing_for_folder
     report["metadata_placeholder_author_with_real_def_author"] = metadata_placeholder_author_with_real_def_author
     report["metadata_duplicate_folder_entries"] = metadata_duplicate_folder_entries
@@ -226,6 +285,10 @@ def audit() -> Dict[str, Any]:
         "broken_select_entries": len(report["broken_select_entries"]),
         "folders_missing_def": len(report["folders_missing_def"]),
         "folders_multiple_defs": len(report["folders_multiple_defs"]),
+        "folders_multiple_defs_sidecar_only": len(report["folders_multiple_defs_sidecar_only"]),
+        "folders_multiple_defs_variant": len(report["folders_multiple_defs_variant"]),
+        "folders_multiple_defs_variant_policy_covered": len(report["folders_multiple_defs_variant_policy_covered"]),
+        "folders_multiple_defs_variant_unreviewed": len(report["folders_multiple_defs_variant_unreviewed"]),
         "metadata_missing_for_folder": len(report["metadata_missing_for_folder"]),
         "metadata_placeholder_author_with_real_def_author": len(report["metadata_placeholder_author_with_real_def_author"]),
         "metadata_duplicate_folder_entries": len(report["metadata_duplicate_folder_entries"]),
@@ -265,6 +328,10 @@ def write_report(report: Dict[str, Any]) -> None:
     add_section("Broken select.def entries", report["broken_select_entries"])
     add_section("Folders missing .def", report["folders_missing_def"])
     add_section("Folders with multiple .def files", report["folders_multiple_defs"])
+    add_section("Folders with sidecar-only extra .def files", report["folders_multiple_defs_sidecar_only"])
+    add_section("Folders with alternate/variant .def files", report["folders_multiple_defs_variant"])
+    add_section("Variant folders covered by policy", report["folders_multiple_defs_variant_policy_covered"])
+    add_section("Variant folders still unreviewed", report["folders_multiple_defs_variant_unreviewed"])
     add_section("Metadata missing for folder", report["metadata_missing_for_folder"])
     add_section("Placeholder metadata author even though .def has real author", report["metadata_placeholder_author_with_real_def_author"])
     add_section("Duplicate metadata entries pointing to same folder", report["metadata_duplicate_folder_entries"])
