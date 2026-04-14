@@ -93,6 +93,8 @@ body.overlay-debut {
   backdrop-filter: blur(2px);
   z-index: 7200;
   pointer-events: none;
+  opacity: 1;
+  transition: opacity 220ms ease, transform 220ms ease;
 }
 
 .fighter-strip-left {
@@ -102,6 +104,11 @@ body.overlay-debut {
 .fighter-strip-right {
   right: 24px;
   align-items: flex-end;
+}
+
+body.overlay-prematch-panels .fighter-strip {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 .fighter-strip-rank {
@@ -153,26 +160,34 @@ body.overlay-debut {
   overflow: hidden;
 }
 
-.ticker-text {
+.ticker-marquee {
   position: absolute;
   top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--ticker-gap, 160px);
+  padding-left: var(--ticker-start-offset, 100%);
+  will-change: transform;
+  animation: tickerLoop var(--ticker-duration, 24s) linear infinite;
+}
+
+.ticker-text {
+  flex: 0 0 auto;
   white-space: nowrap;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.5px;
   color: #f5f7fb;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-  animation: tickerScroll 24s linear infinite;
 }
 
-@keyframes tickerScroll {
+@keyframes tickerLoop {
   from {
-    transform: translate(0, -50%);
+    transform: translate3d(0, -50%, 0);
   }
   to {
-    transform: translate(-115%, -50%);
+    transform: translate3d(calc(-1 * var(--ticker-loop, 1200px)), -50%, 0);
   }
 }
 

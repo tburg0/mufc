@@ -72,50 +72,54 @@
 
 randomselect
 Alex, random
-Alfred-POTS, random
+Alfred/Alfred.def, random
 Amakusa, random
-AmySorel, random
+Amy_Sorel/Amy_Sorel.def, random
 Anakaris, random
-AndoreJr, random
-Annie-POTS, random
+Andore_Jr/Andore_Jr.def, random
+Angela, random
+Annie/Annie.def, random
 Asetl, random
 Astaroth, random
+Atomic_Guy, random
 Bandamax, random
 Bao, random
 Batman, random
 Belger, random
 Biker, random
-Bison_01, random
+Bison/Bison.def, random
 BlackElmer, random
 Blackheart, random
 Blanka, random
-Blaze-POTS, random
+Blaze/Blaze.def, random
 Bluestreak, random
 Butcher, random
 Cable, random
-Cadillacs_-_Hogg, random
-Cadillacs_-_Tiranosaurio_1, random
-Cadillacs_-_Tiranosaurio, random
-Cammy_Infinite_Sf6, random
+Hogg/Hogg.def, random
+Tiranosaurio/Tiranosaurio.def, random
+Tiranosaurio/Tiranosaurio.def, random
+Cammy_Infinite/Cammy_Infinite.def, random
 Candy_Diamond, random
 Carlos, random
-Cassandra-POTS, random
+Cassandra/Cassandra.def, random
 Cervantes, random
 Charlotte, random
 Chelnov, random
+Chonshu, random
 Chrom, random
 Chun_Li_JJ, random
-Cipry_POTS, random
+Cipry/Cipry.def, random
 Clone_Krizalid, random
 CM_Punk, random
 Cody, random
 Colossus, random
-CPS2_Blair, random
+Blair/Blair.def, random
 Crawd, random
 Cyborg, random
 Cyclops, random
 Daigo, random
 Damnd, random
+Dan, random
 Dana_Dee, random
 Dante, random
 Darkseid, random
@@ -132,12 +136,14 @@ Devilotte, random
 Dhalsim, random
 DiddyKong, random
 DivineLilith, random
+DivineYuka, random
 Dr.Octopus, random
-DWKyosuke, random
-Eaglesfending, random
+Dudley, random
+Kyosuke/Kyosuke.def, random
+Eagle/eaglesfending.def, random
 Edward, random
 Earthquake, random
-Eiji_02, random
+Eiji/Eiji.def, random
 Elena, random
 Elisabeth, random
 Elysium, random
@@ -145,14 +151,17 @@ Ermac, random
 EvilDan, random
 Erza, random
 Falcon, random
+Felicia_Y, random
 Ferris, random
 Fessenden, random
+Filia, random
 FinalBison, random
 Floyd, random
 Gale, random
 Gambit, random
+Garuda, random
 Gato, random
-GBKnucklesPOTS, random
+Knuckles/Knuckles.def, random
 Gillius, random
 Gneiss, random
 Goenitz, random
@@ -172,19 +181,22 @@ Hotaru_Futaba, random
 Hugo, random
 Hulk, random
 Inferno, random
+Ingrid, random
 Inuyasha, random
 Iron_Man, random
 Ivy, random
 Jack, random
-Jae-POTS, random
+Jae/Jae.def, random
 Jago, random
 Jam_Kuradoberi, random
+Jean, random
 Jimmy, random
 Jhun, random
 JohnCrawley, random
 JohnnyCage, random
-Joseph_Joestar_(Part3), random
+Joseph_Joestar/Joseph_Joestar.def, random
 Jubei, random
+K', random
 Kaede, random
 Kagami_Shinnosuke, random
 Kagome, random
@@ -193,63 +205,68 @@ KCore, random
 Ken, random
 Kenshin_Himura, random
 Kensou, random
-Khriz-POTS, random
+Khriz/Khriz.def, random
 Kim_Dong_Hwan, random
 King_Leo, random
 King_Lion, random
 Kisarah, random
-KOF_Seth, random
+Seth/Seth.def, random
 Kratos, random
+Kung_Fu_Girl, random
 Kyo_Kusanagi, random
 Lady_Deathstrike, random
-Lee-POTS, random
+Lee/Lee.def, random
 Leona, random
 LeonKennedy, random
+Lita_Luwanda, random
 LiuKang, random
 LiXiangfei, random
 Lord_Raptor, random
+Lucia, random
 Lucifer, random
 Magma_Dragoon, random
-Mai_Shiranui_(Classic), random
+Mai_Shiranui/Mai_Shiranui.def, random
 Maki, random
-Makota, random
+Makoto/Makoto.def, random
+Manjimaru, random
 Man-Thing, random
 Marco, random
 Marrow, random
 Mars_People, random
-Matlock, random
+; Matlock, random ; removed: no corresponding chars folder/def found
 Meiling, random
 Mess, random
 Mileena, random
 Mitsurugi, random
-Mitzoguchi, random
+Mizoguchi/Mizoguchi.def, random
 Miu_Kurosaki, random
 Moe_Habana, random
 Morgan, random
 Morgue, random
 Morrigan, random
 Mr_Karate, random
-Mr.X, random
+Mr._X/Mr._X.def, random
 Mukuro, random
 Musah, random
 Mustapha, random
 Necro, random
 Ness, random
-NormalNash, random
+nash/normalnash.def, random
 Omega_Red, random
 Orchid, random
 Oro, random
 OrochiChris, random
 Othello, random
 PaiChan, random
+Paul, random
 Pepe, random
 PoacherJ, random
 Poison, random
-POTSMadokaS3, random
-POTSKuroAonix, random
+Madoka/Madoka.def, random
+KuroAonix/KuroAonix.def, random
 Pyron, random
 Rain, random
-RaidenMK, random
+Raiden/Raiden.def, random
 Ramon, random
 Raphael, random
 Rashid, random
@@ -258,35 +275,42 @@ Ray, random
 Red_Puckett, random
 Reptile, random
 Rikuo, random
+Rogue, random
 Rolento, random
+Roll, random
 RougeTheBat, random
+Roxy, random
 Roy, random
-rTiffany, random
+Tiffany/Tiffany.def, random
 Rumble, random
 RyokoKano, random
 Ryu, random
 Sabretooth, random
 Sabrewulf, random
+Sally, random
 SamusAran, random
 SarahBryant, random
 Sasquatch, random
 Satomi, random
 Scorpion, random
-ShinGouki, random
+Gouki/Gouki.def, random
 Shishio_Makoto, random
 Shang_Tsung, random
 ShaoKahn, random
-Sinobu-POTS, random
+Sinobu/Sinobu.def, random
 Skinner, random
 Slice, random
 Slisaur, random
+Smoke, random
 Snake, random
 Sonic, random
+Sora, random
 Spawn, random
 Spider-Man, random
 Squall_Leonhart, random
-SF6_Guile, random
-SFV_Sagat, random
+Guile/Guile.def, random
+; SFV_Sagat, random ; removed: no corresponding chars folder/def found
+Spyro, random
 Steel, random
 SteveFox, random
 SubZero, random
@@ -296,11 +320,11 @@ Superman, random
 Surtur, random
 Taki, random
 TamTam, random
-Template_rush_01, random
-Template_grapple_01, random
-Template_zone_01, random
-Template_balanced_01, random
-Template_summon_01, random
+; Template_rush_01, random ; removed: internal CAF template
+; Template_grapple_01, random ; removed: internal CAF template
+; Template_zone_01, random ; removed: internal CAF template
+; Template_balanced_01, random ; removed: internal CAF template
+; Template_summon_01, random ; removed: internal CAF template
 Tessa, random
 The_End, random
 TheMask, random
@@ -312,11 +336,12 @@ Tung_Fu_Rue, random
 Twelve, random
 Tyrog, random
 Tyrog2, random
-UrbanChampion_NM, random
+UrbanChampion/UrbanChampion.def, random
 Vector, random
 Venom, random
 ViceT, random
 Voldo, random
+Wario, random
 WildWolf, random
 WrenchT, random
 Yang, random
@@ -327,6 +352,7 @@ Zasalamel, random
 Zeku, random
 Zero, random
 Zeus, random
+Ziria, random
 
 ;-----------------------
 [ExtraStages]
@@ -394,6 +420,30 @@ stages/Shanghai1.def
 stages/CVS2-sipstage.def
 stages/Cvs2k-neogeoLand.def
 stages/YDA_CVS_Gouki.def
+stages/thirst-wide.def
+stages/agony-wide.def
+stages/VanityParadise-wide.def
+stages/Fire_in_the_sky(PYRON ATACCK)-wide.def
+stages/DesertedChateauVS2-wide.def
+stages/IronHorse-wide.def
+stages/beestower.def
+stages/drkstlkrsnwfel.def
+stages/drkstlkrsnwsas.def
+stages/DS3_Tower_of_Arrogance.def
+stages/drkstlkrsnwrap.def
+stages/drkstlkrsnwvic.def
+stages/drkstlkrsnwrik.def
+stages/drkstlkrsnwbis.def
+stages/drkstlkrsnejon.def
+stages/drkstlkrsnwhko.def
+stages/vsthirst.def
+stages/vstower.def
+stages/drkstlkrsnwdem.def
+stages/dstlknwhui.def
+stages/drkstlkrsnwana.def
+stages/hellstormAVP2.def
+stages/GardenOfSorrowGreen.def
+stages/demitri.def
 
 ;---------------------------------------------------------------------
 [Options]

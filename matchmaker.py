@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional, Tuple
 ROOT = Path(__file__).resolve().parent
 STATE_FILE = ROOT / "league_state.json"
 RECORDS_FILE = ROOT / "records.json"
+HISTORY_FILE = ROOT / "match_history.jsonl"
 ROSTER_FILE = ROOT / "generated" / "published_roster.json"
 MAPPING_FILE = ROOT / "generated" / "runtime_mapping.json"
 SELECT_FILE = ROOT / "data" / "select.def"
@@ -22,8 +23,14 @@ ROUNDS_NORMAL = 2
 ROUNDS_TITLE = 3
 TAG_SERIES_TRIGGER_EVERY = 6
 TITLE_EVERY_N_MATCHES = 5
+ROYAL_TRIGGER_EVERY = 18
+ROYAL_FIELD_SIZE = 8
 STREAK_TITLE_THRESHOLD = 3
 TOP_N_MAIN_EVENT = 10
+DEBUT_PROTECTION_TOP_RANK_CUTOFF = 12
+RECENT_MATCHUP_AVOID_WINDOW = 8
+RIVALRY_MIN_MEETINGS = 2
+RIVALRY_HISTORY_TAIL = 400
 ELO_START = 1500.0
 
 
@@ -57,6 +64,24 @@ def canonical_team_key(names: List[str]) -> str:
     if len(names) != 2:
         return "+".join(names)
     return team_key(names[0], names[1])
+
+
+def read_recent_events(path: Path, limit: int) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    lines = path.read_text(encoding="utf-8", errors="ignore").splitlines()
+    events: List[Dict[str, Any]] = []
+    for raw in lines[-limit:]:
+        raw = raw.strip()
+        if not raw:
+            continue
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(payload, dict):
+            events.append(payload)
+    return events
 
 
 # -------------------------
@@ -303,6 +328,181 @@ def is_main_event(name_a: str, name_b: str, records: Dict[str, Any], roster_name
     return bool(ra and rb and ra <= TOP_N_MAIN_EVENT and rb <= TOP_N_MAIN_EVENT)
 
 
+def recent_singles_events(events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    return [
+        event for event in events
+        if not event.get("tag_series") and not event.get("is_royal") and not event.get("royal")
+    ]
+
+
+def pair_key(a: str, b: str) -> Tuple[str, str]:
+    return tuple(sorted((a, b), key=str.lower))
+
+
+def recently_matched(a: str, b: str, events: List[Dict[str, Any]], limit: int = RECENT_MATCHUP_AVOID_WINDOW) -> bool:
+    needle = pair_key(a, b)
+    for event in reversed(recent_singles_events(events)):
+        if pair_key(str(event.get("p1", "")), str(event.get("p2", ""))) == needle:
+            return True
+        limit -= 1
+        if limit <= 0:
+            break
+    return False
+
+
+def head_to_head_stats(a: str, b: str, events: List[Dict[str, Any]]) -> Tuple[int, int]:
+    wins_a = 0
+    wins_b = 0
+    needle = pair_key(a, b)
+    for event in recent_singles_events(events):
+        if pair_key(str(event.get("p1", "")), str(event.get("p2", ""))) != needle:
+            continue
+        winner = str(event.get("winner", ""))
+        if winner == a:
+            wins_a += 1
+        elif winner == b:
+            wins_b += 1
+    return wins_a, wins_b
+
+
+def rivalry_candidates(roster_names: List[str], records: Dict[str, Any], events: List[Dict[str, Any]]) -> List[Tuple[float, str, str]]:
+    seen: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    for event in recent_singles_events(events):
+        p1 = str(event.get("p1", "")).strip()
+        p2 = str(event.get("p2", "")).strip()
+        winner = str(event.get("winner", "")).strip()
+        if not p1 or not p2 or p1 not in roster_names or p2 not in roster_names:
+            continue
+        key = pair_key(p1, p2)
+        info = seen.setdefault(key, {"count": 0, "wins": {p1: 0, p2: 0}, "recent_bonus": 0})
+        info["count"] += 1
+        info["recent_bonus"] += max(0, 8 - info["count"])
+        if winner:
+            info["wins"][winner] = int(info["wins"].get(winner, 0)) + 1
+
+    scored: List[Tuple[float, str, str]] = []
+    for (a, b), info in seen.items():
+        meetings = int(info["count"])
+        if meetings < RIVALRY_MIN_MEETINGS:
+            continue
+        wins_a = int(info["wins"].get(a, 0))
+        wins_b = int(info["wins"].get(b, 0))
+        if abs(wins_a - wins_b) > 1:
+            continue
+        if recently_matched(a, b, events, limit=4):
+            continue
+        elo_gap = abs(elo(records, a) - elo(records, b))
+        score = meetings * 4 + info["recent_bonus"] - (elo_gap / 80.0)
+        scored.append((score, a, b))
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    return scored
+
+
+def contender_pool(records: Dict[str, Any], roster_names: List[str], champion: Optional[str], top_n: int = 12) -> List[str]:
+    board = leaderboard_names(records, roster_names)
+    return [name for name in board[:top_n] if name != champion]
+
+
+def choose_weighted_random(candidates: List[Tuple[float, str]]) -> Optional[str]:
+    weighted = [(weight, value) for weight, value in candidates if weight > 0]
+    if not weighted:
+        return None
+    total = sum(weight for weight, _ in weighted)
+    pick = random.uniform(0, total)
+    running = 0.0
+    for weight, value in weighted:
+        running += weight
+        if pick <= running:
+            return value
+    return weighted[-1][1]
+
+
+def choose_protected_debut_opponent(
+    debut_name: str,
+    roster_names: List[str],
+    records: Dict[str, Any],
+    events: List[Dict[str, Any]],
+    champion: Optional[str],
+) -> str:
+    rank_map = {name: idx + 1 for idx, name in enumerate(leaderboard_names(records, roster_names))}
+    debut_elo = elo(records, debut_name)
+    weighted: List[Tuple[float, str]] = []
+
+    for candidate in roster_names:
+        if candidate == debut_name or candidate == champion:
+            continue
+        gp = games_played(records, candidate)
+        if gp <= 0:
+            continue
+        if recently_matched(debut_name, candidate, events):
+            continue
+        rank = rank_map.get(candidate, 999)
+        if rank <= DEBUT_PROTECTION_TOP_RANK_CUTOFF:
+            continue
+        score = 10.0
+        score += min(gp, 12)
+        score -= min(abs(elo(records, candidate) - debut_elo) / 60.0, 8.0)
+        score -= max(0, streak(records, candidate) - 1) * 1.6
+        weighted.append((score, candidate))
+
+    chosen = choose_weighted_random(weighted)
+    if chosen:
+        return chosen
+    return choose_random_opponent(roster_names, [debut_name], records, prefer_veterans=True)
+
+
+def choose_contender_showcase(
+    roster_names: List[str],
+    records: Dict[str, Any],
+    events: List[Dict[str, Any]],
+    champion: Optional[str],
+) -> Optional[Tuple[str, str]]:
+    contenders = contender_pool(records, roster_names, champion, top_n=12)
+    best: Optional[Tuple[float, str, str]] = None
+    for index, a in enumerate(contenders):
+        for b in contenders[index + 1:]:
+            if recently_matched(a, b, events):
+                continue
+            gp_a = games_played(records, a)
+            gp_b = games_played(records, b)
+            if gp_a <= 0 or gp_b <= 0:
+                continue
+            rank_gap = abs((rank_of(a, records, roster_names) or 99) - (rank_of(b, records, roster_names) or 99))
+            elo_gap = abs(elo(records, a) - elo(records, b))
+            score = 16.0 - rank_gap - (elo_gap / 75.0) + (gp_a + gp_b) / 10.0
+            if best is None or score > best[0]:
+                best = (score, a, b)
+    if best:
+        return best[1], best[2]
+    return None
+
+
+def choose_rebound_match(
+    roster_names: List[str],
+    records: Dict[str, Any],
+    events: List[Dict[str, Any]],
+) -> Optional[Tuple[str, str]]:
+    slumping = [
+        name for name in roster_names
+        if games_played(records, name) >= 2 and streak(records, name) <= -2
+    ]
+    if len(slumping) < 2:
+        return None
+    best: Optional[Tuple[float, str, str]] = None
+    for index, a in enumerate(slumping):
+        for b in slumping[index + 1:]:
+            if recently_matched(a, b, events):
+                continue
+            elo_gap = abs(elo(records, a) - elo(records, b))
+            score = 12.0 - (elo_gap / 80.0) + abs(streak(records, a)) + abs(streak(records, b))
+            if best is None or score > best[0]:
+                best = (score, a, b)
+    if best:
+        return best[1], best[2]
+    return None
+
+
 # -------------------------
 # Match builders
 # -------------------------
@@ -374,59 +574,111 @@ def choose_world_title_match(state: Dict[str, Any], roster: List[Dict[str, Any]]
 
     return None
 
-    # 1) Royal winner queue retains priority when present.
-    royal = state.get("royal_winner_queue")
-    if royal and royal in roster_names and royal != champion:
+def active_royal_match(roster_names: List[str]) -> Optional[Dict[str, Any]]:
+    bracket = load_json(ROYAL_FILE, {"active": False})
+    if not bracket.get("active"):
+        return None
+
+    round_name = str(bracket.get("round") or "").strip()
+    round_map = {
+        "QF": bracket.get("qf", []),
+        "SF": bracket.get("sf", []),
+        "F": bracket.get("final", []),
+    }
+    pairings = round_map.get(round_name, [])
+    winners_qf = set(bracket.get("winners_qf", []))
+    winners_sf = set(bracket.get("winners_sf", []))
+
+    for pair in pairings:
+        if not isinstance(pair, list) or len(pair) != 2:
+            continue
+        p1, p2 = str(pair[0]).strip(), str(pair[1]).strip()
+        if p1 not in roster_names or p2 not in roster_names:
+            continue
+        if round_name == "QF" and (p1 in winners_qf or p2 in winners_qf):
+            continue
+        if round_name == "SF" and (p1 in winners_sf or p2 in winners_sf):
+            continue
+        if round_name == "F" and bracket.get("winner"):
+            continue
         return {
             "type": "SINGLES",
-            "p1": champion,
-            "p2": royal,
-            "is_world_title": True,
-            "title_reason": "Royal winner title shot",
-            "main_event": True,
+            "p1": p1,
+            "p2": p2,
+            "is_royal": True,
+            "royal_round": round_name,
+            "title_reason": "Winner earns a world title shot",
+            "main_event": round_name == "F",
+            "main_event_reason": f"Royal {round_name}",
         }
-
-    # 2) Every N matches, force champ vs current #2 contender.
-    next_match_num = int(state.get("match_count", 0)) + 1
-    if next_match_num % TITLE_EVERY_N_MATCHES == 0:
-        contenders = top_two_contenders(records, roster_names, champion)
-        if contenders:
-            challenger = contenders[0]
-            return {
-                "type": "SINGLES",
-                "p1": champion,
-                "p2": challenger,
-                "is_world_title": True,
-                "title_reason": f"Scheduled title defense (every {TITLE_EVERY_N_MATCHES} matches)",
-                "main_event": True,
-            }
-
-    # 3) Hot streak contender gets a title shot.
-    contenders = [
-        name for name in roster_names
-        if name != champion and games_played(records, name) > 0 and streak(records, name) >= STREAK_TITLE_THRESHOLD
-    ]
-    if contenders:
-        contenders.sort(key=lambda name: (streak(records, name), elo(records, name), games_played(records, name)), reverse=True)
-        challenger = contenders[0]
-        return {
-            "type": "SINGLES",
-            "p1": champion,
-            "p2": challenger,
-            "is_world_title": True,
-            "title_reason": f"{challenger} earned a title shot on a {streak(records, challenger)}-fight win streak",
-            "main_event": True,
-        }
-
     return None
 
 
-def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any]) -> Dict[str, Any]:
+def maybe_start_royal_tournament(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    if state.get("royal_winner_queue"):
+        return None
+    next_match_num = int(state.get("match_count", 0)) + 1
+    if next_match_num % ROYAL_TRIGGER_EVERY != 0:
+        return None
+
     roster_names = [f["name"] for f in roster]
+    champion = state.get("champion")
+    contenders = contender_pool(records, roster_names, champion, top_n=max(ROYAL_FIELD_SIZE, 12))
+    rookies = [name for name in roster_names if games_played(records, name) <= 1 and name not in contenders and name != champion]
+    field: List[str] = []
+
+    for name in contenders:
+        if name not in field:
+            field.append(name)
+        if len(field) >= max(ROYAL_FIELD_SIZE - 2, 4):
+            break
+
+    for name in rookies:
+        if len(field) >= ROYAL_FIELD_SIZE:
+            break
+        if name not in field:
+            field.append(name)
+
+    for name in leaderboard_names(records, roster_names):
+        if len(field) >= ROYAL_FIELD_SIZE:
+            break
+        if name != champion and name not in field:
+            field.append(name)
+
+    if len(field) < 4:
+        return None
+
+    if len(field) > ROYAL_FIELD_SIZE:
+        field = field[:ROYAL_FIELD_SIZE]
+    random.shuffle(field)
+
+    qf = [[field[i], field[i + 1]] for i in range(0, len(field), 2) if i + 1 < len(field)]
+    if len(qf) < 2:
+        return None
+
+    bracket = {
+        "active": True,
+        "created_ts": __import__("time").time(),
+        "round": "QF",
+        "field": field,
+        "qf": qf,
+        "sf": [],
+        "final": [],
+        "winner": None,
+        "winners_qf": [],
+        "winners_sf": [],
+    }
+    save_json(ROYAL_FILE, bracket)
+    return active_royal_match(roster_names)
+
+
+def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], records: Dict[str, Any], events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    roster_names = [f["name"] for f in roster]
+    champion = state.get("champion")
 
     debut_name = choose_debut_fighter(state, roster, records)
     if debut_name:
-        opponent = choose_random_opponent(roster_names, [debut_name], records, prefer_veterans=True)
+        opponent = choose_protected_debut_opponent(debut_name, roster_names, records, events, champion)
         return {
             "type": "SINGLES",
             "p1": debut_name,
@@ -436,10 +688,67 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "debut_fighter": debut_name,
             "title_reason": None,
             "main_event": False,
+            "main_event_reason": None,
+            "booking_reason": "Protected debut showcase",
         }
 
-    p1 = random.choice(roster_names)
-    p2 = choose_random_opponent(roster_names, [p1], records, prefer_veterans=False)
+    rivalry = rivalry_candidates(roster_names, records, events)
+    if rivalry and random.random() < 0.45:
+        _, p1, p2 = rivalry[0]
+        return {
+            "type": "SINGLES",
+            "p1": p1,
+            "p2": p2,
+            "is_world_title": False,
+            "is_debut": False,
+            "debut_fighter": None,
+            "title_reason": None,
+            "main_event": is_main_event(p1, p2, records, roster_names, team_mode=False),
+            "main_event_reason": "Rivalry rematch",
+            "booking_reason": "Rivalry rematch",
+        }
+
+    contender = choose_contender_showcase(roster_names, records, events, champion)
+    if contender and random.random() < 0.55:
+        p1, p2 = contender
+        return {
+            "type": "SINGLES",
+            "p1": p1,
+            "p2": p2,
+            "is_world_title": False,
+            "is_debut": False,
+            "debut_fighter": None,
+            "title_reason": None,
+            "main_event": True,
+            "main_event_reason": "Contender showcase",
+            "booking_reason": "Contender showcase",
+        }
+
+    rebound = choose_rebound_match(roster_names, records, events)
+    if rebound and random.random() < 0.35:
+        p1, p2 = rebound
+        return {
+            "type": "SINGLES",
+            "p1": p1,
+            "p2": p2,
+            "is_world_title": False,
+            "is_debut": False,
+            "debut_fighter": None,
+            "title_reason": None,
+            "main_event": False,
+            "main_event_reason": None,
+            "booking_reason": "Redemption bout",
+        }
+
+    selectable = [name for name in roster_names if name != champion]
+    p1 = random.choice(selectable or roster_names)
+    recent_opponents = [
+        str(event.get("p2" if str(event.get("p1")) == p1 else "p1", "")).strip()
+        for event in reversed(recent_singles_events(events))
+        if p1 in (str(event.get("p1", "")).strip(), str(event.get("p2", "")).strip())
+    ][:RECENT_MATCHUP_AVOID_WINDOW]
+    exclusions = [p1] + recent_opponents
+    p2 = choose_random_opponent(roster_names, exclusions, records, prefer_veterans=False)
     return {
         "type": "SINGLES",
         "p1": p1,
@@ -449,6 +758,8 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
         "debut_fighter": None,
         "title_reason": None,
         "main_event": is_main_event(p1, p2, records, roster_names, team_mode=False),
+        "main_event_reason": "Top-10 vs Top-10" if is_main_event(p1, p2, records, roster_names, team_mode=False) else None,
+        "booking_reason": "Open booking",
     }
 
 
@@ -687,6 +998,7 @@ def main() -> None:
         "tag_series_count": 0,
     })
     records = load_json(RECORDS_FILE, {})
+    recent_events = read_recent_events(HISTORY_FILE, RIVALRY_HISTORY_TAIL)
     roster, counts = load_roster()
     if not roster:
         print("No fighters available.")
@@ -701,6 +1013,8 @@ def main() -> None:
         invalidate_active_tag_series(f"Missing roster entries for tag series teams: {', '.join(missing_members)}")
 
     ctx = active_tag_series_match(records)
+    if ctx is None:
+        ctx = active_royal_match(roster_names)
     if ctx is not None and not context_fighters_resolvable(ctx, lookup):
         missing = [name for name in (ctx.get("p1"), ctx.get("p2")) if str(name or "").strip() not in lookup]
         invalidate_active_tag_series(f"Missing roster entries for active tag series: {', '.join(missing)}")
@@ -708,12 +1022,14 @@ def main() -> None:
     if ctx is None:
         ctx = choose_world_title_match(state, roster, records)
     if ctx is None:
+        ctx = maybe_start_royal_tournament(state, roster, records, recent_events)
+    if ctx is None:
         ctx = maybe_start_tag_series(state, roster, records)
         if ctx is not None and not context_fighters_resolvable(ctx, lookup):
             missing = [name for name in (ctx.get("p1"), ctx.get("p2")) if str(name or "").strip() not in lookup]
             raise RuntimeError(f"Generated tag series includes unavailable fighters: {', '.join(missing)}")
     if ctx is None:
-        ctx = choose_regular_singles(state, roster, records)
+        ctx = choose_regular_singles(state, roster, records, recent_events)
 
     p1 = ctx["p1"]
     p2 = ctx["p2"]

@@ -158,9 +158,20 @@ def team_key(a: str, b: str) -> str:
 def royal_advance(bracket: Dict[str, Any], winner: str) -> Dict[str, Any]:
     rd = bracket.get("round")
     if rd == "QF":
-        bracket.setdefault("winners_qf", []).append(winner)
+        winners = bracket.setdefault("winners_qf", [])
+        winners.append(winner)
+        if len(winners) >= 4:
+            bracket["sf"] = [
+                [winners[0], winners[1]],
+                [winners[2], winners[3]],
+            ]
+            bracket["round"] = "SF"
     elif rd == "SF":
-        bracket.setdefault("winners_sf", []).append(winner)
+        winners = bracket.setdefault("winners_sf", [])
+        winners.append(winner)
+        if len(winners) >= 2:
+            bracket["final"] = [[winners[0], winners[1]]]
+            bracket["round"] = "F"
     elif rd == "F":
         bracket["winner"] = winner
         bracket["active"] = False

@@ -28,6 +28,31 @@ function setHTML(id, value) {
   }
 }
 
+function updateTickerMarquee() {
+  const track = document.querySelector(".ticker-track");
+  const marquee = document.getElementById("tickerMarquee");
+  const text = document.getElementById("tickerText");
+  const clone = document.getElementById("tickerTextClone");
+  if (!track || !marquee || !text || !clone) {
+    return;
+  }
+
+  const gap = 160;
+  const textWidth = Math.ceil(text.scrollWidth);
+  const loopDistance = textWidth + gap;
+  const pixelsPerSecond = 110;
+  const duration = Math.max(18, loopDistance / pixelsPerSecond);
+
+  clone.textContent = text.textContent || "--";
+  marquee.style.setProperty("--ticker-gap", `${gap}px`);
+  marquee.style.setProperty("--ticker-start-offset", `${Math.ceil(track.clientWidth)}px`);
+  marquee.style.setProperty("--ticker-loop", `${loopDistance}px`);
+  marquee.style.setProperty("--ticker-duration", `${duration.toFixed(2)}s`);
+  marquee.style.animation = "none";
+  void marquee.offsetWidth;
+  marquee.style.animation = "";
+}
+
 function show(id, enabled) {
   const element = document.getElementById(id);
   if (element) {
@@ -89,6 +114,54 @@ function normKey(name) {
     .replace(/[^\w]/g, "");
 }
 
+function isPlaceholderAuthor(author) {
+  const value = String(author || "").trim().toLowerCase();
+  return !value || value === "unknown" || value === "legacy fighter";
+}
+
+function resolveAliasMeta(meta, entry, maxHops = 5) {
+  let current = entry;
+  let hops = 0;
+
+  while (current?.alias_to && hops < maxHops) {
+    const next = meta?.[current.alias_to];
+    if (!next || next === current) {
+      break;
+    }
+    current = next;
+    hops += 1;
+  }
+
+  return current;
+}
+
+function metaScore(entry) {
+  if (!entry || typeof entry !== "object") {
+    return -1;
+  }
+
+  let score = 0;
+  if (!isPlaceholderAuthor(entry.author || entry.creator || entry.creator_name || entry.submitted_by)) {
+    score += 10;
+  }
+  if (entry.char_folder) {
+    score += 4;
+  }
+  if (entry.def_file || entry.def_path) {
+    score += 3;
+  }
+  if (entry.source === "native") {
+    score += 2;
+  }
+  if (entry.source === "submitted") {
+    score += 1;
+  }
+  if (entry.alias_to) {
+    score -= 2;
+  }
+  return score;
+}
+
 function unwrapMeta(metaWrap) {
   if (!metaWrap) {
     return {};
@@ -104,31 +177,65 @@ function metaFor(meta, name) {
     return null;
   }
 
-  if (meta[name]) {
-    return meta[name];
+  const normalizedName = normKey(name);
+  const candidates = [];
+  const seen = new Set();
+
+  function pushCandidate(entry) {
+    if (!entry || typeof entry !== "object") {
+      return;
+    }
+    const resolved = resolveAliasMeta(meta, entry);
+    const signature = JSON.stringify([
+      resolved.author || "",
+      resolved.char_folder || "",
+      resolved.def_file || "",
+      resolved.def_path || "",
+      resolved.alias_to || "",
+      resolved.source || "",
+    ]);
+    if (seen.has(signature)) {
+      return;
+    }
+    seen.add(signature);
+    candidates.push(resolved);
   }
 
-  const normalizedName = normKey(name);
+  pushCandidate(meta[name]);
+
   for (const key of Object.keys(meta)) {
     if (normKey(key) === normalizedName) {
-      return meta[key];
+      pushCandidate(meta[key]);
     }
   }
 
   for (const key of Object.keys(meta)) {
     const entry = meta[key];
-    if (!entry) {
+    if (!entry || typeof entry !== "object") {
       continue;
     }
 
+    const aliasTo = normKey(entry.alias_to || "");
     const folder = normKey(entry.char_folder || "");
     const defStem = normKey(String(entry.def_file || "").replace(/\.def$/i, ""));
-    if (normalizedName === folder || normalizedName === defStem) {
-      return entry;
+    const selectEntry = normKey(String(entry.select_entry || "").split("/", 1)[0]);
+
+    if (
+      normalizedName === aliasTo ||
+      normalizedName === folder ||
+      normalizedName === defStem ||
+      normalizedName === selectEntry
+    ) {
+      pushCandidate(entry);
     }
   }
 
-  return null;
+  if (!candidates.length) {
+    return null;
+  }
+
+  candidates.sort((a, b) => metaScore(b) - metaScore(a));
+  return candidates[0];
 }
 
 function getAuthor(metaObj) {
@@ -143,6 +250,7 @@ function getAuthor(metaObj) {
 
 const fighterProfileCache = {};
 let lastMatchKey = "";
+let lastTickerText = "";
 let hideTimer = null;
 let revealResetTimer = null;
 let debutCardTimer = null;
@@ -209,6 +317,7 @@ function parsePrematch(text) {
     main: "MAIN EVENT: --",
     debut: null,
     eventNotice: null,
+    story: null,
     pillNotice: null,
     bannerText: null,
   };
@@ -280,6 +389,7 @@ function parsePrematch(text) {
 
   const h2h = lines.find((line) => line.startsWith("H2H:"));
   const form = lines.find((line) => line.startsWith("FORM"));
+  const story = lines.find((line) => line.startsWith("STORY:"));
   const main = lines.find((line) => line.startsWith("MAIN EVT:") || line.startsWith("MAIN EVENT:"));
 
   if (h2h) {
@@ -287,6 +397,9 @@ function parsePrematch(text) {
   }
   if (form) {
     result.form = form.replace("FORM L5:", "LAST 5:").trim();
+  }
+  if (story) {
+    result.story = story.trim();
   }
   if (main) {
     result.main = main.replace("MAIN EVT:", "MAIN EVENT:").trim();
@@ -402,6 +515,9 @@ function buildTickerItems({
   if (prematch?.eventNotice) {
     items.push(prematch.eventNotice);
   }
+  if (prematch?.story) {
+    items.push(prematch.story);
+  }
   if (prematch?.main && !prematch.main.endsWith("--")) {
     items.push(prematch.main);
   }
@@ -471,6 +587,7 @@ function setPanelsVisible(enabled) {
   document.getElementById("leaderPanel")?.classList.toggle("hiddenPanel", !enabled);
   document.getElementById("hallPanel")?.classList.toggle("hiddenPanel", !enabled);
   document.getElementById("tagHallPanel")?.classList.toggle("hiddenPanel", !enabled);
+  document.body.classList.toggle("overlay-prematch-panels", enabled);
   setPrematchBig(enabled);
 }
 
@@ -602,8 +719,8 @@ async function update() {
     const p2Nickname = summarizeNickname(p2Profile);
     const p1Style = summarizeStyle(p1Profile, p1Meta);
     const p2Style = summarizeStyle(p2Profile, p2Meta);
-    const p1Creator = summarizeCreator(p1Profile, p1Map);
-    const p2Creator = summarizeCreator(p2Profile, p2Map);
+    const p1Creator = summarizeCreator(p1Profile, p1Map || p1Meta);
+    const p2Creator = summarizeCreator(p2Profile, p2Map || p2Meta);
     const isTitle = String(isTitleText || "").trim() === "1";
 
     const matchNumber = `#${(state?.match_count ?? 0) + 1}`;
@@ -668,6 +785,8 @@ async function update() {
       stakes = `STAKES: ${prematch.debut}`;
     } else if (prematch.eventNotice) {
       stakes = `STAKES: ${prematch.eventNotice}`;
+    } else if (prematch.story) {
+      stakes = `STAKES: ${prematch.story.replace("STORY:", "").trim()}`;
     } else if (prematch.bannerText) {
       stakes = `STAKES: ${prematch.bannerText}`;
     }
@@ -746,7 +865,11 @@ async function update() {
       prematch,
       lastResult,
     });
-    setText("tickerText", ticker);
+    if (ticker !== lastTickerText) {
+      lastTickerText = ticker;
+      setText("tickerText", ticker);
+      updateTickerMarquee();
+    }
 
     await loadHall();
     await loadTagHall();
@@ -756,4 +879,5 @@ async function update() {
 }
 
 setInterval(update, 1500);
+window.addEventListener("resize", updateTickerMarquee);
 update();

@@ -180,6 +180,7 @@ def main() -> None:
     debut_fighter = ctx.get("debut_fighter")
     main_event = bool(ctx.get("main_event", False))
     main_event_reason = ctx.get("main_event_reason")
+    booking_reason = ctx.get("booking_reason")
 
     lines_out: List[str] = []
 
@@ -257,6 +258,8 @@ def main() -> None:
         a_wins, b_wins = h2h(events, p1, p2)
         lines_out.append(f"H2H:       {p1} {a_wins}-{b_wins} {p2}")
         lines_out.append(f"ODDS:      Favorite: {(p1 if p >= 0.5 else p2)} ({max(p, 1.0-p)*100:.1f}%)")
+        if booking_reason:
+            lines_out.append(f"STORY:     {booking_reason}")
 
         me_text = "—"
         if main_event_reason:
