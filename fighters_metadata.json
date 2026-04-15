@@ -4889,6 +4889,16 @@
       "char_folder": "Zero",
       "def_file": "BZero.def",
       "def_path": "Zero/BZero.def"
+    },
+    "Skullomania": {
+      "author": "SeanAltly&DivineWolf",
+      "archetype": "Roster",
+      "power_index": 50,
+      "source": "native",
+      "select_entry": "DivineSkullo",
+      "char_folder": "DivineSkullo",
+      "def_file": "DivineSkullo.def",
+      "def_path": "DivineSkullo/DivineSkullo.def"
     }
   }
 }
