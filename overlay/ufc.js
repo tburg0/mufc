@@ -347,7 +347,7 @@ function parsePrematch(text) {
     result.pillNotice = debutLine.trim();
     result.bannerText = "DEBUT MATCH";
   } else {
-    result.pillNotice = result.eventNotice || result.pre;
+    result.pillNotice = result.eventNotice || null;
   }
 
   let recordLineOne = null;
@@ -900,18 +900,14 @@ async function update() {
       hasEvent: Boolean(prematch.eventNotice),
     });
 
-    show("debutBanner", Boolean(prematch.debut));
-    setText("debutBanner", prematch.debut || "");
+    show("debutBanner", false);
+    setText("debutBanner", "");
 
-    if (prematch.bannerText && prematch.bannerText !== "DEBUT MATCH") {
-      setText("titleBanner", prematch.bannerText);
-      show("titleBanner", true);
-    } else {
-      show("titleBanner", isTitle && !prematch.debut);
-      if (isTitle) {
-        setText("titleBanner", "CHAMPIONSHIP FIGHT");
-      }
-    }
+    const centerPillText =
+      prematch.pillNotice ||
+      (isTitle ? "CHAMPIONSHIP FIGHT" : "");
+    setText("titleBanner", centerPillText || "");
+    show("titleBanner", Boolean(centerPillText));
 
     const matchKey = `${matchRaw}|${isTitle ? "1" : "0"}`;
     if (matchKey && matchKey !== lastMatchKey) {

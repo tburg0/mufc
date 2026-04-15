@@ -36,6 +36,8 @@ RIVALRY_HISTORY_TAIL = 400
 RIVALRY_COOLDOWN_MATCHES = 5
 RIVALRY_MAX_TRACKED = 40
 CONTENDER_LADDER_TOP_N = 8
+RECENT_APPEARANCE_WINDOW = 16
+RECENT_APPEARANCE_HARD_CAP = 3
 ELO_START = 1500.0
 
 
@@ -355,6 +357,37 @@ def recently_matched(a: str, b: str, events: List[Dict[str, Any]], limit: int = 
     return False
 
 
+def recent_appearance_counts(events: List[Dict[str, Any]], limit: int = RECENT_APPEARANCE_WINDOW) -> Dict[str, int]:
+    counts: Dict[str, int] = {}
+    for event in events[-limit:]:
+        for field in ("p1", "p2"):
+            name = str(event.get(field, "")).strip()
+            if not name:
+                continue
+            counts[name] = counts.get(name, 0) + 1
+    return counts
+
+
+def appearance_penalty(name: str, counts: Dict[str, int]) -> float:
+    return float(counts.get(name, 0)) * 2.4
+
+
+def filter_cooldown_pool(names: List[str], counts: Dict[str, int], hard_cap: int = RECENT_APPEARANCE_HARD_CAP) -> List[str]:
+    cooled = [name for name in names if counts.get(name, 0) < hard_cap]
+    return cooled or names
+
+
+def choose_scored_pair(scored: List[Tuple[float, str, str]], top_n: int = 5) -> Optional[Tuple[str, str]]:
+    if not scored:
+        return None
+    shortlist = scored[:top_n]
+    weighted: List[Tuple[float, Tuple[str, str]]] = []
+    floor = shortlist[-1][0]
+    for score, a, b in shortlist:
+        weighted.append((max(1.0, score - floor + 1.0), (a, b)))
+    return choose_weighted_random(weighted)
+
+
 def head_to_head_stats(a: str, b: str, events: List[Dict[str, Any]]) -> Tuple[int, int]:
     wins_a = 0
     wins_b = 0
@@ -371,6 +404,7 @@ def head_to_head_stats(a: str, b: str, events: List[Dict[str, Any]]) -> Tuple[in
 
 
 def rivalry_candidates(roster_names: List[str], records: Dict[str, Any], events: List[Dict[str, Any]]) -> List[Tuple[float, str, str]]:
+    appearance_counts = recent_appearance_counts(events)
     seen: Dict[Tuple[str, str], Dict[str, Any]] = {}
     for event in recent_singles_events(events):
         p1 = str(event.get("p1", "")).strip()
@@ -398,6 +432,8 @@ def rivalry_candidates(roster_names: List[str], records: Dict[str, Any], events:
             continue
         elo_gap = abs(elo(records, a) - elo(records, b))
         score = meetings * 4 + info["recent_bonus"] - (elo_gap / 80.0)
+        score -= appearance_penalty(a, appearance_counts)
+        score -= appearance_penalty(b, appearance_counts)
         scored.append((score, a, b))
 
     scored.sort(key=lambda item: item[0], reverse=True)
@@ -411,6 +447,7 @@ def state_rivalry_candidates(
     current_match_number: int,
 ) -> List[Tuple[float, str, str]]:
     tracked = state.get("rivalries") or []
+    appearance_counts = recent_appearance_counts(read_recent_events(HISTORY_FILE, RECENT_APPEARANCE_WINDOW), RECENT_APPEARANCE_WINDOW)
     scored: List[Tuple[float, str, str]] = []
     roster_set = set(roster_names)
     for item in tracked:
@@ -435,6 +472,8 @@ def state_rivalry_candidates(
         intensity = float(item.get("intensity", 0))
         elo_gap = abs(elo(records, a) - elo(records, b))
         score = intensity + meetings * 2.0 - (elo_gap / 90.0)
+        score -= appearance_penalty(a, appearance_counts)
+        score -= appearance_penalty(b, appearance_counts)
         scored.append((score, a, b))
     scored.sort(key=lambda entry: entry[0], reverse=True)
     return scored
@@ -499,8 +538,9 @@ def choose_contender_showcase(
     events: List[Dict[str, Any]],
     champion: Optional[str],
 ) -> Optional[Tuple[str, str]]:
-    contenders = contender_pool(records, roster_names, champion, top_n=12)
-    best: Optional[Tuple[float, str, str]] = None
+    appearance_counts = recent_appearance_counts(events)
+    contenders = filter_cooldown_pool(contender_pool(records, roster_names, champion, top_n=12), appearance_counts)
+    scored: List[Tuple[float, str, str]] = []
     for index, a in enumerate(contenders):
         for b in contenders[index + 1:]:
             if recently_matched(a, b, events):
@@ -512,11 +552,10 @@ def choose_contender_showcase(
             rank_gap = abs((rank_of(a, records, roster_names) or 99) - (rank_of(b, records, roster_names) or 99))
             elo_gap = abs(elo(records, a) - elo(records, b))
             score = 16.0 - rank_gap - (elo_gap / 75.0) + (gp_a + gp_b) / 10.0
-            if best is None or score > best[0]:
-                best = (score, a, b)
-    if best:
-        return best[1], best[2]
-    return None
+            score -= appearance_penalty(a, appearance_counts)
+            score -= appearance_penalty(b, appearance_counts)
+            scored.append((score, a, b))
+    return choose_scored_pair(sorted(scored, key=lambda item: item[0], reverse=True))
 
 
 def choose_rebound_match(
@@ -524,24 +563,25 @@ def choose_rebound_match(
     records: Dict[str, Any],
     events: List[Dict[str, Any]],
 ) -> Optional[Tuple[str, str]]:
+    appearance_counts = recent_appearance_counts(events)
     slumping = [
         name for name in roster_names
         if games_played(records, name) >= 2 and streak(records, name) <= -2
     ]
+    slumping = filter_cooldown_pool(slumping, appearance_counts)
     if len(slumping) < 2:
         return None
-    best: Optional[Tuple[float, str, str]] = None
+    scored: List[Tuple[float, str, str]] = []
     for index, a in enumerate(slumping):
         for b in slumping[index + 1:]:
             if recently_matched(a, b, events):
                 continue
             elo_gap = abs(elo(records, a) - elo(records, b))
             score = 12.0 - (elo_gap / 80.0) + abs(streak(records, a)) + abs(streak(records, b))
-            if best is None or score > best[0]:
-                best = (score, a, b)
-    if best:
-        return best[1], best[2]
-    return None
+            score -= appearance_penalty(a, appearance_counts)
+            score -= appearance_penalty(b, appearance_counts)
+            scored.append((score, a, b))
+    return choose_scored_pair(sorted(scored, key=lambda item: item[0], reverse=True))
 
 
 def choose_contender_eliminator(
@@ -551,11 +591,15 @@ def choose_contender_eliminator(
     events: List[Dict[str, Any]],
     champion: Optional[str],
 ) -> Optional[Tuple[str, str]]:
-    contenders = contender_pool(records, roster_names, champion, top_n=CONTENDER_LADDER_TOP_N)
+    appearance_counts = recent_appearance_counts(events)
+    contenders = filter_cooldown_pool(
+        contender_pool(records, roster_names, champion, top_n=CONTENDER_LADDER_TOP_N),
+        appearance_counts,
+    )
     reserved = str(state.get("contender_queue") or "").strip()
     if reserved:
         contenders = [name for name in contenders if name != reserved]
-    best: Optional[Tuple[float, str, str]] = None
+    scored: List[Tuple[float, str, str]] = []
     for index, a in enumerate(contenders):
         for b in contenders[index + 1:]:
             if recently_matched(a, b, events):
@@ -568,11 +612,10 @@ def choose_contender_eliminator(
             elo_gap = abs(elo(records, a) - elo(records, b))
             streak_bonus = max(streak(records, a), 0) + max(streak(records, b), 0)
             score = 18.0 - rank_gap - (elo_gap / 85.0) + streak_bonus
-            if best is None or score > best[0]:
-                best = (score, a, b)
-    if best:
-        return best[1], best[2]
-    return None
+            score -= appearance_penalty(a, appearance_counts)
+            score -= appearance_penalty(b, appearance_counts)
+            scored.append((score, a, b))
+    return choose_scored_pair(sorted(scored, key=lambda item: item[0], reverse=True))
 
 
 # -------------------------
@@ -858,10 +901,12 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
     roster_names = [f["name"] for f in roster]
     champion = state.get("champion")
     current_match_number = int(state.get("match_count", 0)) + 1
+    appearance_counts = recent_appearance_counts(events)
+    non_title_roster = [name for name in roster_names if name != champion] or roster_names
 
     debut_name = choose_debut_fighter(state, roster, records)
     if debut_name:
-        opponent = choose_protected_debut_opponent(debut_name, roster_names, records, events, champion)
+        opponent = choose_protected_debut_opponent(debut_name, non_title_roster, records, events, champion)
         return {
             "type": "SINGLES",
             "p1": debut_name,
@@ -875,9 +920,13 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "booking_reason": "Protected debut showcase",
         }
 
-    rivalry = state_rivalry_candidates(state, roster_names, records, current_match_number) or rivalry_candidates(roster_names, records, events)
-    if rivalry and random.random() < 0.45:
-        _, p1, p2 = rivalry[0]
+    rivalry = (
+        state_rivalry_candidates(state, non_title_roster, records, current_match_number)
+        or rivalry_candidates(non_title_roster, records, events)
+    )
+    if rivalry and current_match_number % 4 == 0 and random.random() < 0.38:
+        chosen = choose_scored_pair(rivalry)
+        p1, p2 = chosen or (rivalry[0][1], rivalry[0][2])
         return {
             "type": "SINGLES",
             "p1": p1,
@@ -891,8 +940,14 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "booking_reason": "Rivalry rematch",
         }
 
-    contender_eliminator = choose_contender_eliminator(state, roster_names, records, events, champion)
-    if contender_eliminator and random.random() < 0.6:
+    contender_eliminator = choose_contender_eliminator(state, non_title_roster, records, events, champion)
+    if (
+        contender_eliminator
+        and not state.get("contender_queue")
+        and not state.get("title_due")
+        and current_match_number % 3 == 1
+        and random.random() < 0.42
+    ):
         p1, p2 = contender_eliminator
         return {
             "type": "SINGLES",
@@ -908,8 +963,8 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "contender_implication": True,
         }
 
-    contender = choose_contender_showcase(roster_names, records, events, champion)
-    if contender and random.random() < 0.55:
+    contender = choose_contender_showcase(non_title_roster, records, events, champion)
+    if contender and current_match_number % 3 == 2 and random.random() < 0.38:
         p1, p2 = contender
         return {
             "type": "SINGLES",
@@ -924,8 +979,8 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "booking_reason": "Contender showcase",
         }
 
-    rebound = choose_rebound_match(roster_names, records, events)
-    if rebound and random.random() < 0.35:
+    rebound = choose_rebound_match(non_title_roster, records, events)
+    if rebound and current_match_number % 5 == 0 and random.random() < 0.28:
         p1, p2 = rebound
         return {
             "type": "SINGLES",
@@ -940,15 +995,32 @@ def choose_regular_singles(state: Dict[str, Any], roster: List[Dict[str, Any]], 
             "booking_reason": "Redemption bout",
         }
 
-    selectable = [name for name in roster_names if name != champion]
-    p1 = random.choice(selectable or roster_names)
+    selectable = filter_cooldown_pool(non_title_roster, appearance_counts)
+    p1_candidates: List[Tuple[float, str]] = []
+    for name in selectable:
+        score = 8.0
+        score -= appearance_penalty(name, appearance_counts)
+        score += min(4, games_played(records, name)) * 0.15
+        if games_played(records, name) == 0:
+            score += 2.5
+        p1_candidates.append((score, name))
+    p1 = choose_weighted_random(p1_candidates) or random.choice(selectable or non_title_roster)
     recent_opponents = [
         str(event.get("p2" if str(event.get("p1")) == p1 else "p1", "")).strip()
         for event in reversed(recent_singles_events(events))
         if p1 in (str(event.get("p1", "")).strip(), str(event.get("p2", "")).strip())
     ][:RECENT_MATCHUP_AVOID_WINDOW]
     exclusions = [p1] + recent_opponents
-    p2 = choose_random_opponent(roster_names, exclusions, records, prefer_veterans=False)
+    opponent_pool = filter_cooldown_pool([name for name in non_title_roster if name not in exclusions], appearance_counts)
+    p2_candidates: List[Tuple[float, str]] = []
+    for name in opponent_pool:
+        score = 8.0
+        score -= appearance_penalty(name, appearance_counts)
+        score -= min(abs(elo(records, name) - elo(records, p1)) / 110.0, 5.0)
+        if games_played(records, name) == 0:
+            score += 1.5
+        p2_candidates.append((score, name))
+    p2 = choose_weighted_random(p2_candidates) or choose_random_opponent(non_title_roster, exclusions, records, prefer_veterans=False)
     return {
         "type": "SINGLES",
         "p1": p1,
