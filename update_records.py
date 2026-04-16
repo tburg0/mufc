@@ -35,8 +35,11 @@ def now_ts() -> str:
 def load_json(path: str, default: Any):
     if not os.path.exists(path):
         return default
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return default
 
 
 def save_json_atomic(path: str, obj: Any) -> None:
@@ -198,7 +201,25 @@ def append_title_queue(state: Dict[str, Any], fighter: str, source: str) -> None
     if any(str(item.get("fighter") or "").strip() == fighter for item in queue if isinstance(item, dict)):
         return
     queue.append({"fighter": fighter, "source": source})
-    state["title_due"] = True
+
+
+def title_tracker(state: Dict[str, Any], key: str, champion_key: str) -> Dict[str, Any]:
+    tracker = state.setdefault(key, {})
+    tracked_champion_key = str(tracker.get("champion_key") or "")
+    if tracked_champion_key != champion_key:
+        tracker.clear()
+        tracker["champion_key"] = champion_key
+        tracker["faced"] = []
+    tracker.setdefault("faced", [])
+    return tracker
+
+
+def mark_title_challenger_faced(state: Dict[str, Any], tracker_key: str, champion_key: str, challenger_key: str) -> None:
+    tracker = title_tracker(state, tracker_key, champion_key)
+    faced = [str(name) for name in tracker.get("faced", []) if str(name)]
+    if challenger_key not in faced:
+        faced.append(challenger_key)
+    tracker["faced"] = faced
 
 
 def update_rivalries(state: Dict[str, Any], p1: str, p2: str, winner: str, r1: int, r2: int, ctx: Dict[str, Any]) -> None:
@@ -419,25 +440,28 @@ def main() -> None:
             state["reign_start_ts"] = now_ts()
             records[winner]["reigns"] = int(records[winner].get("reigns", 0)) + 1
             records[winner]["defenses"] = int(records[winner].get("defenses", 0))
+            title_tracker(state, "world_title_tracker", winner)
             title_changed = True
             append_champion_history(None, winner, f"{winner} def. {loser} ({p1} {r1}-{r2} {p2})")
         elif champion_pre in (p1, p2):
             if winner == champion_pre:
                 state["reign_defenses"] = int(state.get("reign_defenses", 0)) + 1
                 records[winner]["defenses"] = int(records[winner].get("defenses", 0)) + 1
+                mark_title_challenger_faced(state, "world_title_tracker", champion_pre, loser)
             else:
+                mark_title_challenger_faced(state, "world_title_tracker", champion_pre, winner)
                 state["champion"] = winner
                 state["reign_defenses"] = 0
                 state["reign_start_ts"] = now_ts()
                 records[winner]["reigns"] = int(records[winner].get("reigns", 0)) + 1
                 records[winner]["defenses"] = int(records[winner].get("defenses", 0))
+                title_tracker(state, "world_title_tracker", winner)
                 title_changed = True
                 append_champion_history(champion_pre, winner, f"{winner} def. {loser} ({p1} {r1}-{r2} {p2})")
 
         state["royal_winner_queue"] = None
         if state.get("tournament_title_queue"):
             state["tournament_title_queue"] = []
-        state["title_due"] = False
 
     if is_royal:
         bracket = load_json(ROYAL_FILE, {"active": False})
@@ -534,15 +558,21 @@ def main() -> None:
                         state["tag_reigns"] = int(state.get("tag_reigns", 0)) + 1
                         state["tag_defenses"] = 0
                         records[wkey]["reigns"] = int(records[wkey].get("reigns", 0)) + 1
+                        title_tracker(state, "tag_title_tracker", wkey)
                         tag_changed = True
                     elif set(champs) == set(winner_pair):
                         state["tag_defenses"] = int(state.get("tag_defenses", 0)) + 1
                         records[wkey]["defenses"] = int(records[wkey].get("defenses", 0)) + 1
+                        mark_title_challenger_faced(state, "tag_title_tracker", wkey, lkey)
                     else:
+                        champ_key = team_key(champs[0], champs[1]) if isinstance(champs, list) and len(champs) == 2 else ""
+                        if champ_key:
+                            mark_title_challenger_faced(state, "tag_title_tracker", champ_key, wkey)
                         state["tag_champions"] = winner_pair
                         state["tag_reigns"] = int(state.get("tag_reigns", 0)) + 1
                         state["tag_defenses"] = 0
                         records[wkey]["reigns"] = int(records[wkey].get("reigns", 0)) + 1
+                        title_tracker(state, "tag_title_tracker", wkey)
                         tag_changed = True
 
                 tag_series_event = {
@@ -562,9 +592,8 @@ def main() -> None:
                 }
 
     if not is_tag_series and not is_world_title and not is_royal and not is_grand_prix:
-        if bool(ctx.get("contender_implication", False)):
-            state["contender_queue"] = winner
-            state["title_due"] = True
+        if winner != state.get("champion") and int(records[winner].get("streak", 0)) >= 5:
+            append_title_queue(state, winner, f"{winner} earned an automatic title shot on a {records[winner]['streak']}-fight win streak")
         update_rivalries(state, p1, p2, winner, r1, r2, ctx)
 
     state["match_count"] = int(state.get("match_count", 0)) + 1

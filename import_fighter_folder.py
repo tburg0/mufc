@@ -274,13 +274,14 @@ def import_fighter(source_path: Path, apply_changes: bool) -> Dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Import a native fighter folder into the live MUGEN roster.")
-    parser.add_argument("source", help="Path to the incoming fighter folder")
+    parser.add_argument("source", nargs="+", help="One or more paths to incoming fighter folders")
     parser.add_argument("--apply", action="store_true", help="Actually copy files and update select.def/metadata")
     args = parser.parse_args()
 
-    report = import_fighter(Path(args.source), apply_changes=args.apply)
-    print(json.dumps(report, indent=2, ensure_ascii=False))
-    if not report["would_import"]:
+    reports = [import_fighter(Path(source), apply_changes=args.apply) for source in args.source]
+    payload: Any = reports[0] if len(reports) == 1 else reports
+    print(json.dumps(payload, indent=2, ensure_ascii=False))
+    if any(not report["would_import"] for report in reports):
         raise SystemExit(1)
 
 
