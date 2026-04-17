@@ -12,7 +12,6 @@ export default function HomePage() {
           </p>
           <div className="landing-actions">
             <Link className="landing-button primary" href="/create">Open Fighter Builder</Link>
-            <Link className="landing-button secondary" href="/admin">Review Submissions</Link>
           </div>
         </div>
         <div className="landing-card">
