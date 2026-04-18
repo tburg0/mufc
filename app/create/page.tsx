@@ -87,6 +87,73 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function Field({ label: t, hint, children }: { label: string; hint?: string; children: React.ReactNode }) { return <label className="builder-field"><span className="builder-label">{t}</span>{hint ? <span className="builder-hint">{hint}</span> : null}{children}</label>; }
 function Pick({ value, set, options }: { value: string; set: (v: string) => void; options: readonly string[] }) { return <select className="builder-input" value={value} onChange={(e) => set(e.target.value)}>{options.map((o) => <option key={o} value={o}>{label(o)}</option>)}</select>; }
 
+function compatibleOptions(options: readonly string[], current: string, allowed?: readonly string[]) {
+  const filtered = (allowed?.length ? options.filter((option) => allowed.includes(option)) : [...options]) as string[];
+  if (current && !filtered.includes(current)) filtered.unshift(current);
+  return filtered.length ? filtered : [...options];
+}
+
+function firstAllowed(options: readonly string[], allowed?: readonly string[], fallback?: string) {
+  const filtered = compatibleOptions(options, "", allowed);
+  return filtered[0] || fallback || options[0] || "";
+}
+
+function allowedPackages(fighter: Fighter) {
+  const archetype = fighter.classification.archetype;
+  const alignment = fighter.classification.alignment;
+  const bodyClass = fighter.assembly.body_class;
+  return {
+    bodyClasses: (E.assembly.body_class as string[]).filter((option) => OK.body_class[option]?.includes(archetype)),
+    locomotion: (E.assembly.locomotion_package as string[]).filter((option) => OK.locomotion_package[option]?.includes(bodyClass)),
+    strike: (E.assembly.strike_package as string[]).filter((option) => OK.strike_package[option]?.includes(archetype)),
+    grapple: (E.assembly.grapple_package as string[]).filter((option) => OK.grapple_package[option]?.includes(archetype)),
+    special: (E.assembly.special_package as string[]).filter((option) => OK.special_package[option]?.includes(archetype)),
+    intro: (E.assembly.intro_package as string[]).filter((option) => OK.intro_package[option]?.includes(alignment)),
+    victory: (E.assembly.victory_package as string[]).filter((option) => OK.victory_package[option]?.includes(alignment)),
+  };
+}
+
+function sanitizeFighter(next: Fighter) {
+  const allowedBefore = allowedPackages(next);
+  const bodyClass = allowedBefore.bodyClasses.includes(next.assembly.body_class)
+    ? next.assembly.body_class
+    : firstAllowed(E.assembly.body_class as string[], allowedBefore.bodyClasses, "balanced_midweight");
+
+  next.assembly.body_class = bodyClass;
+  next.moveset.template_base = TEMPLATES[bodyClass] || next.moveset.template_base;
+
+  const allowedAfter = allowedPackages(next);
+  next.assembly.locomotion_package = allowedAfter.locomotion.includes(next.assembly.locomotion_package)
+    ? next.assembly.locomotion_package
+    : firstAllowed(E.assembly.locomotion_package as string[], allowedAfter.locomotion, "measured_step");
+  next.assembly.strike_package = allowedAfter.strike.includes(next.assembly.strike_package)
+    ? next.assembly.strike_package
+    : firstAllowed(E.assembly.strike_package as string[], allowedAfter.strike, "balanced_hands");
+  next.assembly.grapple_package = allowedAfter.grapple.includes(next.assembly.grapple_package)
+    ? next.assembly.grapple_package
+    : firstAllowed(E.assembly.grapple_package as string[], allowedAfter.grapple, "fundamental_grabs");
+  next.assembly.special_package = allowedAfter.special.includes(next.assembly.special_package)
+    ? next.assembly.special_package
+    : firstAllowed(E.assembly.special_package as string[], allowedAfter.special, "ring_general");
+  next.assembly.intro_package = allowedAfter.intro.includes(next.assembly.intro_package)
+    ? next.assembly.intro_package
+    : firstAllowed(E.assembly.intro_package as string[], allowedAfter.intro, "calm_walkout");
+  next.assembly.victory_package = allowedAfter.victory.includes(next.assembly.victory_package)
+    ? next.assembly.victory_package
+    : firstAllowed(E.assembly.victory_package as string[], allowedAfter.victory, "stoic_exit");
+
+  if (next.appearance.hair_style === "hooded" && next.appearance.mask_style === "full_mask") {
+    next.appearance.mask_style = "none";
+  }
+  if (next.appearance.body_type === "giant" && next.appearance.gear_top === "armor_light") {
+    next.appearance.gear_top = "vest";
+  }
+  if (next.ai_profile.base_archetype !== next.classification.archetype) {
+    next.ai_profile.base_archetype = next.classification.archetype;
+  }
+  return next;
+}
+
 function resolveTemplateId(fighter: Fighter, templateLabel: string) {
   const byBody = TEMPLATES[fighter.assembly.body_class];
   if (fighter.base_fighter?.char_folder) return fighter.base_fighter.char_folder;
@@ -155,7 +222,8 @@ export default function CreatePage() {
   const [bases, setBases] = useState<Base[]>([]);
   const [msg, setMsg] = useState(""); const [saving, setSaving] = useState(false);
   useEffect(() => { fetch("/base_fighters.json", { cache: "no-store" }).then((r) => r.json()).then((d: Base[]) => setBases(d.filter((x) => x.customizable !== false))).catch(() => setMsg("Base fighter fallback list could not be loaded.")); }, []);
-  const setPath = (path: string, value: string | number | boolean | null) => setFighter((prev) => { const next = JSON.parse(JSON.stringify(prev)) as Fighter; let cur: any = next; const p = path.split("."); for (let i = 0; i < p.length - 1; i += 1) cur = cur[p[i]]; cur[p[p.length - 1]] = value; return next; });
+  const setPath = (path: string, value: string | number | boolean | null) => setFighter((prev) => { const next = JSON.parse(JSON.stringify(prev)) as Fighter; let cur: any = next; const p = path.split("."); for (let i = 0; i < p.length - 1; i += 1) cur = cur[p[i]]; cur[p[p.length - 1]] = value; return sanitizeFighter(next); });
+  const allowed = useMemo(() => allowedPackages(fighter), [fighter]);
   const v = useMemo(() => {
     const used = STATS.reduce((s, k) => s + fighter.stats[k], 0), left = fighter.stats.point_budget_total - used, errors: string[] = [];
     if (!fighter.identity.display_name.trim()) errors.push("Display name is required.");
@@ -172,8 +240,11 @@ export default function CreatePage() {
     if (!OK.special_package[fighter.assembly.special_package]?.includes(fighter.classification.archetype)) errors.push("Special package is incompatible with the archetype.");
     if (!OK.intro_package[fighter.assembly.intro_package]?.includes(fighter.classification.alignment)) errors.push("Intro package does not match the alignment.");
     if (!OK.victory_package[fighter.assembly.victory_package]?.includes(fighter.classification.alignment)) errors.push("Victory package does not match the alignment.");
-    return { ok: errors.length === 0, errors, used, left, template: fighter.base_fighter?.char_folder || TEMPLATES[fighter.assembly.body_class] || fighter.moveset.template_base };
-  }, [fighter]);
+    const guidance: string[] = [];
+    if (allowed.bodyClasses.length) guidance.push(`Body classes are now filtered to ${label(fighter.classification.archetype)}-compatible options.`);
+    if (allowed.intro.length || allowed.victory.length) guidance.push(`Entrance and victory packages follow the ${label(fighter.classification.alignment)} alignment automatically.`);
+    return { ok: errors.length === 0, errors, guidance, used, left, template: fighter.base_fighter?.char_folder || TEMPLATES[fighter.assembly.body_class] || fighter.moveset.template_base };
+  }, [fighter, allowed]);
   const movePreview = useMemo(() => buildMovePreview(fighter, resolveTemplateId(fighter, v.template)), [fighter, v.template]);
   const identityPitch = useMemo(() => buildIdentityPitch(fighter, movePreview), [fighter, movePreview]);
   async function save(status: "draft" | "submitted") {
@@ -223,7 +294,7 @@ export default function CreatePage() {
           </Section>
 
           <Section title="Fight Direction">
-            <div className="builder-card-grid">{(E.classification.archetype as string[]).map((a) => <button key={a} type="button" className={`builder-choice-card ${fighter.classification.archetype === a ? "is-active" : ""}`} onClick={() => setFighter((p) => apply(p, a))}><strong>{label(a)}</strong><span>{BLURB[a]}</span></button>)}</div>
+            <div className="builder-card-grid">{(E.classification.archetype as string[]).map((a) => <button key={a} type="button" className={`builder-choice-card ${fighter.classification.archetype === a ? "is-active" : ""}`} onClick={() => setFighter((p) => sanitizeFighter(apply(p, a)))}><strong>{label(a)}</strong><span>{BLURB[a]}</span></button>)}</div>
             <div className="builder-summary-list">
               <div><span>Archetype Fantasy</span><strong>{identityPitch.fantasy}</strong></div>
               <div><span>On-Stream Feel</span><strong>{identityPitch.gameplan}</strong></div>
@@ -241,13 +312,13 @@ export default function CreatePage() {
 
           <Section title="Assembly">
             <div className="builder-grid">
-              <Field label="Body Class" hint="Sets the runtime family"><Pick value={fighter.assembly.body_class} set={(x) => setPath("assembly.body_class", x)} options={E.assembly.body_class} /></Field>
-              <Field label="Locomotion Package"><Pick value={fighter.assembly.locomotion_package} set={(x) => setPath("assembly.locomotion_package", x)} options={E.assembly.locomotion_package} /></Field>
-              <Field label="Strike Package"><Pick value={fighter.assembly.strike_package} set={(x) => setPath("assembly.strike_package", x)} options={E.assembly.strike_package} /></Field>
-              <Field label="Grapple Package"><Pick value={fighter.assembly.grapple_package} set={(x) => setPath("assembly.grapple_package", x)} options={E.assembly.grapple_package} /></Field>
-              <Field label="Special Package"><Pick value={fighter.assembly.special_package} set={(x) => setPath("assembly.special_package", x)} options={E.assembly.special_package} /></Field>
-              <Field label="Intro Package"><Pick value={fighter.assembly.intro_package} set={(x) => setPath("assembly.intro_package", x)} options={E.assembly.intro_package} /></Field>
-              <Field label="Victory Package"><Pick value={fighter.assembly.victory_package} set={(x) => setPath("assembly.victory_package", x)} options={E.assembly.victory_package} /></Field>
+              <Field label="Body Class" hint="Only compatible body classes are shown for this archetype."><Pick value={fighter.assembly.body_class} set={(x) => setPath("assembly.body_class", x)} options={compatibleOptions(E.assembly.body_class as string[], fighter.assembly.body_class, allowed.bodyClasses)} /></Field>
+              <Field label="Locomotion Package" hint="Filtered by body class."><Pick value={fighter.assembly.locomotion_package} set={(x) => setPath("assembly.locomotion_package", x)} options={compatibleOptions(E.assembly.locomotion_package as string[], fighter.assembly.locomotion_package, allowed.locomotion)} /></Field>
+              <Field label="Strike Package" hint="Filtered by archetype."><Pick value={fighter.assembly.strike_package} set={(x) => setPath("assembly.strike_package", x)} options={compatibleOptions(E.assembly.strike_package as string[], fighter.assembly.strike_package, allowed.strike)} /></Field>
+              <Field label="Grapple Package" hint="Filtered by archetype."><Pick value={fighter.assembly.grapple_package} set={(x) => setPath("assembly.grapple_package", x)} options={compatibleOptions(E.assembly.grapple_package as string[], fighter.assembly.grapple_package, allowed.grapple)} /></Field>
+              <Field label="Special Package" hint="Filtered by archetype."><Pick value={fighter.assembly.special_package} set={(x) => setPath("assembly.special_package", x)} options={compatibleOptions(E.assembly.special_package as string[], fighter.assembly.special_package, allowed.special)} /></Field>
+              <Field label="Intro Package" hint="Filtered by alignment."><Pick value={fighter.assembly.intro_package} set={(x) => setPath("assembly.intro_package", x)} options={compatibleOptions(E.assembly.intro_package as string[], fighter.assembly.intro_package, allowed.intro)} /></Field>
+              <Field label="Victory Package" hint="Filtered by alignment."><Pick value={fighter.assembly.victory_package} set={(x) => setPath("assembly.victory_package", x)} options={compatibleOptions(E.assembly.victory_package as string[], fighter.assembly.victory_package, allowed.victory)} /></Field>
               <Field label="Resolved Template"><input className="builder-input is-readonly" value={label(v.template)} readOnly /></Field>
             </div>
             <div className="builder-summary-list">
@@ -303,6 +374,7 @@ export default function CreatePage() {
         <aside className="builder-sidebar">
           <Section title="Submission Check">
             <div className={`builder-status-panel ${v.ok ? "is-ready" : "is-warning"}`}><strong>{v.ok ? "Ready to submit" : "Needs fixes"}</strong><span>{v.ok ? "This build satisfies the current pipeline rules." : "Tune the issues below before sending it live."}</span></div>
+            {v.guidance.length ? <div className="builder-help-list">{v.guidance.map((item) => <div key={item}>{item}</div>)}</div> : null}
             {v.errors.length ? <ul className="builder-error-list">{v.errors.map((e) => <li key={e}>{e}</li>)}</ul> : <div className="builder-empty-state">No validation issues found.</div>}
           </Section>
           <Section title="Career Snapshot">

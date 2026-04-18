@@ -128,6 +128,18 @@ button, input, select, textarea { font: inherit; }
 .builder-range { width: 100%; accent-color: var(--accent); }
 .builder-status-panel.is-ready, .builder-meter-card.is-ready { background: rgba(101, 211, 138, 0.12); }
 .builder-status-panel.is-warning, .builder-meter-card.is-warning { background: rgba(240, 179, 95, 0.12); }
+.builder-help-list {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+.builder-help-list div {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(214, 179, 95, 0.2);
+  background: rgba(214, 179, 95, 0.08);
+  color: var(--muted);
+}
 .builder-error-list { margin: 14px 0 0; padding-left: 20px; color: #ffd6c9; }
 .builder-details { margin-top: 12px; }
 .builder-details summary { cursor: pointer; font-weight: 700; }
